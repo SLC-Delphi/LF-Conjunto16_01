@@ -1,0 +1,1886 @@
+object Frm_defineCjunto16: TFrm_defineCjunto16
+  AlignWithMargins = True
+  Left = 0
+  Top = 0
+  BorderStyle = bsSingle
+  Caption = 'Frm_cjunto18por7'
+  ClientHeight = 554
+  ClientWidth = 1594
+  Color = 6312006
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnClose = FormClose
+  OnCreate = FormCreate
+  DesignSize = (
+    1594
+    554)
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label36: TLabel
+    Left = 402
+    Top = 125
+    Width = 380
+    Height = 18
+    Caption = '10 x 3modo2 => 8 N'#250'meros N'#227'o Sorteados'
+    Color = 3271365
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -16
+    Font.Name = 'Verdana'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    Transparent = False
+  end
+  object MEM_COMBINACOES_TODAS: TMemo
+    Left = 1374
+    Top = 435
+    Width = 220
+    Height = 205
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Courier New'
+    Font.Style = []
+    Lines.Strings = (
+      '5 8 2'
+      '6 7 2'
+      '7 6 2'
+      '8 5 2'
+      ''
+      ''
+      '4 8 3'
+      '5 7 3'
+      '6 6 3'
+      '7 5 3'
+      '8 4 3'
+      ''
+      '4 7 4'
+      '5 6 4'
+      '6 5 4'
+      '7 4 4')
+    ParentFont = False
+    TabOrder = 0
+    Visible = False
+  end
+  object pa_topo: TPanel
+    Left = 0
+    Top = 0
+    Width = 1594
+    Height = 46
+    Align = alTop
+    BevelOuter = bvNone
+    Color = 8549199
+    ParentBackground = False
+    TabOrder = 1
+    object Label53: TLabel
+      Left = 4
+      Top = 3
+      Width = 296
+      Height = 34
+      Alignment = taCenter
+      Caption = 'Definir - Conjunto 16'
+      Color = 3351811
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clMoneyGreen
+      Font.Height = -28
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+    end
+    object BBT_CLOSE: TImage
+      Left = 1260
+      Top = 1
+      Width = 32
+      Height = 32
+      Picture.Data = {
+        07544269746D6170F2060000424DF20600000000000036040000280000001900
+        0000190000000100080000000000BC020000C30E0000C30E0000000100006200
+        00000A0A17006177A6000202AD0000009900CFCFF3003030B200161827009595
+        E40000007A001818AC00000066001111940000006600151584006E88B800ADAD
+        EA001010AC00CCFFFF00333D9A000D0D49000F0F7B008989E000303A5B004848
+        C3003B4870006C86B5000000A5000F0F6E00BFEFF900232945002222BE000707
+        B100A9D1ED006868D8003F3FBD00B4E1F3000000840011119B0091B4D8009DC3
+        E500000099000C0C3B001010B700171A4B00111161004A5AA7005050D0000000
+        74001919BC000B0B31007995C00010108C00262D7D00242A5500A2A2E7003333
+        CC0017179F0000008C003D498900C0C0E7009A9ADB0008089C004646CD000E0E
+        5900161695002929C3001212A400A5D6EF006177AE005C5CD3000B0B2A001619
+        3A007A96CF00232963000808A50005059100101084000F0F7000D3D3F4003B3B
+        CB000000B5000808B4004949CF00BDEFFF00181B51000D0D51006278AD00303A
+        5F00ADCEEF000A0A1E006E88BA003C487A0023294D0091B4E1000C0C4400262C
+        87001818A800FFFFFF0000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        00002408080A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A2F204D583924
+        242F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F2F204D58393939392424
+        24242424242424242424242424242424242F2F204D5803031A1A1A0303030303
+        030303030303030303030303390808204D580303025151020202020202020202
+        020202020202021A390808204D5803030230302A2A2A2A2A2A2A2A2A2A2A2A2A
+        2A2A1F1A390808204D58031A02301E3029133F5E4D2A2A2A25460014142A1F1A
+        390808204D58031A02301E303F19112031422A25472311440B2A1F1A39080820
+        4D58031A02301E3042142011483F10313211272C422A1F1A390808204D58031A
+        02301E30300B351C11183F5B111C344C2A2A1F1A390808204D58031A02301E30
+        302A330111234923112D552A2A2A1F1A390808204D58031A02301E3030301059
+        26111C115D31422A2A2A1F1A390808204D58031A02301E302A2A2A0B541C1123
+        2B332A2A2A2A1F1A390808204D58031A02301E302A2A2A255F1C111C5C252A2A
+        2A2A1F1A390808204D58031A02301E303030251B201120112755422A2A2A1F1A
+        390808204D58031A02301E30302A141911270620110E4C2A2A2A1F1A39080820
+        4D58031A02301E302A333A111C1D0B121111164D2A2A1F1A390808204D58031A
+        02301E300B2B2311011B10311911232B102A1F1A390808204D58031A02301E30
+        33165A5631422A0B31560E57332A1F1A390808204D58031A1F1E411E38142C0D
+        603030300940400D0930511A390808204D58031A513E453E4F4F4F4F4F4F4F4F
+        4F4F4F4F4F4F3002032408204D58031A1E044E36070707070707070707070707
+        07152E51032408204D583D10210F212E52525252525252525252525252524F30
+        1A3924204D580517171E2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A02033920
+        4D583B3C2209101010101010101010101010101010101010103D4B204D58}
+      Stretch = True
+    end
+    object BBT_RECOMECAR: TBitBtn
+      Left = 970
+      Top = 5
+      Width = 99
+      Height = 31
+      Caption = 'RECOME'#199'AR'
+      TabOrder = 0
+      Visible = False
+    end
+    object Memo_Combinacoes_Todas: TMemo
+      Left = 704
+      Top = 7
+      Width = 272
+      Height = 88
+      Lines.Strings = (
+        '88 00 88 00 88 00 88 00 88 00 88 00 88 00 88')
+      TabOrder = 1
+      Visible = False
+    end
+  end
+  object pgc_AbasPrincipais: TPageControl
+    Left = 0
+    Top = 46
+    Width = 1594
+    Height = 508
+    ActivePage = TabSheet1
+    Align = alClient
+    MultiLine = True
+    TabOrder = 2
+    TabWidth = 112
+    object TabSheet1: TTabSheet
+      Caption = 'Definir Cj16'
+      object pa_BarraLateral: TPanel
+        Left = 0
+        Top = 0
+        Width = 205
+        Height = 480
+        Align = alLeft
+        BevelOuter = bvNone
+        Color = 6312006
+        ParentBackground = False
+        TabOrder = 0
+        object pa_Status: TPanel
+          Left = 0
+          Top = 116
+          Width = 205
+          Height = 364
+          Align = alClient
+          BevelOuter = bvNone
+          Color = 8549199
+          ParentBackground = False
+          TabOrder = 0
+          object Label74: TLabel
+            Left = 8
+            Top = 133
+            Width = 164
+            Height = 16
+            HelpType = htKeyword
+            HelpKeyword = 'l'
+            Caption = 'Removendo repetidos:'
+            Color = clBlack
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = 13500259
+            Font.Height = -13
+            Font.Name = 'Verdana'
+            Font.Style = [fsBold]
+            ParentColor = False
+            ParentFont = False
+            Transparent = False
+            Visible = False
+            WordWrap = True
+          end
+          object Pgbr_naoRepetidos1: TProgressBar
+            Left = 8
+            Top = 150
+            Width = 191
+            Height = 20
+            HelpType = htKeyword
+            HelpKeyword = 'l'
+            Smooth = True
+            TabOrder = 0
+            Visible = False
+          end
+        end
+        object pa_gerar: TPanel
+          Left = 0
+          Top = 0
+          Width = 205
+          Height = 116
+          Align = alTop
+          BevelOuter = bvNone
+          TabOrder = 1
+          TabStop = True
+          object bt_preparar: TButton
+            Left = 7
+            Top = 13
+            Width = 190
+            Height = 40
+            Caption = 'PREPARAR'
+            DisabledImageIndex = 1
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            HotImageIndex = 2
+            ImageIndex = 0
+            ImageMargins.Left = 4
+            ParentFont = False
+            TabOrder = 0
+            OnClick = bt_prepararClick
+          end
+          object bt_gerar: TButton
+            Left = 7
+            Top = 63
+            Width = 190
+            Height = 40
+            BiDiMode = bdLeftToRight
+            Caption = 'GERAR'
+            Enabled = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            HotImageIndex = 2
+            ImageMargins.Left = 4
+            ParentBiDiMode = False
+            ParentFont = False
+            TabOrder = 1
+            OnClick = bt_gerarClick
+          end
+        end
+      end
+      object pa_Gerador6cj20p11: TPanel
+        Left = 205
+        Top = 0
+        Width = 1381
+        Height = 480
+        Align = alClient
+        BevelOuter = bvNone
+        ParentBackground = False
+        ParentColor = True
+        TabOrder = 2
+        object pa_Gabarito6cj20p11: TPanel
+          Left = 0
+          Top = 0
+          Width = 1381
+          Height = 256
+          Align = alTop
+          BevelOuter = bvNone
+          TabOrder = 0
+          object scbx_gabarito6cj20p11: TScrollBox
+            Left = 0
+            Top = 0
+            Width = 1381
+            Height = 256
+            HorzScrollBar.Position = 1987
+            HorzScrollBar.Range = 3630
+            Align = alClient
+            AutoScroll = False
+            BevelOuter = bvNone
+            BorderStyle = bsNone
+            Color = 8549199
+            ParentColor = False
+            TabOrder = 0
+            object Label7: TLabel
+              Left = -1979
+              Top = 4
+              Width = 206
+              Height = 18
+              Caption = ' Base =>  16 N'#218'MEROS'
+              Color = clBlack
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 13500259
+              Font.Height = -16
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ParentColor = False
+              ParentFont = False
+              Transparent = False
+            end
+            object Label3: TLabel
+              Left = -1492
+              Top = 11
+              Width = 182
+              Height = 36
+              Caption = 'Serie 8 n'#250'meros para linha 01'
+              Color = 3351811
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 13500259
+              Font.Height = -15
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ParentColor = False
+              ParentFont = False
+              Transparent = False
+              WordWrap = True
+            end
+            object Label1: TLabel
+              Left = -1280
+              Top = 11
+              Width = 182
+              Height = 36
+              Caption = 'Serie 8 n'#250'meros para linha 02'
+              Color = clBlack
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 15134849
+              Font.Height = -15
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ParentColor = False
+              ParentFont = False
+              Transparent = False
+              WordWrap = True
+            end
+            object Label4: TLabel
+              Left = -1069
+              Top = 11
+              Width = 182
+              Height = 36
+              Caption = 'Serie 8 n'#250'meros para linha 03'
+              Color = 3351811
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 13500259
+              Font.Height = -15
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ParentColor = False
+              ParentFont = False
+              Transparent = False
+              WordWrap = True
+            end
+            object Label5: TLabel
+              Left = -857
+              Top = 11
+              Width = 182
+              Height = 36
+              Caption = 'Serie 8 n'#250'meros para linha 04'
+              Color = clBlack
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 15134849
+              Font.Height = -15
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ParentColor = False
+              ParentFont = False
+              Transparent = False
+              WordWrap = True
+            end
+            object Label6: TLabel
+              Left = -649
+              Top = 11
+              Width = 182
+              Height = 36
+              Caption = 'Serie 8 n'#250'meros para linha 05'
+              Color = 3351811
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 13500259
+              Font.Height = -15
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ParentColor = False
+              ParentFont = False
+              Transparent = False
+              WordWrap = True
+            end
+            object Label8: TLabel
+              Left = -437
+              Top = 11
+              Width = 182
+              Height = 36
+              Caption = 'Serie 8 n'#250'meros para linha 06'
+              Color = clBlack
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 15134849
+              Font.Height = -15
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ParentColor = False
+              ParentFont = False
+              Transparent = False
+              WordWrap = True
+            end
+            object Label9: TLabel
+              Left = -233
+              Top = 11
+              Width = 182
+              Height = 36
+              Caption = 'Serie 8 n'#250'meros para linha 07'
+              Color = 3351811
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 13500259
+              Font.Height = -15
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ParentColor = False
+              ParentFont = False
+              Transparent = False
+              WordWrap = True
+            end
+            object Label10: TLabel
+              Left = -21
+              Top = 11
+              Width = 182
+              Height = 36
+              Caption = 'Serie 8 n'#250'meros para linha 08'
+              Color = clBlack
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 15134849
+              Font.Height = -15
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ParentColor = False
+              ParentFont = False
+              Transparent = False
+              WordWrap = True
+            end
+            object Label11: TLabel
+              Left = 183
+              Top = 11
+              Width = 182
+              Height = 36
+              Caption = 'Serie 8 n'#250'meros para linha 09'
+              Color = 3351811
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 13500259
+              Font.Height = -15
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ParentColor = False
+              ParentFont = False
+              Transparent = False
+              WordWrap = True
+            end
+            object Label12: TLabel
+              Left = 395
+              Top = 11
+              Width = 182
+              Height = 36
+              Caption = 'Serie 8 n'#250'meros para linha 10'
+              Color = clBlack
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 15134849
+              Font.Height = -15
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ParentColor = False
+              ParentFont = False
+              Transparent = False
+              WordWrap = True
+            end
+            object Label13: TLabel
+              Left = 599
+              Top = 11
+              Width = 182
+              Height = 36
+              Caption = 'Serie 8 n'#250'meros para linha 11'
+              Color = 3351811
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 13500259
+              Font.Height = -15
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ParentColor = False
+              ParentFont = False
+              Transparent = False
+              WordWrap = True
+            end
+            object Label14: TLabel
+              Left = 811
+              Top = 11
+              Width = 182
+              Height = 36
+              Caption = 'Serie 8 n'#250'meros para linha 12'
+              Color = clBlack
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 15134849
+              Font.Height = -15
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ParentColor = False
+              ParentFont = False
+              Transparent = False
+              WordWrap = True
+            end
+            object Label15: TLabel
+              Left = 1015
+              Top = 11
+              Width = 182
+              Height = 36
+              Caption = 'Serie 8 n'#250'meros para linha 13'
+              Color = 3351811
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 13500259
+              Font.Height = -15
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ParentColor = False
+              ParentFont = False
+              Transparent = False
+              WordWrap = True
+            end
+            object Label16: TLabel
+              Left = 1227
+              Top = 11
+              Width = 182
+              Height = 36
+              Caption = 'Serie 8 n'#250'meros para linha 14'
+              Color = clBlack
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 15134849
+              Font.Height = -15
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ParentColor = False
+              ParentFont = False
+              Transparent = False
+              WordWrap = True
+            end
+            object Label18: TLabel
+              Left = 1431
+              Top = 11
+              Width = 182
+              Height = 36
+              Caption = 'Serie 8 n'#250'meros para linha 15'
+              Color = 3351811
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 13500259
+              Font.Height = -15
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ParentColor = False
+              ParentFont = False
+              Transparent = False
+              WordWrap = True
+            end
+            object Memo_base16: TMemo
+              Left = -1979
+              Top = 28
+              Width = 457
+              Height = 208
+              BevelInner = bvNone
+              BevelOuter = bvNone
+              BorderStyle = bsNone
+              Color = 6638386
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 14942122
+              Font.Height = -16
+              Font.Name = 'MS Sans Serif'
+              Font.Style = [fsBold]
+              Lines.Strings = (
+                ''
+                '01=01 02 03 04 05 06 07 08 09 10 11 12 13 14 19 20 '
+                '02=04 05 06 07 08 09 10 11 12 13 14 15 16 17 22 23'
+                '03=01 07 08 09 10 11 12 13 14 15 16 17 18 19 20 25 '
+                '04=03 04 10 11 12 13 14 15 16 17 18 19 20 21 22 23 '
+                '05=01 06 07 13 14 15 16 17 18 19 20 21 22 23 24 25 '
+                '06=01 02 03 04 09 10 16 17 18 19 20 21 22 23 24 25 '
+                '07=01 02 03 04 05 06 07 12 13 19 20 21 22 23 24 25 '
+                '08=01 02 03 04 05 06 07 08 09 10 15 16 22 23 24 25 '
+                '09=01 02 03 04 05 06 07 08 09 10 11 12 13 18 19 25 '
+                '10=03 04 05 06 07 08 09 10 11 12 13 14 15 16 21 22 '
+                '11=06 07 08 09 10 11 12 13 14 15 16 17 18 19 24 25 '
+                '12=01 02 03 04 05 06 07 08 18 19 20 21 22 23 24 25 '
+                '13=01 02 03 04 05 06 07 08 09 10 11 21 22 23 24 25 '
+                '14=01 02 03 04 05 06 07 08 09 10 11 12 13 14 24 25 '
+                '15=02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17')
+              ParentFont = False
+              ReadOnly = True
+              ScrollBars = ssVertical
+              TabOrder = 0
+            end
+            object Memo_serie8Linha01: TMemo
+              Left = -1492
+              Top = 49
+              Width = 202
+              Height = 185
+              BevelInner = bvNone
+              BevelOuter = bvNone
+              BorderStyle = bsNone
+              Color = 8676161
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 13500259
+              Font.Height = -16
+              Font.Name = 'MS Sans Serif'
+              Font.Style = [fsBold]
+              Lines.Strings = (
+                ''
+                '01=04 05 06 07 08 09'
+                '02=08 09 10 11 12 13'
+                '03=01 12 13 14 19 20'
+                '04=01 02 03 04 05 20'
+                '05=01 02 03 14 19 20'
+                '06=02 03 04 05 06 07'
+                '07=06 07 08 09 10 11'
+                '08=10 11 12 13 14 19')
+              ParentFont = False
+              ReadOnly = True
+              ScrollBars = ssVertical
+              TabOrder = 1
+            end
+            object Memo_serie8Linha02: TMemo
+              Left = -1280
+              Top = 49
+              Width = 202
+              Height = 185
+              BevelInner = bvNone
+              BevelOuter = bvNone
+              BorderStyle = bsNone
+              Color = 7494213
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 15462572
+              Font.Height = -16
+              Font.Name = 'MS Sans Serif'
+              Font.Style = [fsBold]
+              Lines.Strings = (
+                ''
+                '01=07 08 09 10 11 12'
+                '02=11 12 13 14 15 16'
+                '03=04 15 16 17 22 23'
+                '04=04 05 06 07 08 23'
+                '05=04 05 06 17 22 23'
+                '06=05 06 07 08 09 10'
+                '07=09 10 11 12 13 14'
+                '08=13 14 15 16 17 22')
+              ParentFont = False
+              ReadOnly = True
+              ScrollBars = ssVertical
+              TabOrder = 2
+            end
+            object Memo_seri8Linha03: TMemo
+              Left = -1069
+              Top = 49
+              Width = 202
+              Height = 185
+              BevelInner = bvNone
+              BevelOuter = bvNone
+              BorderStyle = bsNone
+              Color = 8676161
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 13500259
+              Font.Height = -16
+              Font.Name = 'MS Sans Serif'
+              Font.Style = [fsBold]
+              Lines.Strings = (
+                ''
+                '01=09 10 11 12 13 14'
+                '02=13 14 15 16 17 18'
+                '03=01 17 18 19 20 25'
+                '04=01 07 08 09 10 25'
+                '05=01 07 08 19 20 25'
+                '06=07 08 09 10 11 12'
+                '07=11 12 13 14 15 16'
+                '08=15 16 17 18 19 20')
+              ParentFont = False
+              ReadOnly = True
+              ScrollBars = ssVertical
+              TabOrder = 3
+            end
+            object Memo_seri8Linha04: TMemo
+              Left = -857
+              Top = 49
+              Width = 202
+              Height = 185
+              BevelInner = bvNone
+              BevelOuter = bvNone
+              BorderStyle = bsNone
+              Color = 7494213
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 15462572
+              Font.Height = -16
+              Font.Name = 'MS Sans Serif'
+              Font.Style = [fsBold]
+              Lines.Strings = (
+                ''
+                '01=11 12 13 14 15 16'
+                '02=15 16 17 18 19 20'
+                '03=03 19 20 21 22 23'
+                '04=03 04 10 11 12 23'
+                '05=03 04 10 21 22 23'
+                '06=04 10 11 12 13 14'
+                '07=13 14 15 16 17 18'
+                '08=17 18 19 20 21 22')
+              ParentFont = False
+              ReadOnly = True
+              ScrollBars = ssVertical
+              TabOrder = 4
+            end
+            object Memo_seri8Linha05: TMemo
+              Left = -649
+              Top = 49
+              Width = 202
+              Height = 185
+              BevelInner = bvNone
+              BevelOuter = bvNone
+              BorderStyle = bsNone
+              Color = 8676161
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 13500259
+              Font.Height = -16
+              Font.Name = 'MS Sans Serif'
+              Font.Style = [fsBold]
+              Lines.Strings = (
+                ''
+                '01=13 14 15 16 17 18'
+                '02=17 18 19 20 21 22'
+                '03=01 21 22 23 24 25'
+                '04=01 06 07 13 14 25'
+                '05=01 06 07 23 24 25'
+                '06=06 07 13 14 15 16'
+                '07=15 16 17 18 19 20'
+                '08=19 20 21 22 23 24')
+              ParentFont = False
+              ReadOnly = True
+              ScrollBars = ssVertical
+              TabOrder = 5
+            end
+            object Memo_seri8Linha06: TMemo
+              Left = -441
+              Top = 49
+              Width = 202
+              Height = 185
+              BevelInner = bvNone
+              BevelOuter = bvNone
+              BorderStyle = bsNone
+              Color = 7494213
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 15462572
+              Font.Height = -16
+              Font.Name = 'MS Sans Serif'
+              Font.Style = [fsBold]
+              Lines.Strings = (
+                ''
+                '01=04 09 10 16 17 18'
+                '02=17 18 19 20 21 22'
+                '03=01 21 22 23 24 25'
+                '04=01 02 03 04 09 25'
+                '05=01 02 03 23 24 25'
+                '06=02 03 04 09 10 16'
+                '07=10 16 17 18 19 20'
+                '08=19 20 21 22 23 24')
+              ParentFont = False
+              ReadOnly = True
+              ScrollBars = ssVertical
+              TabOrder = 6
+            end
+            object Memo_seri8Linha07: TMemo
+              Left = -233
+              Top = 49
+              Width = 202
+              Height = 185
+              BevelInner = bvNone
+              BevelOuter = bvNone
+              BorderStyle = bsNone
+              Color = 8676161
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 13500259
+              Font.Height = -16
+              Font.Name = 'MS Sans Serif'
+              Font.Style = [fsBold]
+              Lines.Strings = (
+                ''
+                '01=04 05 06 07 12 13'
+                '02=12 13 19 20 21 22'
+                '03=01 21 22 23 24 25'
+                '04=01 02 03 04 05 25'
+                '05=01 02 03 23 24 25'
+                '06=02 03 04 05 06 07'
+                '07=06 07 12 13 19 20'
+                '08=19 20 21 22 23 24')
+              ParentFont = False
+              ReadOnly = True
+              ScrollBars = ssVertical
+              TabOrder = 7
+            end
+            object Memo_seri8Linha08: TMemo
+              Left = -25
+              Top = 49
+              Width = 202
+              Height = 185
+              BevelInner = bvNone
+              BevelOuter = bvNone
+              BorderStyle = bsNone
+              Color = 7494213
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 15462572
+              Font.Height = -16
+              Font.Name = 'MS Sans Serif'
+              Font.Style = [fsBold]
+              Lines.Strings = (
+                ''
+                '01=04 05 06 07 08 09'
+                '02=08 09 10 15 16 22'
+                '03=01 16 22 23 24 25'
+                '04=01 02 03 04 05 25'
+                '05=01 02 03 23 24 25'
+                '06=02 03 04 05 06 07'
+                '07=06 07 08 09 10 15'
+                '08=10 15 16 22 23 24')
+              ParentFont = False
+              ReadOnly = True
+              ScrollBars = ssVertical
+              TabOrder = 8
+            end
+            object Memo_seri8Linha09: TMemo
+              Left = 183
+              Top = 49
+              Width = 202
+              Height = 185
+              BevelInner = bvNone
+              BevelOuter = bvNone
+              BorderStyle = bsNone
+              Color = 8676161
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 13500259
+              Font.Height = -16
+              Font.Name = 'MS Sans Serif'
+              Font.Style = [fsBold]
+              Lines.Strings = (
+                ''
+                '01=04 05 06 07 08 09'
+                '02=08 09 10 11 12 13'
+                '03=01 12 13 18 19 25'
+                '04=01 02 03 04 05 25'
+                '05=01 02 03 18 19 25'
+                '06=02 03 04 05 06 07'
+                '07=06 07 08 09 10 11'
+                '08=10 11 12 13 18 19')
+              ParentFont = False
+              ReadOnly = True
+              ScrollBars = ssVertical
+              TabOrder = 9
+            end
+            object Memo_seri8Linha10: TMemo
+              Left = 391
+              Top = 49
+              Width = 202
+              Height = 185
+              BevelInner = bvNone
+              BevelOuter = bvNone
+              BorderStyle = bsNone
+              Color = 7494213
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 15462572
+              Font.Height = -16
+              Font.Name = 'MS Sans Serif'
+              Font.Style = [fsBold]
+              Lines.Strings = (
+                ''
+                '01=06 07 08 09 10 11'
+                '02=10 11 12 13 14 15'
+                '03=03 14 15 16 21 22'
+                '04=03 04 05 06 07 22'
+                '05=03 04 05 16 21 22'
+                '06=04 05 06 07 08 09'
+                '07=08 09 10 11 12 13'
+                '08=12 13 14 15 16 21')
+              ParentFont = False
+              ReadOnly = True
+              ScrollBars = ssVertical
+              TabOrder = 10
+            end
+            object Memo_seri8Linha11: TMemo
+              Left = 599
+              Top = 49
+              Width = 202
+              Height = 185
+              BevelInner = bvNone
+              BevelOuter = bvNone
+              BorderStyle = bsNone
+              Color = 8676161
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 13500259
+              Font.Height = -16
+              Font.Name = 'MS Sans Serif'
+              Font.Style = [fsBold]
+              Lines.Strings = (
+                ''
+                '01=09 10 11 12 13 14'
+                '02=13 14 15 16 17 18'
+                '03=06 17 18 19 24 25'
+                '04=06 07 08 09 10 25'
+                '05=06 07 08 19 24 25'
+                '06=07 08 09 10 11 12'
+                '07=11 12 13 14 15 16'
+                '08=15 16 17 18 19 24')
+              ParentFont = False
+              ReadOnly = True
+              ScrollBars = ssVertical
+              TabOrder = 11
+            end
+            object Memo_seri8Linha12: TMemo
+              Left = 807
+              Top = 49
+              Width = 202
+              Height = 185
+              BevelInner = bvNone
+              BevelOuter = bvNone
+              BorderStyle = bsNone
+              Color = 7494213
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 15462572
+              Font.Height = -16
+              Font.Name = 'MS Sans Serif'
+              Font.Style = [fsBold]
+              Lines.Strings = (
+                ''
+                '01=04 05 06 07 08 18'
+                '02=08 18 19 20 21 22'
+                '03=01 21 22 23 24 25'
+                '04=01 02 03 04 05 25'
+                '05=01 02 03 23 24 25'
+                '06=02 03 04 05 06 07'
+                '07=06 07 08 18 19 20'
+                '08=19 20 21 22 23 24')
+              ParentFont = False
+              ReadOnly = True
+              ScrollBars = ssVertical
+              TabOrder = 12
+            end
+            object Memo_seri8Linha14: TMemo
+              Left = 1223
+              Top = 49
+              Width = 202
+              Height = 185
+              BevelInner = bvNone
+              BevelOuter = bvNone
+              BorderStyle = bsNone
+              Color = 7494213
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 15462572
+              Font.Height = -16
+              Font.Name = 'MS Sans Serif'
+              Font.Style = [fsBold]
+              Lines.Strings = (
+                ''
+                '01=04 05 06 07 08 09'
+                '02=08 09 10 11 12 13'
+                '03=01 12 13 14 24 25'
+                '04=01 02 03 04 05 25'
+                '05=01 02 03 14 24 25'
+                '06=02 03 04 05 06 07'
+                '07=06 07 08 09 10 11'
+                '08=10 11 12 13 14 24')
+              ParentFont = False
+              ReadOnly = True
+              ScrollBars = ssVertical
+              TabOrder = 13
+            end
+            object Memo_seri8Linha13: TMemo
+              Left = 1015
+              Top = 49
+              Width = 202
+              Height = 185
+              BevelInner = bvNone
+              BevelOuter = bvNone
+              BorderStyle = bsNone
+              Color = 8676161
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 13500259
+              Font.Height = -16
+              Font.Name = 'MS Sans Serif'
+              Font.Style = [fsBold]
+              Lines.Strings = (
+                ''
+                '01=04 05 06 07 08 09'
+                '02=08 09 10 11 21 22'
+                '03=01 21 22 23 24 25'
+                '04=01 02 03 04 05 25'
+                '05=01 02 03 23 24 25'
+                '06=02 03 04 05 06 07'
+                '07=06 07 08 09 10 11'
+                '08=10 11 21 22 23 24')
+              ParentFont = False
+              ReadOnly = True
+              ScrollBars = ssVertical
+              TabOrder = 14
+            end
+            object Memo_seri8Linha15: TMemo
+              Left = 1431
+              Top = 49
+              Width = 202
+              Height = 185
+              BevelInner = bvNone
+              BevelOuter = bvNone
+              BorderStyle = bsNone
+              Color = 8676161
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 13500259
+              Font.Height = -16
+              Font.Name = 'MS Sans Serif'
+              Font.Style = [fsBold]
+              Lines.Strings = (
+                ''
+                '01=05 06 07 08 09 10'
+                '02=09 10 11 12 13 14'
+                '03=02 13 14 15 16 17'
+                '04=02 03 04 05 06 17'
+                '05=02 03 04 15 16 17'
+                '06=03 04 05 06 07 08'
+                '07=07 08 09 10 11 12'
+                '08=11 12 13 14 15 16')
+              ParentFont = False
+              ReadOnly = True
+              ScrollBars = ssVertical
+              TabOrder = 15
+            end
+          end
+        end
+        object pa_Resultado6cj20p11: TPanel
+          Left = 0
+          Top = 256
+          Width = 1381
+          Height = 224
+          Align = alClient
+          BevelOuter = bvNone
+          TabOrder = 1
+          object ScrollBox_resultado: TScrollBox
+            Left = 0
+            Top = 0
+            Width = 1381
+            Height = 224
+            HorzScrollBar.Range = 1440
+            VertScrollBar.Range = 400
+            Align = alClient
+            AutoScroll = False
+            Color = 6312006
+            ParentColor = False
+            TabOrder = 0
+            DesignSize = (
+              1360
+              203)
+            object Label62: TLabel
+              Left = 8396
+              Top = 4
+              Width = 61
+              Height = 18
+              Caption = 'Parte 1'
+              Color = 6973952
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 14150655
+              Font.Height = -15
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ParentColor = False
+              ParentFont = False
+              Transparent = False
+              Visible = False
+              WordWrap = True
+            end
+            object Label64: TLabel
+              Left = 8568
+              Top = 4
+              Width = 61
+              Height = 18
+              Caption = 'Parte 2'
+              Color = 6973952
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 14150655
+              Font.Height = -15
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ParentColor = False
+              ParentFont = False
+              Transparent = False
+              Visible = False
+              WordWrap = True
+            end
+            object Label65: TLabel
+              Left = 8732
+              Top = 4
+              Width = 61
+              Height = 18
+              Caption = 'Parte 3'
+              Color = 6973952
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 14150655
+              Font.Height = -15
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ParentColor = False
+              ParentFont = False
+              Transparent = False
+              Visible = False
+              WordWrap = True
+            end
+            object Label66: TLabel
+              Left = 8896
+              Top = 3
+              Width = 61
+              Height = 18
+              Caption = 'Parte 4'
+              Color = 6973952
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 14150655
+              Font.Height = -15
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ParentColor = False
+              ParentFont = False
+              Transparent = False
+              Visible = False
+              WordWrap = True
+            end
+            object Label67: TLabel
+              Left = 9062
+              Top = 4
+              Width = 61
+              Height = 18
+              Caption = 'Parte 5'
+              Color = 6973952
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 14150655
+              Font.Height = -15
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ParentColor = False
+              ParentFont = False
+              Transparent = False
+              Visible = False
+              WordWrap = True
+            end
+            object Stgr_bloco12: TStringGrid
+              Left = 17
+              Top = 16
+              Width = 624
+              Height = 22111
+              TabStop = False
+              Anchors = [akLeft, akTop, akBottom]
+              BorderStyle = bsNone
+              Color = 7494213
+              ColCount = 16
+              DefaultColWidth = 32
+              DefaultRowHeight = 23
+              DrawingStyle = gdsGradient
+              FixedColor = 10590093
+              FixedCols = 3
+              RowCount = 11
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 13500259
+              Font.Height = -12
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              GradientEndColor = 9734013
+              GradientStartColor = 10525327
+              Options = [goFixedVertLine, goFixedHorzLine, goHorzLine, goRangeSelect]
+              ParentFont = False
+              TabOrder = 0
+              ColWidths = (
+                32
+                32
+                32
+                32
+                32
+                32
+                32
+                32
+                32
+                32
+                32
+                32
+                32
+                32
+                32
+                32)
+              RowHeights = (
+                23
+                23
+                23
+                23
+                23
+                23
+                23
+                23
+                23
+                23
+                23)
+            end
+            object Stgr_blocoSobra: TStringGrid
+              Left = 653
+              Top = 16
+              Width = 280
+              Height = 22112
+              TabStop = False
+              Anchors = [akLeft, akTop, akBottom]
+              BorderStyle = bsNone
+              Color = 6508097
+              ColCount = 7
+              DefaultColWidth = 32
+              DefaultRowHeight = 23
+              DrawingStyle = gdsGradient
+              FixedColor = 10523025
+              RowCount = 11
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 14805945
+              Font.Height = -12
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              GradientEndColor = 9734013
+              GradientStartColor = 10525327
+              Options = [goFixedVertLine, goFixedHorzLine, goHorzLine, goRangeSelect]
+              ParentFont = False
+              TabOrder = 1
+              ColWidths = (
+                32
+                32
+                32
+                32
+                32
+                32
+                32)
+              RowHeights = (
+                23
+                23
+                23
+                23
+                23
+                23
+                23
+                23
+                23
+                23
+                23)
+            end
+          end
+        end
+      end
+      object pa_menuGerar_20p11: TPanel
+        Left = -353
+        Top = 82
+        Width = 412
+        Height = 168
+        BevelInner = bvLowered
+        BevelWidth = 2
+        BorderWidth = 1
+        Color = 6312006
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentBackground = False
+        ParentFont = False
+        TabOrder = 1
+        Visible = False
+        object Panel2: TPanel
+          Left = 5
+          Top = 5
+          Width = 402
+          Height = 47
+          Align = alTop
+          BevelInner = bvLowered
+          Color = 13500259
+          ParentBackground = False
+          TabOrder = 0
+          object Label63: TLabel
+            Left = 2
+            Top = 2
+            Width = 398
+            Height = 43
+            Align = alClient
+            Alignment = taCenter
+            Caption = 'GERAR'
+            Color = 13500259
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = 3351811
+            Font.Height = -28
+            Font.Name = 'Verdana'
+            Font.Style = [fsBold]
+            ParentColor = False
+            ParentFont = False
+            Layout = tlCenter
+            ExplicitWidth = 108
+            ExplicitHeight = 34
+          end
+          object ckbx_GerarCompleto: TCheckBox
+            Left = 16
+            Top = 16
+            Width = 97
+            Height = 17
+            Caption = 'Completo'
+            TabOrder = 0
+            Visible = False
+          end
+        end
+        object bbt_gerarOk: TBitBtn
+          Left = 11
+          Top = 121
+          Width = 172
+          Height = 38
+          Caption = 'OK'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Verdana'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 1
+          OnClick = bbt_gerarOkClick
+        end
+        object bbt_gerarVoltar: TBitBtn
+          Left = 225
+          Top = 121
+          Width = 172
+          Height = 38
+          Caption = 'VOLTAR'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Verdana'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 2
+          OnClick = bbt_gerarVoltarClick
+        end
+      end
+    end
+  end
+  object Stgr_Todos_Numeros: TStringGrid
+    Left = 826
+    Top = 525
+    Width = 875
+    Height = 97
+    Anchors = [akLeft, akBottom]
+    Color = 8421440
+    ColCount = 25
+    DefaultColWidth = 26
+    DefaultRowHeight = 20
+    DrawingStyle = gdsClassic
+    RowCount = 4
+    FixedRows = 0
+    TabOrder = 3
+    Visible = False
+  end
+  object Stgr_TodosNumerosP17: TStringGrid
+    Left = 874
+    Top = 525
+    Width = 910
+    Height = 74
+    Anchors = [akLeft, akBottom]
+    Color = 9136444
+    ColCount = 33
+    DefaultColWidth = 26
+    DefaultRowHeight = 20
+    DrawingStyle = gdsClassic
+    RowCount = 3
+    FixedRows = 0
+    TabOrder = 4
+    Visible = False
+  end
+  object pa_preparar: TPanel
+    Left = 5945
+    Top = 111
+    Width = 427
+    Height = 193
+    BevelOuter = bvLowered
+    BorderWidth = 1
+    Color = 5588275
+    ParentBackground = False
+    TabOrder = 5
+    Visible = False
+    object La_MensagensPreparar: TLabel
+      Left = 12
+      Top = 84
+      Width = 402
+      Height = 36
+      Caption = 
+        '................................................................' +
+        '... ...........................'
+      Color = clBlack
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -16
+      Font.Name = 'Verdana'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+      WordWrap = True
+    end
+    object Panel1: TPanel
+      Left = 2
+      Top = 2
+      Width = 423
+      Height = 50
+      Align = alTop
+      BevelInner = bvLowered
+      Color = 10323842
+      ParentBackground = False
+      TabOrder = 0
+      object Label2: TLabel
+        Left = 124
+        Top = 8
+        Width = 151
+        Height = 31
+        Caption = 'PREPARAR'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -25
+        Font.Name = 'Verdana'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+    end
+    object bbt_PrepararOk: TBitBtn
+      Left = 6
+      Top = 145
+      Width = 150
+      Height = 41
+      Caption = 'OK'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Verdana'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 1
+      OnClick = bbt_PrepararOkClick
+    end
+    object bbt_PrepararVoltar: TBitBtn
+      Left = 273
+      Top = 145
+      Width = 150
+      Height = 41
+      Caption = 'VOLTAR'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Verdana'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 2
+      OnClick = bbt_PrepararVoltarClick
+    end
+  end
+  object PA_INICIAL: TPanel
+    Left = 9955
+    Top = 49
+    Width = 321
+    Height = 308
+    BevelInner = bvRaised
+    BorderWidth = 8
+    BorderStyle = bsSingle
+    Color = 6572825
+    ParentBackground = False
+    TabOrder = 6
+    Visible = False
+    object Label55: TLabel
+      Left = 24
+      Top = 20
+      Width = 161
+      Height = 23
+      Alignment = taCenter
+      Caption = '[Dia de Sorte] '
+      Color = 4179168
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 14150655
+      Font.Height = -19
+      Font.Name = 'Verdana'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Transparent = True
+    end
+    object BT_NOVA_SIMULACAO: TButton
+      Left = 23
+      Top = 60
+      Width = 271
+      Height = 38
+      Caption = 'Novo / VISUALIZAR RESULTADO'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 5579525
+      Font.Height = -16
+      Font.Name = 'Verdana'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+    end
+    object BT_REAJUSTAR: TButton
+      Left = 23
+      Top = 140
+      Width = 271
+      Height = 38
+      Caption = 'REAJUSTAR'
+      Enabled = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 5579525
+      Font.Height = -16
+      Font.Name = 'Verdana'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 1
+      Visible = False
+    end
+    object BBT_SAIR: TButton
+      Left = 23
+      Top = 100
+      Width = 271
+      Height = 38
+      Caption = 'SAIR / FECHAR'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 5579525
+      Font.Height = -16
+      Font.Name = 'Verdana'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 2
+    end
+    object BBT_CARREGAR: TButton
+      Left = 23
+      Top = 180
+      Width = 271
+      Height = 38
+      Caption = 'CARREGAR'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 5579525
+      Font.Height = -16
+      Font.Name = 'Verdana'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 3
+      Visible = False
+    end
+    object BBT_CANCELAR: TBitBtn
+      Left = 24
+      Top = 244
+      Width = 271
+      Height = 38
+      Caption = 'CANCELAR && SAIR'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clMaroon
+      Font.Height = -16
+      Font.Name = 'Verdana'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 4
+    end
+  end
+  object pa_fimAnalisador: TPanel
+    Left = 307
+    Top = 149
+    Width = 353
+    Height = 387
+    BevelInner = bvLowered
+    BevelWidth = 4
+    BorderWidth = 1
+    BorderStyle = bsSingle
+    Color = 6312006
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Verdana'
+    Font.Style = []
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 7
+    Visible = False
+    object Label44: TLabel
+      Left = 9
+      Top = 9
+      Width = 331
+      Height = 25
+      Align = alTop
+      Alignment = taCenter
+      Caption = '{ Definir Conjunto 16 }'
+      Color = 13500259
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 3351811
+      Font.Height = -21
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+      ExplicitWidth = 242
+    end
+    object Label45: TLabel
+      Left = 9
+      Top = 34
+      Width = 331
+      Height = 20
+      Align = alTop
+      Alignment = taCenter
+      Caption = '.......'
+      Color = 13500259
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 3351811
+      Font.Height = -17
+      Font.Name = 'Verdana'
+      Font.Style = [fsItalic]
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+      WordWrap = True
+      ExplicitWidth = 42
+    end
+    object Label47: TLabel
+      Left = 21
+      Top = 173
+      Width = 197
+      Height = 19
+      Caption = 'Total de dados gerados:'
+      Color = clBlack
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 13500259
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Transparent = True
+    end
+    object LA_rQTD_COMB: TLabel
+      Left = 21
+      Top = 192
+      Width = 40
+      Height = 19
+      Caption = '0000'
+      Color = clBlack
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 13500259
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+    end
+    object Label58: TLabel
+      Left = 10
+      Top = 77
+      Width = 225
+      Height = 19
+      Caption = '1. In'#237'cio do Processamento:'
+      Color = clBlack
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 13500259
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Transparent = True
+    end
+    object LA_gINICIO_100REPET: TLabel
+      Left = 146
+      Top = 94
+      Width = 187
+      Height = 19
+      Caption = '01/01/2001 - 00:00:00'
+      Color = clBlack
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 13500259
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+    end
+    object Label60: TLabel
+      Left = 9
+      Top = 117
+      Width = 248
+      Height = 19
+      Caption = '2. T'#233'rmino do Processamento:'
+      Color = clBlack
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 13500259
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Transparent = True
+    end
+    object LA_gFIM_GERAR: TLabel
+      Left = 146
+      Top = 137
+      Width = 187
+      Height = 19
+      Caption = '01/01/2001 - 00:00:00'
+      Color = clBlack
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 13500259
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+    end
+    object Label50: TLabel
+      Left = 21
+      Top = 214
+      Width = 270
+      Height = 19
+      Caption = 'Total de dados sem os repetidos:'
+      Color = clBlack
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 13500259
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Transparent = True
+      Visible = False
+    end
+    object La_total100Repetidos: TLabel
+      Left = 21
+      Top = 233
+      Width = 40
+      Height = 19
+      Caption = '0000'
+      Color = clBlack
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 13500259
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+      Visible = False
+    end
+    object BBT_PA_REMOVEUREPET: TBitBtn
+      Left = 15
+      Top = 258
+      Width = 320
+      Height = 36
+      Caption = 'OK'
+      Default = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 5579525
+      Font.Height = -20
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      NumGlyphs = 2
+      ParentFont = False
+      TabOrder = 0
+      OnClick = BBT_PA_REMOVEUREPETClick
+    end
+    object BitBtn_BlocoDeNotas1: TBitBtn
+      Left = 15
+      Top = 295
+      Width = 320
+      Height = 36
+      Caption = 'Bloco de Notas'
+      Default = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 5579525
+      Font.Height = -20
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      NumGlyphs = 2
+      ParentFont = False
+      TabOrder = 1
+      OnClick = BitBtn_BlocoDeNotas1Click
+    end
+    object BitBtn_BlocoDeNota2: TBitBtn
+      Left = 15
+      Top = 332
+      Width = 320
+      Height = 36
+      Caption = 'Bloco de Notas - S'#237'ntese'
+      Default = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 5579525
+      Font.Height = -20
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      NumGlyphs = 2
+      ParentFont = False
+      TabOrder = 2
+      OnClick = BitBtn_BlocoDeNota2Click
+    end
+  end
+  object Ibq_E_SORTEIO_15N: TIBQuery
+    Database = IBDatabase1
+    Transaction = IBTransaction1
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'select *'
+      'from E_SORTEIO_15N'
+      'order by N_SORTEIO')
+    Left = 1149
+    Top = 13
+  end
+  object Ds_E_SORTEIO_15N: TDataSource
+    DataSet = Ibq_E_SORTEIO_15N
+    Left = 1150
+    Top = 54
+  end
+  object IBQ_COMBINACOES: TIBQuery
+    Database = IBDatabase1
+    Transaction = IBTransaction1
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'SELECT FIRST 10 * FROM COMBINACOES_15')
+    Left = 1054
+    Top = 54
+  end
+  object IBTransaction1: TIBTransaction
+    DefaultAction = TACommitRetaining
+    Left = 1038
+    Top = 30
+  end
+  object IBDatabase1: TIBDatabase
+    Connected = True
+    DatabaseName = 'C:\CXLOTOFACIL\COMBINACOES_15.FDB'
+    Params.Strings = (
+      'user_name=SYSDBA'
+      'password=masterkey')
+    LoginPrompt = False
+    DefaultTransaction = IBTransaction1
+    ServerType = 'IBServer'
+    Left = 1006
+    Top = 14
+  end
+end

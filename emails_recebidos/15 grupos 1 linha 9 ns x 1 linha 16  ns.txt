@@ -1,0 +1,90 @@
+Boa tarde Silvao,
+Segue arquivo txt contendo 15 grupos de 1 linha de 9 nrs x 1 linha de 16 nrs.
+Favor fazer um ranking nos moldes daqueles anteriores, verificando ao longo do histórico de sorteios lotofacil:
+
+--8 nrs sorteados na linha de 9 nrs
+--7 nrs sorteados na linha de 16 nrs
+(totalizando os 15 nrs sorts nas 2 linhas)
+
+-RANKING DOS 15 GRUPOS CONTENDO-
+
+1. quantidade de ocorrencias nos concursos já realizados
+2. percentual de ocorrencias nos concursos já realizados
+3. média de ocorrencia (1 ocorrencia em tantos concursos)
+4. quantidade de concursos em atraso, em relacao a media verificada (0 conc. atraso, 1 conc. atraso, 2 conc. atraso...)
+5. qual concurso onde houve a última ocorrencia
+
+1
+
+15 16 17 18 21 22 23 24 25
+01 02 03 04 05 06 07 08 09 10 11 12 13 14 19 20 
+
+2
+
+01 02 03 18 19 20 21 24 25 
+04 05 06 07 08 09 10 11 12 13 14 15 16 17 22 23 
+
+3
+
+02 03 04 05 06 21 22 23 24 
+01 07 08 09 10 11 12 13 14 15 16 17 18 19 20 25 
+
+4
+
+01 02 05 06 07 08 09 24 25 
+03 04 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
+
+5
+
+02 03 04 05 08 09 10 11 12
+01 06 07 13 14 15 16 17 18 19 20 21 22 23 24 25 
+
+6
+
+05 06 07 08 11 12 13 14 15
+01 02 03 04 09 10 16 17 18 19 20 21 22 23 24 25 
+
+7
+
+08 09 10 11 14 15 16 17 18
+01 02 03 04 05 06 07 12 13 19 20 21 22 23 24 25 
+
+8
+
+11 12 13 14 17 18 19 20 21
+01 02 03 04 05 06 07 08 09 10 15 16 22 23 24 25 
+
+9
+
+14 15 16 17 20 21 22 23 24
+01 02 03 04 05 06 07 08 09 10 11 12 13 18 19 25 
+
+10
+
+01 02 17 18 19 20 23 24 25
+03 04 05 06 07 08 09 10 11 12 13 14 15 16 21 22 
+
+11
+
+01 02 03 04 05 20 21 22 23 
+06 07 08 09 10 11 12 13 14 15 16 17 18 19 24 25 
+
+12
+
+09 10 11 12 13 14 15 16 17
+01 02 03 04 05 06 07 08 18 19 20 21 22 23 24 25 
+
+13
+
+12 13 14 15 16 17 18 19 20
+01 02 03 04 05 06 07 08 09 10 11 21 22 23 24 25 
+
+14
+
+15 16 17 18 19 20 21 22 23
+01 02 03 04 05 06 07 08 09 10 11 12 13 14 24 25 
+
+15
+
+01 18 19 20 21 22 23 24 25 
+02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17

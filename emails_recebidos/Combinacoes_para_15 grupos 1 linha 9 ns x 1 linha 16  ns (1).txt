@@ -1,0 +1,72 @@
+Silvao, veja o problema abaixo:
+
+
+16 bolas, sendo 9 bolas pretas e 7 bolas brancas   
+
+ 
+
+16 bolas
+
+Sendo:
+
+9 bolas pretas= 9 NRS NÃO SORTEADOS
+
+7 bolas brancas= 7 NRS SORTEADOS
+
+01 02 03 04 05 06 07 08 09  (9 bolas pretas ou 9 nrs NÃO sorteados)
+
+10 11 12 13 14 15 16  (7 bolas brancas ou 7 nrs sorteados)
+
+ 
+
+SITUACAO 1:
+
+Estando as 16 bolas misturadas, sorteio 8 duplas de bolas (8x2=16)
+
+Quantas combinações de 8 duplas serão necessárias para que tenha 1 dupla somente de bolas pretas e 7 duplas contendo, cada dupla, 1 bola preta e 1  bola branca ?
+
+(PP)  (PB)  (PB)  (PB)  (PB)  (PB)  (PB)  (PB)
+
+ 
+
+SITUACAO 2:
+
+Estando as 16 bolas misturadas, sorteio 5 triplas (5x3=15), sobrando 1 bola qualquer
+
+Quantas dessas combinações serão necessárias para que, das 5 triplas, 1 tripla seja composta somente de bolas brancas, e que as outras 4 triplas contenham, cada tripla, 2 bolas pretas e 1 bola branca, e a bola que sobrar seja preta  ?
+
+(BBB)  (PPB)  (PPB)  (PPB)  (PPB)  (P)
+
+ 
+
+SITUACAO 3:
+
+Estando as 16 bolas misturadas, sorteio 4 quadras (4x4=16)
+
+Quantas dessas combinações serão necessárias para que 2 dessas quadras contenham, cada uma, 4 bolas pretas, 1 outra quadra contenham todas as bolas brancas e a quadra restante contenha 1 bola preta e 3 bolas brancas?
+
+(PPPP)  (PPPP)  (BBBB)  (PBBB)
+
+ 
+
+SITUACAO 4:
+
+Estando as 16 bolas misturadas, sorteio 3 quinas (3x5=15), sobrando 1 bola qualquer
+
+Quantas dessas combinações serão necessárias para que a única bola que sobrou seja branca, 1 das quinas seja composta somente de bolas brancas, 1 outra  quina seja composta somente de bolas pretas, e a quina que sobrou seja composta de 1 bola branca e 4 bolas pretas?
+
+(BBBBB)  (PPPPP)  (BPPPP)  (B)
+
+ 
+
+SITUACAO 5:
+
+Estando as 16 bolas misturadas, sorteio 2 senas (2x6=12), sobrando 1 quadra (1x4=4)
+
+Quantas dessas combinações serão necessárias para que 1 dessas senas seja composta somente de bolas pretas, outra sena seja composta somente de bolas brancas, e sendo a quadra composta de 1 bola branca e 3 bolas pretas?
+
+(PPPPPP)  (BBBBBB)  (BPPP)
+
+ 
+
+QUAL DESSAS 5 SITUACOES GERARÁ O MENOR NR. DE COMBINACOES PARA 9 BOLAS PRETAS (9 NRS NÃO SORTS) E 7 BOLAS BRANCAS (7 NRS SORTS) ?
