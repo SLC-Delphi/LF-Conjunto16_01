@@ -4,12 +4,13 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.Grids;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.Grids, Data.DB, STRUtils, Math,
+  IBX.IBDatabase, IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TForm1 = class(TForm)
     Scbx_GABARITO: TScrollBox;
-    La_NSorteioRank: TLabel;
+    La_nSorteioRank: TLabel;
     Label3: TLabel;
     Label7: TLabel;
     Label14: TLabel;
@@ -20,12 +21,10 @@ type
     Label136: TLabel;
     Label138: TLabel;
     Label139: TLabel;
-    Stgr_Base08: TStringGrid;
-    Stgr_Base17: TStringGrid;
+    Stgr_Base09: TStringGrid;
+    Stgr_Base16: TStringGrid;
     Stgr_Estatisticas: TStringGrid;
     Stgr_Sorteios: TStringGrid;
-    Bbt_CarregarSorteio15N: TBitBtn;
-    Bbt_Rank: TBitBtn;
     Stgr_EstatisticasOcorrencias: TStringGrid;
     Stgr_EstatisticasSorteiosAtrasados: TStringGrid;
     Stgr_EstatisticasOcorrencias13: TStringGrid;
@@ -40,13 +39,26 @@ type
     stgr_excluiFixar_BaseL5Ac3: TStringGrid;
     stgr_excluiFixar_BaseL5Ac2: TStringGrid;
     stgr_excluiFixar_BaseL5Ac1: TStringGrid;
+    IBQ_COMBINACOES: TIBQuery;
+    Ds_E_SORTEIO_15N: TDataSource;
+    Ibq_E_SORTEIO_15N: TIBQuery;
+    IBTransaction1: TIBTransaction;
+    IBDatabase1: TIBDatabase;
+    Bbt_rank: TBitBtn;
+    Bbt_carregarSorteio15N: TBitBtn;
+    Label_qtdSorteios: TLabel;
     procedure Bbt_CarregarSort(Sender: TObject);
-    procedure Bbt_RankClick(Sender: TObject);
+    procedure Bbt_rankClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
       vcrDivisor1, vcrDivisor2, vcrDivisor3: Currency;
       vaiRankProcessar1: Array [1 .. 10] Of integer;
       vaiRankProcessar2: Array [1 .. 10] Of integer;
+      Procedure PreenchimentoInicialPadrao;
+      Procedure Zerar_FLAGTodosNumeros();
+      Procedure Falso_Linha2TodosNumeros;
+      Procedure Falso_Linha1TodosNumeros;
   public
     { Public declarations }
   end;
@@ -55,6 +67,9 @@ var
   Form1: TForm1;
 
 implementation
+
+uses
+  System.Generics.Collections;
 
 {$R *.dfm}
 
@@ -92,35 +107,36 @@ Begin
       viContar1 := viContar1 + 1;
    End;
    Stgr_Sorteios.RowCount := viContar1;
+   Label_qtdSorteios.Caption := (viContar1-1).toString;
 End;
 
 
-procedure TForm1.Bbt_RankClick(Sender: TObject);
+procedure TForm1.Bbt_rankClick(Sender: TObject);
 var
-   viContar17Combinacoes,viContarSorteios, viValorDasCoicidencias, viContarCelulas : integer;
-   li_QtdOcorrencias12, li_QtdAtrasados12 : Tlist<String>;
-   li_QtdOcorrencias13, li_QtdAtrasados13 : Tlist<String>;
-   viUltimoSorteio12, vdbQtdOcorrencias12, vdbPercentualOcorrencias12 : Double;
-   viUltimoSorteio13, vdbQtdOcorrencias13, vdbPercentualOcorrencias13 : Double;
+   viContar16Combinacoes,viContarSorteios, viValorDasCoicidencias, viContarCelulas : integer;
+   li_QtdOcorrencias07, li_QtdAtrasados07 : Tlist<String>;
+   li_QtdOcorrencias08Base09, li_QtdAtrasados08Base09 : Tlist<String>;
+   viUltimoSorteio07, vdbQtdOcorrencias07, vdbPercentualOcorrencias07 : Double;
+   viUltimoSorteio08Base09, vdbQtdOcorrencias08Base09, vdbPercentualOcorrencias08Base09 : Double;
 begin
-   li_QtdOcorrencias12 := Tlist<String>.Create;
-   li_QtdAtrasados12 := Tlist<String>.Create;
-   li_QtdOcorrencias13 := Tlist<String>.Create;
-   li_QtdAtrasados13 := Tlist<String>.Create;
-   li_QtdOcorrencias12.Clear;
-   li_QtdAtrasados12.Clear;
-   for viContar17Combinacoes := 1 to Trunc((Stgr_Base17.RowCount-1)/1) do
+   li_QtdOcorrencias07 := Tlist<String>.Create;
+   li_QtdAtrasados07 := Tlist<String>.Create;
+   li_QtdOcorrencias08Base09 := Tlist<String>.Create;
+   li_QtdAtrasados08Base09 := Tlist<String>.Create;
+   li_QtdOcorrencias07.Clear;
+   li_QtdAtrasados07.Clear;
+   for viContar16Combinacoes := 1 to Trunc((Stgr_Base16.RowCount-1)/1) do
    begin
-      Stgr_Sorteios.Cells[17, 0] := viContar17Combinacoes.ToString;
+      Stgr_Sorteios.Cells[17, 0] := viContar16Combinacoes.ToString;
       Stgr_Sorteios.Repaint;
       // --> Montar Flags com as combinações
       Falso_Linha1TodosNumeros();
-      FOR viContarCelulas := 2 TO 18 DO
+      FOR viContarCelulas := 2 TO 17 DO
       begin
-         Stgr_Todos_Numeros.Cells[ (STRtoINT(Stgr_Base17.Cells[viContarCelulas,viContar17Combinacoes])) ,1]:='V';
+         Stgr_Todos_Numeros.Cells[ (STRtoINT(Stgr_Base16.Cells[viContarCelulas,viContar16Combinacoes])) ,1]:='V';
       end;
-      vdbQtdOcorrencias12 :=0;
-      vdbQtdOcorrencias13 :=0;
+      vdbQtdOcorrencias07 :=0;
+      vdbQtdOcorrencias08Base09 :=0;
       for viContarSorteios := 1 to Trunc((Stgr_Sorteios.RowCount-1)/1) do
       begin
          // --> Montar Flags com os sorteios
@@ -137,48 +153,30 @@ begin
                   viValorDasCoicidencias := viValorDasCoicidencias + 1;
             Stgr_Sorteios.Cells[17, viContarSorteios] := viValorDasCoicidencias.ToString;
          End;
-         if viValorDasCoicidencias = 12 then
+         if viValorDasCoicidencias = 7 then
          begin
-            vdbQtdOcorrencias12 := vdbQtdOcorrencias12 + 1;
-            viUltimoSorteio12 := viContarSorteios;
-         end
-         else
-         if viValorDasCoicidencias = 13 then
-         begin
-            vdbQtdOcorrencias13 := vdbQtdOcorrencias13 + 1;
-            viUltimoSorteio13 := viContarSorteios;
-         end;
+            vdbQtdOcorrencias07 := vdbQtdOcorrencias07 + 1;
+            viUltimoSorteio07 := viContarSorteios;
+         end ;
       end;
-      // --> Estatisticas 12
-      vdbPercentualOcorrencias12 := RoundTo((vdbQtdOcorrencias12 / (Stgr_Sorteios.RowCount-1) *100),-2);
-      Stgr_Estatisticas.Cells[0,viContar17Combinacoes] := viContar17Combinacoes.ToString;
-      Stgr_Estatisticas.Cells[1,viContar17Combinacoes] := RightStr('0000'+(vdbQtdOcorrencias12.ToString),5);
-      Stgr_Estatisticas.Cells[2,viContar17Combinacoes] := vdbPercentualOcorrencias12.ToString+'%';
-      li_QtdOcorrencias12.add( RightStr('0000'+(vdbQtdOcorrencias12.ToString),5) + ' equivalente a ' + vdbPercentualOcorrencias12.ToString+'% no '  + RightStr('0'+viContar17Combinacoes.ToString,2));
-      Stgr_Estatisticas.Cells[3,viContar17Combinacoes] := ' 1 em '+ (RoundTo((Stgr_Sorteios.RowCount-1) / vdbQtdOcorrencias12,-4)).ToString;
-      Stgr_Estatisticas.Cells[4,viContar17Combinacoes] := viUltimoSorteio12.ToString;
-      Stgr_Estatisticas.Cells[5,viContar17Combinacoes] := RightStr('00'+((Stgr_Sorteios.RowCount-1) - viUltimoSorteio12).ToString,3);
-      li_QtdAtrasados12.Add(RightStr('00'+((Stgr_Sorteios.RowCount-1) - viUltimoSorteio12).ToString,3) + ' no sorteio '+ viUltimoSorteio12.ToString+ ' no '  + RightStr('0'+viContar17Combinacoes.ToString,2));
+      // --> Estatisticas 07
+      vdbPercentualOcorrencias07 := RoundTo((vdbQtdOcorrencias07 / (Stgr_Sorteios.RowCount-1) *100),-2);
+      Stgr_Estatisticas.Cells[0,viContar16Combinacoes] := viContar16Combinacoes.ToString;
+      Stgr_Estatisticas.Cells[1,viContar16Combinacoes] := RightStr('0000'+(vdbQtdOcorrencias07.ToString),5);
+      Stgr_Estatisticas.Cells[2,viContar16Combinacoes] := vdbPercentualOcorrencias07.ToString+'%';
+      li_QtdOcorrencias07.add( RightStr('0000'+(vdbQtdOcorrencias07.ToString),5) + ' equivalente a '
+         +LeftStr((vdbPercentualOcorrencias07.ToString)+'00000',5)  + '% com média de: 1 em '+ (RoundTo((Stgr_Sorteios.RowCount-1) / vdbQtdOcorrencias07,-4)).ToString
+         + '% na LINHA: '  + RightStr('0'+viContar16Combinacoes.ToString,2));
+      Stgr_Estatisticas.Cells[3,viContar16Combinacoes] := ' 1 em '+ (RoundTo((Stgr_Sorteios.RowCount-1) / vdbQtdOcorrencias07,-4)).ToString;
+      Stgr_Estatisticas.Cells[4,viContar16Combinacoes] := viUltimoSorteio07.ToString;
+      Stgr_Estatisticas.Cells[5,viContar16Combinacoes] := RightStr('00'+((Stgr_Sorteios.RowCount-1) - viUltimoSorteio07).ToString,3);
+      li_QtdAtrasados07.Add(RightStr('00'+((Stgr_Sorteios.RowCount-1) - viUltimoSorteio07).ToString,3) + ' no sorteio '+ viUltimoSorteio07.ToString+ ' no '  + RightStr('0'+viContar16Combinacoes.ToString,2));
       Stgr_Sorteios.Repaint;
       Stgr_Estatisticas.Repaint;
-      // --> Estatísticas 13
-      // --> Montar Flags com as combinações
-      vdbPercentualOcorrencias13 := RoundTo((vdbQtdOcorrencias13 / (Stgr_Sorteios.RowCount-1) *100),-2);
-      Stgr_Estatisticas13.Cells[0,viContar17Combinacoes] := viContar17Combinacoes.ToString;
-      Stgr_Estatisticas13.Cells[1,viContar17Combinacoes] := RightStr('0000'+(vdbQtdOcorrencias13.ToString),5);
-      Stgr_Estatisticas13.Cells[2,viContar17Combinacoes] := vdbPercentualOcorrencias13.ToString+'%';
-      li_QtdOcorrencias13.add( RightStr('0000'+(vdbQtdOcorrencias13.ToString),5) + ' equivalente a ' + vdbPercentualOcorrencias13.ToString+'% no '  + RightStr('0'+viContar17Combinacoes.ToString,2));
-      Stgr_Estatisticas13.Cells[3,viContar17Combinacoes] := ' 1 em '+ (RoundTo((Stgr_Sorteios.RowCount-1) / vdbQtdOcorrencias13,-4)).ToString;
-      Stgr_Estatisticas13.Cells[4,viContar17Combinacoes] := viUltimoSorteio13.ToString;
-      Stgr_Estatisticas13.Cells[5,viContar17Combinacoes] := RightStr('00'+((Stgr_Sorteios.RowCount-1) - viUltimoSorteio13).ToString,3);
-      li_QtdAtrasados13.Add(RightStr('00'+((Stgr_Sorteios.RowCount-1) - viUltimoSorteio13).ToString,3) + ' no sorteio '+ viUltimoSorteio13.ToString+ ' no '  + RightStr('0'+viContar17Combinacoes.ToString,2));
-      Stgr_Sorteios.Repaint;
-      Stgr_Estatisticas13.Repaint;
-
       Falso_Linha1TodosNumeros();
-      FOR viContarCelulas := 2 TO 09 DO
+      FOR viContarCelulas := 2 TO 10 DO
       begin
-         Stgr_Todos_Numeros.Cells[ (STRtoINT(Stgr_Base08.Cells[viContarCelulas,viContar17Combinacoes])) ,1]:='V';
+         Stgr_Todos_Numeros.Cells[ (STRtoINT(Stgr_Base09.Cells[viContarCelulas,viContar16Combinacoes])) ,1]:='V';
       end;
       for viContarSorteios := 1 to Trunc((Stgr_Sorteios.RowCount-1)/1) do
       begin
@@ -196,51 +194,599 @@ begin
                   viValorDasCoicidencias := viValorDasCoicidencias + 1;
             Stgr_Sorteios.Cells[18, viContarSorteios] := viValorDasCoicidencias.ToString;
          End;
+         if viValorDasCoicidencias = 08 then
+         begin
+            vdbQtdOcorrencias08Base09 := vdbQtdOcorrencias08Base09 + 1;
+            viUltimoSorteio08Base09 := viContarSorteios;
+         end;
       end;
+      // --> Estatísticas 08
+      // --> Montar Flags com as combinações
+    vdbPercentualOcorrencias08Base09 := RoundTo((vdbQtdOcorrencias08Base09 / (Stgr_Sorteios.RowCount-1) *100),-2);
+      Stgr_Estatisticas13.Cells[0,viContar16Combinacoes] := viContar16Combinacoes.ToString;
+      Stgr_Estatisticas13.Cells[1,viContar16Combinacoes] := RightStr('0000'+(vdbQtdOcorrencias08Base09.ToString),5);
+      Stgr_Estatisticas13.Cells[2,viContar16Combinacoes] := vdbPercentualOcorrencias08Base09.ToString+'%';
+      li_QtdOcorrencias08Base09.add( RightStr('0000'+(vdbQtdOcorrencias07.ToString),5) + ' equivalente a '
+         +LeftStr((vdbPercentualOcorrencias07.ToString)+'00000',5)  + '% com média de: 1 em '+ (RoundTo((Stgr_Sorteios.RowCount-1) / vdbQtdOcorrencias08Base09,-4)).ToString
+         + '% na LINHA: '  + RightStr('0'+viContar16Combinacoes.ToString,2));
+      Stgr_Estatisticas13.Cells[3,viContar16Combinacoes] := ' 1 em '+ (RoundTo((Stgr_Sorteios.RowCount-1) / vdbQtdOcorrencias08Base09,-4)).ToString;
+      Stgr_Estatisticas13.Cells[4,viContar16Combinacoes] := viUltimoSorteio08Base09.ToString;
+      Stgr_Estatisticas13.Cells[5,viContar16Combinacoes] := RightStr('00'+((Stgr_Sorteios.RowCount-1) - viUltimoSorteio08Base09).ToString,3);
+      li_QtdAtrasados08Base09.Add(RightStr('00'+((Stgr_Sorteios.RowCount-1) - viUltimoSorteio08Base09).ToString,3) + ' no sorteio '+ viUltimoSorteio08Base09.ToString+ ' no '  + RightStr('0'+viContar16Combinacoes.ToString,2));
+      Stgr_Sorteios.Repaint;
+      Stgr_Estatisticas13.Repaint;
    end;
    La_NSorteioRank.Caption := 'Número de sorteios apurados:  '+ (Stgr_Sorteios.RowCount-1).ToString;
-   li_QtdOcorrencias12.Sort;
-   li_QtdAtrasados12.Sort;
-   li_QtdOcorrencias13.Sort;
-   li_QtdAtrasados13.Sort;
+   li_QtdOcorrencias07.Sort;
+   li_QtdAtrasados07.Sort;
+   li_QtdOcorrencias08Base09.Sort;
+   li_QtdAtrasados08Base09.Sort;
    viContarCelulas :=0;
-   for viContar17Combinacoes := (Stgr_Base17.RowCount-1) downto 1 do
+   for viContar16Combinacoes := (Stgr_Base16.RowCount-1) downto 1 do
    begin
-      Stgr_EstatisticasOcorrencias.Cells[0, Stgr_Base17.RowCount-viContar17Combinacoes] := li_QtdOcorrencias12[viContar17Combinacoes-1];
-      Stgr_EstatisticasSorteiosAtrasados.Cells[0, Stgr_Base17.RowCount-viContar17Combinacoes] :=  li_QtdAtrasados12[viContar17Combinacoes-1];
-      Stgr_EstatisticasOcorrencias13.Cells[0, Stgr_Base17.RowCount-viContar17Combinacoes] := li_QtdOcorrencias13[viContar17Combinacoes-1];
-      Stgr_EstatisticasSorteiosAtrasados13.Cells[0, Stgr_Base17.RowCount-viContar17Combinacoes] :=  li_QtdAtrasados13[viContar17Combinacoes-1];
+      Stgr_EstatisticasOcorrencias.Cells[0, Stgr_Base16.RowCount-viContar16Combinacoes] := li_QtdOcorrencias07[viContar16Combinacoes-1];
+      Stgr_EstatisticasSorteiosAtrasados.Cells[0, Stgr_Base16.RowCount-viContar16Combinacoes] :=  li_QtdAtrasados07[viContar16Combinacoes-1];
+      Stgr_EstatisticasOcorrencias13.Cells[0, Stgr_Base16.RowCount-viContar16Combinacoes] := li_QtdOcorrencias08Base09[viContar16Combinacoes-1];
+      Stgr_EstatisticasSorteiosAtrasados13.Cells[0, Stgr_Base16.RowCount-viContar16Combinacoes] :=  li_QtdAtrasados08Base09[viContar16Combinacoes-1];
    end;
-   for viContarCelulas := 1 to 5 do
-   begin
-      vaiRankProcessar1 [viContarCelulas] := RightStr(Stgr_EstatisticasOcorrencias.Cells[0, viContarCelulas],2).ToInteger;
-      vaiRankProcessar1 [viContarCelulas+5] := RightStr(Stgr_EstatisticasSorteiosAtrasados.Cells[0, viContarCelulas],2).ToInteger;
-   end;
-   vaiRankProcessar2 [1] := RightStr(Stgr_EstatisticasOcorrencias.Cells[0, 1],2).ToInteger;
-   vaiRankProcessar2 [2] := RightStr(Stgr_EstatisticasOcorrencias.Cells[0, 2],2).ToInteger;
-   vaiRankProcessar2 [3] := RightStr(Stgr_EstatisticasOcorrencias.Cells[0, 25],2).ToInteger;
-   vaiRankProcessar2 [4] := RightStr(Stgr_EstatisticasSorteiosAtrasados.Cells[0, 1],2).ToInteger;
-   vaiRankProcessar2 [5] := RightStr(Stgr_EstatisticasSorteiosAtrasados.Cells[0, 2],2).ToInteger;
-   vaiRankProcessar2 [6] := RightStr(Stgr_EstatisticasSorteiosAtrasados.Cells[0, 25],2).ToInteger;
-   Stgr_EstatisticasOcorrencias.RowCount := Stgr_Base17.RowCount;
-   Stgr_EstatisticasSorteiosAtrasados.RowCount := Stgr_Base17.RowCount;
-   Stgr_EstatisticasOcorrencias13.RowCount := Stgr_Base17.RowCount;
-   Stgr_EstatisticasSorteiosAtrasados13.RowCount := Stgr_Base17.RowCount;
-//   Stgr_EstatisticasOcorrencias[0,viContar17Combinacoes] :=
-//   Stgr_EstatisticasSorteiosAtrasados[0,viContar17Combinacoes] :=
+//   for viContarCelulas := 1 to 5 do
+//   begin
+//      vaiRankProcessar1 [viContarCelulas] := RightStr(Stgr_EstatisticasOcorrencias.Cells[0, viContarCelulas],2).ToInteger;
+//      vaiRankProcessar1 [viContarCelulas+5] := RightStr(Stgr_EstatisticasSorteiosAtrasados.Cells[0, viContarCelulas],2).ToInteger;
+//   end;
+//   vaiRankProcessar2 [1] := RightStr(Stgr_EstatisticasOcorrencias.Cells[0, 1],2).ToInteger;
+//   vaiRankProcessar2 [2] := RightStr(Stgr_EstatisticasOcorrencias.Cells[0, 2],2).ToInteger;
+//   vaiRankProcessar2 [3] := RightStr(Stgr_EstatisticasOcorrencias.Cells[0, 25],2).ToInteger;
+//   vaiRankProcessar2 [4] := RightStr(Stgr_EstatisticasSorteiosAtrasados.Cells[0, 1],2).ToInteger;
+//   vaiRankProcessar2 [5] := RightStr(Stgr_EstatisticasSorteiosAtrasados.Cells[0, 2],2).ToInteger;
+//   vaiRankProcessar2 [6] := RightStr(Stgr_EstatisticasSorteiosAtrasados.Cells[0, 25],2).ToInteger;
+   Stgr_EstatisticasOcorrencias.RowCount := Stgr_Base16.RowCount;
+   Stgr_EstatisticasSorteiosAtrasados.RowCount := Stgr_Base16.RowCount;
+   Stgr_EstatisticasOcorrencias13.RowCount := Stgr_Base16.RowCount;
+   Stgr_EstatisticasSorteiosAtrasados13.RowCount := Stgr_Base16.RowCount;
+//   Stgr_EstatisticasOcorrencias[0,viContar16Combinacoes] :=
+//   Stgr_EstatisticasSorteiosAtrasados[0,viContar16Combinacoes] :=
    Stgr_EstatisticasOcorrencias.Repaint;
    Stgr_EstatisticasSorteiosAtrasados.Repaint;
    Stgr_EstatisticasOcorrencias13.Repaint;
    Stgr_EstatisticasSorteiosAtrasados13.Repaint;
    Showmessage('Fim do Rank');
-   li_QtdOcorrencias12.DisposeOf;
-   li_QtdAtrasados12.DisposeOf;
-   li_QtdOcorrencias13.DisposeOf;
-   li_QtdAtrasados13.DisposeOf;
+   li_QtdOcorrencias07.DisposeOf;
+   li_QtdAtrasados07.DisposeOf;
+   li_QtdOcorrencias08Base09.DisposeOf;
+   li_QtdAtrasados08Base09.DisposeOf;
 end;
 
 
 
+
+procedure TForm1.Zerar_FLAGTodosNumeros();
+var
+  viContar: Integer;
+begin
+  for viContar := 1 to 25 do
+  begin
+    Stgr_Todos_Numeros.Cells[viContar, 0] := viContar.ToString;
+    Stgr_Todos_Numeros.Cells[viContar, 1] := 'F';
+    Stgr_Todos_Numeros.Cells[viContar, 2] := 'F';
+  end;
+end;
+
+
+procedure TForm1.Falso_Linha1TodosNumeros();
+var
+  viContar: Integer;
+begin
+  for viContar := 1 to 25 do
+  begin
+    Stgr_Todos_Numeros.Cells[viContar, 1] := 'F';
+  end;
+end;
+
+
+procedure TForm1.Falso_Linha2TodosNumeros();
+var
+  viContar: Integer;
+begin
+  for viContar := 1 to 25 do
+  begin
+    Stgr_Todos_Numeros.Cells[viContar, 2] := 'F';
+  end;
+end;
+
+
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+   SELF.ClientWidth := 1530;
+   SELF.ClientHeight := 750;
+   SELF.Top := 57;
+   SELF.Left := 6;
+   // SELF.Visible := TRUE;
+   PreenchimentoInicialPadrao;
+end;
+
+Procedure TForm1.PreenchimentoInicialPadrao;
+var
+  viContar: Integer;
+begin
+   Zerar_FLAGTodosNumeros();
+   for viContar := 2 to 17 do
+   begin
+      Stgr_Base16.Cells[viContar, 0] := INTtoSTR(viContar - 1);
+   end;
+   for viContar := 2 to 10 do
+   begin
+      Stgr_Base09.Cells[viContar, 0] := INTtoSTR(viContar - 1);
+   end;
+   for viContar := 1 to 49 Do
+   begin
+      Stgr_Base17VF.Cells[0, viContar] := INTtoSTR(viContar);
+      Stgr_Base17VF.Cells[1, viContar] := 'V';
+   end;
+   //01
+   Stgr_Base16.Cells[0, 1] := '01';
+   Stgr_Base16.Cells[1, 1] := 'V';
+   Stgr_Base16.Cells[2, 1] := '01';
+   Stgr_Base16.Cells[3, 1] := '02';
+   Stgr_Base16.Cells[4, 1] := '03';
+   Stgr_Base16.Cells[5, 1] := '04';
+   Stgr_Base16.Cells[6, 1] := '05';
+   Stgr_Base16.Cells[7, 1] := '06';
+   Stgr_Base16.Cells[8, 1] := '07';
+   Stgr_Base16.Cells[9, 1] := '08';
+   Stgr_Base16.Cells[10, 1] := '09';
+   Stgr_Base16.Cells[11, 1] := '10';
+   Stgr_Base16.Cells[12, 1] := '11';
+   Stgr_Base16.Cells[13, 1] := '12';
+   Stgr_Base16.Cells[14, 1] := '13';
+   Stgr_Base16.Cells[15, 1] := '14';
+   Stgr_Base16.Cells[16, 1] := '19';
+   Stgr_Base16.Cells[17, 1] := '20';
+     Stgr_Base09.Cells[0, 1] := '01';
+   Stgr_Base09.Cells[1, 1] := 'V';
+   Stgr_Base09.Cells[2, 1] := '15';
+   Stgr_Base09.Cells[3, 1] := '16';
+   Stgr_Base09.Cells[4, 1] := '17';
+   Stgr_Base09.Cells[5, 1] := '18';
+   Stgr_Base09.Cells[6, 1] := '21';
+   Stgr_Base09.Cells[7, 1] := '22';
+   Stgr_Base09.Cells[8, 1] := '23';
+   Stgr_Base09.Cells[9, 1] := '24';
+   Stgr_Base09.Cells[10, 1] := '25';
+  //02
+   Stgr_Base16.Cells[0, 2] := '02';
+   Stgr_Base16.Cells[1, 2] := 'V';
+   Stgr_Base16.Cells[2, 2] := '04';        Stgr_Base16.Cells[3, 2] := '05';
+   Stgr_Base16.Cells[4, 2] := '06';        Stgr_Base16.Cells[5, 2] := '07';
+   Stgr_Base16.Cells[6, 2] := '08';        Stgr_Base16.Cells[7, 2] := '09';
+   Stgr_Base16.Cells[8, 2] := '10';        Stgr_Base16.Cells[9, 2] := '11';
+   Stgr_Base16.Cells[10, 2] := '12';       Stgr_Base16.Cells[11, 2] := '13';
+   Stgr_Base16.Cells[12, 2] := '14';       Stgr_Base16.Cells[13, 2] := '15';
+   Stgr_Base16.Cells[14, 2] := '16';       Stgr_Base16.Cells[15, 2] := '17';
+   Stgr_Base16.Cells[16, 2] := '22';       Stgr_Base16.Cells[17, 2] := '23';
+      Stgr_Base09.Cells[0, 2] := '02';
+   Stgr_Base09.Cells[1, 2] := 'V';
+   Stgr_Base09.Cells[2, 2] := '01';
+   Stgr_Base09.Cells[3, 2] := '02';
+   Stgr_Base09.Cells[4, 2] := '03';
+   Stgr_Base09.Cells[5, 2] := '18';
+   Stgr_Base09.Cells[6, 2] := '19';
+   Stgr_Base09.Cells[7, 2] := '20';
+   Stgr_Base09.Cells[8, 2] := '21';
+   Stgr_Base09.Cells[9, 2] := '24';
+   Stgr_Base09.Cells[10, 2] := '24';
+  //03
+   Stgr_Base16.Cells[0, 3] := '03';
+   Stgr_Base16.Cells[1, 3] := 'V';
+   Stgr_Base16.Cells[2, 3]  := '01';
+   Stgr_Base16.Cells[3, 3]  := '07';
+   Stgr_Base16.Cells[4, 3]  := '08';
+   Stgr_Base16.Cells[5, 3]  := '09';
+   Stgr_Base16.Cells[6, 3]  := '10';
+   Stgr_Base16.Cells[7, 3]  := '11';
+   Stgr_Base16.Cells[8, 3]  := '12';
+   Stgr_Base16.Cells[9, 3]  := '13';
+   Stgr_Base16.Cells[10, 3] := '14';
+   Stgr_Base16.Cells[11, 3] := '15';
+   Stgr_Base16.Cells[12, 3] := '16';
+   Stgr_Base16.Cells[13, 3] := '17';
+   Stgr_Base16.Cells[14, 3] := '18';
+   Stgr_Base16.Cells[15, 3] := '19';
+   Stgr_Base16.Cells[16, 3] := '20';
+   Stgr_Base16.Cells[17, 3] := '25';
+   Stgr_Base09.Cells[0, 3] := '03';
+   Stgr_Base09.Cells[1, 3] := 'V';
+   Stgr_Base09.Cells[2, 3] := '02';
+   Stgr_Base09.Cells[3, 3] := '03';
+   Stgr_Base09.Cells[4, 3] := '04';
+   Stgr_Base09.Cells[5, 3] := '05';
+   Stgr_Base09.Cells[6, 3] := '06';
+   Stgr_Base09.Cells[7, 3] := '21';
+   Stgr_Base09.Cells[8, 3] := '22';
+   Stgr_Base09.Cells[9, 3] := '23';
+   Stgr_Base09.Cells[10, 3] := '24';
+//   //04
+//   Stgr_Base16.Cells[0, 4] := '04';
+//   Stgr_Base16.Cells[1, 4] := 'V';
+//   Stgr_Base16.Cells[2, 4]  := '01';
+//   Stgr_Base16.Cells[3, 4]  := '02';
+//   Stgr_Base16.Cells[4, 4]  := '03';
+//   Stgr_Base16.Cells[5, 4]  := '04';
+//   Stgr_Base16.Cells[6, 4]  := '06';
+//   Stgr_Base16.Cells[7, 4]  := '07';
+//   Stgr_Base16.Cells[8, 4]  := '09';
+//   Stgr_Base16.Cells[9, 4]  := '11';
+//   Stgr_Base16.Cells[10, 4] := '12';
+//   Stgr_Base16.Cells[11, 4] := '14';
+//   Stgr_Base16.Cells[12, 4] := '15';
+//   Stgr_Base16.Cells[13, 4] := '16';
+//   Stgr_Base16.Cells[14, 4] := '17';
+//   Stgr_Base16.Cells[15, 4] := '20';
+//   Stgr_Base16.Cells[16, 4] := '21';
+//   Stgr_Base16.Cells[17, 4] := '22';
+//   Stgr_Base16.Cells[18, 4] := '23';
+//   Stgr_Base09.Cells[0, 4] := '04';
+//   Stgr_Base09.Cells[1, 4] := 'V';
+//   Stgr_Base09.Cells[2, 4] := '05';
+//   Stgr_Base09.Cells[3, 4] := '08';
+//   Stgr_Base09.Cells[4, 4] := '10';
+//   Stgr_Base09.Cells[5, 4] := '13';
+//   Stgr_Base09.Cells[6, 4] := '18';
+//   Stgr_Base09.Cells[7, 4] := '19';
+//   Stgr_Base09.Cells[8, 4] := '24';
+//   Stgr_Base09.Cells[9, 4] := '25';
+//   //05
+//   Stgr_Base16.Cells[0, 5] := '05';
+//   Stgr_Base16.Cells[1, 5] := 'V';
+//   Stgr_Base16.Cells[2, 5]  := '02';
+//   Stgr_Base16.Cells[3, 5]  := '03';
+//   Stgr_Base16.Cells[4, 5]  := '04';
+//   Stgr_Base16.Cells[5, 5]  := '05';
+//   Stgr_Base16.Cells[6, 5]  := '08';
+//   Stgr_Base16.Cells[7, 5]  := '09';
+//   Stgr_Base16.Cells[8, 5]  := '10';
+//   Stgr_Base16.Cells[9, 5]  := '11';
+//   Stgr_Base16.Cells[10, 5] := '13';
+//   Stgr_Base16.Cells[11, 5] := '14';
+//   Stgr_Base16.Cells[12, 5] := '16';
+//   Stgr_Base16.Cells[13, 5] := '18';
+//   Stgr_Base16.Cells[14, 5] := '19';
+//   Stgr_Base16.Cells[15, 5] := '21';
+//   Stgr_Base16.Cells[16, 5] := '22';
+//   Stgr_Base16.Cells[17, 5] := '23';
+//   Stgr_Base16.Cells[18, 5] := '24';
+//   Stgr_Base09.Cells[0, 5] := '05';
+//   Stgr_Base09.Cells[1, 5] := 'V';
+//   Stgr_Base09.Cells[2, 5] := '01';
+//   Stgr_Base09.Cells[3, 5] := '06';
+//   Stgr_Base09.Cells[4, 5] := '07';
+//   Stgr_Base09.Cells[5, 5] := '12';
+//   Stgr_Base09.Cells[6, 5] := '15';
+//   Stgr_Base09.Cells[7, 5] := '17';
+//   Stgr_Base09.Cells[8, 5] := '20';
+//   Stgr_Base09.Cells[9, 5] := '25';
+//   //06
+//   Stgr_Base16.Cells[0, 6] := '06';
+//   Stgr_Base16.Cells[1, 6] := 'V';
+//   Stgr_Base16.Cells[2, 6]  := '01';
+//   Stgr_Base16.Cells[3, 6]  := '03';
+//   Stgr_Base16.Cells[4, 6]  := '04';
+//   Stgr_Base16.Cells[5, 6]  := '05';
+//   Stgr_Base16.Cells[6, 6]  := '06';
+//   Stgr_Base16.Cells[7, 6]  := '09';
+//   Stgr_Base16.Cells[8, 6]  := '10';
+//   Stgr_Base16.Cells[9, 6]  := '11';
+//   Stgr_Base16.Cells[10, 6] := '12';
+//   Stgr_Base16.Cells[11, 6] := '15';
+//   Stgr_Base16.Cells[12, 6] := '16';
+//   Stgr_Base16.Cells[13, 6] := '17';
+//   Stgr_Base16.Cells[14, 6] := '18';
+//   Stgr_Base16.Cells[15, 6] := '20';
+//   Stgr_Base16.Cells[16, 6] := '21';
+//   Stgr_Base16.Cells[17, 6] := '23';
+//   Stgr_Base16.Cells[18, 6] := '25';
+//   Stgr_Base09.Cells[0, 6] := '06';
+//   Stgr_Base09.Cells[1, 6] := 'V';
+//   Stgr_Base09.Cells[2, 6] := '02';
+//   Stgr_Base09.Cells[3, 6] := '07';
+//   Stgr_Base09.Cells[4, 6] := '08';
+//   Stgr_Base09.Cells[5, 6] := '13';
+//   Stgr_Base09.Cells[6, 6] := '14';
+//   Stgr_Base09.Cells[7, 6] := '19';
+//   Stgr_Base09.Cells[8, 6] := '22';
+//   Stgr_Base09.Cells[9, 6] := '24';
+//   //07
+//   Stgr_Base16.Cells[0, 7] := '07';
+//   Stgr_Base16.Cells[1, 7] := 'V';
+//   Stgr_Base16.Cells[2, 7]  := '02';
+//   Stgr_Base16.Cells[3, 7]  := '03';
+//   Stgr_Base16.Cells[4, 7]  := '05';
+//   Stgr_Base16.Cells[5, 7]  := '07';
+//   Stgr_Base16.Cells[6, 7]  := '08';
+//   Stgr_Base16.Cells[7, 7]  := '10';
+//   Stgr_Base16.Cells[8, 7]  := '11';
+//   Stgr_Base16.Cells[9, 7]  := '12';
+//   Stgr_Base16.Cells[10, 7] := '13';
+//   Stgr_Base16.Cells[11, 7] := '16';
+//   Stgr_Base16.Cells[12, 7] := '17';
+//   Stgr_Base16.Cells[13, 7] := '18';
+//   Stgr_Base16.Cells[14, 7] := '19';
+//   Stgr_Base16.Cells[15, 7] := '22';
+//   Stgr_Base16.Cells[16, 7] := '23';
+//   Stgr_Base16.Cells[17, 7] := '24';
+//   Stgr_Base16.Cells[18, 7] := '25';
+//   Stgr_Base09.Cells[0, 7] := '07';
+//   Stgr_Base09.Cells[1, 7] := 'V';
+//   Stgr_Base09.Cells[2, 7] := '01';
+//   Stgr_Base09.Cells[3, 7] := '04';
+//   Stgr_Base09.Cells[4, 7] := '06';
+//   Stgr_Base09.Cells[5, 7] := '09';
+//   Stgr_Base09.Cells[6, 7] := '14';
+//   Stgr_Base09.Cells[7, 7] := '15';
+//   Stgr_Base09.Cells[8, 7] := '20';
+//   Stgr_Base09.Cells[9, 7] := '21';
+//   //08
+//   Stgr_Base16.Cells[0, 8] := '08';
+//   Stgr_Base16.Cells[1, 8] := 'V';
+//   Stgr_Base16.Cells[2, 8]  := '01';
+//   Stgr_Base16.Cells[3, 8]  := '04';
+//   Stgr_Base16.Cells[4, 8]  := '05';
+//   Stgr_Base16.Cells[5, 8]  := '06';
+//   Stgr_Base16.Cells[6, 8]  := '07';
+//   Stgr_Base16.Cells[7, 8]  := '09';
+//   Stgr_Base16.Cells[8, 8]  := '10';
+//   Stgr_Base16.Cells[9, 8]  := '12';
+//   Stgr_Base16.Cells[10, 8] := '14';
+//   Stgr_Base16.Cells[11, 8] := '15';
+//   Stgr_Base16.Cells[12, 8] := '17';
+//   Stgr_Base16.Cells[13, 8] := '18';
+//   Stgr_Base16.Cells[14, 8] := '19';
+//   Stgr_Base16.Cells[15, 8] := '20';
+//   Stgr_Base16.Cells[16, 8] := '23';
+//   Stgr_Base16.Cells[17, 8] := '24';
+//   Stgr_Base16.Cells[18, 8] := '25';
+//   Stgr_Base09.Cells[0, 8] := '08';
+//   Stgr_Base09.Cells[1, 8] := 'V';
+//   Stgr_Base09.Cells[2, 8] := '02';
+//   Stgr_Base09.Cells[3, 8] := '03';
+//   Stgr_Base09.Cells[4, 8] := '08';
+//   Stgr_Base09.Cells[5, 8] := '11';
+//   Stgr_Base09.Cells[6, 8] := '13';
+//   Stgr_Base09.Cells[7, 8] := '16';
+//   Stgr_Base09.Cells[8, 8] := '21';
+//   Stgr_Base09.Cells[9, 8] := '22';
+//   //09
+//   Stgr_Base16.Cells[0, 9] := '09';
+//   Stgr_Base16.Cells[1, 9] := 'V';
+//   Stgr_Base16.Cells[2, 9]  := '01';
+//   Stgr_Base16.Cells[3, 9]  := '02';
+//   Stgr_Base16.Cells[4, 9]  := '05';
+//   Stgr_Base16.Cells[5, 9]  := '06';
+//   Stgr_Base16.Cells[6, 9]  := '07';
+//   Stgr_Base16.Cells[7, 9]  := '08';
+//   Stgr_Base16.Cells[8, 9]  := '11';
+//   Stgr_Base16.Cells[9, 9]  := '12';
+//   Stgr_Base16.Cells[10, 9] := '13';
+//   Stgr_Base16.Cells[11, 9] := '14';
+//   Stgr_Base16.Cells[12, 9] := '16';
+//   Stgr_Base16.Cells[13, 9] := '17';
+//   Stgr_Base16.Cells[14, 9] := '19';
+//   Stgr_Base16.Cells[15, 9] := '21';
+//   Stgr_Base16.Cells[16, 9] := '22';
+//   Stgr_Base16.Cells[17, 9] := '24';
+//   Stgr_Base16.Cells[18, 9] := '25';
+//   Stgr_Base09.Cells[0, 9] := '09';
+//   Stgr_Base09.Cells[1, 9] := 'V';
+//   Stgr_Base09.Cells[2, 9] := '03';
+//   Stgr_Base09.Cells[3, 9] := '04';
+//   Stgr_Base09.Cells[4, 9] := '09';
+//   Stgr_Base09.Cells[5, 9] := '10';
+//   Stgr_Base09.Cells[6, 9] := '15';
+//   Stgr_Base09.Cells[7, 9] := '18';
+//   Stgr_Base09.Cells[8, 9] := '20';
+//   Stgr_Base09.Cells[9, 9] := '23';
+//   //10
+//   Stgr_Base16.Cells[0, 10] := '10';
+//   Stgr_Base16.Cells[1, 10] := 'V';
+//   Stgr_Base16.Cells[2, 10]  := '01';
+//   Stgr_Base16.Cells[3, 10]  := '03';
+//   Stgr_Base16.Cells[4, 10]  := '04';
+//   Stgr_Base16.Cells[5, 10]  := '06';
+//   Stgr_Base16.Cells[6, 10]  := '07';
+//   Stgr_Base16.Cells[7, 10]  := '08';
+//   Stgr_Base16.Cells[8, 10]  := '09';
+//   Stgr_Base16.Cells[9, 10]  := '12';
+//   Stgr_Base16.Cells[10, 10] := '13';
+//   Stgr_Base16.Cells[11, 10] := '14';
+//   Stgr_Base16.Cells[12, 10] := '15';
+//   Stgr_Base16.Cells[13, 10] := '18';
+//   Stgr_Base16.Cells[14, 10] := '19';
+//   Stgr_Base16.Cells[15, 10] := '20';
+//   Stgr_Base16.Cells[16, 10] := '21';
+//   Stgr_Base16.Cells[17, 10] := '23';
+//   Stgr_Base16.Cells[18, 10] := '24';
+//   Stgr_Base09.Cells[0, 10] := '10';
+//   Stgr_Base09.Cells[1, 10] := 'V';
+//   Stgr_Base09.Cells[2, 10] := '02';
+//   Stgr_Base09.Cells[3, 10] := '05';
+//   Stgr_Base09.Cells[4, 10] := '10';
+//   Stgr_Base09.Cells[5, 10] := '11';
+//   Stgr_Base09.Cells[6, 10] := '16';
+//   Stgr_Base09.Cells[7, 10] := '17';
+//   Stgr_Base09.Cells[8, 10] := '22';
+//   Stgr_Base09.Cells[9, 10] := '25';
+//   //11
+//   Stgr_Base16.Cells[0, 11] := '11';
+//   Stgr_Base16.Cells[1, 11] := 'V';
+//   Stgr_Base16.Cells[2, 11]  := '01';
+//   Stgr_Base16.Cells[3, 11]  := '02';
+//   Stgr_Base16.Cells[4, 11]  := '03';
+//   Stgr_Base16.Cells[5, 11]  := '05';
+//   Stgr_Base16.Cells[6, 11]  := '06';
+//   Stgr_Base16.Cells[7, 11]  := '08';
+//   Stgr_Base16.Cells[8, 11]  := '10';
+//   Stgr_Base16.Cells[9, 11]  := '11';
+//   Stgr_Base16.Cells[10, 11] := '13';
+//   Stgr_Base16.Cells[11, 11] := '14';
+//   Stgr_Base16.Cells[12, 11] := '15';
+//   Stgr_Base16.Cells[13, 11] := '16';
+//   Stgr_Base16.Cells[14, 11] := '19';
+//   Stgr_Base16.Cells[15, 11] := '20';
+//   Stgr_Base16.Cells[16, 11] := '21';
+//   Stgr_Base16.Cells[17, 11] := '22';
+//   Stgr_Base16.Cells[18, 11] := '25';
+//   Stgr_Base09.Cells[0, 11] := '11';
+//   Stgr_Base09.Cells[1, 11] := 'V';
+//   Stgr_Base09.Cells[2, 11] := '04';
+//   Stgr_Base09.Cells[3, 11] := '07';
+//   Stgr_Base09.Cells[4, 11] := '09';
+//   Stgr_Base09.Cells[5, 11] := '12';
+//   Stgr_Base09.Cells[6, 11] := '17';
+//   Stgr_Base09.Cells[7, 11] := '18';
+//   Stgr_Base09.Cells[8, 11] := '23';
+//   Stgr_Base09.Cells[9, 11] := '24';
+//   //12
+//   Stgr_Base16.Cells[0, 12] := '12';
+//   Stgr_Base16.Cells[1, 12] := 'V';
+//   Stgr_Base16.Cells[2, 12]  := '01';
+//   Stgr_Base16.Cells[3, 12]  := '02';
+//   Stgr_Base16.Cells[4, 12]  := '03';
+//   Stgr_Base16.Cells[5, 12]  := '04';
+//   Stgr_Base16.Cells[6, 12]  := '07';
+//   Stgr_Base16.Cells[7, 12]  := '08';
+//   Stgr_Base16.Cells[8, 12]  := '09';
+//   Stgr_Base16.Cells[9, 12]  := '10';
+//   Stgr_Base16.Cells[10, 12] := '12';
+//   Stgr_Base16.Cells[11, 12] := '13';
+//   Stgr_Base16.Cells[12, 12] := '15';
+//   Stgr_Base16.Cells[13, 12] := '17';
+//   Stgr_Base16.Cells[14, 12] := '18';
+//   Stgr_Base16.Cells[15, 12] := '20';
+//   Stgr_Base16.Cells[16, 12] := '21';
+//   Stgr_Base16.Cells[17, 12] := '22';
+//   Stgr_Base16.Cells[18, 12] := '23';
+//   Stgr_Base09.Cells[0, 12] := '12';
+//   Stgr_Base09.Cells[1, 12] := 'V';
+//   Stgr_Base09.Cells[2, 12] := '05';
+//   Stgr_Base09.Cells[3, 12] := '06';
+//   Stgr_Base09.Cells[4, 12] := '11';
+//   Stgr_Base09.Cells[5, 12] := '14';
+//   Stgr_Base09.Cells[6, 12] := '16';
+//   Stgr_Base09.Cells[7, 12] := '19';
+//   Stgr_Base09.Cells[8, 12] := '24';
+//   Stgr_Base09.Cells[9, 12] := '25';
+//   //13
+//   Stgr_Base16.Cells[0, 13] := '13';
+//   Stgr_Base16.Cells[1, 13] := 'V';
+//   Stgr_Base16.Cells[2, 13]  := '02';
+//   Stgr_Base16.Cells[3, 13]  := '03';
+//   Stgr_Base16.Cells[4, 13]  := '04';
+//   Stgr_Base16.Cells[5, 13]  := '05';
+//   Stgr_Base16.Cells[6, 13]  := '08';
+//   Stgr_Base16.Cells[7, 13]  := '09';
+//   Stgr_Base16.Cells[8, 13]  := '10';
+//   Stgr_Base16.Cells[9, 13]  := '11';
+//   Stgr_Base16.Cells[10, 13] := '14';
+//   Stgr_Base16.Cells[11, 13] := '15';
+//   Stgr_Base16.Cells[12, 13] := '16';
+//   Stgr_Base16.Cells[13, 13] := '17';
+//   Stgr_Base16.Cells[14, 13] := '19';
+//   Stgr_Base16.Cells[15, 13] := '20';
+//   Stgr_Base16.Cells[16, 13] := '22';
+//   Stgr_Base16.Cells[17, 13] := '24';
+//   Stgr_Base16.Cells[18, 13] := '25';
+//   Stgr_Base09.Cells[0, 13] := '13';
+//   Stgr_Base09.Cells[1, 13] := 'V';
+//   Stgr_Base09.Cells[2, 13] := '01';
+//   Stgr_Base09.Cells[3, 13] := '06';
+//   Stgr_Base09.Cells[4, 13] := '07';
+//   Stgr_Base09.Cells[5, 13] := '12';
+//   Stgr_Base09.Cells[6, 13] := '13';
+//   Stgr_Base09.Cells[7, 13] := '18';
+//   Stgr_Base09.Cells[8, 13] := '21';
+//   Stgr_Base09.Cells[9, 13] := '23';
+//   //14
+//   Stgr_Base16.Cells[0, 14] := '14';
+//   Stgr_Base16.Cells[1, 14] := 'V';
+//   Stgr_Base16.Cells[2, 14]  := '01';
+//   Stgr_Base16.Cells[3, 14]  := '02';
+//   Stgr_Base16.Cells[4, 14]  := '04';
+//   Stgr_Base16.Cells[5, 14]  := '06';
+//   Stgr_Base16.Cells[6, 14]  := '07';
+//   Stgr_Base16.Cells[7, 14]  := '09';
+//   Stgr_Base16.Cells[8, 14]  := '10';
+//   Stgr_Base16.Cells[9, 14]  := '11';
+//   Stgr_Base16.Cells[10, 14] := '12';
+//   Stgr_Base16.Cells[11, 14] := '15';
+//   Stgr_Base16.Cells[12, 14] := '16';
+//   Stgr_Base16.Cells[13, 14] := '17';
+//   Stgr_Base16.Cells[14, 14] := '18';
+//   Stgr_Base16.Cells[15, 14] := '21';
+//   Stgr_Base16.Cells[16, 14] := '22';
+//   Stgr_Base16.Cells[17, 14] := '23';
+//   Stgr_Base16.Cells[18, 14] := '24';
+//   Stgr_Base09.Cells[0, 14] := '14';
+//   Stgr_Base09.Cells[1, 14] := 'V';
+//   Stgr_Base09.Cells[2, 14] := '03';
+//   Stgr_Base09.Cells[3, 14] := '05';
+//   Stgr_Base09.Cells[4, 14] := '08';
+//   Stgr_Base09.Cells[5, 14] := '13';
+//   Stgr_Base09.Cells[6, 14] := '14';
+//   Stgr_Base09.Cells[7, 14] := '19';
+//   Stgr_Base09.Cells[8, 14] := '20';
+//   Stgr_Base09.Cells[9, 14] := '25';
+//   //15
+//   Stgr_Base16.Cells[0, 15] := '15';
+//   Stgr_Base16.Cells[1, 15] := 'V';
+//   Stgr_Base16.Cells[2, 15]  := '03';
+//   Stgr_Base16.Cells[3, 15]  := '04';
+//   Stgr_Base16.Cells[4, 15]  := '05';
+//   Stgr_Base16.Cells[5, 15]  := '06';
+//   Stgr_Base16.Cells[6, 15]  := '08';
+//   Stgr_Base16.Cells[7, 15]  := '09';
+//   Stgr_Base16.Cells[8, 15]  := '11';
+//   Stgr_Base16.Cells[9, 15]  := '13';
+//   Stgr_Base16.Cells[10, 15] := '14';
+//   Stgr_Base16.Cells[11, 15] := '16';
+//   Stgr_Base16.Cells[12, 15] := '17';
+//   Stgr_Base16.Cells[13, 15] := '18';
+//   Stgr_Base16.Cells[14, 15] := '19';
+//   Stgr_Base16.Cells[15, 15] := '22';
+//   Stgr_Base16.Cells[16, 15] := '23';
+//   Stgr_Base16.Cells[17, 15] := '24';
+//   Stgr_Base16.Cells[18, 15] := '25';
+//   Stgr_Base09.Cells[0, 15] := '15';
+//   Stgr_Base09.Cells[1, 15] := 'V';
+//   Stgr_Base09.Cells[2, 15] := '01';
+//   Stgr_Base09.Cells[3, 15] := '02';
+//   Stgr_Base09.Cells[4, 15] := '07';
+//   Stgr_Base09.Cells[5, 15] := '10';
+//   Stgr_Base09.Cells[6, 15] := '12';
+//   Stgr_Base09.Cells[7, 15] := '15';
+//   Stgr_Base09.Cells[8, 15] := '20';
+//   Stgr_Base09.Cells[9, 15] := '21';
+
+   Stgr_Base16.RowCount := 4 ;
+   Stgr_Base09.RowCount := 4 ;
+   Stgr_Base17VF.RowCount := 16;
+   Stgr_Base16.Height := Scbx_GABARITO.Height - 55;
+   Stgr_Base09.Height := Scbx_GABARITO.Height - 55;
+
+   Stgr_Estatisticas.ColWidths[0] := 50;
+   Stgr_Estatisticas.Cells[1,0] := 'Total de Ocorrências';
+   Stgr_Estatisticas.Cells[2,0] := '% Ocorrências';
+   Stgr_Estatisticas.Cells[3,0] := 'Média Ocorrências';
+   Stgr_Estatisticas.Cells[4,0] := 'Último Sorteio';
+   Stgr_Estatisticas.Cells[5,0] := 'Número de atrasos';
+
+   Stgr_Estatisticas13.ColWidths[0] := 50;
+   Stgr_Estatisticas13.Cells[1,0] := 'Total de Ocorrências';
+   Stgr_Estatisticas13.Cells[2,0] := '% Ocorrências';
+   Stgr_Estatisticas13.Cells[3,0] := 'Média Ocorrências';
+   Stgr_Estatisticas13.Cells[4,0] := 'Último Sorteio';
+   Stgr_Estatisticas13.Cells[5,0] := 'Número de atrasos';
+end;
 
 
 end.
