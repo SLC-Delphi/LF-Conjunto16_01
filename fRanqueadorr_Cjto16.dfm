@@ -14,107 +14,122 @@ object Form1: TForm1
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
+  object Label1: TLabel
+    Left = 12
+    Top = 26
+    Width = 202
+    Height = 18
+    Caption = '16 N'#218'MEROS  DE BASE'
+    Color = 2306625
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -16
+    Font.Name = 'Verdana'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    Transparent = False
+  end
   object Scbx_GABARITO: TScrollBox
     Left = 0
     Top = 0
     Width = 1194
     Height = 562
-    HorzScrollBar.Position = 1867
-    HorzScrollBar.Range = 4920
+    HorzScrollBar.Position = 689
+    HorzScrollBar.Range = 4995
     Align = alClient
     AutoScroll = False
     BevelOuter = bvRaised
     BorderStyle = bsNone
-    Color = 4344918
+    Color = 6253946
     ParentColor = False
     TabOrder = 0
     DesignSize = (
       1194
       545)
     object La_nSorteioRank: TLabel
-      Left = -770
-      Top = 8
-      Width = 329
+      Left = 413
+      Top = 27
+      Width = 347
       Height = 23
       Align = alCustom
       Caption = 'Total de sorteios na apura'#231#227'o:'
+      Color = clWhite
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = 14150655
+      Font.Color = clWhite
       Font.Height = -19
       Font.Name = 'Verdana'
       Font.Style = [fsBold]
+      ParentColor = False
       ParentFont = False
-      ExplicitLeft = 84
     end
     object Label3: TLabel
-      Left = -1257
-      Top = 8
-      Width = 186
-      Height = 18
+      Left = -84
+      Top = 35
+      Width = 172
+      Height = 19
       Caption = '9 N'#218'MEROS DE BASE'
       Color = 2306625
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
       Font.Height = -16
-      Font.Name = 'Verdana'
+      Font.Name = 'Arial'
       Font.Style = [fsBold]
       ParentColor = False
       ParentFont = False
       Transparent = False
     end
     object Label7: TLabel
-      Left = -1863
-      Top = 8
-      Width = 202
-      Height = 18
+      Left = -687
+      Top = 35
+      Width = 185
+      Height = 19
       Caption = '16 N'#218'MEROS  DE BASE'
       Color = 2306625
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
       Font.Height = -16
-      Font.Name = 'Verdana'
+      Font.Name = 'Arial'
       Font.Style = [fsBold]
       ParentColor = False
       ParentFont = False
       Transparent = False
     end
     object Label14: TLabel
-      Left = 58
+      Left = 1236
       Top = 9
-      Width = 890
-      Height = 18
-      Caption = 
-        'ESTAT'#205'STICA PARA OCORR'#202'NCIA DE 7 N. SORTEADOS DAS LINHAS DE 16 E' +
-        'M TODOS OS SORTEIOS '
+      Width = 475
+      Height = 20
+      Caption = 'RANK. DECRESC. P/ 7 NS SORTS. NA LINHA 16 NS'
       Color = 2306625
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -16
+      Font.Height = -17
       Font.Name = 'Verdana'
       Font.Style = [fsBold]
       ParentColor = False
       ParentFont = False
+      Transparent = False
     end
     object Label15: TLabel
-      Left = 1632
+      Left = 2810
       Top = 13
-      Width = 890
-      Height = 18
-      Caption = 
-        'ESTAT'#205'STICA PARA OCORR'#202'NCIA DE 8 N. SORTEADOS DAS LINHAS DE 09 E' +
-        'M TODOS OS SORTEIOS '
+      Width = 463
+      Height = 20
+      Caption = 'RANK. DECRESC. P/ 8 NS SORTS. NA LINHA 9 NS'
       Color = 2306625
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -16
+      Font.Height = -17
       Font.Name = 'Verdana'
       Font.Style = [fsBold]
       ParentColor = False
       ParentFont = False
+      Transparent = False
     end
     object Label54: TLabel
-      Left = -887
-      Top = 1
+      Left = 294
+      Top = 31
       Width = 99
       Height = 36
       Caption = 'REDEFINIR V ou F'
@@ -131,7 +146,7 @@ object Form1: TForm1
       WordWrap = True
     end
     object Label134: TLabel
-      Left = 16483
+      Left = 17661
       Top = 25
       Width = 117
       Height = 36
@@ -148,7 +163,7 @@ object Form1: TForm1
       WordWrap = True
     end
     object Label135: TLabel
-      Left = 16319
+      Left = 17497
       Top = 23
       Width = 117
       Height = 36
@@ -165,7 +180,7 @@ object Form1: TForm1
       WordWrap = True
     end
     object Label136: TLabel
-      Left = 16198
+      Left = 17376
       Top = 23
       Width = 112
       Height = 36
@@ -182,7 +197,7 @@ object Form1: TForm1
       WordWrap = True
     end
     object Label138: TLabel
-      Left = 16711
+      Left = 17889
       Top = 5
       Width = 89
       Height = 54
@@ -199,7 +214,7 @@ object Form1: TForm1
       WordWrap = True
     end
     object Label139: TLabel
-      Left = 16809
+      Left = 17987
       Top = 23
       Width = 112
       Height = 36
@@ -216,36 +231,61 @@ object Form1: TForm1
       WordWrap = True
     end
     object Label_qtdSorteios: TLabel
-      Left = -433
-      Top = 9
-      Width = 77
+      Left = 748
+      Top = 28
+      Width = 66
       Height = 23
       Align = alCustom
       Caption = '88.888'
+      Color = clWhite
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = 14150655
+      Font.Color = 8454143
+      Font.Height = -19
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label2: TLabel
+      Left = -686
+      Top = 0
+      Width = 1083
+      Height = 23
+      Caption = 
+        'R A N K .  E S T A T .  -  1 5   G R U P O S   1   L I N H A   9' +
+        '  N S    X  1 L I N H A   1 6   N S  M A R E A'
+      Color = 1384232
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clCream
       Font.Height = -19
       Font.Name = 'Verdana'
       Font.Style = [fsBold]
+      ParentColor = False
       ParentFont = False
-      ExplicitLeft = 421
+      Transparent = False
     end
     object Stgr_Base09: TStringGrid
-      Left = -1260
-      Top = 39
+      Left = -82
+      Top = 54
       Width = 370
-      Height = 1583
+      Height = 1498
       TabStop = False
       Anchors = [akLeft, akTop, akBottom]
-      Color = 8229658
+      Color = 14476544
       ColCount = 11
       DefaultColWidth = 30
-      DefaultRowHeight = 23
+      DefaultRowHeight = 28
       DrawingStyle = gdsClassic
-      FixedColor = 11048845
+      FixedColor = 11318976
       FixedCols = 2
       RowCount = 26
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
       Options = [goFixedHorzLine, goHorzLine, goRangeSelect]
+      ParentFont = False
       TabOrder = 0
       ColWidths = (
         30
@@ -259,51 +299,30 @@ object Form1: TForm1
         30
         30
         30)
-      RowHeights = (
-        23
-        24
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23)
     end
     object Stgr_Base16: TStringGrid
-      Left = -1863
-      Top = 39
+      Left = -685
+      Top = 54
       Width = 595
-      Height = 1583
+      Height = 1498
       TabStop = False
       Anchors = [akLeft, akTop, akBottom]
       BorderStyle = bsNone
-      Color = 10193920
+      Color = 15390976
       ColCount = 18
       DefaultColWidth = 30
-      DefaultRowHeight = 23
+      DefaultRowHeight = 28
       DrawingStyle = gdsClassic
-      FixedColor = 11048845
+      FixedColor = clSilver
       FixedCols = 2
       RowCount = 26
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
       Options = [goFixedVertLine, goFixedHorzLine, goHorzLine, goRangeSelect]
+      ParentFont = False
       TabOrder = 1
       ColWidths = (
         30
@@ -324,94 +343,79 @@ object Form1: TForm1
         30
         30
         30)
-      RowHeights = (
-        23
-        24
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23)
     end
     object Stgr_Estatisticas: TStringGrid
-      Left = -112
+      Left = 1066
       Top = 34
       Width = 715
-      Height = 1583
+      Height = 1498
       TabStop = False
       Anchors = [akLeft, akTop, akBottom]
-      Color = 10193920
+      Color = 15390976
       ColCount = 6
       DefaultColWidth = 120
-      DefaultRowHeight = 23
+      DefaultRowHeight = 28
       DrawingStyle = gdsClassic
-      FixedColor = clGray
+      FixedColor = clSilver
       RowCount = 26
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
       Options = [goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect]
+      ParentFont = False
       TabOrder = 2
       RowHeights = (
-        23
-        24
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23)
+        28
+        28
+        28
+        28
+        28
+        28
+        28
+        28
+        28
+        28
+        28
+        28
+        28
+        28
+        28
+        28
+        28
+        28
+        28
+        28
+        28
+        28
+        28
+        28
+        28
+        28)
     end
     object Stgr_Sorteios: TStringGrid
-      Left = -770
-      Top = 34
-      Width = 645
-      Height = 1583
+      Left = 378
+      Top = 54
+      Width = 663
+      Height = 1498
       TabStop = False
       Anchors = [akLeft, akTop, akBottom]
       BorderStyle = bsNone
-      Color = 10193920
+      Color = 15390976
       ColCount = 19
       DefaultColWidth = 30
       DefaultRowHeight = 23
       DrawingStyle = gdsClassic
-      FixedColor = 11048845
+      FixedColor = clSilver
       RowCount = 26
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
       Options = [goFixedVertLine, goFixedHorzLine, goHorzLine, goRangeSelect]
+      ParentFont = False
       TabOrder = 3
       ColWidths = (
         30
@@ -462,305 +466,155 @@ object Form1: TForm1
         23)
     end
     object Stgr_EstatisticasOcorrencias: TStringGrid
-      Left = 606
+      Left = 1784
       Top = 33
-      Width = 535
-      Height = 1583
+      Width = 570
+      Height = 1498
       TabStop = False
       Anchors = [akLeft, akTop, akBottom]
-      Color = 9278218
+      Color = 13357679
       ColCount = 1
-      DefaultColWidth = 490
-      DefaultRowHeight = 23
+      DefaultColWidth = 525
+      DefaultRowHeight = 28
       DrawingStyle = gdsClassic
-      FixedColor = clGray
+      FixedColor = clSilver
       FixedCols = 0
       RowCount = 26
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Courier New'
+      Font.Height = -15
+      Font.Name = 'Tahoma'
       Font.Style = []
       Options = [goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect]
       ParentFont = False
       TabOrder = 4
-      RowHeights = (
-        23
-        24
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23)
     end
     object Stgr_EstatisticasSorteiosAtrasados: TStringGrid
-      Left = 1142
+      Left = 2346
       Top = 33
-      Width = 264
-      Height = 1583
+      Width = 304
+      Height = 1498
       TabStop = False
       Anchors = [akLeft, akTop, akBottom]
-      Color = 9278218
+      Color = 13357679
       ColCount = 1
-      DefaultColWidth = 225
-      DefaultRowHeight = 23
+      DefaultColWidth = 265
+      DefaultRowHeight = 28
       DrawingStyle = gdsClassic
-      FixedColor = clGray
+      FixedColor = clSilver
       FixedCols = 0
       RowCount = 26
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Courier New'
+      Font.Height = -15
+      Font.Name = 'Tahoma'
       Font.Style = []
       Options = [goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect]
       ParentFont = False
       TabOrder = 5
-      RowHeights = (
-        23
-        24
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23)
     end
     object Stgr_EstatisticasOcorrencias13: TStringGrid
-      Left = 2242
+      Left = 3420
       Top = 40
-      Width = 535
-      Height = 1583
+      Width = 575
+      Height = 1498
       TabStop = False
       Anchors = [akLeft, akTop, akBottom]
-      Color = 9278218
+      Color = 13357679
       ColCount = 1
-      DefaultColWidth = 490
-      DefaultRowHeight = 23
+      DefaultColWidth = 530
+      DefaultRowHeight = 28
       DrawingStyle = gdsClassic
-      FixedColor = clGray
+      FixedColor = 11318976
       FixedCols = 0
       RowCount = 26
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Courier New'
+      Font.Height = -15
+      Font.Name = 'Tahoma'
       Font.Style = []
       Options = [goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect]
       ParentFont = False
       TabOrder = 6
-      RowHeights = (
-        23
-        24
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23)
     end
     object Stgr_EstatisticasSorteiosAtrasados13: TStringGrid
-      Left = 2779
+      Left = 3990
       Top = 40
-      Width = 252
-      Height = 1583
+      Width = 309
+      Height = 1498
       TabStop = False
       Anchors = [akLeft, akTop, akBottom]
-      Color = 9278218
+      Color = 13357679
       ColCount = 1
-      DefaultColWidth = 225
-      DefaultRowHeight = 23
+      DefaultColWidth = 275
+      DefaultRowHeight = 28
       DrawingStyle = gdsClassic
-      FixedColor = clGray
+      FixedColor = 11318976
       FixedCols = 0
       RowCount = 26
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Courier New'
+      Font.Height = -15
+      Font.Name = 'Tahoma'
       Font.Style = []
       Options = [goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect]
       ParentFont = False
       TabOrder = 7
-      RowHeights = (
-        23
-        24
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23)
     end
     object Stgr_Estatisticas13: TStringGrid
-      Left = 1491
+      Left = 2669
       Top = 41
-      Width = 752
-      Height = 1583
+      Width = 740
+      Height = 1498
       TabStop = False
       Anchors = [akLeft, akTop, akBottom]
-      Color = 9278218
+      Color = 14276864
       ColCount = 6
       DefaultColWidth = 120
-      DefaultRowHeight = 23
+      DefaultRowHeight = 28
       DrawingStyle = gdsClassic
-      FixedColor = clGray
+      FixedColor = 11318976
       RowCount = 26
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
       Options = [goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect]
+      ParentFont = False
       TabOrder = 8
-      RowHeights = (
-        23
-        24
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23)
     end
     object Stgr_Base17VF: TStringGrid
-      Left = -887
-      Top = 39
-      Width = 105
-      Height = 1583
+      Left = 291
+      Top = 54
+      Width = 77
+      Height = 1498
       TabStop = False
       Anchors = [akLeft, akTop, akBottom]
       BorderStyle = bsNone
-      Color = 10193920
+      Color = 15390976
       ColCount = 2
       DefaultColWidth = 30
-      DefaultRowHeight = 23
+      DefaultRowHeight = 26
       DrawingStyle = gdsClassic
-      FixedColor = 11048845
+      FixedColor = clSilver
       RowCount = 26
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
       Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goDrawFocusSelected, goEditing]
+      ParentFont = False
       TabOrder = 9
       Visible = False
       ColWidths = (
         30
         30)
-      RowHeights = (
-        23
-        24
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23
-        23)
     end
     object Stgr_Todos_Numeros: TStringGrid
-      Left = -1692
-      Top = -496
+      Left = -514
+      Top = -581
       Width = 718
       Height = 97
       Anchors = [akLeft, akBottom]
@@ -775,8 +629,8 @@ object Form1: TForm1
       Visible = False
     end
     object Stgr_TodosNumerosP17: TStringGrid
-      Left = -1692
-      Top = -576
+      Left = -514
+      Top = -661
       Width = 910
       Height = 74
       Anchors = [akLeft, akBottom]
@@ -791,7 +645,7 @@ object Form1: TForm1
       Visible = False
     end
     object stgr_excluiFixar_BaseL4Ac4: TStringGrid
-      Left = 16481
+      Left = 17659
       Top = 61
       Width = 186
       Height = 0
@@ -807,7 +661,7 @@ object Form1: TForm1
       TabOrder = 12
     end
     object stgr_excluiFixar_BaseL4Ac3: TStringGrid
-      Left = 16319
+      Left = 17497
       Top = 61
       Width = 156
       Height = 0
@@ -824,7 +678,7 @@ object Form1: TForm1
       TabOrder = 13
     end
     object stgr_excluiFixar_BaseL4Ac2: TStringGrid
-      Left = 16197
+      Left = 17375
       Top = 61
       Width = 116
       Height = 0
@@ -841,7 +695,7 @@ object Form1: TForm1
       TabOrder = 14
     end
     object stgr_excluiFixar_BaseL5Ac3: TStringGrid
-      Left = 16931
+      Left = 18109
       Top = 61
       Width = 156
       Height = 0
@@ -858,7 +712,7 @@ object Form1: TForm1
       TabOrder = 15
     end
     object stgr_excluiFixar_BaseL5Ac2: TStringGrid
-      Left = 16809
+      Left = 17987
       Top = 61
       Width = 116
       Height = 0
@@ -875,7 +729,7 @@ object Form1: TForm1
       TabOrder = 16
     end
     object stgr_excluiFixar_BaseL5Ac1: TStringGrid
-      Left = 16711
+      Left = 17889
       Top = 61
       Width = 92
       Height = 0
@@ -892,31 +746,31 @@ object Form1: TForm1
       TabOrder = 17
     end
     object Bbt_rank: TBitBtn
-      Left = -1373
-      Top = 3
-      Width = 89
-      Height = 34
+      Left = 347
+      Top = 26
+      Width = 59
+      Height = 28
       Caption = 'Rank'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -19
+      Font.Height = -16
       Font.Name = 'Arial'
-      Font.Style = []
+      Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 18
       OnClick = Bbt_rankClick
     end
     object Bbt_carregarSorteio15N: TBitBtn
-      Left = -1620
-      Top = 3
-      Width = 241
-      Height = 34
+      Left = 139
+      Top = 26
+      Width = 202
+      Height = 28
       Caption = 'CARREGAR SORTEIOS'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -19
+      Font.Height = -16
       Font.Name = 'Arial'
-      Font.Style = []
+      Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 19
       OnClick = Bbt_CarregarSort

@@ -274,3 +274,29 @@
 03 04 05 06 07 08
 11 12 13 14 15 16
 02 09 10 17
+
+
+
+
+2 3 2
+3 2 2
+
+1
+2
+3
+
+4
+5
+6
+
+7
+8
+9
+
+tb1 3 completa com 0 se necessário
+tb2 3 completa com 0 se necessário 
+tb3 2
+
+tb7 1
+tb7 2
+tb7 final
