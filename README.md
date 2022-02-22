@@ -1,4 +1,10 @@
 # LF-Conjunto16_01
-Conjunto de codificações para iniciar o estudo do projeto até a conclusão do mesmo.
+observação: Delphi XE8 ou superior. Compilar para WIN64 e o computador utilizado deve ter pelo menos 6GB de Ram.
 
- O RanqueadorConjunto16 utilizado banco de dados:
+Possui o DefineConjunto16 que é um conjunto de codificações para iniciar o estudo do projeto até a conclusão do mesmo.
+
+ O RanqueadorConjunto16 deve ser utilizado com o banco de dados do meu repositório : https://github.com/SLC-Delphi/CxLF-sgbd
+
+Lembre-se da observação colocada no repositório acima citado.
+
+A pasta emails_recebidos possui algumas descrições do que deve ser transformado em algoritmos.
