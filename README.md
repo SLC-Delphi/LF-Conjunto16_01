@@ -1,5 +1,5 @@
 # LF-Conjunto16_01
-observação: Delphi XE8 ou superior. Compilar para WIN64 e o computador utilizado deve ter pelo menos 6GB de Ram.
+Observação: Delphi XE8 (object pascal) ou superior. Compilar para WIN64 e o computador utilizado deve ter pelo menos 6GB de Ram.
 
 Possui o DefineConjunto16 que é um conjunto de codificações para iniciar o estudo do projeto até a conclusão do mesmo.
 
