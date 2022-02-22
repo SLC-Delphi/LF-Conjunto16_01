@@ -11,7 +11,7 @@ Lembre-se da observação colocada no repositório acima citado.
 
 A pasta emails_recebidos possui algumas descrições do que deve ser transformado em algoritmos.
 
-Observação 2: Serviço desenvolvido aos finais de semana.
+Observação 2: Serviço desenvolvido aos finais de semana  e/ou em horas vagas.
 
 Observação 3: Ainda em desenvolvimento, seguindo o que pede o proprietário.
 
