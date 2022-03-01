@@ -180,17 +180,42 @@ Type
     Label24: TLabel;
     BitBtn_OKGerarCombinacoesPara7: TBitBtn;
     BitBtn_VoltarCombinacoesPara7: TBitBtn;
-    Label25: TLabel;
-    cb_CombinacoesPara7_Geral: TComboBox;
-    Panel3: TPanel;
+    pa_geraCom7Personalizado: TPanel;
     Label26: TLabel;
-    ComboBox1: TComboBox;
-    ComboBox2: TComboBox;
+    cb_CombinacoesPara7PersonalL01: TComboBox;
+    cb_CombinacoesPara7PersonalL02: TComboBox;
     Label27: TLabel;
-    ComboBox3: TComboBox;
-    ComboBox4: TComboBox;
+    cb_CombinacoesPara7PersonalL03: TComboBox;
+    cb_CombinacoesPara7PersonalL04: TComboBox;
     Label28: TLabel;
     Label29: TLabel;
+    pa_GerarComb7_Geral: TPanel;
+    Label25: TLabel;
+    cb_CombinacoesPara7Geral: TComboBox;
+    Rb_gerarComb7Geral: TRadioButton;
+    Rb_gerarComb7Personalizado: TRadioButton;
+    Label30: TLabel;
+    cb_CombinacoesPara7PersonalL05: TComboBox;
+    Label31: TLabel;
+    cb_CombinacoesPara7PersonalL06: TComboBox;
+    Label32: TLabel;
+    cb_CombinacoesPara7PersonalL07: TComboBox;
+    cb_CombinacoesPara7PersonalL14: TComboBox;
+    Label33: TLabel;
+    cb_CombinacoesPara7PersonalL13: TComboBox;
+    Label41: TLabel;
+    cb_CombinacoesPara7PersonalL12: TComboBox;
+    Label46: TLabel;
+    cb_CombinacoesPara7PersonalL11: TComboBox;
+    Label48: TLabel;
+    cb_CombinacoesPara7PersonalL10: TComboBox;
+    Label49: TLabel;
+    cb_CombinacoesPara7PersonalL09: TComboBox;
+    Label51: TLabel;
+    Label52: TLabel;
+    cb_CombinacoesPara7PersonalL08: TComboBox;
+    Label54: TLabel;
+    cb_CombinacoesPara7PersonalL15: TComboBox;
       Procedure FormClose(Sender: TObject; Var Action: TCloseAction);
       Procedure FormCreate(Sender: TObject);
       Procedure Bbt_gerarSequenciasClick(Sender: TObject);
@@ -209,6 +234,8 @@ Type
     procedure BitBtn_BNCombinacoesPara7Click(Sender: TObject);
     procedure BitBtn_VoltarCombinacoesPara7Click(Sender: TObject);
     procedure BitBtn_OKGerarCombinacoesPara7Click(Sender: TObject);
+    procedure Rb_gerarComb7PersonalizadoClick(Sender: TObject);
+    procedure Rb_gerarComb7GeralClick(Sender: TObject);
    Private
       viDivisorSalvar1: integer;
       viDivisorAtualizar1: integer;
@@ -277,6 +304,7 @@ Begin
    pa_fimCombinacoesPara7.Visible := False;
    pa_fimCombinacoesPara7.Left := 9500;
 End;
+
 
 Procedure TFrm_defineCjunto16.FormClose(Sender: TObject; Var Action: TCloseAction);
 Begin
@@ -473,11 +501,16 @@ begin
    Memo_Combinacoes_Todas.Clear;
    Memo_Combinacoes_Todas.Clear;
    Memo_Combinacoes_Todas.Lines.Add('{ Definir Conjunto 16  -   Combinações de 07 números por blocos}');
-   Memo_Combinacoes_Todas.Lines.Add(cb_CombinacoesPara7_Geral.Text);
+   if Rb_gerarComb7Geral.Checked then
+      Memo_Combinacoes_Todas.Lines.Add(cb_CombinacoesPara7Geral.Text);
    Memo_Combinacoes_Todas.Lines.Add ('==============================================================');
 
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 1)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 5)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 1)
+      or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 5))
+      and (
+          (cb_CombinacoesPara7PersonalL01.itemIndex=0)or (cb_CombinacoesPara7PersonalL01.itemIndex=1)
+          or (cb_CombinacoesPara7PersonalL01.itemIndex=4) or (cb_CombinacoesPara7PersonalL01.itemIndex=5)
+         )
    then
    begin
       GerarCombPara7_L1(1, 1);
@@ -485,8 +518,12 @@ begin
       GerarComb7Coincidencias('01', 1, 2, la_blocosLinha01.Caption);
       RecontroiTelaComb7Para;
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 2)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 2)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL01.itemIndex=0)or (cb_CombinacoesPara7PersonalL01.itemIndex=2)
+          or (cb_CombinacoesPara7PersonalL01.itemIndex=4) or (cb_CombinacoesPara7PersonalL01.itemIndex=6)
+         )         
    then
    begin
       GerarCombPara7_L1(1, 1);
@@ -494,8 +531,12 @@ begin
       GerarComb7Coincidencias('01', 1, 3, la_blocosLinha01.Caption);
       RecontroiTelaComb7Para;
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 3)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 5) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 3)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 5) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL01.itemIndex=0)or (cb_CombinacoesPara7PersonalL01.itemIndex=3)
+          or (cb_CombinacoesPara7PersonalL01.itemIndex=5) or (cb_CombinacoesPara7PersonalL01.itemIndex=6)
+         )         
    then
    begin
       GerarCombPara7_L1(2, 1);
@@ -504,24 +545,36 @@ begin
       RecontroiTelaComb7Para;
    end;
 
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 1)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 5)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 1)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 5))
+      and (
+          (cb_CombinacoesPara7PersonalL02.itemIndex=0)or (cb_CombinacoesPara7PersonalL02.itemIndex=1)
+          or (cb_CombinacoesPara7PersonalL02.itemIndex=4) or (cb_CombinacoesPara7PersonalL02.itemIndex=5)
+         )
    then
    begin
       GerarCombPara7_L2(1,1);
       GerarCombPara7_L2(2,2);
       GerarComb7Coincidencias('02', 1, 2, la_blocosLinha02.Caption);
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 2)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 2)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL02.itemIndex=0)or (cb_CombinacoesPara7PersonalL02.itemIndex=2)
+          or (cb_CombinacoesPara7PersonalL02.itemIndex=4) or (cb_CombinacoesPara7PersonalL02.itemIndex=5)
+         )
    then
    begin
       GerarCombPara7_L2(1,1);
       GerarCombPara7_L2(3,2);
       GerarComb7Coincidencias('02', 1, 3, la_blocosLinha02.Caption);
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 3)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 5) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 3)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 5) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL02.itemIndex=0)or (cb_CombinacoesPara7PersonalL02.itemIndex=3)
+          or (cb_CombinacoesPara7PersonalL02.itemIndex=5) or (cb_CombinacoesPara7PersonalL02.itemIndex=6)
+         )
    then
    begin
       GerarCombPara7_L2(2,1);
@@ -530,16 +583,24 @@ begin
    end;
       RecontroiTelaComb7Para;
 
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 1)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 5)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 1)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 5))
+      and (
+          (cb_CombinacoesPara7PersonalL03.itemIndex=0)or (cb_CombinacoesPara7PersonalL03.itemIndex=1)
+          or (cb_CombinacoesPara7PersonalL03.itemIndex=4) or (cb_CombinacoesPara7PersonalL03.itemIndex=5)
+         )
    then
    begin
       GerarCombPara7_L3(1, 1);
       GerarCombPara7_L3(2, 2);
       GerarComb7Coincidencias('03', 1, 2, la_blocosLinha03.Caption);
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 2)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 2)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL03.itemIndex=0)or (cb_CombinacoesPara7PersonalL03.itemIndex=2)
+          or (cb_CombinacoesPara7PersonalL03.itemIndex=4) or (cb_CombinacoesPara7PersonalL03.itemIndex=6)
+         )
    then
    begin
       RecontroiTelaComb7Para;
@@ -547,8 +608,12 @@ begin
       GerarCombPara7_L3(3, 2);
       GerarComb7Coincidencias('03', 1, 3, la_blocosLinha03.Caption);
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 3)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 5) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 3)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 5) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL03.itemIndex=0)or (cb_CombinacoesPara7PersonalL03.itemIndex=3)
+          or (cb_CombinacoesPara7PersonalL03.itemIndex=5) or (cb_CombinacoesPara7PersonalL03.itemIndex=6)
+         )
    then
    begin
       RecontroiTelaComb7Para;
@@ -558,24 +623,36 @@ begin
    end;
       RecontroiTelaComb7Para;
 
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 1)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 5)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 1)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 5))
+      and (
+          (cb_CombinacoesPara7PersonalL04.itemIndex=0)or (cb_CombinacoesPara7PersonalL04.itemIndex=1)
+          or (cb_CombinacoesPara7PersonalL04.itemIndex=4) or (cb_CombinacoesPara7PersonalL04.itemIndex=5)
+         )
    then
    begin
       GerarCombPara7_L4(1,1);
       GerarCombPara7_L4(2,2);
       GerarComb7Coincidencias('04', 1, 2, la_blocosLinha04.Caption);
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 2)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 2)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL04.itemIndex=0)or (cb_CombinacoesPara7PersonalL04.itemIndex=2)
+          or (cb_CombinacoesPara7PersonalL04.itemIndex=4) or (cb_CombinacoesPara7PersonalL04.itemIndex=6)
+         )
    then
    begin
       GerarCombPara7_L4(1,1);
       GerarCombPara7_L4(3,2);
       GerarComb7Coincidencias('04', 1, 3, la_blocosLinha04.Caption);
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 3)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 5) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 3)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 5) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL04.itemIndex=0)or (cb_CombinacoesPara7PersonalL04.itemIndex=3)
+          or (cb_CombinacoesPara7PersonalL04.itemIndex=5) or (cb_CombinacoesPara7PersonalL04.itemIndex=6)
+         )
    then
    begin
       GerarCombPara7_L4(2,1);
@@ -584,24 +661,36 @@ begin
    end;
       RecontroiTelaComb7Para;
 
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 1)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 5)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 1)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 5))
+      and (
+          (cb_CombinacoesPara7PersonalL05.itemIndex=0)or (cb_CombinacoesPara7PersonalL05.itemIndex=1)
+          or (cb_CombinacoesPara7PersonalL05.itemIndex=4) or (cb_CombinacoesPara7PersonalL05.itemIndex=5)
+         )
    then
    begin
       GerarCombPara7_L5(1,1);
       GerarCombPara7_L5(2,2);
       GerarComb7Coincidencias('05', 1, 2, la_blocosLinha05.Caption);
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 2)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 2)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL05.itemIndex=0)or (cb_CombinacoesPara7PersonalL05.itemIndex=2)
+          or (cb_CombinacoesPara7PersonalL05.itemIndex=4) or (cb_CombinacoesPara7PersonalL05.itemIndex=6)
+         )
    then
    begin
       GerarCombPara7_L5(1,1);
       GerarCombPara7_L5(3,2);
       GerarComb7Coincidencias('05', 1, 3, la_blocosLinha05.Caption);
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 3)
-        or (cb_CombinacoesPara7_Geral.ItemIndex = 5) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 3)
+           or (cb_CombinacoesPara7Geral.ItemIndex = 5) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL05.itemIndex=0)or (cb_CombinacoesPara7PersonalL05.itemIndex=3)
+          or (cb_CombinacoesPara7PersonalL05.itemIndex=5) or (cb_CombinacoesPara7PersonalL05.itemIndex=6)
+         )
    then
    begin
       GerarCombPara7_L5(2,1);
@@ -610,24 +699,36 @@ begin
    end;
       RecontroiTelaComb7Para;
 
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 1)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 5)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 1)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 5))
+      and (
+          (cb_CombinacoesPara7PersonalL06.itemIndex=0)or (cb_CombinacoesPara7PersonalL06.itemIndex=1)
+          or (cb_CombinacoesPara7PersonalL06.itemIndex=4) or (cb_CombinacoesPara7PersonalL06.itemIndex=5)
+         )
    then
    begin
       GerarCombPara7_L6(1,1);
       GerarCombPara7_L6(2,2);
       GerarComb7Coincidencias('06', 1, 2, la_blocosLinha06.Caption);
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 2)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 2)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL06.itemIndex=0)or (cb_CombinacoesPara7PersonalL06.itemIndex=2)
+          or (cb_CombinacoesPara7PersonalL06.itemIndex=4) or (cb_CombinacoesPara7PersonalL06.itemIndex=6)
+         )
    then
    begin
       GerarCombPara7_L6(1,1);
       GerarCombPara7_L6(3,2);
       GerarComb7Coincidencias('06', 1, 3, la_blocosLinha06.Caption);
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 3)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 5) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 3)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 5) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL06.itemIndex=0)or (cb_CombinacoesPara7PersonalL06.itemIndex=3)
+          or (cb_CombinacoesPara7PersonalL06.itemIndex=5) or (cb_CombinacoesPara7PersonalL06.itemIndex=6)
+         )
    then
    begin
       GerarCombPara7_L6(2,1);
@@ -636,16 +737,24 @@ begin
    end;
       RecontroiTelaComb7Para;
 
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 1)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 5)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 1)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 5))
+      and (
+          (cb_CombinacoesPara7PersonalL07.itemIndex=0)or (cb_CombinacoesPara7PersonalL07.itemIndex=3)
+          or (cb_CombinacoesPara7PersonalL07.itemIndex=4) or (cb_CombinacoesPara7PersonalL07.itemIndex=5)
+         )
    then
    begin
       GerarCombPara7_L07(1, 1);
       GerarCombPara7_L07(2, 2);
       GerarComb7Coincidencias('07', 1, 2, la_blocosLinha07.Caption);
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 2)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 2)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL07.itemIndex=0)or (cb_CombinacoesPara7PersonalL07.itemIndex=2)
+          or (cb_CombinacoesPara7PersonalL07.itemIndex=4) or (cb_CombinacoesPara7PersonalL07.itemIndex=6)
+         )
    then
    begin
       RecontroiTelaComb7Para;
@@ -653,8 +762,12 @@ begin
       GerarCombPara7_L07(3, 2);
       GerarComb7Coincidencias('07', 1, 3, la_blocosLinha07.Caption);
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 3)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 5) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 3)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 5) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL07.itemIndex=0)or (cb_CombinacoesPara7PersonalL07.itemIndex=3)
+          or (cb_CombinacoesPara7PersonalL07.itemIndex=5) or (cb_CombinacoesPara7PersonalL07.itemIndex=6)
+         )
    then
    begin
       RecontroiTelaComb7Para;
@@ -664,24 +777,36 @@ begin
    end;
       RecontroiTelaComb7Para;
 
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 1)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 5)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 1)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 5))
+      and (
+          (cb_CombinacoesPara7PersonalL08.itemIndex=0)or (cb_CombinacoesPara7PersonalL08.itemIndex=1)
+          or (cb_CombinacoesPara7PersonalL08.itemIndex=5) or (cb_CombinacoesPara7PersonalL08.itemIndex=6)
+         )
    then
    begin
       GerarCombPara7_L08(1,1);
       GerarCombPara7_L08(2,2);
       GerarComb7Coincidencias('08', 1, 2, la_blocosLinha08.Caption);
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 2)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 2)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL08.itemIndex=0)or (cb_CombinacoesPara7PersonalL08.itemIndex=2)
+          or (cb_CombinacoesPara7PersonalL08.itemIndex=4) or (cb_CombinacoesPara7PersonalL08.itemIndex=6)
+         )
    then
    begin
       GerarCombPara7_L08(1,1);
       GerarCombPara7_L08(3,2);
       GerarComb7Coincidencias('08', 1, 3, la_blocosLinha08.Caption);
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 3)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 5) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 3)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 5) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL08.itemIndex=0)or (cb_CombinacoesPara7PersonalL08.itemIndex=3)
+          or (cb_CombinacoesPara7PersonalL08.itemIndex=5) or (cb_CombinacoesPara7PersonalL08.itemIndex=6)
+         )
    then
    begin
       GerarCombPara7_L08(2,1);
@@ -690,24 +815,36 @@ begin
    end;
       RecontroiTelaComb7Para;
 
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 1)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 5)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 1)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 5))
+      and (
+          (cb_CombinacoesPara7PersonalL09.itemIndex=0)or (cb_CombinacoesPara7PersonalL09.itemIndex=1)
+          or (cb_CombinacoesPara7PersonalL09.itemIndex=4) or (cb_CombinacoesPara7PersonalL09.itemIndex=5)
+         )
    then
    begin
       GerarCombPara7_L09(1,1);
       GerarCombPara7_L09(2,2);
       GerarComb7Coincidencias('09', 1, 2, la_blocosLinha09.Caption);
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 2)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 2)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL09.itemIndex=0)or (cb_CombinacoesPara7PersonalL09.itemIndex=2)
+          or (cb_CombinacoesPara7PersonalL09.itemIndex=4) or (cb_CombinacoesPara7PersonalL09.itemIndex=6)
+         )
    then
    begin
       GerarCombPara7_L09(1,1);
       GerarCombPara7_L09(3,2);
       GerarComb7Coincidencias('09', 1, 3, la_blocosLinha09.Caption);
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 3)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 5) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 3)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 5) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL09.itemIndex=0)or (cb_CombinacoesPara7PersonalL09.itemIndex=3)
+          or (cb_CombinacoesPara7PersonalL09.itemIndex=5) or (cb_CombinacoesPara7PersonalL09.itemIndex=6)
+         )
    then
    begin
       GerarCombPara7_L09(2,1);
@@ -716,24 +853,36 @@ begin
    end;
       RecontroiTelaComb7Para;
 
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 1)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 5)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 1)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 5))
+      and (
+          (cb_CombinacoesPara7PersonalL10.itemIndex=0)or (cb_CombinacoesPara7PersonalL10.itemIndex=1)
+          or (cb_CombinacoesPara7PersonalL10.itemIndex=4) or (cb_CombinacoesPara7PersonalL10.itemIndex=5)
+         )
    then
    begin
       GerarCombPara7_L10(1,1);
       GerarCombPara7_L10(2,2);
       GerarComb7Coincidencias('10', 1, 2, la_blocosLinha10.Caption);
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 2)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 2)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL10.itemIndex=0)or (cb_CombinacoesPara7PersonalL10.itemIndex=2)
+          or (cb_CombinacoesPara7PersonalL10.itemIndex=4) or (cb_CombinacoesPara7PersonalL10.itemIndex=6)
+         )
    then
    begin
       GerarCombPara7_L10(1,1);
       GerarCombPara7_L10(3,2);
       GerarComb7Coincidencias('10', 1, 3, la_blocosLinha10.Caption);
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 3)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 5) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 3)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 5) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL10.itemIndex=0)or (cb_CombinacoesPara7PersonalL10.itemIndex=3)
+          or (cb_CombinacoesPara7PersonalL10.itemIndex=5) or (cb_CombinacoesPara7PersonalL10.itemIndex=6)
+         )
    then
    begin
       GerarCombPara7_L10(2,1);
@@ -742,24 +891,36 @@ begin
    end;
       RecontroiTelaComb7Para;
 
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 1)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 5)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 1)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 5))
+      and (
+          (cb_CombinacoesPara7PersonalL11.itemIndex=0)or (cb_CombinacoesPara7PersonalL11.itemIndex=1)
+          or (cb_CombinacoesPara7PersonalL11.itemIndex=4) or (cb_CombinacoesPara7PersonalL11.itemIndex=5)
+         )
    then
    begin
       GerarCombPara7_L11(1,1);
       GerarCombPara7_L11(2,2);
       GerarComb7Coincidencias('11', 1, 2, la_blocosLinha11.Caption);
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 2)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 2)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL11.itemIndex=0)or (cb_CombinacoesPara7PersonalL11.itemIndex=2)
+          or (cb_CombinacoesPara7PersonalL11.itemIndex=4) or (cb_CombinacoesPara7PersonalL11.itemIndex=6)
+         )
    then
    begin
       GerarCombPara7_L11(1,1);
       GerarCombPara7_L11(3,2);
       GerarComb7Coincidencias('11', 1, 3, la_blocosLinha11.Caption);
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 3)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 5) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 3)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 5) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL11.itemIndex=0)or (cb_CombinacoesPara7PersonalL11.itemIndex=3)
+          or (cb_CombinacoesPara7PersonalL11.itemIndex=5) or (cb_CombinacoesPara7PersonalL11.itemIndex=6)
+         )
    then
    begin
       GerarCombPara7_L11(2,1);
@@ -768,24 +929,36 @@ begin
    end;
       RecontroiTelaComb7Para;
 
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 1)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 5)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 1)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 5))
+      and (
+          (cb_CombinacoesPara7PersonalL12.itemIndex=0)or (cb_CombinacoesPara7PersonalL12.itemIndex=1)
+          or (cb_CombinacoesPara7PersonalL12.itemIndex=4) or (cb_CombinacoesPara7PersonalL12.itemIndex=5)
+         )
    then
    begin
       GerarCombPara7_L12(1,1);
       GerarCombPara7_L12(2,2);
       GerarComb7Coincidencias('12', 1, 2, la_blocosLinha12.Caption);
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 2)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 2)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL12.itemIndex=0)or (cb_CombinacoesPara7PersonalL12.itemIndex=2)
+          or (cb_CombinacoesPara7PersonalL12.itemIndex=4) or (cb_CombinacoesPara7PersonalL12.itemIndex=6)
+         )
    then
    begin
       GerarCombPara7_L12(1,1);
       GerarCombPara7_L12(3,2);
       GerarComb7Coincidencias('12', 1, 3, la_blocosLinha12.Caption);
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 3)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 5) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 3)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 5) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL12.itemIndex=0)or (cb_CombinacoesPara7PersonalL12.itemIndex=3)
+          or (cb_CombinacoesPara7PersonalL12.itemIndex=5) or (cb_CombinacoesPara7PersonalL12.itemIndex=6)
+         )
    then
    begin
       GerarCombPara7_L12(2,1);
@@ -794,24 +967,36 @@ begin
    end;
       RecontroiTelaComb7Para;
 
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 1)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 5)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 1)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 5))
+      and (
+          (cb_CombinacoesPara7PersonalL13.itemIndex=0)or (cb_CombinacoesPara7PersonalL13.itemIndex=1)
+          or (cb_CombinacoesPara7PersonalL13.itemIndex=4) or (cb_CombinacoesPara7PersonalL13.itemIndex=5)
+         )
    then
    begin
       GerarCombPara7_L13(1,1);
       GerarCombPara7_L13(2,2);
       GerarComb7Coincidencias('13', 1, 2, la_blocosLinha13.Caption);
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 2)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 2)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL13.itemIndex=0)or (cb_CombinacoesPara7PersonalL13.itemIndex=2)
+          or (cb_CombinacoesPara7PersonalL13.itemIndex=4) or (cb_CombinacoesPara7PersonalL13.itemIndex=6)
+         )
    then
    begin
       GerarCombPara7_L13(1,1);
       GerarCombPara7_L13(3,2);
       GerarComb7Coincidencias('13', 1, 3, la_blocosLinha13.Caption);
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 3)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 5) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 3)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 5) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL13.itemIndex=0)or (cb_CombinacoesPara7PersonalL13.itemIndex=3)
+          or (cb_CombinacoesPara7PersonalL13.itemIndex=5) or (cb_CombinacoesPara7PersonalL13.itemIndex=6)
+         )
    then
    begin
       GerarCombPara7_L13(2,1);
@@ -820,24 +1005,36 @@ begin
    end;
       RecontroiTelaComb7Para;
 
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 1)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 5)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 1)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 5))
+      and (
+          (cb_CombinacoesPara7PersonalL14.itemIndex=0)or (cb_CombinacoesPara7PersonalL14.itemIndex=1)
+          or (cb_CombinacoesPara7PersonalL14.itemIndex=4) or (cb_CombinacoesPara7PersonalL14.itemIndex=5)
+         )
    then
    begin
       GerarCombPara7_L14(1,1);
       GerarCombPara7_L14(2,2);
       GerarComb7Coincidencias('14', 1, 2, la_blocosLinha14.Caption);
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 2)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 2)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL14.itemIndex=0)or (cb_CombinacoesPara7PersonalL14.itemIndex=2)
+          or (cb_CombinacoesPara7PersonalL14.itemIndex=4) or (cb_CombinacoesPara7PersonalL14.itemIndex=6)
+         )
    then
    begin
       GerarCombPara7_L14(1,1);
       GerarCombPara7_L14(3,2);
       GerarComb7Coincidencias('14', 1, 3, la_blocosLinha14.Caption);
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 3)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 5) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 3)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 5) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL14.itemIndex=0)or (cb_CombinacoesPara7PersonalL14.itemIndex=3)
+          or (cb_CombinacoesPara7PersonalL14.itemIndex=5) or (cb_CombinacoesPara7PersonalL14.itemIndex=6)
+         )
    then
    begin
       GerarCombPara7_L14(2,1);
@@ -846,24 +1043,36 @@ begin
    end;
       RecontroiTelaComb7Para;
 
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 1)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 5)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 1)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 5))
+      and (
+          (cb_CombinacoesPara7PersonalL15.itemIndex=0)or (cb_CombinacoesPara7PersonalL15.itemIndex=1)
+          or (cb_CombinacoesPara7PersonalL15.itemIndex=4) or (cb_CombinacoesPara7PersonalL15.itemIndex=5)
+         )
    then
    begin
       GerarCombPara7_L15(1,1);
       GerarCombPara7_L15(2,2);
       GerarComb7Coincidencias('15', 1, 2, la_blocosLinha15.Caption);
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 2)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 4) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 2)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 4) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL15.itemIndex=0)or (cb_CombinacoesPara7PersonalL15.itemIndex=2)
+          or (cb_CombinacoesPara7PersonalL15.itemIndex=4) or (cb_CombinacoesPara7PersonalL15.itemIndex=6)
+         )
    then
    begin
       GerarCombPara7_L15(1,1);
       GerarCombPara7_L15(3,2);
       GerarComb7Coincidencias('15', 1, 3, la_blocosLinha15.Caption);
    end;
-   if (cb_CombinacoesPara7_Geral.ItemIndex = 0) or (cb_CombinacoesPara7_Geral.ItemIndex = 3)
-      or (cb_CombinacoesPara7_Geral.ItemIndex = 5) or (cb_CombinacoesPara7_Geral.ItemIndex = 6)
+   if ((cb_CombinacoesPara7Geral.ItemIndex = 0) or (cb_CombinacoesPara7Geral.ItemIndex = 3)
+         or (cb_CombinacoesPara7Geral.ItemIndex = 5) or (cb_CombinacoesPara7Geral.ItemIndex = 6))
+      and (
+          (cb_CombinacoesPara7PersonalL15.itemIndex=0)or (cb_CombinacoesPara7PersonalL15.itemIndex=3)
+          or (cb_CombinacoesPara7PersonalL15.itemIndex=5) or (cb_CombinacoesPara7PersonalL15.itemIndex=6)
+         )
    then
    begin
       GerarCombPara7_L15(2,1);
@@ -883,6 +1092,9 @@ end;
 
 Procedure TFrm_defineCjunto16.Button_gerarCombPara7Click(Sender: TObject);
 Begin
+   Rb_gerarComb7Geral.Checked := True;
+   Rb_gerarComb7Personalizado.Checked := True;
+   Rb_gerarComb7Geral.Checked := True;
    pa_gerarCombinacoesPara7.left := 200;
    pa_gerarCombinacoesPara7.Enabled := True;
    pa_gerarCombinacoesPara7.Visible := True;
@@ -4474,6 +4686,62 @@ Begin
    pa_fimAnalisador.Left := 690;
    showmessage(vsQuery);
 End;
+
+procedure TFrm_defineCjunto16.Rb_gerarComb7GeralClick(Sender: TObject);
+begin
+   pa_GerarComb7_Geral.Enabled := True;
+   pa_GerarComb7_Geral.Font.Size := 11;
+   pa_GerarComb7_Geral.Font.Style := [];
+   pa_GerarComb7_Geral.Font.Color := clBlack;
+   pa_GerarComb7_Geral.BorderStyle := bsSingle;
+   cb_CombinacoesPara7Geral.ItemIndex := 0;
+   pa_geraCom7Personalizado.Enabled := False;
+   pa_geraCom7Personalizado.Font.Size := 9;
+   pa_geraCom7Personalizado.Font.Style := [fsItalic];
+   pa_geraCom7Personalizado.Font.Color := clSilver;
+   pa_geraCom7Personalizado.BorderStyle := bsNone;
+   cb_CombinacoesPara7PersonalL01.ItemIndex := 0;
+   cb_CombinacoesPara7PersonalL02.ItemIndex := 0;
+   cb_CombinacoesPara7PersonalL03.ItemIndex := 0;
+   cb_CombinacoesPara7PersonalL04.ItemIndex := 0;
+   cb_CombinacoesPara7PersonalL05.ItemIndex := 0;
+   cb_CombinacoesPara7PersonalL06.ItemIndex := 0;
+   cb_CombinacoesPara7PersonalL07.ItemIndex := 0;
+   cb_CombinacoesPara7PersonalL08.ItemIndex := 0;
+   cb_CombinacoesPara7PersonalL09.ItemIndex := 0;
+   cb_CombinacoesPara7PersonalL10.ItemIndex := 0;
+   cb_CombinacoesPara7PersonalL11.ItemIndex := 0;
+   cb_CombinacoesPara7PersonalL12.ItemIndex := 0;
+   cb_CombinacoesPara7PersonalL13.ItemIndex := 0;
+   cb_CombinacoesPara7PersonalL14.ItemIndex := 0;
+   cb_CombinacoesPara7PersonalL15.ItemIndex := 0;
+   try
+      cb_CombinacoesPara7Geral.SetFocus;
+   except
+      //
+   end;
+end;
+
+procedure TFrm_defineCjunto16.Rb_gerarComb7PersonalizadoClick(Sender: TObject);
+begin
+   pa_GerarComb7_Geral.Enabled := False;
+   pa_GerarComb7_Geral.Font.Size := 9;
+   pa_GerarComb7_Geral.Font.Style := [fsItalic];
+   pa_GerarComb7_Geral.Font.Color := clSilver;
+   pa_GerarComb7_Geral.BorderStyle := bsNone;
+   cb_CombinacoesPara7Geral.ItemIndex := 0;
+   pa_geraCom7Personalizado.Enabled := True;
+   pa_geraCom7Personalizado.Font.Size := 11;
+   pa_geraCom7Personalizado.Font.Style := [];
+   pa_geraCom7Personalizado.Font.Color := clBlack;
+   pa_geraCom7Personalizado.BorderStyle := bsSingle;
+   try
+      pa_geraCom7Personalizado.SetFocus;
+   except
+      //
+   end;
+
+end;
 
 Procedure TFrm_defineCjunto16.ReconstroiTela;
 Begin
