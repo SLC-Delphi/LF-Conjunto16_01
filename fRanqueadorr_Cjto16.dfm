@@ -35,8 +35,8 @@ object Form1: TForm1
     Top = 0
     Width = 1194
     Height = 562
-    HorzScrollBar.Position = 3582
-    HorzScrollBar.Range = 4995
+    HorzScrollBar.Position = 94
+    HorzScrollBar.Range = 5195
     Align = alClient
     AutoScroll = False
     BevelOuter = bvRaised
@@ -48,7 +48,7 @@ object Form1: TForm1
       1194
       545)
     object La_nSorteioRank: TLabel
-      Left = -2480
+      Left = 1008
       Top = 27
       Width = 329
       Height = 23
@@ -65,7 +65,7 @@ object Form1: TForm1
       ExplicitLeft = 413
     end
     object Label3: TLabel
-      Left = -2977
+      Left = 511
       Top = 35
       Width = 172
       Height = 19
@@ -81,7 +81,7 @@ object Form1: TForm1
       Transparent = False
     end
     object Label7: TLabel
-      Left = -3580
+      Left = -92
       Top = 35
       Width = 185
       Height = 19
@@ -97,7 +97,7 @@ object Form1: TForm1
       Transparent = False
     end
     object Label14: TLabel
-      Left = -1109
+      Left = 2379
       Top = 7
       Width = 475
       Height = 20
@@ -113,7 +113,7 @@ object Form1: TForm1
       Transparent = False
     end
     object Label15: TLabel
-      Left = 527
+      Left = 4115
       Top = 14
       Width = 463
       Height = 20
@@ -129,7 +129,7 @@ object Form1: TForm1
       Transparent = False
     end
     object Label54: TLabel
-      Left = -2599
+      Left = 889
       Top = 31
       Width = 99
       Height = 36
@@ -147,7 +147,7 @@ object Form1: TForm1
       WordWrap = True
     end
     object Label134: TLabel
-      Left = 14768
+      Left = 18256
       Top = 25
       Width = 117
       Height = 36
@@ -164,7 +164,7 @@ object Form1: TForm1
       WordWrap = True
     end
     object Label135: TLabel
-      Left = 14604
+      Left = 18092
       Top = 23
       Width = 117
       Height = 36
@@ -181,7 +181,7 @@ object Form1: TForm1
       WordWrap = True
     end
     object Label136: TLabel
-      Left = 14483
+      Left = 17971
       Top = 23
       Width = 112
       Height = 36
@@ -198,7 +198,7 @@ object Form1: TForm1
       WordWrap = True
     end
     object Label138: TLabel
-      Left = 14996
+      Left = 18484
       Top = 5
       Width = 89
       Height = 54
@@ -215,7 +215,7 @@ object Form1: TForm1
       WordWrap = True
     end
     object Label139: TLabel
-      Left = 15094
+      Left = 18582
       Top = 23
       Width = 112
       Height = 36
@@ -232,7 +232,7 @@ object Form1: TForm1
       WordWrap = True
     end
     object Label_qtdSorteios: TLabel
-      Left = -2145
+      Left = 1343
       Top = 28
       Width = 66
       Height = 23
@@ -249,7 +249,7 @@ object Form1: TForm1
       ExplicitLeft = 748
     end
     object Label2: TLabel
-      Left = -3579
+      Left = -91
       Top = 0
       Width = 1083
       Height = 23
@@ -267,10 +267,10 @@ object Form1: TForm1
       Transparent = False
     end
     object Stgr_Base09: TStringGrid
-      Left = -2975
+      Left = 513
       Top = 54
       Width = 370
-      Height = 1481
+      Height = 1464
       TabStop = False
       Anchors = [akLeft, akTop, akBottom]
       Color = 14476544
@@ -303,10 +303,10 @@ object Form1: TForm1
         30)
     end
     object Stgr_Base16: TStringGrid
-      Left = -3578
+      Left = -90
       Top = 54
       Width = 595
-      Height = 1481
+      Height = 1464
       TabStop = False
       Anchors = [akLeft, akTop, akBottom]
       BorderStyle = bsNone
@@ -347,10 +347,10 @@ object Form1: TForm1
         30)
     end
     object Stgr_Estatisticas: TStringGrid
-      Left = -1827
+      Left = 1661
       Top = 34
       Width = 715
-      Height = 1481
+      Height = 1464
       TabStop = False
       Anchors = [akLeft, akTop, akBottom]
       Color = 15390976
@@ -397,10 +397,10 @@ object Form1: TForm1
         28)
     end
     object Stgr_Sorteios: TStringGrid
-      Left = -2515
+      Left = 973
       Top = 54
       Width = 663
-      Height = 1481
+      Height = 1464
       TabStop = False
       Anchors = [akLeft, akTop, akBottom]
       BorderStyle = bsNone
@@ -468,10 +468,10 @@ object Form1: TForm1
         23)
     end
     object Stgr_EstatisticasOcorrencias: TStringGrid
-      Left = -1109
+      Left = 2379
       Top = 33
       Width = 570
-      Height = 1481
+      Height = 1464
       TabStop = False
       Anchors = [akLeft, akTop, akBottom]
       Color = 13357679
@@ -492,15 +492,15 @@ object Form1: TForm1
       TabOrder = 4
     end
     object Stgr_EstatisticasSorteiosAtrasados: TStringGrid
-      Left = -547
+      Left = 2941
       Top = 33
-      Width = 304
-      Height = 1481
+      Width = 404
+      Height = 1464
       TabStop = False
       Anchors = [akLeft, akTop, akBottom]
       Color = 13357679
       ColCount = 1
-      DefaultColWidth = 265
+      DefaultColWidth = 365
       DefaultRowHeight = 28
       DrawingStyle = gdsClassic
       FixedColor = clSilver
@@ -516,10 +516,10 @@ object Form1: TForm1
       TabOrder = 5
     end
     object Stgr_EstatisticasOcorrencias13: TStringGrid
-      Left = 527
+      Left = 4115
       Top = 40
       Width = 575
-      Height = 1481
+      Height = 1464
       TabStop = False
       Anchors = [akLeft, akTop, akBottom]
       Color = 13357679
@@ -540,15 +540,15 @@ object Form1: TForm1
       TabOrder = 6
     end
     object Stgr_EstatisticasSorteiosAtrasados13: TStringGrid
-      Left = 1097
+      Left = 4685
       Top = 40
-      Width = 309
-      Height = 1481
+      Width = 409
+      Height = 1464
       TabStop = False
       Anchors = [akLeft, akTop, akBottom]
       Color = 13357679
       ColCount = 1
-      DefaultColWidth = 275
+      DefaultColWidth = 375
       DefaultRowHeight = 28
       DrawingStyle = gdsClassic
       FixedColor = 11318976
@@ -564,10 +564,10 @@ object Form1: TForm1
       TabOrder = 7
     end
     object Stgr_Estatisticas13: TStringGrid
-      Left = -224
+      Left = 3364
       Top = 41
       Width = 740
-      Height = 1481
+      Height = 1464
       TabStop = False
       Anchors = [akLeft, akTop, akBottom]
       Color = 14276864
@@ -587,10 +587,10 @@ object Form1: TForm1
       TabOrder = 8
     end
     object Stgr_Base17VF: TStringGrid
-      Left = -2602
+      Left = 886
       Top = 54
       Width = 77
-      Height = 1481
+      Height = 1464
       TabStop = False
       Anchors = [akLeft, akTop, akBottom]
       BorderStyle = bsNone
@@ -615,8 +615,8 @@ object Form1: TForm1
         30)
     end
     object Stgr_Todos_Numeros: TStringGrid
-      Left = -3407
-      Top = -598
+      Left = 81
+      Top = -615
       Width = 718
       Height = 97
       Anchors = [akLeft, akBottom]
@@ -631,8 +631,8 @@ object Form1: TForm1
       Visible = False
     end
     object Stgr_TodosNumerosP17: TStringGrid
-      Left = -3407
-      Top = -678
+      Left = 81
+      Top = -695
       Width = 910
       Height = 74
       Anchors = [akLeft, akBottom]
@@ -647,7 +647,7 @@ object Form1: TForm1
       Visible = False
     end
     object stgr_excluiFixar_BaseL4Ac4: TStringGrid
-      Left = 14766
+      Left = 18254
       Top = 61
       Width = 186
       Height = 0
@@ -663,7 +663,7 @@ object Form1: TForm1
       TabOrder = 12
     end
     object stgr_excluiFixar_BaseL4Ac3: TStringGrid
-      Left = 14604
+      Left = 18092
       Top = 61
       Width = 156
       Height = 0
@@ -680,7 +680,7 @@ object Form1: TForm1
       TabOrder = 13
     end
     object stgr_excluiFixar_BaseL4Ac2: TStringGrid
-      Left = 14482
+      Left = 17970
       Top = 61
       Width = 116
       Height = 0
@@ -697,7 +697,7 @@ object Form1: TForm1
       TabOrder = 14
     end
     object stgr_excluiFixar_BaseL5Ac3: TStringGrid
-      Left = 15216
+      Left = 18704
       Top = 61
       Width = 156
       Height = 0
@@ -714,7 +714,7 @@ object Form1: TForm1
       TabOrder = 15
     end
     object stgr_excluiFixar_BaseL5Ac2: TStringGrid
-      Left = 15094
+      Left = 18582
       Top = 61
       Width = 116
       Height = 0
@@ -731,7 +731,7 @@ object Form1: TForm1
       TabOrder = 16
     end
     object stgr_excluiFixar_BaseL5Ac1: TStringGrid
-      Left = 14996
+      Left = 18484
       Top = 61
       Width = 92
       Height = 0
@@ -748,7 +748,7 @@ object Form1: TForm1
       TabOrder = 17
     end
     object Bbt_rank: TBitBtn
-      Left = -2546
+      Left = 942
       Top = 26
       Width = 59
       Height = 28
@@ -763,7 +763,7 @@ object Form1: TForm1
       OnClick = Bbt_rankClick
     end
     object Bbt_carregarSorteio15N: TBitBtn
-      Left = -2754
+      Left = 734
       Top = 26
       Width = 202
       Height = 28

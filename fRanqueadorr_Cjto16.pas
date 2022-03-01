@@ -187,16 +187,17 @@ begin
       Stgr_Estatisticas.Cells[5,viContar16Combinacoes] := RightStr('00'+((Stgr_Sorteios.RowCount-1) - viUltimoSorteio07).ToString,3);
       if (((Stgr_Sorteios.RowCount-1) - viUltimoSorteio07) -(RoundTo((Stgr_Sorteios.RowCount-1) / vdbQtdOcorrencias07,0)) ) >= 0 then
       begin
-         vsAtrasados := RightStr('00'+(((Stgr_Sorteios.RowCount-1) - viUltimoSorteio07) -(RoundTo((Stgr_Sorteios.RowCount-1) / vdbQtdOcorrencias07,0)) ).ToString,3) ;
+         vsAtrasados := RightStr('00'+(((Stgr_Sorteios.RowCount-1) - viUltimoSorteio07) -(RoundTo((Stgr_Sorteios.RowCount-1) / vdbQtdOcorrencias07,0)) ).ToString,3) + ' concursos atrasados' ;
       end
       else
       begin
-         vsAtrasados := '-'+StringReplace(RightStr('00'+(((Stgr_Sorteios.RowCount-1) - viUltimoSorteio07) -(RoundTo((Stgr_Sorteios.RowCount-1) / vdbQtdOcorrencias07,0)) ).ToString,3),'-','',[]) ;
+         vsAtrasados := '.faltam '+StringReplace(RightStr('00'+(((Stgr_Sorteios.RowCount-1) - viUltimoSorteio07) -(RoundTo((Stgr_Sorteios.RowCount-1) / vdbQtdOcorrencias07,0)) ).ToString,3),'-','',[]) +' para 1 atraso';
       end;
       li_QtdAtrasados07.Add( vsAtrasados  +
-         ' no sorteio '+ (viUltimoSorteio07 + (RoundTo((Stgr_Sorteios.RowCount-1) / vdbQtdOcorrencias07,0)) ).ToString +
          ' na linha '
-         + RightStr('0'+viContar16Combinacoes.ToString,2));
+         + RightStr('0'+viContar16Combinacoes.ToString,2) +
+         ' no sorteio '+ (viUltimoSorteio07 + (RoundTo((Stgr_Sorteios.RowCount-1) / vdbQtdOcorrencias07,0)) ).ToString
+         );
       Stgr_Sorteios.Repaint;
       Stgr_Estatisticas.Repaint;
       Falso_Linha1TodosNumeros();
@@ -241,15 +242,16 @@ begin
 
       if (((Stgr_Sorteios.RowCount-1) - viUltimoSorteio08Base09) -(RoundTo((Stgr_Sorteios.RowCount-1) / vdbQtdOcorrencias08Base09,0)) ) >= 0 then
       begin
-         vsAtrasados := RightStr('00'+(((Stgr_Sorteios.RowCount-1) - viUltimoSorteio08Base09) -(RoundTo((Stgr_Sorteios.RowCount-1) / vdbQtdOcorrencias08Base09,0)) ).ToString,3) ;
+         vsAtrasados := RightStr('00'+(((Stgr_Sorteios.RowCount-1) - viUltimoSorteio08Base09) -(RoundTo((Stgr_Sorteios.RowCount-1) / vdbQtdOcorrencias08Base09,0)) ).ToString,3)+ ' concursos atrasados' ;
       end
       else
       begin
-         vsAtrasados := '-'+StringReplace(RightStr('00'+(((Stgr_Sorteios.RowCount-1) - viUltimoSorteio08Base09) -(RoundTo((Stgr_Sorteios.RowCount-1) / vdbQtdOcorrencias08Base09,0)) ).ToString,3),'-','',[]) ;
+         vsAtrasados := '.faltam '+StringReplace(RightStr('00'+(((Stgr_Sorteios.RowCount-1) - viUltimoSorteio08Base09) -(RoundTo((Stgr_Sorteios.RowCount-1) / vdbQtdOcorrencias08Base09,0)) ).ToString,3),'-','',[])+ ' para 1 atraso' ;
       end;
       li_QtdAtrasados08Base09.Add(vsAtrasados  +
-         ' no sorteio '+ (viUltimoSorteio08Base09 +(RoundTo((Stgr_Sorteios.RowCount-1) / vdbQtdOcorrencias08Base09,0))  ).ToString+
-          ' na linha '  + RightStr('0'+viContar16Combinacoes.ToString,2));
+         ' na linha '  + RightStr('0'+viContar16Combinacoes.ToString,2) +
+         ' no sorteio '+ (viUltimoSorteio08Base09 +(RoundTo((Stgr_Sorteios.RowCount-1) / vdbQtdOcorrencias08Base09,0))  ).ToString
+         );
       Self.Repaint;
       Scbx_GABARITO.Repaint;
       Stgr_Estatisticas.Repaint;
@@ -260,14 +262,49 @@ begin
    li_QtdAtrasados07.Sort;
    li_QtdOcorrencias08Base09.Sort;
    li_QtdAtrasados08Base09.Sort;
-   viContarCelulas :=0;
    for viContar16Combinacoes := (Stgr_Base16.RowCount-1) downto 1 do
    begin
       Stgr_EstatisticasOcorrencias.Cells[0, Stgr_Base16.RowCount-viContar16Combinacoes] := li_QtdOcorrencias07[viContar16Combinacoes-1];
-      Stgr_EstatisticasSorteiosAtrasados.Cells[0, Stgr_Base16.RowCount-viContar16Combinacoes] :=  li_QtdAtrasados07[viContar16Combinacoes-1];
       Stgr_EstatisticasOcorrencias13.Cells[0, Stgr_Base16.RowCount-viContar16Combinacoes] := li_QtdOcorrencias08Base09[viContar16Combinacoes-1];
-      Stgr_EstatisticasSorteiosAtrasados13.Cells[0, Stgr_Base16.RowCount-viContar16Combinacoes] :=  li_QtdAtrasados08Base09[viContar16Combinacoes-1];
    end;
+   for viContar16Combinacoes := (Stgr_Base16.RowCount-1) downto 1 do
+   begin
+      if copy(li_QtdAtrasados07[viContar16Combinacoes-1],1,1) <> '.' then
+         Stgr_EstatisticasSorteiosAtrasados.Cells[0, Stgr_Base16.RowCount-viContar16Combinacoes] :=  li_QtdAtrasados07[viContar16Combinacoes-1]
+      else
+      begin
+         viContarCelulas := Stgr_Base16.RowCount-viContar16Combinacoes;
+         Break;
+      end;
+   end;
+   for viContar16Combinacoes := 1 to (Stgr_Base16.RowCount-1) do
+   begin
+      if copy(li_QtdAtrasados07[viContar16Combinacoes-1],1,1) = '.' then
+      begin
+         Stgr_EstatisticasSorteiosAtrasados.Cells[0, viContarCelulas] :=  li_QtdAtrasados07[viContar16Combinacoes-1];
+         viContarCelulas := viContarCelulas + 1;
+      end;
+   end;
+
+   for viContar16Combinacoes := (Stgr_Base16.RowCount-1) downto 1 do
+   begin
+      if copy(li_QtdAtrasados08Base09[viContar16Combinacoes-1],1,1) <> '.' then
+         Stgr_EstatisticasSorteiosAtrasados13.Cells[0, Stgr_Base16.RowCount-viContar16Combinacoes] :=  li_QtdAtrasados08Base09[viContar16Combinacoes-1]
+      else
+      begin
+         viContarCelulas := Stgr_Base16.RowCount-viContar16Combinacoes;
+         Break;
+      end;
+   end;
+   for viContar16Combinacoes := 1 to (Stgr_Base16.RowCount-1) do
+   begin
+      if copy(li_QtdAtrasados08Base09[viContar16Combinacoes-1],1,1) = '.' then
+      begin
+         Stgr_EstatisticasSorteiosAtrasados13.Cells[0, viContarCelulas] :=  li_QtdAtrasados08Base09[viContar16Combinacoes-1];
+         viContarCelulas := viContarCelulas + 1;
+      end;
+   end;
+   ShowMessage(viContarCelulas.ToString());
 //   for viContarCelulas := 1 to 5 do
 //   begin
 //      vaiRankProcessar1 [viContarCelulas] := RightStr(Stgr_EstatisticasOcorrencias.Cells[0, viContarCelulas],2).ToInteger;
@@ -820,8 +857,8 @@ begin
    Stgr_Estatisticas13.Cells[3,0] := 'Média Ocorrências';
    Stgr_Estatisticas13.Cells[4,0] := 'Último Sorteio';
    Stgr_Estatisticas13.Cells[5,0] := 'Número de atrasos';
-   Stgr_EstatisticasSorteiosAtrasados.Cells[0,0] := 'Qtd Sorteio atrasado decrescente';
-   Stgr_EstatisticasSorteiosAtrasados13.cells[0,0] := 'Qtd Sorteio atrasado decrescente';
+//   Stgr_EstatisticasSorteiosAtrasados.Cells[0,0] := 'Qtd Sorteio atrasado decrescente';
+//   Stgr_EstatisticasSorteiosAtrasados13.cells[0,0] := 'Qtd Sorteio atrasado decrescente';
    Stgr_Estatisticas13.Height := Scbx_GABARITO.Height - 55;
    Stgr_EstatisticasOcorrencias13.Height := Scbx_GABARITO.Height - 55;
    Stgr_EstatisticasSorteiosAtrasados13.Height := Scbx_GABARITO.Height - 55;

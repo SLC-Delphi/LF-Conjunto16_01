@@ -1092,9 +1092,13 @@ end;
 
 Procedure TFrm_defineCjunto16.Button_gerarCombPara7Click(Sender: TObject);
 Begin
-   Rb_gerarComb7Geral.Checked := True;
-   Rb_gerarComb7Personalizado.Checked := True;
-   Rb_gerarComb7Geral.Checked := True;
+   try
+      Rb_gerarComb7Geral.Checked := True;
+      Rb_gerarComb7Personalizado.Checked := True;
+      Rb_gerarComb7Geral.Checked := True;
+   except
+      //
+   end;
    pa_gerarCombinacoesPara7.left := 200;
    pa_gerarCombinacoesPara7.Enabled := True;
    pa_gerarCombinacoesPara7.Visible := True;
