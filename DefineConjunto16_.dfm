@@ -169,7 +169,7 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
     end
     object Memo_Combinacoes_Todas: TMemo
       Left = 704
-      Top = 7
+      Top = 10
       Width = 272
       Height = 88
       Lines.Strings = (
@@ -1184,7 +1184,7 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
               Left = 17
               Top = 16
               Width = 624
-              Height = 22069
+              Height = 21901
               TabStop = False
               Anchors = [akLeft, akTop, akBottom]
               BorderStyle = bsNone
@@ -1240,7 +1240,7 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
               Left = 653
               Top = 16
               Width = 280
-              Height = 22070
+              Height = 21902
               TabStop = False
               Anchors = [akLeft, akTop, akBottom]
               BorderStyle = bsNone
@@ -1286,7 +1286,7 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
         end
       end
       object pa_menuGerar_20p11: TPanel
-        Left = -353
+        Left = -344
         Top = 82
         Width = 412
         Height = 168
@@ -1378,7 +1378,7 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
     object TabSheet_combinacoes07: TTabSheet
       Caption = 'Comnbina'#231#245'es para 7'
       ImageIndex = 1
-      object Panel3: TPanel
+      object pa_barraLateralComb7: TPanel
         Left = 0
         Top = 0
         Width = 195
@@ -1398,7 +1398,6 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
           Color = 7298882
           ParentBackground = False
           TabOrder = 0
-          ExplicitWidth = 205
         end
         object Panel5: TPanel
           Left = 0
@@ -1409,8 +1408,7 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
           BevelOuter = bvNone
           TabOrder = 1
           TabStop = True
-          ExplicitWidth = 205
-          object Button1: TButton
+          object Button_prepararComb7: TButton
             Left = 7
             Top = 13
             Width = 180
@@ -1427,9 +1425,9 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
             ImageMargins.Left = 4
             ParentFont = False
             TabOrder = 0
-            OnClick = bt_prepararClick
+            OnClick = Button_prepararComb7Click
           end
-          object Button2: TButton
+          object Button_gerarCombPara7: TButton
             Left = 7
             Top = 59
             Width = 180
@@ -1447,7 +1445,7 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
             ParentBiDiMode = False
             ParentFont = False
             TabOrder = 1
-            OnClick = bt_gerarClick
+            OnClick = Button_gerarCombPara7Click
           end
         end
       end
@@ -1461,8 +1459,6 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
         ParentBackground = False
         ParentColor = True
         TabOrder = 1
-        ExplicitLeft = 205
-        ExplicitWidth = 1381
         object Panel7: TPanel
           Left = 0
           Top = 0
@@ -1471,7 +1467,6 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 0
-          ExplicitWidth = 1381
           object ScrollBox1: TScrollBox
             Left = 0
             Top = 0
@@ -1485,9 +1480,7 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
             Color = 5520676
             ParentColor = False
             TabOrder = 0
-            ExplicitLeft = -2
-            ExplicitTop = -6
-            object Label20: TLabel
+            object la_blocosLinha01: TLabel
               Left = 9
               Top = 14
               Width = 194
@@ -1504,7 +1497,7 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
               Transparent = False
               WordWrap = True
             end
-            object Label17: TLabel
+            object la_blocosLinha02: TLabel
               Left = 222
               Top = 14
               Width = 194
@@ -1521,7 +1514,7 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
               Transparent = False
               WordWrap = True
             end
-            object Label19: TLabel
+            object la_blocosLinha03: TLabel
               Left = 432
               Top = 14
               Width = 194
@@ -1538,7 +1531,7 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
               Transparent = False
               WordWrap = True
             end
-            object Label21: TLabel
+            object la_blocosLinha05: TLabel
               Left = 857
               Top = 14
               Width = 194
@@ -1555,7 +1548,7 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
               Transparent = False
               WordWrap = True
             end
-            object Label22: TLabel
+            object la_blocosLinha04: TLabel
               Left = 644
               Top = 14
               Width = 194
@@ -1572,7 +1565,7 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
               Transparent = False
               WordWrap = True
             end
-            object Label23: TLabel
+            object la_blocosLinha06: TLabel
               Left = 1070
               Top = 14
               Width = 194
@@ -1589,7 +1582,7 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
               Transparent = False
               WordWrap = True
             end
-            object Label24: TLabel
+            object la_blocosLinha07: TLabel
               Left = 1283
               Top = 14
               Width = 194
@@ -1606,7 +1599,7 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
               Transparent = False
               WordWrap = True
             end
-            object Label25: TLabel
+            object la_blocosLinha08: TLabel
               Left = 1500
               Top = 14
               Width = 194
@@ -1623,7 +1616,7 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
               Transparent = False
               WordWrap = True
             end
-            object Label26: TLabel
+            object la_blocosLinha09: TLabel
               Left = 1713
               Top = 14
               Width = 201
@@ -1640,7 +1633,7 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
               Transparent = False
               WordWrap = True
             end
-            object Label27: TLabel
+            object la_blocosLinha10: TLabel
               Left = 1928
               Top = 14
               Width = 194
@@ -1657,9 +1650,9 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
               Transparent = False
               WordWrap = True
             end
-            object Label28: TLabel
-              Left = 2141
-              Top = 14
+            object la_blocosLinha11: TLabel
+              Left = 2137
+              Top = 17
               Width = 194
               Height = 32
               Caption = '11=06 07 08 09 10 11 12 13 14 15 16 17 18 19 24 25'
@@ -1674,7 +1667,7 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
               Transparent = False
               WordWrap = True
             end
-            object Label29: TLabel
+            object la_blocosLinha12: TLabel
               Left = 2360
               Top = 14
               Width = 194
@@ -1691,7 +1684,7 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
               Transparent = False
               WordWrap = True
             end
-            object Label30: TLabel
+            object la_blocosLinha13: TLabel
               Left = 2579
               Top = 14
               Width = 194
@@ -1708,7 +1701,7 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
               Transparent = False
               WordWrap = True
             end
-            object Label31: TLabel
+            object la_blocosLinha14: TLabel
               Left = 2798
               Top = 14
               Width = 194
@@ -1725,7 +1718,7 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
               Transparent = False
               WordWrap = True
             end
-            object Label32: TLabel
+            object la_blocosLinha15: TLabel
               Left = 3012
               Top = 14
               Width = 201
@@ -2202,20 +2195,18 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
           Align = alClient
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitWidth = 1381
           object ScrollBox2: TScrollBox
             Left = 0
             Top = 0
             Width = 1391
             Height = 224
-            HorzScrollBar.Range = 2040
+            HorzScrollBar.Range = 2100
             VertScrollBar.Range = 400
             Align = alClient
             AutoScroll = False
             Color = 5194024
             ParentColor = False
             TabOrder = 0
-            ExplicitWidth = 1381
             DesignSize = (
               1370
               203)
@@ -2313,7 +2304,7 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
               Left = 767
               Top = 27
               Width = 390
-              Height = 32050
+              Height = 31882
               TabStop = False
               Anchors = [akLeft, akTop, akBottom]
               BorderStyle = bsNone
@@ -2363,7 +2354,7 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
               Left = 1163
               Top = 27
               Width = 390
-              Height = 32050
+              Height = 31882
               TabStop = False
               Anchors = [akLeft, akTop, akBottom]
               BorderStyle = bsNone
@@ -2412,18 +2403,19 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
             object stgr_combinacoes7Coincidencias: TStringGrid
               Left = 1559
               Top = 27
-              Width = 390
-              Height = 32050
+              Width = 445
+              Height = 31882
               TabStop = False
               Anchors = [akLeft, akTop, akBottom]
               BorderStyle = bsNone
               Color = 7103055
-              ColCount = 10
+              ColCount = 11
+              Ctl3D = False
               DefaultColWidth = 32
               DefaultRowHeight = 23
               DrawingStyle = gdsGradient
               FixedColor = 10590093
-              FixedCols = 3
+              FixedCols = 4
               RowCount = 11
               Font.Charset = DEFAULT_CHARSET
               Font.Color = 13500259
@@ -2433,9 +2425,11 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
               GradientEndColor = 9603704
               GradientStartColor = 10196360
               Options = [goFixedVertLine, goFixedHorzLine, goHorzLine, goRangeSelect]
+              ParentCtl3D = False
               ParentFont = False
               TabOrder = 2
               ColWidths = (
+                32
                 32
                 32
                 32
@@ -2459,11 +2453,11 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
                 23
                 23)
             end
-            object stgr_Linha1: TStringGrid
+            object stgr_Linha1Comb7: TStringGrid
               Left = 8
               Top = 27
               Width = 255
-              Height = 32050
+              Height = 31882
               TabStop = False
               Anchors = [akLeft, akTop, akBottom]
               BorderStyle = bsNone
@@ -2505,11 +2499,11 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
                 23
                 23)
             end
-            object stgr_Linha2: TStringGrid
+            object stgr_Linha2Comb7: TStringGrid
               Left = 274
               Top = 27
               Width = 255
-              Height = 32050
+              Height = 31882
               TabStop = False
               Anchors = [akLeft, akTop, akBottom]
               BorderStyle = bsNone
@@ -2551,11 +2545,11 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
                 23
                 23)
             end
-            object stgr_Linha3: TStringGrid
-              Left = 539
+            object stgr_Linha3Comb7: TStringGrid
+              Left = 535
               Top = 27
               Width = 215
-              Height = 32050
+              Height = 31882
               TabStop = False
               Anchors = [akLeft, akTop, akBottom]
               BorderStyle = bsNone
@@ -2598,11 +2592,533 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
           end
         end
       end
+      object pa_fimCombinacoesPara7: TPanel
+        Left = 201
+        Top = 58
+        Width = 355
+        Height = 351
+        BevelInner = bvLowered
+        BevelWidth = 4
+        BorderWidth = 1
+        BorderStyle = bsSingle
+        Color = 7103036
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Verdana'
+        Font.Style = []
+        ParentBackground = False
+        ParentFont = False
+        TabOrder = 2
+        Visible = False
+        object Label17: TLabel
+          Left = 9
+          Top = 9
+          Width = 333
+          Height = 25
+          Align = alTop
+          Alignment = taCenter
+          Caption = 'Conjuntos 16'
+          Color = 14286790
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = 3351811
+          Font.Height = -21
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          Transparent = False
+          ExplicitWidth = 139
+        end
+        object Label19: TLabel
+          Left = 9
+          Top = 34
+          Width = 333
+          Height = 20
+          Align = alTop
+          Alignment = taCenter
+          Caption = ' Combina'#231#245'es de 7'
+          Color = 14286790
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = 3351811
+          Font.Height = -17
+          Font.Name = 'Verdana'
+          Font.Style = [fsItalic]
+          ParentColor = False
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExplicitWidth = 164
+        end
+        object Label20: TLabel
+          Left = 21
+          Top = 173
+          Width = 197
+          Height = 19
+          Caption = 'Total de dados gerados:'
+          Color = clBlack
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = 15925207
+          Font.Height = -16
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          Transparent = True
+        end
+        object Label21: TLabel
+          Left = 21
+          Top = 192
+          Width = 40
+          Height = 19
+          Caption = '0000'
+          Color = clBlack
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = 13500259
+          Font.Height = -16
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          Transparent = False
+        end
+        object Label22: TLabel
+          Left = 10
+          Top = 77
+          Width = 225
+          Height = 19
+          Caption = '1. In'#237'cio do Processamento:'
+          Color = clBlack
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = 15925207
+          Font.Height = -16
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          Transparent = True
+        end
+        object LA_gINICIO_100REPET7: TLabel
+          Left = 146
+          Top = 94
+          Width = 187
+          Height = 19
+          Caption = '01/01/2001 - 00:00:00'
+          Color = clBlack
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = 13500259
+          Font.Height = -16
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          Transparent = False
+        end
+        object Label34: TLabel
+          Left = 9
+          Top = 117
+          Width = 248
+          Height = 19
+          Caption = '2. T'#233'rmino do Processamento:'
+          Color = clBlack
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = 15925207
+          Font.Height = -16
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          Transparent = True
+        end
+        object LA_gFIM_GERAR7: TLabel
+          Left = 146
+          Top = 137
+          Width = 187
+          Height = 19
+          Caption = '01/01/2001 - 00:00:00'
+          Color = clBlack
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = 13500259
+          Font.Height = -16
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          Transparent = False
+        end
+        object Label42: TLabel
+          Left = 21
+          Top = 214
+          Width = 270
+          Height = 19
+          Caption = 'Total de dados sem os repetidos:'
+          Color = clBlack
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = 15925207
+          Font.Height = -16
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          Transparent = True
+          Visible = False
+        end
+        object Label43: TLabel
+          Left = 21
+          Top = 233
+          Width = 40
+          Height = 19
+          Caption = '0000'
+          Color = clBlack
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = 13500259
+          Font.Height = -16
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          Transparent = False
+          Visible = False
+        end
+        object BitBtn_OkCombinacoesPara7: TBitBtn
+          Left = 15
+          Top = 258
+          Width = 320
+          Height = 36
+          Caption = 'OK'
+          Default = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = 5579525
+          Font.Height = -20
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          NumGlyphs = 2
+          ParentFont = False
+          TabOrder = 0
+          OnClick = BitBtn_OkCombinacoesPara7Click
+        end
+        object BitBtn_BNCombinacoesPara7: TBitBtn
+          Left = 16
+          Top = 295
+          Width = 320
+          Height = 36
+          Caption = 'Bloco de Notas'
+          Default = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = 5579525
+          Font.Height = -20
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          NumGlyphs = 2
+          ParentFont = False
+          TabOrder = 1
+          OnClick = BitBtn_BNCombinacoesPara7Click
+        end
+      end
+      object pa_gerarCombinacoesPara7: TPanel
+        Left = 201
+        Top = 16
+        Width = 865
+        Height = 465
+        BevelInner = bvLowered
+        BevelWidth = 4
+        BorderWidth = 1
+        BorderStyle = bsSingle
+        Color = 7103036
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Verdana'
+        Font.Style = []
+        ParentBackground = False
+        ParentFont = False
+        TabOrder = 3
+        Visible = False
+        object Label23: TLabel
+          Left = 9
+          Top = 9
+          Width = 843
+          Height = 25
+          Align = alTop
+          Alignment = taCenter
+          Caption = 'Gerar'
+          Color = 14286790
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = 3351811
+          Font.Height = -21
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          Transparent = False
+          ExplicitWidth = 59
+        end
+        object Label24: TLabel
+          Left = 9
+          Top = 34
+          Width = 843
+          Height = 23
+          Align = alTop
+          Alignment = taCenter
+          Caption = ' Combina'#231#245'es de 7'
+          Color = 14286790
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = 3351811
+          Font.Height = -19
+          Font.Name = 'Verdana'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          ExplicitWidth = 183
+        end
+        object Label25: TLabel
+          Left = 16
+          Top = 83
+          Width = 67
+          Height = 19
+          Caption = 'I. Geral:'
+          Color = clBlack
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = 15925207
+          Font.Height = -16
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          Transparent = True
+        end
+        object BitBtn_OKGerarCombinacoesPara7: TBitBtn
+          Left = 15
+          Top = 410
+          Width = 200
+          Height = 36
+          Caption = 'OK'
+          Default = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = 5579525
+          Font.Height = -20
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          NumGlyphs = 2
+          ParentFont = False
+          TabOrder = 1
+          OnClick = BitBtn_OKGerarCombinacoesPara7Click
+        end
+        object BitBtn_VoltarCombinacoesPara7: TBitBtn
+          Left = 643
+          Top = 410
+          Width = 200
+          Height = 38
+          Caption = 'VOLTAR'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Verdana'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 2
+          OnClick = BitBtn_VoltarCombinacoesPara7Click
+        end
+        object cb_CombinacoesPara7_Geral: TComboBox
+          Left = 96
+          Top = 80
+          Width = 337
+          Height = 26
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -15
+          Font.Name = 'Verdana'
+          Font.Style = []
+          ItemIndex = 6
+          ParentFont = False
+          TabOrder = 0
+          Text = '06. Todos os 15 com blocos 1 e 3 / 2 e 3'
+          Items.Strings = (
+            '00. Todos os 15,Todos os Blocos'
+            '01. Todos os 15 com blocos 1 e 2'
+            '02. Todos os 15 com blocos 1 e 3'
+            '03. Todos os 15 com blocos 2 e 3'
+            '04. Todos os 15 com blocos 1 e 2 / 1 e 3 '
+            '05. Todos os 15 com blocos 1 e 2 / 2 e 3'
+            '06. Todos os 15 com blocos 1 e 3 / 2 e 3'
+            '07. Individual')
+        end
+        object Panel3: TPanel
+          Left = 21
+          Top = 112
+          Width = 820
+          Height = 292
+          Enabled = False
+          TabOrder = 3
+          object Label26: TLabel
+            Left = 8
+            Top = 18
+            Width = 75
+            Height = 19
+            Caption = 'Linha 01:'
+            Color = clBlack
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = 15925207
+            Font.Height = -16
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentColor = False
+            ParentFont = False
+            Transparent = True
+          end
+          object Label27: TLabel
+            Left = 8
+            Top = 50
+            Width = 75
+            Height = 19
+            Caption = 'Linha 02:'
+            Color = clBlack
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = 15925207
+            Font.Height = -16
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentColor = False
+            ParentFont = False
+            Transparent = True
+          end
+          object Label28: TLabel
+            Left = 8
+            Top = 115
+            Width = 75
+            Height = 19
+            Caption = 'Linha 04:'
+            Color = clBlack
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = 15925207
+            Font.Height = -16
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentColor = False
+            ParentFont = False
+            Transparent = True
+            Visible = False
+          end
+          object Label29: TLabel
+            Left = 8
+            Top = 83
+            Width = 75
+            Height = 19
+            Caption = 'Linha 03:'
+            Color = clBlack
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = 15925207
+            Font.Height = -16
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentColor = False
+            ParentFont = False
+            Transparent = True
+            Visible = False
+          end
+          object ComboBox1: TComboBox
+            Left = 90
+            Top = 15
+            Width = 339
+            Height = 26
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -15
+            Font.Name = 'Verdana'
+            Font.Style = []
+            ItemIndex = 1
+            ParentFont = False
+            TabOrder = 0
+            Text = '01. Todos os 15 com blocos 1 e 2'
+            Items.Strings = (
+              '00. N'#227'o'
+              '01. Todos os 15 com blocos 1 e 2'
+              '02. Todos os 15 com blocos 1 e 3'
+              '03. Todos os 15 com blocos 2 e 3'
+              '04. Todos os 15 com blocos 1 e 2 / 1 e 3 '
+              '05. Todos os 15 com blocos 1 e 2 / 2 e 3'
+              '06. Todos os 15 com blocos 1 e 3 / 2 e 3')
+          end
+          object ComboBox2: TComboBox
+            Left = 90
+            Top = 47
+            Width = 339
+            Height = 26
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -15
+            Font.Name = 'Verdana'
+            Font.Style = []
+            ItemIndex = 1
+            ParentFont = False
+            TabOrder = 1
+            Text = '01. Todos os 15 com blocos 1 e 2'
+            Items.Strings = (
+              '00. N'#227'o'
+              '01. Todos os 15 com blocos 1 e 2'
+              '02. Todos os 15 com blocos 1 e 3'
+              '03. Todos os 15 com blocos 2 e 3'
+              '04. Todos os 15 com blocos 1 e 2 / 1 e 3 '
+              '05. Todos os 15 com blocos 1 e 2 / 2 e 3'
+              '06. Todos os 15 com blocos 1 e 3 / 2 e 3')
+          end
+          object ComboBox3: TComboBox
+            Left = 90
+            Top = 80
+            Width = 339
+            Height = 26
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -15
+            Font.Name = 'Verdana'
+            Font.Style = []
+            ItemIndex = 1
+            ParentFont = False
+            TabOrder = 2
+            Text = '01. Todos os 15 com blocos 1 e 2'
+            Visible = False
+            Items.Strings = (
+              '00. N'#227'o'
+              '01. Todos os 15 com blocos 1 e 2'
+              '02. Todos os 15 com blocos 1 e 3'
+              '03. Todos os 15 com blocos 2 e 3'
+              '04. Todos os 15 com blocos 1 e 2 / 1 e 3 '
+              '05. Todos os 15 com blocos 1 e 2 / 2 e 3'
+              '06. Todos os 15 com blocos 1 e 3 / 2 e 3')
+          end
+          object ComboBox4: TComboBox
+            Left = 90
+            Top = 112
+            Width = 339
+            Height = 26
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -15
+            Font.Name = 'Verdana'
+            Font.Style = []
+            ItemIndex = 1
+            ParentFont = False
+            TabOrder = 3
+            Text = '01. Todos os 15 com blocos 1 e 2'
+            Visible = False
+            Items.Strings = (
+              '00. N'#227'o'
+              '01. Todos os 15 com blocos 1 e 2'
+              '02. Todos os 15 com blocos 1 e 3'
+              '03. Todos os 15 com blocos 2 e 3'
+              '04. Todos os 15 com blocos 1 e 2 / 1 e 3 '
+              '05. Todos os 15 com blocos 1 e 2 / 2 e 3'
+              '06. Todos os 15 com blocos 1 e 3 / 2 e 3')
+          end
+        end
+      end
     end
   end
   object Stgr_Todos_Numeros: TStringGrid
-    Left = 826
-    Top = 525
+    Left = 818
+    Top = 541
     Width = 875
     Height = 97
     Anchors = [akLeft, akBottom]
@@ -2618,7 +3134,7 @@ object Frm_defineCjunto16: TFrm_defineCjunto16
   end
   object Stgr_TodosNumerosP17: TStringGrid
     Left = 874
-    Top = 525
+    Top = 541
     Width = 910
     Height = 74
     Anchors = [akLeft, akBottom]
