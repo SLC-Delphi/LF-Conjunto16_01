@@ -86,6 +86,7 @@ type
     Memo_conjunto04: TMemo;
     stgr_ac1em9: TStringGrid;
     stgr_ac7em16: TStringGrid;
+    stgr_ac9em16: TStringGrid;
     procedure Bbt_CarregarSort(Sender: TObject);
     procedure Bbt_rankClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -829,7 +830,7 @@ begin
    Stgr_Base16.Cells[3, 10]  := '02';
    Stgr_Base16.Cells[4, 10]  := '03';
    Stgr_Base16.Cells[5, 10]  := '04';
-   Stgr_Base16.Cells[6, 10]  := '04';
+   Stgr_Base16.Cells[6, 10]  := '05';
    Stgr_Base16.Cells[7, 10]  := '06';
    Stgr_Base16.Cells[8, 10]  := '08';
    Stgr_Base16.Cells[9, 10]  := '13';
@@ -912,17 +913,455 @@ begin
    Stgr_Base09.Cells[8, 12] := '17';
    Stgr_Base09.Cells[9, 12] := '23';
    Stgr_Base09.Cells[10, 12] := '25';
+   //13
+   Stgr_Base16.Cells[0, 13] := '13';
+   Stgr_Base16.Cells[1, 13] := 'V';
+   Stgr_Base16.Cells[2, 13]  := '01';
+   Stgr_Base16.Cells[3, 13]  := '03';
+   Stgr_Base16.Cells[4, 13]  := '05';
+   Stgr_Base16.Cells[5, 13]  := '06';
+   Stgr_Base16.Cells[6, 13]  := '07';
+   Stgr_Base16.Cells[7, 13]  := '08';
+   Stgr_Base16.Cells[8, 13]  := '12';
+   Stgr_Base16.Cells[9, 13]  := '13';
+   Stgr_Base16.Cells[10, 13] := '14';
+   Stgr_Base16.Cells[11, 13] := '15';
+   Stgr_Base16.Cells[12, 13] := '18';
+   Stgr_Base16.Cells[13, 13] := '19';
+   Stgr_Base16.Cells[14, 13] := '20';
+   Stgr_Base16.Cells[15, 13] := '21';
+   Stgr_Base16.Cells[16, 13] := '22';
+   Stgr_Base16.Cells[17, 13] := '24';
+   Stgr_Base09.Cells[0, 13] := '13';
+   Stgr_Base09.Cells[1, 13] := 'V';
+   Stgr_Base09.Cells[2, 13] := '02';
+   Stgr_Base09.Cells[3, 13] := '04';
+   Stgr_Base09.Cells[4, 13] := '09';
+   Stgr_Base09.Cells[5, 13] := '10';
+   Stgr_Base09.Cells[6, 13] := '11';
+   Stgr_Base09.Cells[7, 13] := '16';
+   Stgr_Base09.Cells[8, 13] := '17';
+   Stgr_Base09.Cells[9, 13] := '23';
+   Stgr_Base09.Cells[10, 13] := '25';
+   //14
+   Stgr_Base16.Cells[0, 14] := '14';
+   Stgr_Base16.Cells[1, 14] := 'V';
+   Stgr_Base16.Cells[2, 14]  := '02';
+   Stgr_Base16.Cells[3, 14]  := '03';
+   Stgr_Base16.Cells[4, 14]  := '04';
+   Stgr_Base16.Cells[5, 14]  := '06';
+   Stgr_Base16.Cells[6, 14]  := '09';
+   Stgr_Base16.Cells[7, 14]  := '10';
+   Stgr_Base16.Cells[8, 14]  := '11';
+   Stgr_Base16.Cells[9, 14]  := '12';
+   Stgr_Base16.Cells[10, 14] := '13';
+   Stgr_Base16.Cells[11, 14] := '15';
+   Stgr_Base16.Cells[12, 14] := '16';
+   Stgr_Base16.Cells[13, 14] := '19';
+   Stgr_Base16.Cells[14, 14] := '20';
+   Stgr_Base16.Cells[15, 14] := '21';
+   Stgr_Base16.Cells[16, 14] := '22';
+   Stgr_Base16.Cells[17, 14] := '25';
+   Stgr_Base09.Cells[0, 14] := '14';
+   Stgr_Base09.Cells[1, 14] := 'V';
+   Stgr_Base09.Cells[2, 14] := '01';
+   Stgr_Base09.Cells[3, 14] := '05';
+   Stgr_Base09.Cells[4, 14] := '07';
+   Stgr_Base09.Cells[5, 14] := '08';
+   Stgr_Base09.Cells[6, 14] := '14';
+   Stgr_Base09.Cells[7, 14] := '17';
+   Stgr_Base09.Cells[8, 14] := '18';
+   Stgr_Base09.Cells[9, 14] := '23';
+   Stgr_Base09.Cells[10, 14] := '24';
+   //15
+   Stgr_Base16.Cells[0, 15] := '15';
+   Stgr_Base16.Cells[1, 15] := 'V';
+   Stgr_Base16.Cells[2, 15]  := '01';
+   Stgr_Base16.Cells[3, 15]  := '02';
+   Stgr_Base16.Cells[4, 15]  := '04';
+   Stgr_Base16.Cells[5, 15]  := '07';
+   Stgr_Base16.Cells[6, 15]  := '10';
+   Stgr_Base16.Cells[7, 15]  := '11';
+   Stgr_Base16.Cells[8, 15]  := '12';
+   Stgr_Base16.Cells[9, 15]  := '13';
+   Stgr_Base16.Cells[10, 15] := '14';
+   Stgr_Base16.Cells[11, 15] := '16';
+   Stgr_Base16.Cells[12, 15] := '17';
+   Stgr_Base16.Cells[13, 15] := '18';
+   Stgr_Base16.Cells[14, 15] := '19';
+   Stgr_Base16.Cells[15, 15] := '20';
+   Stgr_Base16.Cells[16, 15] := '21';
+   Stgr_Base16.Cells[17, 15] := '23';
+   Stgr_Base09.Cells[0, 15] := '15';
+   Stgr_Base09.Cells[1, 15] := 'V';
+   Stgr_Base09.Cells[2, 15] := '03';
+   Stgr_Base09.Cells[3, 15] := '05';
+   Stgr_Base09.Cells[4, 15] := '06';
+   Stgr_Base09.Cells[5, 15] := '08';
+   Stgr_Base09.Cells[6, 15] := '09';
+   Stgr_Base09.Cells[7, 15] := '15';
+   Stgr_Base09.Cells[8, 15] := '22';
+   Stgr_Base09.Cells[9, 15] := '24';
+   Stgr_Base09.Cells[10, 15] := '25';
+   //16
+   Stgr_Base16.Cells[0, 16] := '16';
+   Stgr_Base16.Cells[1, 16] := 'V';
+   Stgr_Base16.Cells[2, 16]  := '02';
+   Stgr_Base16.Cells[3, 16]  := '03';
+   Stgr_Base16.Cells[4, 16]  := '04';
+   Stgr_Base16.Cells[5, 16]  := '06';
+   Stgr_Base16.Cells[6, 16]  := '08';
+   Stgr_Base16.Cells[7, 16]  := '09';
+   Stgr_Base16.Cells[8, 16]  := '10';
+   Stgr_Base16.Cells[9, 16]  := '13';
+   Stgr_Base16.Cells[10, 16] := '14';
+   Stgr_Base16.Cells[11, 16] := '15';
+   Stgr_Base16.Cells[12, 16] := '17';
+   Stgr_Base16.Cells[13, 16] := '18';
+   Stgr_Base16.Cells[14, 16] := '19';
+   Stgr_Base16.Cells[15, 16] := '22';
+   Stgr_Base16.Cells[16, 16] := '23';
+   Stgr_Base16.Cells[17, 16] := '25';
+   Stgr_Base09.Cells[0, 16] := '16';
+   Stgr_Base09.Cells[1, 16] := 'V';
+   Stgr_Base09.Cells[2, 16] := '01';
+   Stgr_Base09.Cells[3, 16] := '05';
+   Stgr_Base09.Cells[4, 16] := '07';
+   Stgr_Base09.Cells[5, 16] := '11';
+   Stgr_Base09.Cells[6, 16] := '12';
+   Stgr_Base09.Cells[7, 16] := '16';
+   Stgr_Base09.Cells[8, 16] := '20';
+   Stgr_Base09.Cells[9, 16] := '21';
+   Stgr_Base09.Cells[10, 16] := '24';
+   //17
+   Stgr_Base16.Cells[0, 17] := '17';
+   Stgr_Base16.Cells[1, 17] := 'V';
+   Stgr_Base16.Cells[2, 17]  := '01';
+   Stgr_Base16.Cells[3, 17]  := '02';
+   Stgr_Base16.Cells[4, 17]  := '04';
+   Stgr_Base16.Cells[5, 17]  := '05';
+   Stgr_Base16.Cells[6, 17]  := '08';
+   Stgr_Base16.Cells[7, 17]  := '09';
+   Stgr_Base16.Cells[8, 17]  := '10';
+   Stgr_Base16.Cells[9, 17]  := '12';
+   Stgr_Base16.Cells[10, 17] := '14';
+   Stgr_Base16.Cells[11, 17] := '15';
+   Stgr_Base16.Cells[12, 17] := '17';
+   Stgr_Base16.Cells[13, 17] := '20';
+   Stgr_Base16.Cells[14, 17] := '21';
+   Stgr_Base16.Cells[15, 17] := '22';
+   Stgr_Base16.Cells[16, 17] := '23';
+   Stgr_Base16.Cells[17, 17] := '25';
+   Stgr_Base09.Cells[0, 17] := '17';
+   Stgr_Base09.Cells[1, 17] := 'V';
+   Stgr_Base09.Cells[2, 17] := '03';
+   Stgr_Base09.Cells[3, 17] := '06';
+   Stgr_Base09.Cells[4, 17] := '07';
+   Stgr_Base09.Cells[5, 17] := '11';
+   Stgr_Base09.Cells[6, 17] := '13';
+   Stgr_Base09.Cells[7, 17] := '16';
+   Stgr_Base09.Cells[8, 17] := '18';
+   Stgr_Base09.Cells[9, 17] := '19';
+   Stgr_Base09.Cells[10, 17] := '24';
+   //18
+   Stgr_Base16.Cells[0, 18] := '18';
+   Stgr_Base16.Cells[1, 18] := 'V';
+   Stgr_Base16.Cells[2, 18]  := '01';
+   Stgr_Base16.Cells[3, 18]  := '03';
+   Stgr_Base16.Cells[4, 18]  := '04';
+   Stgr_Base16.Cells[5, 18]  := '07';
+   Stgr_Base16.Cells[6, 18]  := '08';
+   Stgr_Base16.Cells[7, 18]  := '09';
+   Stgr_Base16.Cells[8, 18]  := '11';
+   Stgr_Base16.Cells[9, 18]  := '12';
+   Stgr_Base16.Cells[10, 18] := '13';
+   Stgr_Base16.Cells[11, 18] := '15';
+   Stgr_Base16.Cells[12, 18] := '16';
+   Stgr_Base16.Cells[13, 18] := '18';
+   Stgr_Base16.Cells[14, 18] := '20';
+   Stgr_Base16.Cells[15, 18] := '22';
+   Stgr_Base16.Cells[16, 18] := '24';
+   Stgr_Base16.Cells[17, 18] := '25';
+   Stgr_Base09.Cells[0, 18] := '18';
+   Stgr_Base09.Cells[1, 18] := 'V';
+   Stgr_Base09.Cells[2, 18] := '02';
+   Stgr_Base09.Cells[3, 18] := '05';
+   Stgr_Base09.Cells[4, 18] := '06';
+   Stgr_Base09.Cells[5, 18] := '10';
+   Stgr_Base09.Cells[6, 18] := '14';
+   Stgr_Base09.Cells[7, 18] := '17';
+   Stgr_Base09.Cells[8, 18] := '19';
+   Stgr_Base09.Cells[9, 18] := '21';
+   Stgr_Base09.Cells[10, 18] := '23';
+   //19
+   Stgr_Base16.Cells[0, 19] := '19';
+   Stgr_Base16.Cells[1, 19] := 'V';
+   Stgr_Base16.Cells[2, 19]  := '01';
+   Stgr_Base16.Cells[3, 19]  := '02';
+   Stgr_Base16.Cells[4, 19]  := '06';
+   Stgr_Base16.Cells[5, 19]  := '07';
+   Stgr_Base16.Cells[6, 19]  := '10';
+   Stgr_Base16.Cells[7, 19]  := '11';
+   Stgr_Base16.Cells[8, 19]  := '12';
+   Stgr_Base16.Cells[9, 19]  := '13';
+   Stgr_Base16.Cells[10, 19] := '14';
+   Stgr_Base16.Cells[11, 19] := '15';
+   Stgr_Base16.Cells[12, 19] := '16';
+   Stgr_Base16.Cells[13, 19] := '17';
+   Stgr_Base16.Cells[14, 19] := '18';
+   Stgr_Base16.Cells[15, 19] := '19';
+   Stgr_Base16.Cells[16, 19] := '23';
+   Stgr_Base16.Cells[17, 19] := '24';
+   Stgr_Base09.Cells[0, 19] := '19';
+   Stgr_Base09.Cells[1, 19] := 'V';
+   Stgr_Base09.Cells[2, 19] := '03';
+   Stgr_Base09.Cells[3, 19] := '04';
+   Stgr_Base09.Cells[4, 19] := '05';
+   Stgr_Base09.Cells[5, 19] := '08';
+   Stgr_Base09.Cells[6, 19] := '09';
+   Stgr_Base09.Cells[7, 19] := '20';
+   Stgr_Base09.Cells[8, 19] := '21';
+   Stgr_Base09.Cells[9, 19] := '22';
+   Stgr_Base09.Cells[10, 19] := '25';
+   //20
+   Stgr_Base16.Cells[0, 20] := '20';
+   Stgr_Base16.Cells[1, 20] := 'V';
+   Stgr_Base16.Cells[2, 20]  := '01';
+   Stgr_Base16.Cells[3, 20]  := '02';
+   Stgr_Base16.Cells[4, 20]  := '03';
+   Stgr_Base16.Cells[5, 20]  := '06';
+   Stgr_Base16.Cells[6, 20]  := '07';
+   Stgr_Base16.Cells[7, 20]  := '09';
+   Stgr_Base16.Cells[8, 20]  := '12';
+   Stgr_Base16.Cells[9, 20]  := '13';
+   Stgr_Base16.Cells[10, 20] := '14';
+   Stgr_Base16.Cells[11, 20] := '15';
+   Stgr_Base16.Cells[12, 20] := '17';
+   Stgr_Base16.Cells[13, 20] := '18';
+   Stgr_Base16.Cells[14, 20] := '20';
+   Stgr_Base16.Cells[15, 20] := '22';
+   Stgr_Base16.Cells[16, 20] := '24';
+   Stgr_Base16.Cells[17, 20] := '25';
+   Stgr_Base09.Cells[0, 20] := '20';
+   Stgr_Base09.Cells[1, 20] := 'V';
+   Stgr_Base09.Cells[2, 20] := '04';
+   Stgr_Base09.Cells[3, 20] := '05';
+   Stgr_Base09.Cells[4, 20] := '08';
+   Stgr_Base09.Cells[5, 20] := '10';
+   Stgr_Base09.Cells[6, 20] := '11';
+   Stgr_Base09.Cells[7, 20] := '16';
+   Stgr_Base09.Cells[8, 20] := '19';
+   Stgr_Base09.Cells[9, 20] := '21';
+   Stgr_Base09.Cells[10, 20] := '23';
+   //21
+   Stgr_Base16.Cells[0, 21] := '21';
+   Stgr_Base16.Cells[1, 21] := 'V';
+   Stgr_Base16.Cells[2, 21]  := '01';
+   Stgr_Base16.Cells[3, 21]  := '04';
+   Stgr_Base16.Cells[4, 21]  := '05';
+   Stgr_Base16.Cells[5, 21]  := '07';
+   Stgr_Base16.Cells[6, 21]  := '08';
+   Stgr_Base16.Cells[7, 21]  := '09';
+   Stgr_Base16.Cells[8, 21]  := '10';
+   Stgr_Base16.Cells[9, 21]  := '12';
+   Stgr_Base16.Cells[10, 21] := '13';
+   Stgr_Base16.Cells[11, 21] := '14';
+   Stgr_Base16.Cells[12, 21] := '16';
+   Stgr_Base16.Cells[13, 21] := '18';
+   Stgr_Base16.Cells[14, 21] := '21';
+   Stgr_Base16.Cells[15, 21] := '22';
+   Stgr_Base16.Cells[16, 21] := '23';
+   Stgr_Base16.Cells[17, 21] := '25';
+   Stgr_Base09.Cells[0, 21] := '21';
+   Stgr_Base09.Cells[1, 21] := 'V';
+   Stgr_Base09.Cells[2, 21] := '02';
+   Stgr_Base09.Cells[3, 21] := '03';
+   Stgr_Base09.Cells[4, 21] := '04';
+   Stgr_Base09.Cells[5, 21] := '11';
+   Stgr_Base09.Cells[6, 21] := '15';
+   Stgr_Base09.Cells[7, 21] := '17';
+   Stgr_Base09.Cells[8, 21] := '19';
+   Stgr_Base09.Cells[9, 21] := '20';
+   Stgr_Base09.Cells[10, 21] := '24';
+   //22
+   Stgr_Base16.Cells[0, 22] := '22';
+   Stgr_Base16.Cells[1, 22] := 'V';
+   Stgr_Base16.Cells[2, 22]  := '01';
+   Stgr_Base16.Cells[3, 22]  := '03';
+   Stgr_Base16.Cells[4, 22]  := '04';
+   Stgr_Base16.Cells[5, 22]  := '05';
+   Stgr_Base16.Cells[6, 22]  := '06';
+   Stgr_Base16.Cells[7, 22]  := '08';
+   Stgr_Base16.Cells[8, 22]  := '09';
+   Stgr_Base16.Cells[9, 22]  := '10';
+   Stgr_Base16.Cells[10, 22] := '13';
+   Stgr_Base16.Cells[11, 22] := '16';
+   Stgr_Base16.Cells[12, 22] := '19';
+   Stgr_Base16.Cells[13, 22] := '20';
+   Stgr_Base16.Cells[14, 22] := '22';
+   Stgr_Base16.Cells[15, 22] := '23';
+   Stgr_Base16.Cells[16, 22] := '24';
+   Stgr_Base16.Cells[17, 22] := '25';
+   Stgr_Base09.Cells[0, 22] := '22';
+   Stgr_Base09.Cells[1, 22] := 'V';
+   Stgr_Base09.Cells[2, 22] := '02';
+   Stgr_Base09.Cells[3, 22] := '07';
+   Stgr_Base09.Cells[4, 22] := '11';
+   Stgr_Base09.Cells[5, 22] := '12';
+   Stgr_Base09.Cells[6, 22] := '14';
+   Stgr_Base09.Cells[7, 22] := '15';
+   Stgr_Base09.Cells[8, 22] := '17';
+   Stgr_Base09.Cells[9, 22] := '18';
+   Stgr_Base09.Cells[10, 22] := '21';
+   //23
+   Stgr_Base16.Cells[0, 23] := '23';
+   Stgr_Base16.Cells[1, 23] := 'V';
+   Stgr_Base16.Cells[2, 23]  := '01';
+   Stgr_Base16.Cells[3, 23]  := '02';
+   Stgr_Base16.Cells[4, 23]  := '03';
+   Stgr_Base16.Cells[5, 23]  := '05';
+   Stgr_Base16.Cells[6, 23]  := '06';
+   Stgr_Base16.Cells[7, 23]  := '08';
+   Stgr_Base16.Cells[8, 23]  := '11';
+   Stgr_Base16.Cells[9, 23]  := '12';
+   Stgr_Base16.Cells[10, 23] := '15';
+   Stgr_Base16.Cells[11, 23] := '17';
+   Stgr_Base16.Cells[12, 23] := '18';
+   Stgr_Base16.Cells[13, 23] := '19';
+   Stgr_Base16.Cells[14, 23] := '20';
+   Stgr_Base16.Cells[15, 23] := '22';
+   Stgr_Base16.Cells[16, 23] := '24';
+   Stgr_Base16.Cells[17, 23] := '25';
+   Stgr_Base09.Cells[0, 23] := '23';
+   Stgr_Base09.Cells[1, 23] := 'V';
+   Stgr_Base09.Cells[2, 23] := '04';
+   Stgr_Base09.Cells[3, 23] := '07';
+   Stgr_Base09.Cells[4, 23] := '09';
+   Stgr_Base09.Cells[5, 23] := '10';
+   Stgr_Base09.Cells[6, 23] := '13';
+   Stgr_Base09.Cells[7, 23] := '14';
+   Stgr_Base09.Cells[8, 23] := '16';
+   Stgr_Base09.Cells[9, 23] := '21';
+   Stgr_Base09.Cells[10, 23] := '23';
+   //24
+   Stgr_Base16.Cells[0, 24] := '23';
+   Stgr_Base16.Cells[1, 24] := 'V';
+   Stgr_Base16.Cells[2, 24]  := '01';
+   Stgr_Base16.Cells[3, 24]  := '03';
+   Stgr_Base16.Cells[4, 24]  := '04';
+   Stgr_Base16.Cells[5, 24]  := '06';
+   Stgr_Base16.Cells[6, 24]  := '07';
+   Stgr_Base16.Cells[7, 24]  := '08';
+   Stgr_Base16.Cells[8, 24]  := '10';
+   Stgr_Base16.Cells[9, 24]  := '12';
+   Stgr_Base16.Cells[10, 24] := '13';
+   Stgr_Base16.Cells[11, 24] := '14';
+   Stgr_Base16.Cells[12, 24] := '15';
+   Stgr_Base16.Cells[13, 24] := '21';
+   Stgr_Base16.Cells[14, 24] := '22';
+   Stgr_Base16.Cells[15, 24] := '23';
+   Stgr_Base16.Cells[16, 24] := '24';
+   Stgr_Base16.Cells[17, 24] := '25';
+   Stgr_Base09.Cells[0, 24] := '23';
+   Stgr_Base09.Cells[1, 24] := 'V';
+   Stgr_Base09.Cells[2, 24] := '02';
+   Stgr_Base09.Cells[3, 24] := '05';
+   Stgr_Base09.Cells[4, 24] := '09';
+   Stgr_Base09.Cells[5, 24] := '11';
+   Stgr_Base09.Cells[6, 24] := '16';
+   Stgr_Base09.Cells[7, 24] := '17';
+   Stgr_Base09.Cells[8, 24] := '18';
+   Stgr_Base09.Cells[9, 24] := '19';
+   Stgr_Base09.Cells[10, 24] := '20';
+   //25
+   Stgr_Base16.Cells[0, 25] := '23';
+   Stgr_Base16.Cells[1, 25] := 'V';
+   Stgr_Base16.Cells[2, 25]  := '01';
+   Stgr_Base16.Cells[3, 25]  := '02';
+   Stgr_Base16.Cells[4, 25]  := '05';
+   Stgr_Base16.Cells[5, 25]  := '06';
+   Stgr_Base16.Cells[6, 25]  := '07';
+   Stgr_Base16.Cells[7, 25]  := '08';
+   Stgr_Base16.Cells[8, 25]  := '09';
+   Stgr_Base16.Cells[9, 25]  := '11';
+   Stgr_Base16.Cells[10, 25] := '12';
+   Stgr_Base16.Cells[11, 25] := '14';
+   Stgr_Base16.Cells[12, 25] := '18';
+   Stgr_Base16.Cells[13, 25] := '21';
+   Stgr_Base16.Cells[14, 25] := '22';
+   Stgr_Base16.Cells[15, 25] := '23';
+   Stgr_Base16.Cells[16, 25] := '24';
+   Stgr_Base16.Cells[17, 25] := '25';
+   Stgr_Base09.Cells[0, 25] := '23';
+   Stgr_Base09.Cells[1, 25] := 'V';
+   Stgr_Base09.Cells[2, 25] := '03';
+   Stgr_Base09.Cells[3, 25] := '04';
+   Stgr_Base09.Cells[4, 25] := '10';
+   Stgr_Base09.Cells[5, 25] := '13';
+   Stgr_Base09.Cells[6, 25] := '15';
+   Stgr_Base09.Cells[7, 25] := '16';
+   Stgr_Base09.Cells[8, 25] := '17';
+   Stgr_Base09.Cells[9, 25] := '19';
+   Stgr_Base09.Cells[10, 25] := '20';
+   {
+
+02 04 05 06 07 08 10 11 13 14 17 19 21 22 24 25
+01 03 09 12 15 16 18 20 23
+
+01 03 04 06 08 09 10 12 13 14 15 20 21 23 24 25
+02 05 07 11 16 17 18 19 22
+
+01 03 04 05 06 10 11 13 14 15 16 20 21 22 23 24
+02 07 08 09 12 17 18 19 25
+
+01 03 04 05 08 09 10 11 12 14 16 21 22 23 24 25
+02 06 07 13 15 17 18 19 20
+
+01 03 04 05 06 08 11 12 13 15 16 20 22 23 24 25
+02 07 09 10 14 17 18 19 21
+
+01 03 04 06 08 09 10 11 14 15 17 18 20 23 24 25
+02 05 07 12 13 16 19 21 22
+
+01 02 03 04 05 07 12 14 15 16 18 19 20 23 24 25
+06 08 09 10 11 13 17 21 22
+
+02 03 04 05 06 09 10 11 12 15 17 20 22 23 24 25
+01 07 08 13 14 16 18 19 21
+
+02 03 04 05 07 09 11 13 14 16 18 19 20 21 22 24
+01 06 08 10 12 15 17 23 25
+
+01 02 03 05 06 07 08 11 14 16 20 21 22 23 24 25
+04 09 10 12 13 15 17 18 19
+
+01 02 03 04 08 09 11 12 13 14 17 20 22 23 24 25
+05 06 07 10 15 16 18 19 21
+
+01 02 04 07 08 09 10 11 12 15 19 20 21 22 23 24
+03 05 06 13 14 16 17 18 25
+
+01 02 04 07 09 10 11 12 13 14 15 20 21 22 23 24
+03 05 06 08 16 17 18 19 25
+
+01 02 03 04 05 07 12 13 14 17 18 20 21 22 24 25
+06 08 09 10 11 15 16 19 23
+
+01 03 04 05 06 08 10 12 14 16 17 19 21 23 24 25
+02 07 09 11 13 15 18 20 22
+
+}
 
 
-   Stgr_Base16.RowCount := 13;
-   Stgr_Base09.RowCount := 13;
-   Stgr_Base17VF.RowCount := 13;
    Stgr_Base16.Height := Scbx_GABARITO.Height - 75;
    Stgr_Base09.Height := Scbx_GABARITO.Height - 75;
    Stgr_Sorteios.Height := Scbx_GABARITO.Height - 75;
+   Stgr_Base16.RowCount := 26;
+   Stgr_Base09.RowCount := 26;
+   Stgr_Base17VF.RowCount := 26;
 
+   Stgr_Estatisticas.RowCount := 26;
    Stgr_Estatisticas.ColWidths[0] := 50;
-   Stgr_Estatisticas.RowCount := 16;
    Stgr_Estatisticas.Cells[1,0] := 'Total de Ocorrências';
    Stgr_Estatisticas.Cells[2,0] := '% Ocorrências';
    Stgr_Estatisticas.Cells[3,0] := 'Média Ocorrências';
@@ -932,6 +1371,7 @@ begin
    Stgr_EstatisticasOcorrencias.Height := Scbx_GABARITO.Height - 55;
    Stgr_EstatisticasSorteiosAtrasados.Height := Scbx_GABARITO.Height - 55;
 
+   Stgr_Estatisticas13.RowCount := 26;
    Stgr_Estatisticas13.ColWidths[0] := 60;
    Stgr_Estatisticas13.Cells[1,0] := 'Total de Ocorrências';
    Stgr_Estatisticas13.Cells[2,0] := '% Ocorrências';
@@ -948,6 +1388,8 @@ begin
    stgr_ac1em9.Height := scrollBox_Resultado.Height - 39;
    stgr_ac7em16.ColWidths[0] := 60;
    stgr_ac7em16.Height := scrollBox_Resultado.Height - 39;
+   stgr_ac9em16.ColWidths[0] := 60;
+   stgr_ac9em16.Height := scrollBox_Resultado.Height - 39;
 end;
 
 

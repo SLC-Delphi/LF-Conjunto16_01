@@ -2,28 +2,28 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
   Left = 0
   Top = 0
   Caption = 'frm_Ranqueador16Com12Linhas'
-  ClientHeight = 638
-  ClientWidth = 1356
+  ClientHeight = 562
+  ClientWidth = 1194
   Color = 4015952
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -12
+  Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
   OnCreate = FormCreate
-  PixelsPerInch = 109
-  TextHeight = 14
+  PixelsPerInch = 96
+  TextHeight = 13
   object Label1: TLabel
-    Left = 14
-    Top = 30
-    Width = 231
-    Height = 22
+    Left = 12
+    Top = 26
+    Width = 202
+    Height = 18
     Caption = '16 N'#218'MEROS  DE BASE'
     Color = 2306625
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWhite
-    Font.Height = -18
+    Font.Height = -16
     Font.Name = 'Verdana'
     Font.Style = [fsBold]
     ParentColor = False
@@ -33,9 +33,9 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
   object PageControl1: TPageControl
     Left = 0
     Top = 0
-    Width = 1356
-    Height = 638
-    ActivePage = TabSheet2
+    Width = 1194
+    Height = 562
+    ActivePage = TabSheet1
     Align = alClient
     TabOrder = 0
     object TabSheet1: TTabSheet
@@ -43,10 +43,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
       object Scbx_GABARITO: TScrollBox
         Left = 0
         Top = 0
-        Width = 1348
-        Height = 609
-        HorzScrollBar.Position = 2696
-        HorzScrollBar.Range = 5898
+        Width = 1186
+        Height = 534
+        HorzScrollBar.Position = 3558
+        HorzScrollBar.Range = 5195
         Align = alClient
         AutoScroll = False
         BevelOuter = bvRaised
@@ -55,35 +55,35 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
         ParentColor = False
         TabOrder = 0
         DesignSize = (
-          1348
-          590)
+          1186
+          517)
         object La_nSorteioRank: TLabel
-          Left = -1445
-          Top = 31
-          Width = 380
-          Height = 26
+          Left = -2456
+          Top = 27
+          Width = 329
+          Height = 23
           Align = alCustom
           Caption = 'Total de sorteios na apura'#231#227'o:'
           Color = clWhite
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWhite
-          Font.Height = -22
+          Font.Height = -19
           Font.Name = 'Verdana'
           Font.Style = [fsBold]
           ParentColor = False
           ParentFont = False
-          ExplicitLeft = 1251
+          ExplicitLeft = 1102
         end
         object Label3: TLabel
-          Left = -2009
-          Top = 40
-          Width = 192
-          Height = 21
+          Left = -2953
+          Top = 35
+          Width = 172
+          Height = 19
           Caption = '9 N'#218'MEROS DE BASE'
           Color = 2306625
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWhite
-          Font.Height = -18
+          Font.Height = -16
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           ParentColor = False
@@ -91,15 +91,15 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           Transparent = False
         end
         object Label7: TLabel
-          Left = -2694
-          Top = 40
-          Width = 207
-          Height = 21
+          Left = -3556
+          Top = 35
+          Width = 185
+          Height = 19
           Caption = '16 N'#218'MEROS  DE BASE'
           Color = 2306625
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWhite
-          Font.Height = -18
+          Font.Height = -16
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           ParentColor = False
@@ -107,15 +107,15 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           Transparent = False
         end
         object Label14: TLabel
-          Left = 112
-          Top = 8
-          Width = 545
-          Height = 23
+          Left = -1085
+          Top = 7
+          Width = 475
+          Height = 20
           Caption = 'RANK. DECRESC. P/ 7 NS SORTS. NA LINHA 16 NS'
           Color = 2306625
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWhite
-          Font.Height = -19
+          Font.Height = -17
           Font.Name = 'Verdana'
           Font.Style = [fsBold]
           ParentColor = False
@@ -123,15 +123,15 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           Transparent = False
         end
         object Label15: TLabel
-          Left = 2083
-          Top = 16
-          Width = 531
-          Height = 23
+          Left = 651
+          Top = 14
+          Width = 463
+          Height = 20
           Caption = 'RANK. DECRESC. P/ 8 NS SORTS. NA LINHA 9 NS'
           Color = 2306625
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWhite
-          Font.Height = -19
+          Font.Height = -17
           Font.Name = 'Verdana'
           Font.Style = [fsBold]
           ParentColor = False
@@ -139,15 +139,15 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           Transparent = False
         end
         object Label54: TLabel
-          Left = -1580
-          Top = 35
-          Width = 113
-          Height = 40
+          Left = -2575
+          Top = 31
+          Width = 99
+          Height = 36
           Caption = 'REDEFINIR V ou F'
           Color = 2306625
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWhite
-          Font.Height = -17
+          Font.Height = -15
           Font.Name = 'Verdana'
           Font.Style = [fsBold]
           ParentColor = False
@@ -157,15 +157,15 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           WordWrap = True
         end
         object Label134: TLabel
-          Left = 18139
-          Top = 28
-          Width = 129
-          Height = 40
+          Left = 14792
+          Top = 25
+          Width = 112
+          Height = 36
           Caption = 'Linhas 1 a 5 - Base4 - AC4'
           Color = 2306625
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWhite
-          Font.Height = -17
+          Font.Height = -15
           Font.Name = 'Verdana'
           Font.Style = [fsBold]
           ParentColor = False
@@ -174,15 +174,15 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           WordWrap = True
         end
         object Label135: TLabel
-          Left = 17953
-          Top = 26
-          Width = 129
-          Height = 40
+          Left = 14628
+          Top = 23
+          Width = 112
+          Height = 36
           Caption = 'Linhas 1 a 5 - Base4 - AC3'
           Color = 2306625
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWhite
-          Font.Height = -17
+          Font.Height = -15
           Font.Name = 'Verdana'
           Font.Style = [fsBold]
           ParentColor = False
@@ -191,15 +191,15 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           WordWrap = True
         end
         object Label136: TLabel
-          Left = 17815
-          Top = 26
-          Width = 121
-          Height = 60
+          Left = 14507
+          Top = 23
+          Width = 105
+          Height = 54
           Caption = 'Linhas 1 a 5 - Base4 - AC2'
           Color = 2306625
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWhite
-          Font.Height = -17
+          Font.Height = -15
           Font.Name = 'Verdana'
           Font.Style = [fsBold]
           ParentColor = False
@@ -208,15 +208,15 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           WordWrap = True
         end
         object Label138: TLabel
-          Left = 18398
-          Top = 6
-          Width = 97
-          Height = 60
+          Left = 15020
+          Top = 5
+          Width = 86
+          Height = 54
           Caption = 'Linhas 1 a 5 - Base5- AC1'
           Color = 2306625
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWhite
-          Font.Height = -17
+          Font.Height = -15
           Font.Name = 'Verdana'
           Font.Style = [fsBold]
           ParentColor = False
@@ -225,15 +225,15 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           WordWrap = True
         end
         object Label139: TLabel
-          Left = 18509
-          Top = 26
-          Width = 121
-          Height = 60
+          Left = 15118
+          Top = 23
+          Width = 105
+          Height = 54
           Caption = 'Linhas 1 a 5 - Base5 - AC2'
           Color = 2306625
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWhite
-          Font.Height = -17
+          Font.Height = -15
           Font.Name = 'Verdana'
           Font.Style = [fsBold]
           ParentColor = False
@@ -242,34 +242,34 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           WordWrap = True
         end
         object Label_qtdSorteios: TLabel
-          Left = -1064
-          Top = 32
-          Width = 77
-          Height = 27
+          Left = -2121
+          Top = 28
+          Width = 66
+          Height = 23
           Align = alCustom
           Caption = '88.888'
           Color = clWhite
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 8454143
-          Font.Height = -22
+          Font.Height = -19
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentColor = False
           ParentFont = False
-          ExplicitLeft = 1632
+          ExplicitLeft = 1437
         end
         object Label2: TLabel
-          Left = -2693
+          Left = -3555
           Top = 0
-          Width = 804
-          Height = 26
+          Width = 1256
+          Height = 23
           Caption = 
-            'R A N K .  E S T A T .  -  1 2   L I N H A  de  9  N S    X    1' +
-            ' 6   N S '
+            'R A N K .  E S T A T .  -  2 BLOCOS DE 20 (JEEP e SIMCA), SENDO ' +
+            'AO TODO 40  L I N H AS  de  9  N S    X    1 6   N S '
           Color = 1384232
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clCream
-          Font.Height = -22
+          Font.Height = -19
           Font.Name = 'Verdana'
           Font.Style = [fsBold]
           ParentColor = False
@@ -277,10 +277,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           Transparent = False
         end
         object Stgr_Base09: TStringGrid
-          Left = -2007
-          Top = 61
-          Width = 420
-          Height = 1566
+          Left = -2951
+          Top = 54
+          Width = 370
+          Height = 1345
           TabStop = False
           Anchors = [akLeft, akTop, akBottom]
           BevelInner = bvLowered
@@ -296,7 +296,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           RowCount = 26
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -14
+          Font.Height = -12
           Font.Name = 'Tahoma'
           Font.Style = []
           Options = [goFixedHorzLine, goHorzLine, goRangeSelect]
@@ -316,10 +316,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
             30)
         end
         object Stgr_Base16: TStringGrid
-          Left = -2691
-          Top = 61
-          Width = 675
-          Height = 1566
+          Left = -3554
+          Top = 54
+          Width = 595
+          Height = 1345
           TabStop = False
           Anchors = [akLeft, akTop, akBottom]
           BevelInner = bvLowered
@@ -336,7 +336,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           RowCount = 26
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -14
+          Font.Height = -12
           Font.Name = 'Tahoma'
           Font.Style = []
           Options = [goFixedVertLine, goFixedHorzLine, goHorzLine, goRangeSelect]
@@ -363,10 +363,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
             30)
         end
         object Stgr_Estatisticas: TStringGrid
-          Left = -703
-          Top = 39
-          Width = 811
-          Height = 1565
+          Left = -1803
+          Top = 34
+          Width = 715
+          Height = 1345
           TabStop = False
           Anchors = [akLeft, akTop, akBottom]
           Color = 13094355
@@ -375,10 +375,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           DefaultRowHeight = 28
           DrawingStyle = gdsClassic
           FixedColor = 11976903
-          RowCount = 26
+          RowCount = 21
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -14
+          Font.Height = -12
           Font.Name = 'Tahoma'
           Font.Style = []
           Options = [goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect]
@@ -405,18 +405,13 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
             28
             28
             28
-            28
-            28
-            28
-            28
-            28
             28)
         end
         object Stgr_Sorteios: TStringGrid
-          Left = -1485
-          Top = 61
-          Width = 753
-          Height = 1566
+          Left = -2491
+          Top = 54
+          Width = 663
+          Height = 1345
           TabStop = False
           Anchors = [akLeft, akTop, akBottom]
           BorderStyle = bsNone
@@ -429,7 +424,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           RowCount = 26
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWhite
-          Font.Height = -14
+          Font.Height = -12
           Font.Name = 'Tahoma'
           Font.Style = []
           Options = [goFixedVertLine, goFixedHorzLine, goHorzLine, goRangeSelect]
@@ -484,10 +479,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
             23)
         end
         object Stgr_EstatisticasOcorrencias: TStringGrid
-          Left = 112
-          Top = 37
-          Width = 647
-          Height = 1566
+          Left = -1085
+          Top = 33
+          Width = 570
+          Height = 1345
           TabStop = False
           Anchors = [akLeft, akTop, akBottom]
           Color = 14541286
@@ -500,7 +495,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           RowCount = 26
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -17
+          Font.Height = -15
           Font.Name = 'Tahoma'
           Font.Style = []
           Options = [goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect]
@@ -508,10 +503,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           TabOrder = 4
         end
         object Stgr_EstatisticasSorteiosAtrasados: TStringGrid
-          Left = 750
-          Top = 37
-          Width = 459
-          Height = 1566
+          Left = -523
+          Top = 33
+          Width = 404
+          Height = 1345
           TabStop = False
           Anchors = [akLeft, akTop, akBottom]
           Color = 14541286
@@ -524,7 +519,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           RowCount = 26
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -17
+          Font.Height = -15
           Font.Name = 'Tahoma'
           Font.Style = []
           Options = [goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect]
@@ -532,10 +527,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           TabOrder = 5
         end
         object Stgr_EstatisticasOcorrencias13: TStringGrid
-          Left = 2083
-          Top = 45
-          Width = 653
-          Height = 1566
+          Left = 651
+          Top = 40
+          Width = 575
+          Height = 1345
           TabStop = False
           Anchors = [akLeft, akTop, akBottom]
           Color = 14541286
@@ -548,7 +543,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           RowCount = 26
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -17
+          Font.Height = -15
           Font.Name = 'Tahoma'
           Font.Style = []
           Options = [goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect]
@@ -556,10 +551,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           TabOrder = 6
         end
         object Stgr_EstatisticasSorteiosAtrasados13: TStringGrid
-          Left = 2730
-          Top = 45
-          Width = 465
-          Height = 1566
+          Left = 1221
+          Top = 40
+          Width = 409
+          Height = 1345
           TabStop = False
           Anchors = [akLeft, akTop, akBottom]
           Color = 14541286
@@ -572,7 +567,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           RowCount = 26
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -17
+          Font.Height = -15
           Font.Name = 'Tahoma'
           Font.Style = []
           Options = [goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect]
@@ -580,10 +575,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           TabOrder = 7
         end
         object Stgr_Estatisticas13: TStringGrid
-          Left = 1230
-          Top = 47
-          Width = 840
-          Height = 1565
+          Left = -100
+          Top = 41
+          Width = 740
+          Height = 1345
           TabStop = False
           Anchors = [akLeft, akTop, akBottom]
           Color = 13094355
@@ -592,10 +587,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           DefaultRowHeight = 28
           DrawingStyle = gdsClassic
           FixedColor = 11976903
-          RowCount = 26
+          RowCount = 21
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -14
+          Font.Height = -12
           Font.Name = 'Tahoma'
           Font.Style = []
           Options = [goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect]
@@ -603,10 +598,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           TabOrder = 8
         end
         object Stgr_Base17VF: TStringGrid
-          Left = -1583
-          Top = 61
-          Width = 87
-          Height = 1566
+          Left = -2578
+          Top = 54
+          Width = 77
+          Height = 1345
           TabStop = False
           Anchors = [akLeft, akTop, akBottom]
           BorderStyle = bsNone
@@ -619,7 +614,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           RowCount = 26
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWhite
-          Font.Height = -14
+          Font.Height = -12
           Font.Name = 'Tahoma'
           Font.Style = []
           Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goDrawFocusSelected, goEditing]
@@ -631,10 +626,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
             30)
         end
         object Stgr_Todos_Numeros: TStringGrid
-          Left = -2497
-          Top = -795
-          Width = 815
-          Height = 110
+          Left = -3383
+          Top = -734
+          Width = 718
+          Height = 97
           Anchors = [akLeft, akBottom]
           Color = 8421440
           ColCount = 26
@@ -647,10 +642,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           Visible = False
         end
         object Stgr_TodosNumerosP17: TStringGrid
-          Left = -2497
-          Top = -886
-          Width = 1033
-          Height = 84
+          Left = -3383
+          Top = -814
+          Width = 910
+          Height = 74
           Anchors = [akLeft, akBottom]
           Color = 9136444
           ColCount = 33
@@ -663,9 +658,9 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           Visible = False
         end
         object stgr_excluiFixar_BaseL4Ac4: TStringGrid
-          Left = 18137
-          Top = 69
-          Width = 211
+          Left = 14790
+          Top = 61
+          Width = 186
           Height = 0
           TabStop = False
           Anchors = [akLeft, akTop, akBottom]
@@ -679,9 +674,9 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           TabOrder = 12
         end
         object stgr_excluiFixar_BaseL4Ac3: TStringGrid
-          Left = 17953
-          Top = 69
-          Width = 177
+          Left = 14628
+          Top = 61
+          Width = 156
           Height = 0
           TabStop = False
           Anchors = [akLeft, akTop, akBottom]
@@ -696,9 +691,9 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           TabOrder = 13
         end
         object stgr_excluiFixar_BaseL4Ac2: TStringGrid
-          Left = 17814
-          Top = 69
-          Width = 132
+          Left = 14506
+          Top = 61
+          Width = 116
           Height = 0
           TabStop = False
           Anchors = [akLeft, akTop, akBottom]
@@ -713,9 +708,9 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           TabOrder = 14
         end
         object stgr_excluiFixar_BaseL5Ac3: TStringGrid
-          Left = 18648
-          Top = 69
-          Width = 177
+          Left = 15240
+          Top = 61
+          Width = 156
           Height = 0
           TabStop = False
           Anchors = [akLeft, akTop, akBottom]
@@ -730,9 +725,9 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           TabOrder = 15
         end
         object stgr_excluiFixar_BaseL5Ac2: TStringGrid
-          Left = 18509
-          Top = 69
-          Width = 132
+          Left = 15118
+          Top = 61
+          Width = 116
           Height = 0
           TabStop = False
           Anchors = [akLeft, akTop, akBottom]
@@ -747,9 +742,9 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           TabOrder = 16
         end
         object stgr_excluiFixar_BaseL5Ac1: TStringGrid
-          Left = 18398
-          Top = 69
-          Width = 104
+          Left = 15020
+          Top = 61
+          Width = 92
           Height = 0
           TabStop = False
           Anchors = [akLeft, akTop, akBottom]
@@ -764,14 +759,14 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           TabOrder = 17
         end
         object Bbt_rank: TBitBtn
-          Left = -1520
-          Top = 30
-          Width = 67
-          Height = 31
+          Left = -2522
+          Top = 26
+          Width = 59
+          Height = 28
           Caption = 'Rank'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -18
+          Font.Height = -16
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           ParentFont = False
@@ -779,14 +774,14 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           OnClick = Bbt_rankClick
         end
         object Bbt_carregarSorteio15N: TBitBtn
-          Left = -1756
-          Top = 30
-          Width = 229
-          Height = 31
+          Left = -2730
+          Top = 26
+          Width = 202
+          Height = 28
           Caption = 'CARREGAR SORTEIOS'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -18
+          Font.Height = -16
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           ParentFont = False
@@ -799,10 +794,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
       Caption = 'TabSheet2'
       ImageIndex = 1
       object pa_fimCombinacoesPara7: TPanel
-        Left = 228
-        Top = 66
-        Width = 403
-        Height = 398
+        Left = 201
+        Top = 58
+        Width = 355
+        Height = 351
         BevelInner = bvLowered
         BevelWidth = 4
         BorderWidth = 1
@@ -810,7 +805,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
         Color = 7103036
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -12
+        Font.Height = -11
         Font.Name = 'Verdana'
         Font.Style = []
         ParentBackground = False
@@ -820,56 +815,56 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
         object Label17: TLabel
           Left = 9
           Top = 9
-          Width = 381
-          Height = 29
+          Width = 333
+          Height = 25
           Align = alTop
           Alignment = taCenter
           Caption = 'Conjuntos 16'
           Color = 14286790
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 3351811
-          Font.Height = -24
+          Font.Height = -21
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentColor = False
           ParentFont = False
           Transparent = False
-          ExplicitLeft = 10
-          ExplicitTop = 10
-          ExplicitWidth = 159
+          ExplicitLeft = 8
+          ExplicitTop = 8
+          ExplicitWidth = 139
         end
         object Label19: TLabel
           Left = 9
-          Top = 38
-          Width = 381
-          Height = 23
+          Top = 34
+          Width = 333
+          Height = 20
           Align = alTop
           Alignment = taCenter
           Caption = ' Combina'#231#245'es de 7'
           Color = 14286790
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 3351811
-          Font.Height = -19
+          Font.Height = -17
           Font.Name = 'Verdana'
           Font.Style = [fsItalic]
           ParentColor = False
           ParentFont = False
           Transparent = False
           WordWrap = True
-          ExplicitLeft = 10
-          ExplicitTop = 39
-          ExplicitWidth = 182
+          ExplicitLeft = 8
+          ExplicitTop = 33
+          ExplicitWidth = 164
         end
         object Label20: TLabel
-          Left = 24
-          Top = 196
-          Width = 214
-          Height = 22
+          Left = 21
+          Top = 173
+          Width = 197
+          Height = 19
           Caption = 'Total de dados gerados:'
           Color = clBlack
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 15925207
-          Font.Height = -18
+          Font.Height = -16
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentColor = False
@@ -877,15 +872,15 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           Transparent = True
         end
         object Label21: TLabel
-          Left = 24
-          Top = 218
-          Width = 44
-          Height = 22
+          Left = 21
+          Top = 192
+          Width = 40
+          Height = 19
           Caption = '0000'
           Color = clBlack
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 13500259
-          Font.Height = -18
+          Font.Height = -16
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentColor = False
@@ -893,15 +888,15 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           Transparent = False
         end
         object Label22: TLabel
-          Left = 11
-          Top = 87
-          Width = 252
-          Height = 22
+          Left = 10
+          Top = 77
+          Width = 225
+          Height = 19
           Caption = '1. In'#237'cio do Processamento:'
           Color = clBlack
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 15925207
-          Font.Height = -18
+          Font.Height = -16
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentColor = False
@@ -909,15 +904,15 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           Transparent = True
         end
         object LA_gINICIO_100REPET7: TLabel
-          Left = 166
-          Top = 107
-          Width = 206
-          Height = 22
+          Left = 146
+          Top = 94
+          Width = 187
+          Height = 19
           Caption = '01/01/2001 - 00:00:00'
           Color = clBlack
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 13500259
-          Font.Height = -18
+          Font.Height = -16
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentColor = False
@@ -925,15 +920,15 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           Transparent = False
         end
         object Label34: TLabel
-          Left = 10
-          Top = 133
-          Width = 275
-          Height = 22
+          Left = 9
+          Top = 117
+          Width = 248
+          Height = 19
           Caption = '2. T'#233'rmino do Processamento:'
           Color = clBlack
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 15925207
-          Font.Height = -18
+          Font.Height = -16
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentColor = False
@@ -941,15 +936,15 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           Transparent = True
         end
         object LA_gFIM_GERAR7: TLabel
-          Left = 166
-          Top = 156
-          Width = 206
-          Height = 22
+          Left = 146
+          Top = 137
+          Width = 187
+          Height = 19
           Caption = '01/01/2001 - 00:00:00'
           Color = clBlack
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 13500259
-          Font.Height = -18
+          Font.Height = -16
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentColor = False
@@ -957,15 +952,15 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           Transparent = False
         end
         object Label42: TLabel
-          Left = 24
-          Top = 243
-          Width = 293
-          Height = 22
+          Left = 21
+          Top = 214
+          Width = 270
+          Height = 19
           Caption = 'Total de dados sem os repetidos:'
           Color = clBlack
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 15925207
-          Font.Height = -18
+          Font.Height = -16
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentColor = False
@@ -974,15 +969,15 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           Visible = False
         end
         object Label43: TLabel
-          Left = 24
-          Top = 265
-          Width = 44
-          Height = 22
+          Left = 21
+          Top = 233
+          Width = 40
+          Height = 19
           Caption = '0000'
           Color = clBlack
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 13500259
-          Font.Height = -18
+          Font.Height = -16
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentColor = False
@@ -991,15 +986,15 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           Visible = False
         end
         object BitBtn_OkCombinacoesPara7: TBitBtn
-          Left = 17
-          Top = 293
-          Width = 363
-          Height = 41
+          Left = 15
+          Top = 258
+          Width = 320
+          Height = 36
           Caption = 'OK'
           Default = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 5579525
-          Font.Height = -23
+          Font.Height = -20
           Font.Name = 'Tahoma'
           Font.Style = []
           NumGlyphs = 2
@@ -1007,15 +1002,15 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           TabOrder = 0
         end
         object BitBtn_BNCombinacoesPara7: TBitBtn
-          Left = 18
-          Top = 335
-          Width = 364
-          Height = 41
+          Left = 16
+          Top = 295
+          Width = 320
+          Height = 36
           Caption = 'Bloco de Notas'
           Default = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 5579525
-          Font.Height = -23
+          Font.Height = -20
           Font.Name = 'Tahoma'
           Font.Style = []
           NumGlyphs = 2
@@ -1024,10 +1019,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
         end
       end
       object Panel6: TPanel
-        Left = 221
+        Left = 195
         Top = 0
-        Width = 1127
-        Height = 609
+        Width = 991
+        Height = 534
         Align = alClient
         BevelOuter = bvNone
         Color = 6253946
@@ -1036,8 +1031,8 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
         object Panel7: TPanel
           Left = 0
           Top = 0
-          Width = 1127
-          Height = 265
+          Width = 991
+          Height = 233
           Align = alTop
           BevelOuter = bvNone
           ParentColor = True
@@ -1045,26 +1040,26 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           object ScrollBox1: TScrollBox
             Left = 0
             Top = 0
-            Width = 1127
-            Height = 265
-            HorzScrollBar.Range = 1130
+            Width = 991
+            Height = 233
+            HorzScrollBar.Range = 995
             Align = alClient
             AutoScroll = False
             BevelOuter = bvNone
             BorderStyle = bsNone
             TabOrder = 0
             object memoConjunto16: TMemo
-              Left = 16
-              Top = 11
-              Width = 522
-              Height = 226
+              Left = 14
+              Top = 10
+              Width = 460
+              Height = 199
               BevelInner = bvNone
               BevelOuter = bvNone
               BorderStyle = bsNone
               Color = 6782092
               Font.Charset = DEFAULT_CHARSET
               Font.Color = 14152959
-              Font.Height = -18
+              Font.Height = -16
               Font.Name = 'MS Sans Serif'
               Font.Style = [fsBold]
               Lines.Strings = (
@@ -1088,24 +1083,44 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
                 '17=01 02 04 05 08 09 10 12 14 15 17 20 21 22 23 25'
                 '18=01 03 04 07 08 09 11 12 13 15 16 18 20 22 24 25'
                 '19=01 02 06 07 10 11 12 13 14 15 16 17 18 19 23 24'
-                '20=01 02 03 06 07 09 12 13 14 15 17 18 20 22 24 25')
+                '20=01 02 03 06 07 09 12 13 14 15 17 18 20 22 24 25'
+                '01=01 04 05 07 08 09 10 12 13 14 16 18 21 22 23 25'
+                '02=01 03 04 05 06 08 09 10 13 16 19 20 22 23 24 25'
+                '03=01 02 03 05 06 08 11 12 15 17 18 19 20 22 24 25'
+                '04=01 03 04 06 07 08 10 12 13 14 15 21 22 23 24 25'
+                '05=01 02 05 06 07 08 09 11 12 14 18 21 22 23 24 25'
+                '06=02 04 05 06 07 08 10 11 13 14 17 19 21 22 24 25'
+                '07=01 03 04 06 08 09 10 12 13 14 15 20 21 23 24 25'
+                '08=01 03 04 05 06 10 11 13 14 15 16 20 21 22 23 24'
+                '09=01 03 04 05 08 09 10 11 12 14 16 21 22 23 24 25'
+                '10=01 03 04 05 06 08 11 12 13 15 16 20 22 23 24 25'
+                '11=01 03 04 06 08 09 10 11 14 15 17 18 20 23 24 25'
+                '12=01 02 03 04 05 07 12 14 15 16 18 19 20 23 24 25'
+                '13=02 03 04 05 06 09 10 11 12 15 17 20 22 23 24 25'
+                '14=02 03 04 05 07 09 11 13 14 16 18 19 20 21 22 24'
+                '15=01 02 03 05 06 07 08 11 14 16 20 21 22 23 24 25'
+                '16=01 02 03 04 08 09 11 12 13 14 17 20 22 23 24 25'
+                '17=01 02 04 07 08 09 10 11 12 15 19 20 21 22 23 24'
+                '18=01 02 04 07 09 10 11 12 13 14 15 20 21 22 23 24'
+                '19=01 02 03 04 05 07 12 13 14 17 18 20 21 22 24 25'
+                '20=01 03 04 05 06 08 10 12 14 16 17 19 21 23 24 25')
               ParentFont = False
               ReadOnly = True
               ScrollBars = ssVertical
               TabOrder = 0
             end
             object memoConjunto09: TMemo
-              Left = 549
-              Top = 17
-              Width = 324
-              Height = 226
+              Left = 484
+              Top = 15
+              Width = 285
+              Height = 199
               BevelInner = bvNone
               BevelOuter = bvNone
               BorderStyle = bsNone
               Color = 6782092
               Font.Charset = DEFAULT_CHARSET
               Font.Color = 14152959
-              Font.Height = -18
+              Font.Height = -16
               Font.Name = 'MS Sans Serif'
               Font.Style = [fsBold]
               Lines.Strings = (
@@ -1130,24 +1145,44 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
                 '17=03 06 07 11 13 16 18 19 24'
                 '18=02 05 06 10 14 17 19 21 23'
                 '19=03 04 05 08 09 20 21 22 25'
-                '20=04 05 08 10 11 16 19 21 23')
+                '20=04 05 08 10 11 16 19 21 23'
+                '01=02 03 06 11 15 17 19 20 24'
+                '02=02 07 11 12 14 15 17 18 21'
+                '03=04 07 09 10 13 14 16 21 23'
+                '04=02 05 09 11 16 17 18 19 20'
+                '05=03 04 10 13 15 16 17 19 20'
+                '06=01 03 09 12 15 16 18 20 23'
+                '07=02 05 07 11 16 17 18 19 22'
+                '08=02 07 08 09 12 17 18 19 25'
+                '09=02 06 07 13 15 17 18 19 20 '
+                '10=02 07 09 10 14 17 18 19 21'
+                '11=02 05 07 12 13 16 19 21 22'
+                '12=06 08 09 10 11 13 17 21 22'
+                '13=01 07 08 13 14 16 18 19 21'
+                '14=01 06 08 10 12 15 17 23 25'
+                '15=04 09 10 12 13 15 17 18 19 '
+                '16=05 06 07 10 15 16 18 19 21'
+                '17=03 05 06 13 14 16 17 18 25'
+                '18=03 05 06 08 16 17 18 19 25'
+                '19=06 08 09 10 11 15 16 19 23'
+                '20=02 07 09 11 13 15 18 20 22')
               ParentFont = False
               ReadOnly = True
               ScrollBars = ssVertical
               TabOrder = 1
             end
             object Memo_conjunto04: TMemo
-              Left = 879
-              Top = 12
-              Width = 193
-              Height = 226
+              Left = 774
+              Top = 11
+              Width = 170
+              Height = 199
               BevelInner = bvNone
               BevelOuter = bvNone
               BorderStyle = bsNone
               Color = 6782092
               Font.Charset = DEFAULT_CHARSET
               Font.Color = 14152959
-              Font.Height = -18
+              Font.Height = -16
               Font.Name = 'MS Sans Serif'
               Font.Style = [fsBold]
               Lines.Strings = (
@@ -1181,9 +1216,9 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
         end
         object Panel8: TPanel
           Left = 0
-          Top = 265
-          Width = 1127
-          Height = 344
+          Top = 233
+          Width = 991
+          Height = 301
           Align = alClient
           BevelOuter = bvNone
           Color = 6586763
@@ -1192,26 +1227,26 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           object scrollBox_Resultado: TScrollBox
             Left = 0
             Top = 0
-            Width = 1127
-            Height = 344
-            HorzScrollBar.Range = 2384
-            VertScrollBar.Range = 454
+            Width = 991
+            Height = 301
+            HorzScrollBar.Range = 2100
+            VertScrollBar.Range = 400
             Align = alClient
             AutoScroll = False
             TabOrder = 0
             DesignSize = (
-              1104
-              321)
+              970
+              280)
             object Label35: TLabel
-              Left = 9533
-              Top = 5
-              Width = 68
-              Height = 20
+              Left = 8396
+              Top = 4
+              Width = 50
+              Height = 36
               Caption = 'Parte 1'
               Color = 6973952
               Font.Charset = DEFAULT_CHARSET
               Font.Color = 14150655
-              Font.Height = -17
+              Font.Height = -15
               Font.Name = 'Verdana'
               Font.Style = [fsBold]
               ParentColor = False
@@ -1221,15 +1256,15 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               WordWrap = True
             end
             object Label37: TLabel
-              Left = 9728
-              Top = 5
-              Width = 68
-              Height = 20
+              Left = 8568
+              Top = 4
+              Width = 50
+              Height = 36
               Caption = 'Parte 2'
               Color = 6973952
               Font.Charset = DEFAULT_CHARSET
               Font.Color = 14150655
-              Font.Height = -17
+              Font.Height = -15
               Font.Name = 'Verdana'
               Font.Style = [fsBold]
               ParentColor = False
@@ -1239,15 +1274,15 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               WordWrap = True
             end
             object Label38: TLabel
-              Left = 9914
-              Top = 5
-              Width = 68
-              Height = 20
+              Left = 8732
+              Top = 4
+              Width = 50
+              Height = 36
               Caption = 'Parte 3'
               Color = 6973952
               Font.Charset = DEFAULT_CHARSET
               Font.Color = 14150655
-              Font.Height = -17
+              Font.Height = -15
               Font.Name = 'Verdana'
               Font.Style = [fsBold]
               ParentColor = False
@@ -1257,15 +1292,15 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               WordWrap = True
             end
             object Label39: TLabel
-              Left = 10101
+              Left = 8896
               Top = 3
-              Width = 68
-              Height = 20
+              Width = 50
+              Height = 36
               Caption = 'Parte 4'
               Color = 6973952
               Font.Charset = DEFAULT_CHARSET
               Font.Color = 14150655
-              Font.Height = -17
+              Font.Height = -15
               Font.Name = 'Verdana'
               Font.Style = [fsBold]
               ParentColor = False
@@ -1275,15 +1310,15 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               WordWrap = True
             end
             object Label40: TLabel
-              Left = 10289
-              Top = 5
-              Width = 68
-              Height = 20
+              Left = 9062
+              Top = 4
+              Width = 50
+              Height = 36
               Caption = 'Parte 5'
               Color = 6973952
               Font.Charset = DEFAULT_CHARSET
               Font.Color = 14150655
-              Font.Height = -17
+              Font.Height = -15
               Font.Name = 'Verdana'
               Font.Style = [fsBold]
               ParentColor = False
@@ -1293,10 +1328,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               WordWrap = True
             end
             object stgr_ac8em9: TStringGrid
-              Left = 9
-              Top = 28
-              Width = 415
-              Height = 36035
+              Left = 8
+              Top = 25
+              Width = 365
+              Height = 31696
               TabStop = False
               Anchors = [akLeft, akTop, akBottom]
               BorderStyle = bsNone
@@ -1310,7 +1345,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               RowCount = 11
               Font.Charset = DEFAULT_CHARSET
               Font.Color = 13500259
-              Font.Height = -14
+              Font.Height = -12
               Font.Name = 'Tahoma'
               Font.Style = []
               GradientEndColor = 8294812
@@ -1332,10 +1367,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
                 23)
             end
             object stgr_ac1em9: TStringGrid
-              Left = 441
-              Top = 28
-              Width = 135
-              Height = 36035
+              Left = 388
+              Top = 25
+              Width = 119
+              Height = 31696
               TabStop = False
               Anchors = [akLeft, akTop, akBottom]
               BorderStyle = bsNone
@@ -1349,7 +1384,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               RowCount = 11
               Font.Charset = DEFAULT_CHARSET
               Font.Color = 13500259
-              Font.Height = -14
+              Font.Height = -12
               Font.Name = 'Tahoma'
               Font.Style = []
               GradientEndColor = 8294812
@@ -1371,10 +1406,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
                 23)
             end
             object stgr_ac7em16: TStringGrid
-              Left = 609
-              Top = 28
-              Width = 385
-              Height = 36035
+              Left = 536
+              Top = 25
+              Width = 339
+              Height = 31696
               TabStop = False
               Anchors = [akLeft, akTop, akBottom]
               BorderStyle = bsNone
@@ -1388,7 +1423,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               RowCount = 11
               Font.Charset = DEFAULT_CHARSET
               Font.Color = 13500259
-              Font.Height = -14
+              Font.Height = -12
               Font.Name = 'Tahoma'
               Font.Style = []
               GradientEndColor = 8294812
@@ -1409,14 +1444,53 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
                 23
                 23)
             end
+            object stgr_ac9em16: TStringGrid
+              Left = 889
+              Top = 25
+              Width = 392
+              Height = 31696
+              TabStop = False
+              Anchors = [akLeft, akTop, akBottom]
+              BorderStyle = bsNone
+              Color = 5398377
+              ColCount = 11
+              DefaultColWidth = 31
+              DefaultRowHeight = 23
+              DrawingStyle = gdsGradient
+              FixedColor = 10590093
+              FixedCols = 2
+              RowCount = 11
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 13500259
+              Font.Height = -12
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              GradientEndColor = 8294812
+              GradientStartColor = 11318976
+              Options = [goFixedVertLine, goFixedHorzLine, goHorzLine, goRangeSelect]
+              ParentFont = False
+              TabOrder = 3
+              RowHeights = (
+                23
+                23
+                23
+                23
+                23
+                23
+                23
+                23
+                23
+                23
+                23)
+            end
           end
         end
       end
       object pa_barraLateralComb7: TPanel
         Left = 0
         Top = 0
-        Width = 221
-        Height = 609
+        Width = 195
+        Height = 534
         Align = alLeft
         BevelOuter = bvNone
         Color = 5398377
@@ -1424,9 +1498,9 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
         TabOrder = 2
         object Panel4: TPanel
           Left = 0
-          Top = 124
-          Width = 221
-          Height = 485
+          Top = 109
+          Width = 195
+          Height = 425
           Align = alClient
           BevelOuter = bvNone
           ParentBackground = False
@@ -1436,8 +1510,8 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
         object Panel5: TPanel
           Left = 0
           Top = 0
-          Width = 221
-          Height = 124
+          Width = 195
+          Height = 109
           Align = alTop
           BevelOuter = bvNone
           Color = 6586763
@@ -1445,15 +1519,15 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           TabOrder = 1
           TabStop = True
           object Button_prepararComb7: TButton
-            Left = 8
-            Top = 15
-            Width = 204
-            Height = 42
+            Left = 7
+            Top = 13
+            Width = 180
+            Height = 37
             Caption = 'PREPARAR'
             DisabledImageIndex = 1
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
-            Font.Height = -18
+            Font.Height = -16
             Font.Name = 'Tahoma'
             Font.Style = []
             HotImageIndex = 2
@@ -1464,16 +1538,16 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
             OnClick = Button_prepararComb7Click
           end
           object btnGerarCombPara7: TButton
-            Left = 8
-            Top = 67
-            Width = 204
-            Height = 42
+            Left = 7
+            Top = 59
+            Width = 180
+            Height = 37
             BiDiMode = bdLeftToRight
             Caption = 'GERAR'
             Enabled = False
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
-            Font.Height = -18
+            Font.Height = -16
             Font.Name = 'Tahoma'
             Font.Style = []
             HotImageIndex = 2
