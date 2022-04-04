@@ -43,7 +43,6 @@ Type
       Stgr_EstatisticasSorteiosAtrasados13: TStringGrid;
       Stgr_Estatisticas13: TStringGrid;
       Stgr_Base17VF: TStringGrid;
-      Stgr_Todos_Numeros: TStringGrid;
       Stgr_TodosNumerosP17: TStringGrid;
       stgr_excluiFixar_BaseL4Ac4: TStringGrid;
       stgr_excluiFixar_BaseL4Ac3: TStringGrid;
@@ -79,7 +78,7 @@ Type
       Label17: TLabel;
       Label19: TLabel;
       Label20: TLabel;
-    la_totaldeDadosGerados: TLabel;
+      la_totaldeDadosGerados: TLabel;
       Label22: TLabel;
       LA_gINICIO_100REPET7: TLabel;
       Label34: TLabel;
@@ -114,6 +113,21 @@ Type
     stgr_15Sorteados_Comb1: TStringGrid;
     Label13: TLabel;
     mem_Sorteados: TMemo;
+    rb_gerarcomb01Ate18: TRadioButton;
+    rb_gerarcomb01Ate08: TRadioButton;
+    Stgr_Todos_Numeros: TStringGrid;
+    paPreparar: TPanel;
+    laMensagensPreparar: TLabel;
+    Panel1: TPanel;
+    Label16: TLabel;
+    bbtOkPreparar1: TBitBtn;
+    bbtVoltarPreparar1: TBitBtn;
+    Label18: TLabel;
+    pgbr_gravandoComb1: TProgressBar;
+    stgr_15Sorteados_Comb1Flag: TStringGrid;
+    chk_somatoria160a220: TCheckBox;
+    edt_soma1Inicial: TEdit;
+    edt_soma1Final: TEdit;
       Procedure Bbt_CarregarSort(Sender: TObject);
       Procedure Bbt_rankClick(Sender: TObject);
       Procedure FormCreate(Sender: TObject);
@@ -125,10 +139,17 @@ Type
       Procedure BitBtn_VoltarCombinacoes1Click(Sender: TObject);
     procedure BitBtn_OkCombinacoesPara7Click(Sender: TObject);
     procedure BitBtn_BNCombinacoesPara7Click(Sender: TObject);
+    procedure rb_gerarcomb01Ate18Click(Sender: TObject);
+    procedure rb_gerarcomb01Ate08Click(Sender: TObject);
+    procedure bbtOkPreparar1Click(Sender: TObject);
+    procedure bbtVoltarPreparar1Click(Sender: TObject);
+    procedure edt_soma1FinalExit(Sender: TObject);
+    procedure chk_somatoria160a220Click(Sender: TObject);
    Private
       { Private declarations }
       vcrDivisor1, vcrDivisor2, vcrDivisor3: Currency;
       vsiInicioLinhas1, vsiTerminoLinhas1: smallint;
+      liS_15Sorteados: Tlist<String>;
       Procedure PreenchimentoInicialPadrao;
       Procedure Zerar_FLAGTodosNumeros();
       Procedure Falso_Linha2TodosNumeros;
@@ -136,9 +157,15 @@ Type
       Procedure ac8em9;
       Procedure ac7em16;
     procedure ac10NaoSorteados_1e9;
-    procedure Cj4Todos4NaoSorteados;
+    procedure Cj4Todos4NaoSorteados (vsFlgaOrdena: string);
     procedure ReconstroiTela;
     procedure MontaMemoBlocoNotasComb1(liS_15Sorteados: Tlist<string>);
+    procedure Cj4Com3NaoSorteados (vsFlgaOrdena: string);
+    procedure Cj4Com3NSe4NS ();
+    procedure Reconstroi_strg_15Sorteados_Comb;
+    procedure Gravar16POR9C12num_sort;
+    procedure Carregar16POR9C12num_sort;
+    procedure MontaMemoBlocoNotasComb2;
    Public
       { Public declarations }
    End;
@@ -155,8 +182,8 @@ Uses
 
 Procedure Tfrm_Ranqueador16Com12Linhas.FormCreate(Sender: TObject);
 Begin
-   SELF.ClientWidth := 1495;
-   SELF.ClientHeight := 620;
+   SELF.ClientWidth := 1499;
+   SELF.ClientHeight := 645;
    SELF.Top := 57;
    SELF.Left := 6;
    // SELF.Visible := TRUE;
@@ -168,6 +195,8 @@ Begin
    pgbr_10NaoSorteados_Comb1.Repaint;
    pgbr_filtrandoComb1.Position := 0;
    pgbr_filtrandoComb1.Repaint;
+   pgbr_gravandoComb1.Position := 0;
+   pgbr_gravandoComb1.Repaint;
 End;
 
 Procedure Tfrm_Ranqueador16Com12Linhas.Bbt_CarregarSort(Sender: TObject);
@@ -207,6 +236,7 @@ Begin
    Label_qtdSorteios.Caption := (viContar1 - 1).toString;
    ShowMessage('Ok');
 End;
+
 
 Procedure Tfrm_Ranqueador16Com12Linhas.Bbt_rankClick(Sender: TObject);
 Var
@@ -466,6 +496,8 @@ Begin
 End;
 
 
+
+
 procedure Tfrm_Ranqueador16Com12Linhas.BitBtn_OkCombinacoesPara7Click(Sender: TObject);
 begin
    pa_fimCombinacoesPara7.Visible := false;
@@ -476,13 +508,32 @@ Procedure Tfrm_Ranqueador16Com12Linhas.BitBtn_OKGerarCombinacoes1Click(Sender: T
 var
    vtiInicio, viTermino: TDateTime;
 Begin
-   If (Rb_gerarComb01Ate20.Checked = false) And (Rb_gerarComb21Ate40.Checked = false) Then
+   If (Rb_gerarComb01Ate20.Checked = false) And (Rb_gerarComb21Ate40.Checked = false)
+      And (rb_gerarcomb01Ate18.Checked = false) And (rb_gerarcomb01Ate08.Checked = false)  Then
    Begin
       // MessageDlg('Escolha as linhas para o processamento',[mtError],[btnYes,btnNo],1);
       ShowMessage('Escolha as linhas para o processamento');
       pa_gerarCombinacoes1.SetFocus;
       Abort
    End;
+   if StrToInt(edt_soma1Final.Text) < strToInt(edt_soma1Inicial.Text) then
+   begin
+      Showmessage('Valor final de ser maior ou igual ao valor inicial.');
+      edt_soma1Final.SetFocus;
+      Abort
+   end;
+   if StrToInt(edt_soma1Inicial.Text) < 150 then
+   begin
+      Showmessage('Valor inicial abaixo de 230.');
+      edt_soma1Inicial.SetFocus;
+      Abort
+   end;
+   if StrToInt(edt_soma1Final.Text) > 230 then
+   begin
+      Showmessage('Valor final acima de 230.');
+      edt_soma1Final.SetFocus;
+      Abort
+   end;
    pa_gerarCombinacoes1.Visible := false;
    LA_gINICIO_100REPET7.Caption := DateToStr(Date()) + ' - ' +TimeToStr(time);
    vtiInicio := Now;
@@ -490,10 +541,12 @@ Begin
    ac7em16();
    ac8em9();
    ac10NaoSorteados_1e9();
-   if (cb_Combinacoes1Geral.ItemIndex=0) or (cb_Combinacoes1Geral.ItemIndex=3) then
-      sleep(1);
-   if (cb_Combinacoes1Geral.ItemIndex=1) or (cb_Combinacoes1Geral.ItemIndex=3) then
-      Cj4Todos4NaoSorteados();
+   if (cb_Combinacoes1Geral.ItemIndex=0) {or (cb_Combinacoes1Geral.ItemIndex=3)} then
+      Cj4Com3NaoSorteados('V');
+   if (cb_Combinacoes1Geral.ItemIndex=1) {or (cb_Combinacoes1Geral.ItemIndex=3)} then
+      Cj4Todos4NaoSorteados('V');
+   if (cb_Combinacoes1Geral.ItemIndex=2) then
+      Cj4Com3NSe4NS();
 
    pa_fimCombinacoesPara7.Top := 48;
    pa_fimCombinacoesPara7.Left := 10;
@@ -501,15 +554,73 @@ Begin
    pa_fimCombinacoesPara7.Visible := true;
    LA_gFIM_GERAR7.Caption := DateToStr(Date()) + ' - ' +TimeToStr(time);
    viTermino := Now;
+   btnGerarComb1.Enabled := false;
    la_tempoGerar.Caption := (SecondsBetween(viTermino, vtiInicio)).toString + ' segundos'
 End;
 
 
+
+
+
 Procedure Tfrm_Ranqueador16Com12Linhas.Button_prepararComb1Click(Sender: TObject);
 Begin
-   sleep(1000);
-   btnGerarComb1.Enabled := true;
+   edt_soma1Inicial.Enabled := false;
+   edt_soma1Final.Enabled := false;
+   pgbr_gravandoComb1.Position := 0;
+   pgbr_gravandoComb1.Repaint;
+   paPreparar.Left := 390;
+   paPreparar.Top := 110;
+   paPreparar.Enabled := True;
+   paPreparar.Visible := True;
 End;
+
+
+
+
+procedure Tfrm_Ranqueador16Com12Linhas.bbtOkPreparar1Click(Sender: TObject);
+begin
+   laMensagensPreparar.Caption := 'Criando ou limpando o banco de dados para' +#13+ 'o bloco de 15 números.';
+   laMensagensPreparar.Repaint;
+   Self.WindowState := wsMinimized;
+   Self.WindowState := wsNormal;
+   paPreparar.Repaint;
+   Try
+      IBQ_Combinacoes.SQL.Clear;
+      IBQ_Combinacoes.SQL.Add('CREATE TABLE CJTO_16POR9C12num_sort( SORTEADOS VARCHAR(46) COLLATE PT_BR);') ;
+      IBQ_Combinacoes.ExecSQL;
+      IBQ_Combinacoes.SQL.Clear;
+      IBQ_Combinacoes.SQL.Add('COMMIT')  ;
+      IBQ_Combinacoes.ExecSQL;
+      IBQ_Combinacoes.Transaction.StartTransaction;
+      IBQ_Combinacoes.Transaction.Commit;
+      IBQ_Combinacoes.Transaction.StartTransaction;
+   Except
+      IBQ_Combinacoes.SQL.Clear;
+      IBQ_Combinacoes.SQL.Add('DELETE FROM CJTO_16POR9C12num_sort;')  ;
+      IBQ_Combinacoes.ExecSQL;
+      IBQ_Combinacoes.SQL.Clear;
+      IBQ_Combinacoes.SQL.Add('COMMIT')  ;
+      IBQ_Combinacoes.ExecSQL ;
+      IBQ_Combinacoes.Transaction.StartTransaction;
+      IBQ_Combinacoes.Transaction.Commit;
+      IBQ_Combinacoes.Transaction.StartTransaction;
+   End;
+   Self.Repaint;
+   Self.WindowState := wsMinimized;
+   Self.WindowState := wsNormal;
+   bbtVoltarPreparar1.Click;
+   paPreparar.Repaint;
+   btnGerarComb1.Enabled := true;
+end;
+
+
+procedure Tfrm_Ranqueador16Com12Linhas.bbtVoltarPreparar1Click(Sender: TObject);
+begin
+   btnGerarComb1.Enabled := false;
+   paPreparar.Enabled := false;
+   paPreparar.Visible := false;
+end;
+
 
 
 Procedure Tfrm_Ranqueador16Com12Linhas.ac8em9();
@@ -657,11 +768,11 @@ End;
 Procedure Tfrm_Ranqueador16Com12Linhas.ac10NaoSorteados_1e9();
 Var
    viContadorBase, viComb01, viComb02: integer;
-   viLinhas, viContarColunas, viContarCelulas: integer;
+   viLinhas, viContarColunas, viSomatoria: integer;
 Begin
    pgbr_10NaoSorteados_Comb1.Position := 0;
    pgbr_10NaoSorteados_Comb1.Repaint;
-   scrollBox_Resultado.HorzScrollBar.Position := 970;
+   scrollBox_Resultado.HorzScrollBar.Position := 1099;
    scrollBox_Resultado.Repaint;
    viLinhas := 1;
    For viContadorBase := vsiInicioLinhas1 To vsiTerminoLinhas1 Do
@@ -684,10 +795,11 @@ Begin
             stgr_10NaoSorteados_Comb1.Cells[05, viLinhas] := '-';
             stgr_15Sorteados_Comb1.Cells[00, viLinhas] := viLinhas.toString;
             stgr_15Sorteados_Comb1.Cells[01, viLinhas] := viContadorBase.toString;
-            stgr_15Sorteados_Comb1.Cells[02, viLinhas] := viComb01.toString;
-            stgr_15Sorteados_Comb1.Cells[03, viLinhas] := viComb02.toString;
-            stgr_15Sorteados_Comb1.Cells[04, viLinhas] := '-';
-            stgr_15Sorteados_Comb1.Cells[05, viLinhas] := '-';
+            stgr_15Sorteados_Comb1.Cells[02, viLinhas] := '-';
+            stgr_15Sorteados_Comb1.Cells[03, viLinhas] := '-';
+            stgr_15Sorteados_Comb1Flag.Cells[00, viLinhas] := viLinhas.toString;
+            stgr_15Sorteados_Comb1Flag.Cells[01, viLinhas] := 'V';
+            stgr_15Sorteados_Comb1Flag.Cells[02, viLinhas] := 'V';
             for viContarColunas := 1 to 9 do
             begin
                stgr_10NaoSorteados_Comb1.Cells[05+viContarColunas, viLinhas] := stgr_ac9em16.Cells[01+viContarColunas,viComb01];
@@ -695,11 +807,23 @@ Begin
             stgr_10NaoSorteados_Comb1.Cells[15, viLinhas] := stgr_ac1em9.Cells[02,viComb02];
             for viContarColunas := 1 to 7 do
             begin
-               stgr_15Sorteados_Comb1.Cells[05+viContarColunas, viLinhas] := stgr_ac7em16.Cells[01+viContarColunas,viComb01];
+               stgr_15Sorteados_Comb1.Cells[03+viContarColunas, viLinhas] := stgr_ac7em16.Cells[01+viContarColunas,viComb01];
             end;
             for viContarColunas := 1 to 8 do
             begin
-               stgr_15Sorteados_Comb1.Cells[12+viContarColunas, viLinhas] := stgr_ac8em9.Cells[01+viContarColunas,viComb02];
+               stgr_15Sorteados_Comb1.Cells[10+viContarColunas, viLinhas] := stgr_ac8em9.Cells[01+viContarColunas,viComb02];
+            end;
+            if chk_somatoria160a220.Checked =True then
+            begin
+               viSomatoria := 0;
+               for viContarColunas := 1 to 15 do
+               begin
+                  viSomatoria := viSomatoria +stgr_15Sorteados_Comb1.Cells[03+viContarColunas, viLinhas].ToInteger;
+               end;
+               if (viSomatoria >=StrToInt(edt_soma1Inicial.Text)) and (viSomatoria <= StrToInt(edt_soma1Final.Text)) then
+                  stgr_15Sorteados_Comb1Flag.Cells[01, viLinhas] := 'V'
+               else
+                  stgr_15Sorteados_Comb1Flag.Cells[01, viLinhas] := 'F';
             end;
             viLinhas := viLinhas + 1;
          End;
@@ -717,26 +841,30 @@ Begin
    stgr_10NaoSorteados_Comb1.Repaint;
    stgr_15Sorteados_Comb1.RowCount := viLinhas;
    stgr_15Sorteados_Comb1.Repaint;
+   stgr_15Sorteados_Comb1Flag.RowCount := viLinhas;
+   stgr_15Sorteados_Comb1Flag.Repaint;
    ReconstroiTela();
 End;
 
-   // Cj4 n. onde todos os 4 Não sorteados
-Procedure Tfrm_Ranqueador16Com12Linhas.Cj4Todos4NaoSorteados();
+
+Procedure Tfrm_Ranqueador16Com12Linhas.Cj4Com3NaoSorteados(vsFlgaOrdena: string);
 Var
    viContadorBase, viContar_conjunto04: integer;
    viLinhas, viContarColunas, viContarCelulas, viNumero: integer;
    vsFlag1, vsFlag2, vsSorteados : string;
-   liS_15Sorteados: Tlist<String>;
 Begin
-   liS_15Sorteados:= Tlist<String>.Create;
+// stgr_15Sorteados_Comb1
+// do 4 ao 10
+   if vsFlgaOrdena.ToUpper = 'V' then
+      liS_15Sorteados:= Tlist<String>.Create;
    pgbr_filtrandoComb1.Position := 0;
    pgbr_filtrandoComb1.Repaint;
-   scrollBox_Resultado.HorzScrollBar.Position := 1170;
+   scrollBox_Resultado.HorzScrollBar.Position := 1280;
    scrollBox_Resultado.Repaint;
    viLinhas := 1;
    For viContadorBase := 1 To stgr_10NaoSorteados_Comb1.RowCount-1 Do
    Begin
-      if viContadorBase mod 25  = 0 then
+      if viContadorBase mod 50  = 0 then
       begin
          stgr_10NaoSorteados_Comb1.Cells[0, 0]:= IntToStr(viContadorBase);
          stgr_10NaoSorteados_Comb1.Repaint;
@@ -772,6 +900,147 @@ Begin
                viContarCelulas := viContarCelulas + 1;
             End;
          End;
+//      Stgr_Todos_Numeros.Repaint;
+         If viContarCelulas = 3 Then
+            vsFlag1 := 'V';
+         stgr_10NaoSorteados_Comb1.Cells[04, viContadorBase] := vsFlag1;
+
+         // ocorrencia no último
+         Falso_Linha1TodosNumeros;
+         Falso_Linha2TodosNumeros;
+         For viContarColunas := 4 To 10 Do
+         Begin
+            viNumero := STRtoINT(stgr_15Sorteados_Comb1.Cells[viContarColunas, viContadorBase]);
+            Stgr_Todos_Numeros.Cells[viNumero, 1] := 'V';
+         End;
+         For viContarColunas := 1 To 4 Do
+         Begin
+            viNumero := STRtoINT(copy((Memo_conjunto04.Lines.Strings[viContar_conjunto04]), viContarColunas * 3 + 1, 2));
+            Stgr_Todos_Numeros.Cells[viNumero, 2] := 'V';
+         End;
+         viContarCelulas := 0;
+         For viContarColunas := 1 To 25 Do
+         Begin
+            If (Stgr_Todos_Numeros.Cells[viContarColunas, 1] = 'V') and (Stgr_Todos_Numeros.Cells[viContarColunas, 2] = 'V') Then
+            Begin
+               viContarCelulas := viContarCelulas + 1;
+            End;
+         End;
+//      Stgr_Todos_Numeros.Repaint;
+         If viContarCelulas = 1 Then
+            vsFlag2 := 'V';
+         stgr_10NaoSorteados_Comb1.Cells[05, viContadorBase] := vsFlag2;
+         if (vsflag1<>'V') or (vsFlag2<>'V')Then
+         begin
+            vsFlag1:= 'F';
+            vsFlag2:= 'F';
+         end;
+      End;
+      Falso_Linha1TodosNumeros;
+      Falso_Linha2TodosNumeros;
+      For viContarColunas := 6 To 15 Do
+      Begin
+         viNumero := STRtoINT(stgr_10NaoSorteados_Comb1.Cells[viContarColunas, viContadorBase]);
+         Stgr_Todos_Numeros.Cells[viNumero, 1] := 'V';
+      End;
+      For viContarColunas := 4 To 18 Do
+      Begin
+         viNumero := STRtoINT(stgr_15Sorteados_Comb1.Cells[viContarColunas, viContadorBase]);
+         Stgr_Todos_Numeros.Cells[viNumero, 2] := 'V';
+      End;
+      viContarCelulas := 6;
+      For viContarColunas := 1 To 25 Do
+      Begin
+         If (Stgr_Todos_Numeros.Cells[viContarColunas, 1] = 'V') Then
+         Begin
+            stgr_10NaoSorteados_Comb1.Cells[ViContarCelulas, viContadorBase] := RIGHTSTR('0' + (Stgr_Todos_Numeros.Cells[viContarColunas, 0]), 2);
+            viContarCelulas := viContarCelulas + 1;
+         End;
+      End;
+      viContarCelulas := 4;
+      vsSorteados := '';
+      For viContarColunas := 1 To 25 Do
+      Begin
+         If (Stgr_Todos_Numeros.Cells[viContarColunas, 2] = 'V') Then
+         Begin
+            stgr_15Sorteados_Comb1.Cells[ViContarCelulas, viContadorBase] := RIGHTSTR('0' + (Stgr_Todos_Numeros.Cells[viContarColunas, 0]), 2);
+            vsSorteados := vsSorteados+stgr_15Sorteados_Comb1.Cells[ViContarCelulas, viContadorBase] + ' ';
+            viContarCelulas := viContarCelulas + 1;
+         End;
+      End;
+      if (vsflag1='V') and (vsFlag2='V')Then
+         if (vsFlgaOrdena.ToUpper = 'V') and (stgr_15Sorteados_Comb1Flag.Cells[1,viContadorBase].ToUpper = 'V') then
+            liS_15Sorteados.Add(vsSorteados);
+   End;
+   if vsFlgaOrdena.ToUpper = 'V' then
+      liS_15Sorteados.Sort;
+   if vsFlgaOrdena.ToUpper = 'V' then
+      MontaMemoBlocoNotasComb1(liS_15Sorteados);
+   pgbr_filtrandoComb1.Position := 100;
+   pgbr_filtrandoComb1.Repaint;
+   la_totaldeDadosGerados.Caption := (stgr_10NaoSorteados_Comb1.RowCount-1).ToString;
+   if vsFlgaOrdena.ToUpper = 'V' then
+      la_totaldeDadosFiltrados.Caption := (liS_15Sorteados.Count-1).ToString;
+   ReconstroiTela();
+   if vsFlgaOrdena.ToUpper = 'V' then
+      FreeAndNil(liS_15Sorteados);
+End;
+
+
+
+   // Cj4 n. onde todos os 4 Não sorteados
+Procedure Tfrm_Ranqueador16Com12Linhas.Cj4Todos4NaoSorteados (vsFlgaOrdena: string);
+Var
+   viContadorBase, viContar_conjunto04: integer;
+   viLinhas, viContarColunas, viContarCelulas, viNumero: integer;
+   vsFlag1, vsFlag2, vsSorteados : string;
+Begin
+   if vsFlgaOrdena.ToUpper = 'V' then
+      liS_15Sorteados:= Tlist<String>.Create;
+   pgbr_filtrandoComb1.Position := 0;
+   pgbr_filtrandoComb1.Repaint;
+   scrollBox_Resultado.HorzScrollBar.Position := 1280;
+   scrollBox_Resultado.Repaint;
+   viLinhas := 1;
+   For viContadorBase := 1 To stgr_10NaoSorteados_Comb1.RowCount-1 Do
+   Begin
+      if viContadorBase mod 50  = 0 then
+      begin
+         stgr_10NaoSorteados_Comb1.Cells[0, 0]:= IntToStr(viContadorBase);
+         stgr_10NaoSorteados_Comb1.Repaint;
+         pgbr_filtrandoComb1.Position := Trunc((viContadorBase/(stgr_10NaoSorteados_Comb1.RowCount-1))*100);
+         pgbr_filtrandoComb1.Repaint;
+      end;
+      vsFlag1:= 'F';
+      vsFlag2:= 'F';
+      For viContar_conjunto04 := 1 To 20 do
+      Begin
+         // primeira ocorrencia
+         if (vsflag1='V') and (vsFlag2='V')Then
+         begin
+            Continue;
+         end;
+         Falso_Linha1TodosNumeros;
+         Falso_Linha2TodosNumeros;
+         For viContarColunas := 6 To 14 Do
+         Begin
+            viNumero := STRtoINT(stgr_10NaoSorteados_Comb1.Cells[viContarColunas, viContadorBase]);
+            Stgr_Todos_Numeros.Cells[viNumero, 1] := 'V';
+         End;
+         For viContarColunas := 1 To 4 Do
+         Begin
+            viNumero := STRtoINT(copy((Memo_conjunto04.Lines.Strings[viContar_conjunto04]), viContarColunas * 3 + 1, 2));
+            Stgr_Todos_Numeros.Cells[viNumero, 2] := 'V';
+         End;
+         viContarCelulas := 0;
+         For viContarColunas := 1 To 25 Do
+         Begin
+            If (Stgr_Todos_Numeros.Cells[viContarColunas, 1] = 'V') and (Stgr_Todos_Numeros.Cells[viContarColunas, 2] = 'V') Then
+            Begin
+               viContarCelulas := viContarCelulas + 1;
+            End;
+         End;
+//      Stgr_Todos_Numeros.Repaint;
          If viContarCelulas = 3 Then
             vsFlag1 := 'V';
          stgr_10NaoSorteados_Comb1.Cells[04, viContadorBase] := vsFlag1;
@@ -793,9 +1062,15 @@ Begin
                viContarCelulas := viContarCelulas + 1;
             End;
          End;
+//      Stgr_Todos_Numeros.Repaint;
          If viContarCelulas = 1 Then
             vsFlag2 := 'V';
          stgr_10NaoSorteados_Comb1.Cells[05, viContadorBase] := vsFlag2;
+         if (vsflag1<>'V') or (vsFlag2<>'V')Then
+         begin
+            vsFlag1:= 'F';
+            vsFlag2:= 'F';
+         end;
       End;
       Falso_Linha1TodosNumeros;
       Falso_Linha2TodosNumeros;
@@ -804,7 +1079,7 @@ Begin
          viNumero := STRtoINT(stgr_10NaoSorteados_Comb1.Cells[viContarColunas, viContadorBase]);
          Stgr_Todos_Numeros.Cells[viNumero, 1] := 'V';
       End;
-      For viContarColunas := 6 To 20 Do
+      For viContarColunas := 4 To 18 Do
       Begin
          viNumero := STRtoINT(stgr_15Sorteados_Comb1.Cells[viContarColunas, viContadorBase]);
          Stgr_Todos_Numeros.Cells[viNumero, 2] := 'V';
@@ -818,7 +1093,7 @@ Begin
             viContarCelulas := viContarCelulas + 1;
          End;
       End;
-      viContarCelulas := 6;
+      viContarCelulas := 4;
       vsSorteados := '';
       For viContarColunas := 1 To 25 Do
       Begin
@@ -830,20 +1105,267 @@ Begin
          End;
       End;
       if (vsflag1='V') and (vsFlag2='V')Then
-         liS_15Sorteados.Add(vsSorteados);
+         if (vsFlgaOrdena.ToUpper = 'V') and (stgr_15Sorteados_Comb1Flag.Cells[1,viContadorBase].ToUpper = 'V') then
+            liS_15Sorteados.Add(vsSorteados);
    End;
-   liS_15Sorteados.Sort;
-   MontaMemoBlocoNotasComb1(liS_15Sorteados);
+   if vsFlgaOrdena.ToUpper = 'V' then
+      liS_15Sorteados.Sort;
+   if vsFlgaOrdena.ToUpper = 'V' then
+      MontaMemoBlocoNotasComb1(liS_15Sorteados);
    pgbr_filtrandoComb1.Position := 100;
    pgbr_filtrandoComb1.Repaint;
    la_totaldeDadosGerados.Caption := (stgr_10NaoSorteados_Comb1.RowCount-1).ToString;
-   la_totaldeDadosFiltrados.Caption := (liS_15Sorteados.Count-1).ToString;
+   if vsFlgaOrdena.ToUpper = 'V' then
+      la_totaldeDadosFiltrados.Caption := (liS_15Sorteados.Count-1).ToString;
    ReconstroiTela();
+   if vsFlgaOrdena.ToUpper = 'V' then
+      FreeAndNil(liS_15Sorteados);
 End;
+
+
+
+procedure Tfrm_Ranqueador16Com12Linhas.edt_soma1FinalExit(Sender: TObject);
+begin
+   if StrToInt(edt_soma1Final.Text) < strToInt(edt_soma1Inicial.Text) then
+   begin
+      Showmessage('Valor final de ser maior ou igual ao valor inicial.');
+      edt_soma1Final.SetFocus;
+   end;
+end;
+
+
+Procedure Tfrm_Ranqueador16Com12Linhas.Gravar16POR9C12num_sort();
+Var
+   vsQuery, vsNumerosSort, vsNomeTabela : String;
+   viTotalLinhas, viContarColunas : integer;
+Begin
+   pgbr_gravandoComb1.Position := 0;
+   pgbr_gravandoComb1.Repaint;
+   vsNomeTabela := 'CJTO_16POR9C12num_sort';
+   for viTotalLinhas := 1 to stgr_15Sorteados_Comb1.RowCount-1 do
+   begin
+      if (stgr_10NaoSorteados_Comb1.Cells[4,viTotalLinhas]='V') and (stgr_10NaoSorteados_Comb1.Cells[5,viTotalLinhas]='V') then
+      begin
+         if not(stgr_15Sorteados_Comb1Flag.Cells[1,viTotalLinhas]='V') then
+            continue;
+         vsNumerosSort := '';
+         for viContarColunas := 4 to 18 do
+         begin
+            vsNumerosSort:= vsNumerosSort + stgr_15Sorteados_Comb1.Cells[viContarColunas,viTotalLinhas] + ' ';
+         end;
+         vsQuery  := 'INSERT INTO ' +vsNomeTabela+ ' (SORTEADOS) Values ('
+                 +#39+  TRIM(vsNumerosSort)
+             +#39+ ');';
+         IBQ_Combinacoes.SQL.Clear;
+         IBQ_Combinacoes.SQL.Add(vsQuery)  ;
+         iBQ_Combinacoes.ExecSQL;
+         if (viTotalLinhas MOD 50) = 0 then
+         BEGIN
+            pgbr_gravandoComb1.Position := Trunc((viTotalLinhas/(stgr_15Sorteados_Comb1.RowCount-1))*100);
+            pgbr_gravandoComb1.Repaint;
+            Sleep (25);
+         END;
+      end;
+   end;
+   pgbr_gravandoComb1.Position := 100;
+   pgbr_gravandoComb1.Repaint;
+   IBQ_Combinacoes.SQL.Clear;
+   IBQ_Combinacoes.SQL.Add('COMMIT')  ;
+   IBQ_Combinacoes.ExecSQL;
+   IBQ_Combinacoes.Transaction.StartTransaction;
+   IBQ_Combinacoes.Transaction.Commit;
+   IBQ_Combinacoes.Transaction.StartTransaction;
+   pgbr_gravandoComb1.Repaint;
+End;
+
+
+
+Procedure Tfrm_Ranqueador16Com12Linhas.Carregar16POR9C12num_sort();
+Var
+   viQuantidade, viLinhas: integer;
+   vsQuery : String;
+Begin
+   stgr_15Sorteados_Comb1.RowCount := 50;
+   vsQuery := vsQuery + 'Select  distinct(SORTEADOS) as DADOS ';
+   vsQuery := vsQuery + 'from CJTO_16POR9C12num_sort ';
+   vsQuery := vsQuery + 'order by DADOS ';
+   IBQ_Combinacoes.SQL.Clear;
+   IBQ_Combinacoes.SQL.Add(vsQuery)  ;
+   IBQ_Combinacoes.Prepare;
+   IBQ_Combinacoes.Open;
+   IBQ_Combinacoes.First;
+   viLinhas := 1;
+   while not(IBQ_Combinacoes.Eof) do
+   begin
+      stgr_15Sorteados_Comb1.Cells[00,viLinhas] := viLinhas.ToString;
+      stgr_15Sorteados_Comb1.Cells[01,viLinhas] := '';
+      stgr_15Sorteados_Comb1.Cells[02,viLinhas] := '';
+      stgr_15Sorteados_Comb1.Cells[03,viLinhas] := '';
+      stgr_15Sorteados_Comb1.Cells[04,viLinhas] := Copy((IBQ_Combinacoes.FieldByName('DADOS').AsString),01,2);
+      stgr_15Sorteados_Comb1.Cells[05,viLinhas] := Copy((IBQ_Combinacoes.FieldByName('DADOS').AsString),04,2);
+      stgr_15Sorteados_Comb1.Cells[06,viLinhas] := Copy((IBQ_Combinacoes.FieldByName('DADOS').AsString),07,2);
+      stgr_15Sorteados_Comb1.Cells[07,viLinhas] := Copy((IBQ_Combinacoes.FieldByName('DADOS').AsString),10,2);
+      stgr_15Sorteados_Comb1.Cells[08,viLinhas] := Copy((IBQ_Combinacoes.FieldByName('DADOS').AsString),13,2);
+      stgr_15Sorteados_Comb1.Cells[09,viLinhas] := Copy((IBQ_Combinacoes.FieldByName('DADOS').AsString),16,2);
+      stgr_15Sorteados_Comb1.Cells[10,viLinhas] := Copy((IBQ_Combinacoes.FieldByName('DADOS').AsString),19,2);
+      stgr_15Sorteados_Comb1.Cells[11,viLinhas] := Copy((IBQ_Combinacoes.FieldByName('DADOS').AsString),22,2);
+      stgr_15Sorteados_Comb1.Cells[12,viLinhas] := Copy((IBQ_Combinacoes.FieldByName('DADOS').AsString),25,2);
+      stgr_15Sorteados_Comb1.Cells[13,viLinhas] := Copy((IBQ_Combinacoes.FieldByName('DADOS').AsString),28,2);
+      stgr_15Sorteados_Comb1.Cells[14,viLinhas] := Copy((IBQ_Combinacoes.FieldByName('DADOS').AsString),31,2);
+      stgr_15Sorteados_Comb1.Cells[15,viLinhas] := Copy((IBQ_Combinacoes.FieldByName('DADOS').AsString),34,2);
+      stgr_15Sorteados_Comb1.Cells[16,viLinhas] := Copy((IBQ_Combinacoes.FieldByName('DADOS').AsString),37,2);
+      stgr_15Sorteados_Comb1.Cells[17,viLinhas] := Copy((IBQ_Combinacoes.FieldByName('DADOS').AsString),40,2);
+      stgr_15Sorteados_Comb1.Cells[18,viLinhas] := Copy((IBQ_Combinacoes.FieldByName('DADOS').AsString),43,2);
+      viLinhas := viLinhas + 1;
+      IBQ_Combinacoes.Next;
+   end;
+   stgr_15Sorteados_Comb1.RowCount := viLinhas;
+   stgr_15Sorteados_Comb1.Repaint;
+end;
+
+
+procedure Tfrm_Ranqueador16Com12Linhas.chk_somatoria160a220Click(Sender: TObject);
+begin
+   edt_soma1Inicial.Enabled := true;
+   edt_soma1Final.Enabled := true;
+   edt_soma1Inicial.SetFocus;
+end;
+
+Procedure Tfrm_Ranqueador16Com12Linhas.Cj4Com3NSe4NS();
+Var
+   viContadorBase: integer;
+   viLinhas, viContarColunas, viContarCelulas, viNumero: integer;
+Begin
+// stgr_15Sorteados_Comb1
+// do 4 ao 10
+   Cj4Com3NaoSorteados('F');
+   Gravar16POR9C12num_sort();
+   la_totaldeDadosGerados.Caption := (stgr_10NaoSorteados_Comb1.RowCount-1).ToString;
+   Cj4Todos4NaoSorteados('F');
+   Gravar16POR9C12num_sort();
+   Reconstroi_strg_15Sorteados_Comb;
+   pgbr_gravandoComb1.Position := 0;
+   pgbr_gravandoComb1.Repaint;
+   ReconstroiTela();
+   Carregar16POR9C12num_sort();
+   la_totaldeDadosFiltrados.Caption := (stgr_15Sorteados_Comb1.RowCount-1).ToString;
+End;
+
+
+
+Procedure Tfrm_Ranqueador16Com12Linhas.Reconstroi_strg_15Sorteados_Comb();
+begin
+   stgr_15Sorteados_Comb1.CleanupInstance;
+   stgr_15Sorteados_Comb1.DisposeOf;
+   sleep(50);
+   stgr_15Sorteados_Comb1 := TStringGrid.Create(nil);
+   stgr_15Sorteados_Comb1.Parent := scrollBox_Resultado;
+   with stgr_15Sorteados_Comb1 do
+   begin
+     Left := 669      ;
+     Top := 25        ;
+     Width := 670     ;
+     Height := 31192  ;
+     TabStop := False ;
+     Anchors := [akLeft, akTop, akBottom] ;
+     BorderStyle := bsNone           ;
+     Color := 5398377                ;
+     ColCount := 19                  ;
+     DefaultColWidth := 30           ;
+     DefaultRowHeight := 23          ;
+     DrawingStyle := gdsGradient     ;
+     Enabled := true                 ;
+     FixedColor := 10590093          ;
+     FixedCols := 4                  ;
+     RowCount := 9                   ;
+     Font.Charset := DEFAULT_CHARSET ;
+     Font.Color := 12648447          ;
+     Font.Height := -12              ;
+     Font.Name := 'Tahoma'           ;
+     Font.Style := []                ;
+     GradientEndColor := 10398390    ;
+     GradientStartColor := 8294812   ;
+     Options := [goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect];
+     ParentFont := False ;
+     RowCount := 2;
+     TabOrder := 5  ;
+   end;
+   stgr_15Sorteados_Comb1.Visible := true;
+   stgr_15Sorteados_Comb1.ColWidths[0] := 65;
+   stgr_15Sorteados_Comb1.Height := scrollBox_Resultado.Height - 39;
+   stgr_15Sorteados_Comb1.Repaint;
+end;
+
+
+
+procedure Tfrm_Ranqueador16Com12Linhas.MontaMemoBlocoNotasComb2;
+var
+  viContadorBase, viContarColunas: Integer;
+  vcTitulo, vcSubTitulo, vsNumerosSort : String;
+begin
+   vcTitulo := 'Resultado dos números gerados a partir dos Conjuntos de 16 x 9 números';
+   if Rb_gerarComb01Ate20.Checked then
+      vcSubTitulo := Rb_gerarComb01Ate20.Caption;
+   if Rb_gerarComb21Ate40.Checked then
+      vcSubTitulo := Rb_gerarComb21Ate40.Caption;
+   if Rb_gerarComb01Ate18.Checked then
+      vcSubTitulo := Rb_gerarComb01Ate18.Caption;
+   if rb_gerarcomb01Ate08.Checked then
+      vcSubTitulo := rb_gerarcomb01Ate08.Caption;
+   vcSubTitulo := vcSubTitulo+#13+cb_Combinacoes1Geral.Text;
+   mem_Sorteados.Clear;
+   mem_Sorteados.Lines.Add(vcTitulo);
+   mem_Sorteados.Lines.Add(vcSubTitulo);
+   mem_Sorteados.Lines.Add('TOTAL: ' + INTtoSTR(stgr_15Sorteados_Comb1.RowCount-1));
+   mem_Sorteados.Lines.Add('----------------------------');
+   for viContadorBase := 1 to stgr_15Sorteados_Comb1.RowCount-1 do
+   begin
+      vsNumerosSort := '';
+      for viContarColunas := 4 to 18 do
+      begin
+         vsNumerosSort:= vsNumerosSort + stgr_15Sorteados_Comb1.Cells[viContarColunas,viContadorBase] + ' ';
+      end;
+      mem_Sorteados.Lines.Add(vsNumerosSort);
+   end;
+   mem_Sorteados.Repaint;
+end;
+
+
+
+procedure Tfrm_Ranqueador16Com12Linhas.MontaMemoBlocoNotasComb1(liS_15Sorteados: Tlist<string>);
+var
+  viContadorBase: Integer;
+  vcTitulo, vcSubTitulo : String;
+begin
+   vcTitulo := 'Resultado dos números gerados a partir dos Conjuntos de 16 x 9 números';
+   if Rb_gerarComb01Ate20.Checked then
+      vcSubTitulo := Rb_gerarComb01Ate20.Caption;
+   if Rb_gerarComb21Ate40.Checked then
+      vcSubTitulo := Rb_gerarComb21Ate40.Caption;
+   if Rb_gerarComb01Ate18.Checked then
+      vcSubTitulo := Rb_gerarComb01Ate18.Caption;
+   if rb_gerarcomb01Ate08.Checked then
+      vcSubTitulo := rb_gerarcomb01Ate08.Caption;
+   vcSubTitulo := vcSubTitulo+#13+cb_Combinacoes1Geral.Text;
+   mem_Sorteados.Clear;
+   mem_Sorteados.Lines.Add(vcTitulo);
+   mem_Sorteados.Lines.Add(vcSubTitulo);
+   mem_Sorteados.Lines.Add('TOTAL: ' + INTtoSTR(liS_15Sorteados.Count-1));
+   mem_Sorteados.Lines.Add('----------------------------');
+   for viContadorBase := 1 to liS_15Sorteados.Count-1 do
+   begin
+      mem_Sorteados.Lines.Add(liS_15Sorteados[viContadorBase]);
+   end;
+   mem_Sorteados.Repaint;
+end;
 
 
 procedure Tfrm_Ranqueador16Com12Linhas.BitBtn_BNCombinacoesPara7Click(Sender: TObject);
 begin
+   if cb_Combinacoes1Geral.ItemIndex >=2 then
+   begin
+      MontaMemoBlocoNotasComb2();
+   end;
    mem_Sorteados.Lines.SaveToFile('C:\CXLOTOFACIL\25_Conjuntos_16por9_Comb1.TXT');
    winExec('Notepad.exe C:\CXLOTOFACIL\25_Conjuntos_16por9_Comb1.TXT', sw_shownormal);
    showmessage('BLOCO DE NOTAS GERADO' + #13+#13+#13 + 'Arquivo está localizado em:' +#13+#13+'C:\CXLOTOFACIL\25_Conjuntos_16por9_Comb1.TXT');
@@ -862,30 +1384,6 @@ begin
   pa_gerador16Comb1.Repaint;
   sleep(99);
 end;
-
-procedure Tfrm_Ranqueador16Com12Linhas.MontaMemoBlocoNotasComb1(liS_15Sorteados: Tlist<string>);
-var
-  viContadorBase: Integer;
-  vcTitulo, vcSubTitulo : String;
-begin
-   vcTitulo := 'Resultado dos números gerados a partir dos Conjuntos de 16 x 9 números';
-   if Rb_gerarComb01Ate20.Checked then
-      vcSubTitulo := Rb_gerarComb01Ate20.Caption;
-   if Rb_gerarComb21Ate40.Checked then
-      vcSubTitulo := Rb_gerarComb21Ate40.Caption;
-   vcSubTitulo := vcSubTitulo+#13+cb_Combinacoes1Geral.Text;
-   mem_Sorteados.Clear;
-   mem_Sorteados.Lines.Add(vcTitulo);
-   mem_Sorteados.Lines.Add(vcSubTitulo);
-   mem_Sorteados.Lines.Add('TOTAL: ' + INTtoSTR(liS_15Sorteados.Count-1));
-   mem_Sorteados.Lines.Add('----------------------------');
-   for viContadorBase := 1 to liS_15Sorteados.Count-1 do
-   begin
-      mem_Sorteados.Lines.Add(liS_15Sorteados[viContadorBase]);
-   end;
-   mem_Sorteados.Repaint;
-end;
-
 
 
 
@@ -2181,11 +2679,24 @@ Begin
    stgr_10NaoSorteados_Comb1.ColWidths[2] := 50;
    stgr_10NaoSorteados_Comb1.Height := scrollBox_Resultado.Height - 39;
    stgr_15Sorteados_Comb1.ColWidths[0] := 65;
-   stgr_15Sorteados_Comb1.ColWidths[2] := 50;
    stgr_15Sorteados_Comb1.Height := scrollBox_Resultado.Height - 39;
+   stgr_15Sorteados_Comb1Flag.ColWidths[0] := 50;
+   stgr_15Sorteados_Comb1Flag.Height := scrollBox_Resultado.Height - 39;
    // stgr_10NaoSorteados_Comb1 - colunas fixas:
    // coluna 0 = numeroLinha, 1 = numeroOrigem, 2=numero ac9em16, 3=numero stgr_ac1em9, 4=Flag ac9em16, 5= Flag stgr_ac1em9
 End;
+
+procedure Tfrm_Ranqueador16Com12Linhas.rb_gerarcomb01Ate08Click(Sender: TObject);
+begin
+   vsiInicioLinhas1 := 1;
+   vsiTerminoLinhas1 := 09;
+end;
+
+procedure Tfrm_Ranqueador16Com12Linhas.rb_gerarcomb01Ate18Click(Sender: TObject);
+begin
+   vsiInicioLinhas1 := 1;
+   vsiTerminoLinhas1 := 18;
+end;
 
 Procedure Tfrm_Ranqueador16Com12Linhas.Rb_gerarComb01Ate20Click(Sender: TObject);
 Begin
@@ -2195,7 +2706,7 @@ End;
 
 Procedure Tfrm_Ranqueador16Com12Linhas.Rb_gerarComb21Ate40Click(Sender: TObject);
 Begin
-   vsiInicioLinhas1 := 20;
+   vsiInicioLinhas1 := 21;
    vsiTerminoLinhas1 := 40;
 End;
 
