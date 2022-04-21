@@ -32,7 +32,7 @@ Type
       Label139: TLabel;
       Label_qtdSorteios: TLabel;
       Label2: TLabel;
-      Stgr_Base09: TStringGrid;
+    Stgr_qtdBase18: TStringGrid;
     Stgr_Base18: TStringGrid;
       Stgr_Estatisticas: TStringGrid;
       Stgr_Sorteios: TStringGrid;
@@ -195,27 +195,27 @@ Begin
       li_QtdOcorrencias08.add(RightStr('0000' + (vdbQtdOcorrencias08.toString), 5) + ' equivalente a ' +
         LeftStr((vdbPercentualOcorrencias08.toString) + '00000', 5) + '% com média de: 1 em ' +
         (RoundTo((Stgr_Sorteios.RowCount - 1) / vdbQtdOcorrencias08, -4)).toString + ' na LINHA: ' +
-        RightStr('0' + viContar16Combinacoes.toString, 2));
+        RightStr('00' + viContar16Combinacoes.toString, 3));
       Stgr_Estatisticas.Cells[3, viContar16Combinacoes] := ' 1 em ' +
         (RoundTo((Stgr_Sorteios.RowCount - 1) / vdbQtdOcorrencias08, -4)).toString;
       Stgr_Estatisticas.Cells[4, viContar16Combinacoes] := viUltimoSorteio08.toString;
       Stgr_Estatisticas.Cells[5, viContar16Combinacoes] :=
-        RightStr('00' + ((Stgr_Sorteios.RowCount - 1) - viUltimoSorteio08).toString, 3);
+        RightStr('000' + ((Stgr_Sorteios.RowCount - 1) - viUltimoSorteio08).toString, 4);
       If (((Stgr_Sorteios.RowCount - 1) - viUltimoSorteio08) -
         (RoundTo((Stgr_Sorteios.RowCount - 1) / vdbQtdOcorrencias08, 0))) >= 0 Then
       Begin
-         vsAtrasados := RightStr('00' + (((Stgr_Sorteios.RowCount - 1) - viUltimoSorteio08) -
-           (RoundTo((Stgr_Sorteios.RowCount - 1) / vdbQtdOcorrencias08, 0))).toString, 3) +
+         vsAtrasados := RightStr('000' + (((Stgr_Sorteios.RowCount - 1) - viUltimoSorteio08) -
+           (RoundTo((Stgr_Sorteios.RowCount - 1) / vdbQtdOcorrencias08, 0))).toString, 4) +
            ' concursos atrasados';
       End
       Else
       Begin
          vsAtrasados := '.faltam ' +
-           StringReplace(RightStr('00' + (((Stgr_Sorteios.RowCount - 1) - viUltimoSorteio08) -
-           (RoundTo((Stgr_Sorteios.RowCount - 1) / vdbQtdOcorrencias08, 0))).toString, 3), '-', '', []) +
+           StringReplace(RightStr('000' + (((Stgr_Sorteios.RowCount - 1) - viUltimoSorteio08) -
+           (RoundTo((Stgr_Sorteios.RowCount - 1) / vdbQtdOcorrencias08, 0))).toString, 4), '-', '', []) +
            ' para 1 atraso';
       End;
-              li_QtdAtrasados08.add(vsAtrasados + ' na linha ' + RightStr('0' + viContar16Combinacoes.toString, 2) +
+              li_QtdAtrasados08.add(vsAtrasados + ' na linha ' + RightStr('00' + viContar16Combinacoes.toString, 3) +
                  ' no sorteio ' + (viUltimoSorteio08 + (RoundTo((Stgr_Sorteios.RowCount - 1) / vdbQtdOcorrencias08, 0))
                  ).toString);
                Stgr_Sorteios.Repaint;
@@ -410,7 +410,7 @@ End;
 
 Procedure Tfrm_Ranqueador149Com18numeros.CarregarGridCom149;
 Var
-   viContar, viContarColunas: integer;
+   viContar, viContarColunas, viQtdColunasBase18: integer;
 Begin
    for viContar := 1 to Mem_Bloco149.Lines.Count-1 do
    begin
@@ -422,6 +422,27 @@ Begin
    end;
    Stgr_Base18.RowCount := viContar;
    Stgr_Base18.Repaint;
+   for viContar := 1 to Stgr_Base18.RowCount-1 do
+   begin
+      Stgr_qtdBase18.Cells[0,viContar] := (ViContar).ToString;
+      Falso_Linha1TodosNumeros;
+      for viContarColunas := 1 to 18 do
+      begin
+         Stgr_Todos_Numeros.Cells[(STRtoINT(Stgr_Base18.Cells[viContarColunas, ViContar].Trim)), 1] := 'V';
+      end;
+      viQtdColunasBase18 := 0;
+      for viContarColunas := 1 to 25 do
+      begin
+         if (Stgr_Todos_Numeros.Cells[viContarColunas, 1] = 'V') then
+            viQtdColunasBase18 := viQtdColunasBase18 + 1 ;
+      end;
+      if viQtdColunasBase18 <18 then
+         viQtdColunasBase18:= viQtdColunasBase18*-1;
+      Stgr_qtdBase18.Cells[1,viContar] := viQtdColunasBase18.ToString;
+//      Stgr_qtdBase18
+   end;
+   Stgr_qtdBase18.RowCount := viContar;
+   Stgr_qtdBase18.Repaint;
 End;
 
 
@@ -434,10 +455,6 @@ Begin
    Begin
       Stgr_Base18.Cells[viContar, 0] := INTtoSTR(viContar);
    End;
-   For viContar := 2 To 10 Do
-   Begin
-      Stgr_Base09.Cells[viContar, 0] := INTtoSTR(viContar - 1);
-   End;
    For viContar := 1 To 49 Do
    Begin
       Stgr_Base17VF.Cells[0, viContar] := INTtoSTR(viContar);
@@ -445,9 +462,9 @@ Begin
    End;
    CarregarGridCom149();
 
-   Stgr_Base18.Height := Scbx_GABARITO.Height - 75;
-   Stgr_Base09.Height := Scbx_GABARITO.Height - 75;
-Mem_Bloco149.Height := Scbx_GABARITO.Height - 85;
+   Stgr_Base18.Height := Scbx_GABARITO.Height - 85;
+   Stgr_qtdBase18.Height := Scbx_GABARITO.Height - 85;
+Mem_Bloco149.Height := Scbx_GABARITO.Height - 84;
    Stgr_Sorteios.Height := Scbx_GABARITO.Height - 75;
   // Stgr_Base18.RowCount := 41;
   // Stgr_Base09.RowCount := 41;
@@ -456,24 +473,26 @@ Mem_Bloco149.Height := Scbx_GABARITO.Height - 85;
    Stgr_Estatisticas.ColWidths[0] := 50;
    Stgr_Estatisticas.Cells[1, 0] := 'Total de Ocorrências';
    Stgr_Estatisticas.Cells[2, 0] := '% Ocorrências';
-   Stgr_Estatisticas.Cells[3, 0] := 'M�dia Ocorr�ncias';
-   Stgr_Estatisticas.Cells[4, 0] := '�ltimo Sorteio';
-   Stgr_Estatisticas.Cells[5, 0] := 'N�mero de atrasos';
+   Stgr_Estatisticas.Cells[3, 0] := 'Média Ocorrências';
+   Stgr_Estatisticas.Cells[4, 0] := 'Último Sorteio';
+   Stgr_Estatisticas.Cells[5, 0] := 'Número de atrasos';
    Stgr_Estatisticas.Height := Scbx_GABARITO.Height - 55;
    Stgr_EstatisticasOcorrencias.Height := Scbx_GABARITO.Height - 55;
    Stgr_EstatisticasSorteiosAtrasados.Height := Scbx_GABARITO.Height - 55;
 
    Stgr_Estatisticas13.RowCount := 41;
    Stgr_Estatisticas13.ColWidths[0] := 60;
-   Stgr_Estatisticas13.Cells[1, 0] := 'Total de Ocorr�ncias';
-   Stgr_Estatisticas13.Cells[2, 0] := '% Ocorr�ncias';
-   Stgr_Estatisticas13.Cells[3, 0] := 'M�dia Ocorr�ncias';
-   Stgr_Estatisticas13.Cells[4, 0] := '�ltimo Sorteio';
-   Stgr_Estatisticas13.Cells[5, 0] := 'N�mero de atrasos';
+   Stgr_Estatisticas13.Cells[1, 0] := 'Total de Ocorrências';
+   Stgr_Estatisticas13.Cells[2, 0] := '% Ocorrências';
+   Stgr_Estatisticas13.Cells[3, 0] := 'Média Ocorrências';
+   Stgr_Estatisticas13.Cells[4, 0] := 'Último Sorteio';
+   Stgr_Estatisticas13.Cells[5, 0] := 'Número de atrasos';
    // Stgr_EstatisticasSorteiosAtrasados.Cells[0,0] := 'Qtd Sorteio atrasado decrescente';
    // Stgr_EstatisticasSorteiosAtrasados13.cells[0,0] := 'Qtd Sorteio atrasado decrescente';
    Stgr_Estatisticas13.Height := Scbx_GABARITO.Height - 55;
    Stgr_EstatisticasOcorrencias13.Height := Scbx_GABARITO.Height - 55;
+   Stgr_EstatisticasOcorrencias.Cells[0,0] := 'Maiores ocorrências primeiro';
+   Stgr_EstatisticasSorteiosAtrasados.Cells[0,0] := 'Média de atrasos ... decres. se - e cres se  +';
    Stgr_EstatisticasSorteiosAtrasados13.Height := Scbx_GABARITO.Height - 55;
 
   // Stgr_Base17VF.RowCount := 41;

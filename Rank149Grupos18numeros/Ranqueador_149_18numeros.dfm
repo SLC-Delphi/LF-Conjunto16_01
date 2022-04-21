@@ -48,6 +48,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
         Top = 0
         Width = 1186
         Height = 534
+        HorzScrollBar.Position = 351
         HorzScrollBar.Range = 3455
         Align = alClient
         AutoScroll = False
@@ -60,7 +61,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           1186
           517)
         object La_nSorteioRank: TLabel
-          Left = 1102
+          Left = 751
           Top = 27
           Width = 329
           Height = 23
@@ -74,9 +75,10 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           Font.Style = [fsBold]
           ParentColor = False
           ParentFont = False
+          ExplicitLeft = 1102
         end
         object Label3: TLabel
-          Left = 285
+          Left = -66
           Top = 35
           Width = 172
           Height = 19
@@ -90,9 +92,10 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           ParentColor = False
           ParentFont = False
           Transparent = False
+          Visible = False
         end
         object Label7: TLabel
-          Left = 2
+          Left = -349
           Top = 35
           Width = 185
           Height = 19
@@ -108,11 +111,11 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           Transparent = False
         end
         object Label14: TLabel
-          Left = 2473
+          Left = 2122
           Top = 7
-          Width = 505
+          Width = 662
           Height = 20
-          Caption = 'RANK. DECRESC. P/ 8  NS SORTS. NAS LINHAS 18 NS'
+          Caption = 'RANK. DECRESC. P/ 8  NS SORTS. DENTRE OS 18 NS NAS 149 LINHAS'
           Color = 2306625
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWhite
@@ -124,7 +127,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           Transparent = False
         end
         object Label15: TLabel
-          Left = 4209
+          Left = 3858
           Top = 14
           Width = 152
           Height = 20
@@ -140,7 +143,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           Transparent = False
         end
         object Label54: TLabel
-          Left = 983
+          Left = 632
           Top = 31
           Width = 99
           Height = 36
@@ -158,7 +161,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           WordWrap = True
         end
         object Label134: TLabel
-          Left = 18350
+          Left = 17999
           Top = 25
           Width = 112
           Height = 36
@@ -175,7 +178,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           WordWrap = True
         end
         object Label135: TLabel
-          Left = 18186
+          Left = 17835
           Top = 23
           Width = 112
           Height = 36
@@ -192,7 +195,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           WordWrap = True
         end
         object Label136: TLabel
-          Left = 18065
+          Left = 17714
           Top = 23
           Width = 105
           Height = 54
@@ -209,7 +212,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           WordWrap = True
         end
         object Label138: TLabel
-          Left = 18578
+          Left = 18227
           Top = 5
           Width = 86
           Height = 54
@@ -226,7 +229,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           WordWrap = True
         end
         object Label139: TLabel
-          Left = 18676
+          Left = 18325
           Top = 23
           Width = 105
           Height = 54
@@ -243,7 +246,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           WordWrap = True
         end
         object Label_qtdSorteios: TLabel
-          Left = 1437
+          Left = 1086
           Top = 28
           Width = 66
           Height = 23
@@ -257,13 +260,16 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           Font.Style = [fsBold]
           ParentColor = False
           ParentFont = False
+          ExplicitLeft = 1437
         end
         object Label2: TLabel
-          Left = 3
+          Left = -348
           Top = 0
-          Width = 569
+          Width = 1160
           Height = 23
-          Caption = 'R A N K .  E S T A T .   149  L I N H AS  de   1 8   N S '
+          Caption = 
+            'R A N K .  E S T A T .   149  L I N H AS  de   1 8   N S  - Most' +
+            'rando 10 n'#250'meros n'#227'o sorteados/08 sorteados '
           Color = 2364471
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWhite
@@ -274,23 +280,22 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           ParentFont = False
           Transparent = False
         end
-        object Stgr_Base09: TStringGrid
-          Left = 277
-          Top = 60
-          Width = 370
-          Height = 767
+        object Stgr_qtdBase18: TStringGrid
+          Left = 493
+          Top = 56
+          Width = 137
+          Height = 766
           TabStop = False
           Anchors = [akLeft, akTop, akBottom]
           BevelInner = bvLowered
           BevelKind = bkSoft
           BevelOuter = bvRaised
           Color = 14867686
-          ColCount = 11
-          DefaultColWidth = 30
-          DefaultRowHeight = 28
+          ColCount = 2
+          DefaultColWidth = 39
+          DefaultRowHeight = 22
           DrawingStyle = gdsClassic
           FixedColor = 11971776
-          FixedCols = 2
           RowCount = 26
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -300,21 +305,9 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           Options = [goFixedHorzLine, goHorzLine, goRangeSelect]
           ParentFont = False
           TabOrder = 0
-          ColWidths = (
-            30
-            30
-            30
-            30
-            30
-            30
-            30
-            30
-            30
-            30
-            30)
         end
         object Stgr_Base18: TStringGrid
-          Left = 4
+          Left = -347
           Top = 54
           Width = 625
           Height = 767
@@ -339,7 +332,6 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           Options = [goFixedVertLine, goFixedHorzLine, goHorzLine, goRangeSelect]
           ParentFont = False
           TabOrder = 1
-          Visible = False
           ColWidths = (
             30
             30
@@ -362,7 +354,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
             30)
         end
         object Stgr_Estatisticas: TStringGrid
-          Left = 1755
+          Left = 1404
           Top = 34
           Width = 715
           Height = 767
@@ -407,7 +399,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
             28)
         end
         object Stgr_Sorteios: TStringGrid
-          Left = 1067
+          Left = 716
           Top = 54
           Width = 663
           Height = 767
@@ -478,7 +470,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
             23)
         end
         object Stgr_EstatisticasOcorrencias: TStringGrid
-          Left = 2473
+          Left = 2122
           Top = 33
           Width = 570
           Height = 767
@@ -502,7 +494,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           TabOrder = 4
         end
         object Stgr_EstatisticasSorteiosAtrasados: TStringGrid
-          Left = 3038
+          Left = 2687
           Top = 33
           Width = 404
           Height = 767
@@ -526,7 +518,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           TabOrder = 5
         end
         object Stgr_EstatisticasOcorrencias13: TStringGrid
-          Left = 4209
+          Left = 3858
           Top = 40
           Width = 575
           Height = 767
@@ -550,7 +542,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           TabOrder = 6
         end
         object Stgr_EstatisticasSorteiosAtrasados13: TStringGrid
-          Left = 4779
+          Left = 4428
           Top = 40
           Width = 409
           Height = 767
@@ -574,7 +566,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           TabOrder = 7
         end
         object Stgr_Estatisticas13: TStringGrid
-          Left = 3458
+          Left = 3107
           Top = 41
           Width = 740
           Height = 767
@@ -597,7 +589,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           TabOrder = 8
         end
         object Stgr_Base17VF: TStringGrid
-          Left = 980
+          Left = 629
           Top = 54
           Width = 77
           Height = 767
@@ -625,7 +617,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
             30)
         end
         object Stgr_TodosNumerosP17: TStringGrid
-          Left = 175
+          Left = -176
           Top = -1392
           Width = 910
           Height = 74
@@ -641,7 +633,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           Visible = False
         end
         object stgr_excluiFixar_BaseL4Ac4: TStringGrid
-          Left = 18348
+          Left = 17997
           Top = 61
           Width = 186
           Height = 0
@@ -657,7 +649,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           TabOrder = 11
         end
         object stgr_excluiFixar_BaseL4Ac3: TStringGrid
-          Left = 18186
+          Left = 17835
           Top = 61
           Width = 156
           Height = 0
@@ -674,7 +666,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           TabOrder = 12
         end
         object stgr_excluiFixar_BaseL4Ac2: TStringGrid
-          Left = 18064
+          Left = 17713
           Top = 61
           Width = 116
           Height = 0
@@ -691,7 +683,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           TabOrder = 13
         end
         object stgr_excluiFixar_BaseL5Ac3: TStringGrid
-          Left = 18798
+          Left = 18447
           Top = 61
           Width = 156
           Height = 0
@@ -708,7 +700,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           TabOrder = 14
         end
         object stgr_excluiFixar_BaseL5Ac2: TStringGrid
-          Left = 18676
+          Left = 18325
           Top = 61
           Width = 116
           Height = 0
@@ -725,7 +717,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           TabOrder = 15
         end
         object stgr_excluiFixar_BaseL5Ac1: TStringGrid
-          Left = 18578
+          Left = 18227
           Top = 61
           Width = 92
           Height = 0
@@ -742,7 +734,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           TabOrder = 16
         end
         object Bbt_rank: TBitBtn
-          Left = 1036
+          Left = 685
           Top = 26
           Width = 59
           Height = 28
@@ -757,7 +749,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           OnClick = Bbt_rankClick
         end
         object Bbt_carregarSorteio15N: TBitBtn
-          Left = 828
+          Left = 477
           Top = 26
           Width = 202
           Height = 28
@@ -772,10 +764,10 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
           OnClick = Bbt_CarregarSort
         end
         object Mem_Bloco149: TMemo
-          Left = 3
-          Top = 60
-          Width = 971
-          Height = 417
+          Left = -348
+          Top = 56
+          Width = 842
+          Height = 454
           Color = 13486035
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -787,7 +779,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
             '01 02 04 05 06 07 08 09 10 11 12 13 16 17 18 20 21 23 ='#9'1'
             '01 02 05 06 07 08 09 10 11 12 13 14 16 17 18 20 21 23 ='#9'2'
             '01 02 03 05 06 07 08 10 12 14 15 16 18 19 20 22 24 25 ='#9'3'
-            '01 02 04 05 17 18 19 10 11 13 16 17 18 19 20 21 23 25 ='#9'4'
+            '01 02 04 05 07 08 09 10 11 13 16 17 18 19 20 21 23 25 ='#9'4'
             '01 02 05 06 07 08 09 10 11 12 13 16 17 18 20 21 23 25 ='#9'5'
             '01 02 05 06 07 08 09 10 11 12 14 16 17 18 20 21 23 25 ='#9'6'
             '01 04 05 07 08 10 11 12 13 14 15 16 17 18 19 21 22 24 ='#9'7'
@@ -795,7 +787,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
             '02 04 06 07 08 09 10 12 13 14 16 17 18 19 21 22 23 25 ='#9'9'
             '02 03 04 05 06 07 08 09 10 12 14 16 17 18 19 20 24 25 ='#9'10'
             '01 03 04 06 07 08 09 10 12 15 16 17 18 20 22 23 24 25 ='#9'11'
-            '01 02 05 17 18 19 10 11 12 13 16 17 18 19 20 21 23 25 ='#9'12'
+            '01 02 05 07 08 09 10 11 12 13 16 17 18 19 20 21 23 25 ='#9'12'
             '01 02 03 04 06 09 10 12 13 14 15 17 18 19 20 22 24 25 ='#9'13'
             '01 02 03 06 10 11 13 15 16 17 18 19 20 21 22 23 24 25 ='#9'14'
             '01 03 05 06 07 10 12 14 15 17 18 19 20 21 22 23 24 25 ='#9'15'
@@ -803,7 +795,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
             '01 02 04 05 06 07 08 09 10 12 14 16 17 19 21 23 24 25 ='#9'17'
             '02 03 05 07 08 09 10 12 13 14 15 16 17 18 20 22 23 24 ='#9'18'
             '01 02 03 04 05 06 07 08 09 12 13 14 15 16 17 18 21 25 ='#9'19'
-            '01 02 15 16 17 18 19 10 11 12 14 16 17 18 20 21 23 25 ='#9'20'
+            '01 02 05 06 07 08 09 10 11 12 14 16 17 18 20 21 23 25 ='#9'20'
             '01 02 05 06 07 08 09 10 12 14 16 17 18 19 20 21 23 25 ='#9'21'
             '01 02 03 04 05 06 07 09 11 12 15 16 17 18 19 21 22 24 ='#9'22'
             '01 02 04 05 06 07 08 09 10 12 14 16 17 19 21 23 24 25 ='#9'23'
@@ -817,7 +809,7 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
             '01 02 03 05 12 13 14 15 16 17 18 19 20 21 22 23 24 25 ='#9'31'
             '01 02 03 05 11 13 14 15 16 17 18 19 20 21 22 23 24 25 ='#9'32'
             '01 02 05 06 07 08 09 10 11 12 14 16 17 18 20 21 23 25 ='#9'33'
-            '01 02 15 16 17 18 19 10 12 14 16 17 18 19 20 21 23 25 ='#9'34'
+            '01 02 05 06 07 08 09 10 12 14 16 17 18 19 20 21 23 25 ='#9'34'
             '01 02 04 05 06 07 08 09 10 12 14 16 17 19 21 23 24 25 ='#9'35'
             '01 02 04 05 06 07 08 09 10 11 12 13 16 17 18 20 21 23 ='#9'36'
             '01 02 05 07 08 09 10 11 12 13 16 17 18 19 20 21 23 25 ='#9'37'
@@ -941,8 +933,8 @@ object frm_Ranqueador149Com18numeros: Tfrm_Ranqueador149Com18numeros
     end
   end
   object Stgr_Todos_Numeros: TStringGrid
-    Left = 185
-    Top = 401
+    Left = 975
+    Top = 441
     Width = 718
     Height = 97
     Anchors = [akLeft, akBottom]

@@ -128,12 +128,46 @@ Type
     chk_somatoria160a220: TCheckBox;
     edt_soma1Inicial: TEdit;
     edt_soma1Final: TEdit;
+    cb_sequenciaMaxima: TComboBox;
+    chk_sequenciaMaxima: TCheckBox;
+    rb_SequenciasDuplas: TRadioButton;
+    rb_SequenciasTriplas: TRadioButton;
+    Bevel1: TBevel;
+    pa_SequenciasDuplas: TPanel;
+    rb_n4e5: TRadioButton;
+    rb_n4e6: TRadioButton;
+    rb_n4e7: TRadioButton;
+    pa_SequenciasTriplas: TPanel;
+    rb_n3e3e4: TRadioButton;
+    rb_n3e4e4: TRadioButton;
+    rb_n4e4e4: TRadioButton;
+    rb_n5e5: TRadioButton;
+    rb_n5e6: TRadioButton;
+    rb_n5e7: TRadioButton;
+    Panel2: TPanel;
+    la_soma1Inicial: TLabel;
+    Label21: TLabel;
+    la_InicioLinhas1: TLabel;
+    la_TerminoLinhas1: TLabel;
+    la_Combinacoes1Geral: TLabel;
+    Label26: TLabel;
+    Label30: TLabel;
+    la_soma1Final: TLabel;
+    la_sequenciaMaxima: TLabel;
+    Label31: TLabel;
+    Label33: TLabel;
+    la_SequenciaOutras: TLabel;
+    RadioButton1: TRadioButton;
+    Label27: TLabel;
+    edt_nObrigatorio1: TEdit;
+    edt_nObrigatorio2: TEdit;
+    edt_nObrigatorio3: TEdit;
       Procedure Bbt_CarregarSort(Sender: TObject);
       Procedure Bbt_rankClick(Sender: TObject);
       Procedure FormCreate(Sender: TObject);
       Procedure btnGerarComb1Click(Sender: TObject);
       Procedure Button_prepararComb1Click(Sender: TObject);
-      Procedure Rb_gerarComb01Ate20Click(Sender: TObject);
+      Procedure Rb_gCom01Ate20Click(Sender: TObject);
       Procedure Rb_gerarComb21Ate40Click(Sender: TObject);
       Procedure BitBtn_OKGerarCombinacoes1Click(Sender: TObject);
       Procedure BitBtn_VoltarCombinacoes1Click(Sender: TObject);
@@ -145,6 +179,13 @@ Type
     procedure bbtVoltarPreparar1Click(Sender: TObject);
     procedure edt_soma1FinalExit(Sender: TObject);
     procedure chk_somatoria160a220Click(Sender: TObject);
+    procedure chk_sequenciaMaximaClick(Sender: TObject);
+    procedure rb_SequenciasDuplasClick(Sender: TObject);
+    procedure rb_SequenciasTriplasClick(Sender: TObject);
+    procedure RadioButton1Click(Sender: TObject);
+    procedure edt_nObrigatorio2Exit(Sender: TObject);
+    procedure edt_nObrigatorio3Exit(Sender: TObject);
+    procedure edt_nObrigatorio1Exit(Sender: TObject);
    Private
       { Private declarations }
       vcrDivisor1, vcrDivisor2, vcrDivisor3: Currency;
@@ -166,6 +207,8 @@ Type
     procedure Gravar16POR9C12num_sort;
     procedure Carregar16POR9C12num_sort;
     procedure MontaMemoBlocoNotasComb2;
+    procedure LimpaInformacoesStatus;
+    procedure AtualizaInformacoesStatus;
    Public
       { Public declarations }
    End;
@@ -197,6 +240,10 @@ Begin
    pgbr_filtrandoComb1.Repaint;
    pgbr_gravandoComb1.Position := 0;
    pgbr_gravandoComb1.Repaint;
+   edt_nObrigatorio1.Text:= '00';
+   edt_nObrigatorio2.Text:= '00';
+   edt_nObrigatorio3.Text:= '00';
+   LimpaInformacoesStatus;
 End;
 
 Procedure Tfrm_Ranqueador16Com12Linhas.Bbt_CarregarSort(Sender: TObject);
@@ -487,12 +534,27 @@ End;
 
 Procedure Tfrm_Ranqueador16Com12Linhas.btnGerarComb1Click(Sender: TObject);
 Begin
-   Rb_gerarComb01Ate20.Checked := false;
-   Rb_gerarComb21Ate40.Checked := false;
+   stgr_10NaoSorteados_Comb1.Cells[00, 00] := '0';
+   stgr_15Sorteados_Comb1Flag.Cells[00,00] := '0';
+   stgr_15Sorteados_Comb1.Cells[03,00] := '0';
+   stgr_10NaoSorteados_Comb1.Repaint;
+   stgr_15Sorteados_Comb1Flag.Repaint;
+   la_InicioLinhas1.Caption := '0';
+   la_TerminoLinhas1.Caption := '0';
+   pa_gerarCombinacoes1.Visible := true;
+   edt_soma1Inicial.Enabled := false;
+   edt_soma1Final.Enabled := false;
+   cb_sequenciaMaxima.Enabled := false;
+   chk_somatoria160a220.Checked := false;
+   chk_sequenciaMaxima.Checked := false;
+   rb_gerarComb01Ate20.Checked := false;
+   rb_gerarComb21Ate40.Checked := false;
+   rb_SequenciasDuplas.Checked := false;
+   rb_SequenciasTriplas.Checked := false;
    pa_gerarCombinacoes1.Top := 55;
    pa_gerarCombinacoes1.Left := 04;
    pa_gerarCombinacoes1.Enabled := true;
-   pa_gerarCombinacoes1.Visible := true;
+   pa_gerarCombinacoes1.Repaint;
 End;
 
 
@@ -535,6 +597,7 @@ Begin
       Abort
    end;
    pa_gerarCombinacoes1.Visible := false;
+   AtualizaInformacoesStatus;
    LA_gINICIO_100REPET7.Caption := DateToStr(Date()) + ' - ' +TimeToStr(time);
    vtiInicio := Now;
 
@@ -564,8 +627,12 @@ End;
 
 Procedure Tfrm_Ranqueador16Com12Linhas.Button_prepararComb1Click(Sender: TObject);
 Begin
-   edt_soma1Inicial.Enabled := false;
-   edt_soma1Final.Enabled := false;
+   pgbr_ac7em16.Position := 0;
+   pgbr_ac7em16.Repaint;
+   pgbr_10NaoSorteados_Comb1.Position := 0;
+   pgbr_10NaoSorteados_Comb1.Repaint;
+   pgbr_filtrandoComb1.Position := 0;
+   pgbr_filtrandoComb1.Repaint;
    pgbr_gravandoComb1.Position := 0;
    pgbr_gravandoComb1.Repaint;
    paPreparar.Left := 390;
@@ -605,6 +672,7 @@ begin
       IBQ_Combinacoes.Transaction.Commit;
       IBQ_Combinacoes.Transaction.StartTransaction;
    End;
+   LimpaInformacoesStatus;
    Self.Repaint;
    Self.WindowState := wsMinimized;
    Self.WindowState := wsNormal;
@@ -703,7 +771,7 @@ Begin
                   Begin
                      For viComb06 := viComb05 + 1 To 15 Do
                      Begin
-                        For viComb07 := viComb06 + 1 To Trunc(16/1) Do  // - /1.5
+                        For viComb07 := viComb06 + 1 To Trunc(16/1.00) Do  // - /1.5
                         Begin
                            stgr_ac7em16.Cells[02, viLinhas] := copy((memoConjunto16.Lines.Strings[viContadorBase]), viComb01 * 3 + 1, 2);
                            stgr_ac7em16.Cells[03, viLinhas] := copy((memoConjunto16.Lines.Strings[viContadorBase]), viComb02 * 3 + 1, 2);
@@ -770,6 +838,7 @@ Var
    viContadorBase, viComb01, viComb02: integer;
    viLinhas, viContarColunas, viSomatoria: integer;
 Begin
+   la_sequenciaMaxima.Repaint;
    pgbr_10NaoSorteados_Comb1.Position := 0;
    pgbr_10NaoSorteados_Comb1.Repaint;
    scrollBox_Resultado.HorzScrollBar.Position := 1099;
@@ -800,6 +869,8 @@ Begin
             stgr_15Sorteados_Comb1Flag.Cells[00, viLinhas] := viLinhas.toString;
             stgr_15Sorteados_Comb1Flag.Cells[01, viLinhas] := 'V';
             stgr_15Sorteados_Comb1Flag.Cells[02, viLinhas] := 'V';
+            stgr_15Sorteados_Comb1Flag.Cells[03, viLinhas] := 'V';
+            stgr_15Sorteados_Comb1Flag.Cells[04, viLinhas] := 'V';
             for viContarColunas := 1 to 9 do
             begin
                stgr_10NaoSorteados_Comb1.Cells[05+viContarColunas, viLinhas] := stgr_ac9em16.Cells[01+viContarColunas,viComb01];
@@ -813,6 +884,9 @@ Begin
             begin
                stgr_15Sorteados_Comb1.Cells[10+viContarColunas, viLinhas] := stgr_ac8em9.Cells[01+viContarColunas,viComb02];
             end;
+            // ------------------
+            // --> Somatória
+            // ------------------
             if chk_somatoria160a220.Checked =True then
             begin
                viSomatoria := 0;
@@ -825,16 +899,816 @@ Begin
                else
                   stgr_15Sorteados_Comb1Flag.Cells[01, viLinhas] := 'F';
             end;
+            (*
+3 e 7
+4 e 4
+4 e 5
+4 e 6
+5 e 5
+5 e 6
+
+4 e 4 e 4
+4 e 3 e 3
+4 e 4 e 3
+
+3 números sorteados
+            *)
+
+            // ---------------------
+            // --> Seqüência Máxima
+            // ---------------------
+            if chk_sequenciaMaxima.Checked =True then
+            begin
+               Falso_Linha1TodosNumeros;
+               for viContarColunas := 1 to 15 do
+               begin
+                  Stgr_Todos_Numeros.Cells[STRtoINT(stgr_15Sorteados_Comb1.Cells[03+viContarColunas, viLinhas]), 1] := 'V';
+               end;
+               viSomatoria := 0;
+               for viContarColunas := 1 to 15 do
+               begin
+                  if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                     and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                     and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] = 'V')
+                     and (Stgr_Todos_Numeros.Cells[ viContarColunas+6,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+7,1] = 'V')
+                     and (Stgr_Todos_Numeros.Cells[ viContarColunas+8,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+9,1] = 'V')
+                     and (Stgr_Todos_Numeros.Cells[ viContarColunas+10,1] = 'V')
+                  then
+                  begin
+                      if viSomatoria=0 then viSomatoria := 11;
+                  end
+                  else
+                  if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                     and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                     and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] = 'V')
+                     and (Stgr_Todos_Numeros.Cells[ viContarColunas+6,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+7,1] = 'V')
+                     and (Stgr_Todos_Numeros.Cells[ viContarColunas+8,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+9,1] = 'V')
+                  then
+                  begin
+                      if viSomatoria=0 then viSomatoria := 10;
+                  end
+                  else
+                  if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                     and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                     and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] = 'V')
+                     and (Stgr_Todos_Numeros.Cells[ viContarColunas+6,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+7,1] = 'V')
+                     and (Stgr_Todos_Numeros.Cells[ viContarColunas+8,1] = 'V')
+                  then
+                  begin
+                     if viSomatoria=0 then viSomatoria := 9;
+                  end
+                  else
+                  if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                     and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                     and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] = 'V')
+                     and (Stgr_Todos_Numeros.Cells[ viContarColunas+6,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+7,1] = 'V')
+                  then
+                     if viSomatoria=0 then viSomatoria := 8;
+               end;
+               if (cb_sequenciaMaxima.ItemIndex=0) and (viSomatoria <= 8) then
+                  stgr_15Sorteados_Comb1Flag.Cells[02, viLinhas] := 'V'
+               else
+               if (cb_sequenciaMaxima.ItemIndex=1) and (viSomatoria <= 9) then
+                  stgr_15Sorteados_Comb1Flag.Cells[02, viLinhas] := 'V'
+               else
+               if (cb_sequenciaMaxima.ItemIndex=2) and (viSomatoria <= 10) then
+                  stgr_15Sorteados_Comb1Flag.Cells[02, viLinhas] := 'V'
+               else
+               begin
+                  stgr_15Sorteados_Comb1Flag.Cells[02, viLinhas] := 'F';
+               end;
+            end;
+         { TODO 1 -oSIlvão -cFiltro :
+
+Filtro de seqüências duplas
+Podem ser contínuo }
+            // ---------------------
+            // --> Seqüência Dupla
+            // ---------------------
+            // ---> 4 e 5 / 5 e 4
+            if rb_SequenciasDuplas.Checked =True then
+            begin
+               Falso_Linha1TodosNumeros;
+               for viContarColunas := 1 to 15 do
+               begin
+                  Stgr_Todos_Numeros.Cells[STRtoINT(stgr_15Sorteados_Comb1.Cells[03+viContarColunas, viLinhas]), 1] := 'V';
+               end;
+               viSomatoria := 0;
+               for viContarColunas := 1 to 14(*15*) do
+               begin
+                  if rb_n4e5.Checked=true then
+                  begin
+                     // -->Sequencia 4 e 5
+                     if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                     then
+                     begin
+                        if viSomatoria=0 then
+                        begin
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                           viSomatoria := 1;
+                        end
+                        else
+                        if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] = 'F')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+6,1] = 'F')
+                           and ( viSomatoria=1)
+                        then
+                        begin
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] := 'F';
+                              viSomatoria := 3;
+                        end;
+                     end      // if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and
+                     else
+                     // -->Sequencia 5 e 4
+                     if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'V')
+                     then
+                     begin
+                        if viSomatoria=0 then
+                        begin
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] := 'F';
+                           viSomatoria := 1;
+                        end
+                        else
+                        if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'F') and (Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] = 'F')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+6,1] = 'F')
+                           and ( viSomatoria=1)
+                        then
+                        begin
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                              viSomatoria := 3;
+                        end;
+                     end; // // if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and
+                  end
+                  else
+
+                  if rb_n4e6.Checked=true then
+                  begin
+                     // -->Sequencia 4 e 6
+                     if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                     then
+                     begin
+                        if viSomatoria=0 then
+                        begin
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                           viSomatoria := 1;
+                        end
+                        else
+                        if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+6,1] = 'F') and (Stgr_Todos_Numeros.Cells[ viContarColunas+7,1] = 'F')
+                        then
+                        begin
+                           if viSomatoria=1 then
+                           begin
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] := 'F';
+                              viSomatoria := 3;
+                           end;
+                        end;
+                     end
+                     else
+                     // -->Sequencia 6 e 4
+                     if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'V')and (Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] = 'V')
+                     then
+                     begin
+                        if viSomatoria=0 then
+                        begin
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] := 'F';
+                           viSomatoria := 1;
+                        end
+                        else
+                        if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'F') and (Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] = 'F')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+6,1] = 'F')
+                        then
+                        begin
+                           if viSomatoria=1 then
+                           begin
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                              viSomatoria := 3;
+                           end; // if viSomatoria=1
+                        end; // f  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and
+                     end; //if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1
+                  end
+                  else
+
+                  if rb_n4e7.Checked=true then
+                  begin
+                     // -->Sequencia 4 e 7
+                     if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                     then
+                     begin
+                        if viSomatoria=0 then
+                        begin
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                           viSomatoria := 1;
+                        end
+                        else
+                        if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+6,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+7,1] = 'F')
+                        then
+                        begin
+                           if viSomatoria=1 then
+                           begin
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+6,1] := 'F';
+                              viSomatoria := 3;
+                           end;
+                        end;
+                     end
+                     else
+                     // -->Sequencia 7 e 4
+                     if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+6,1] = 'V')
+                     then
+                     begin
+                        if viSomatoria=0 then
+                        begin
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+6,1] := 'F';
+                           viSomatoria := 1;
+                        end
+                        else
+                        if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'F') and (Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] = 'F')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+6,1] = 'F')
+                        then
+                        begin
+                           if viSomatoria=1 then
+                           begin
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                              viSomatoria := 3;
+                           end; // if viSomatoria=1
+                        end; // f  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and
+                     end; //if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1
+                  end // if rb_n4e5.Checked=true
+                  else
+
+                  if rb_n5e5.Checked=true then
+                  begin
+                     // -->Sequencia 5 e 6
+                     if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'V')
+                     then
+                     begin
+                        if viSomatoria=0 then
+                        begin
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                           viSomatoria := 1;
+                        end
+                        else
+                        if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] = 'F')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+6,1] = 'F')
+                        then
+                        begin
+                           if viSomatoria=1 then
+                           begin
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] := 'F';
+                              viSomatoria := 3;
+                           end;
+                        end;
+                     end
+                     else
+                     // -->Sequencia 5 e 5
+                     if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'V')and (Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] = 'V')
+                     then
+                     begin
+                        if viSomatoria=0 then
+                        begin
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] := 'F';
+                           viSomatoria := 1;
+                        end
+                        else
+                        if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] = 'F')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+6,1] = 'F')
+                        then
+                        begin
+                           if viSomatoria=1 then
+                           begin
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] := 'F';
+                              viSomatoria := 3;
+                           end; // if viSomatoria=1
+                        end; // f  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and
+                     end; //if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1
+                  end
+                  else
+
+                  if rb_n5e6.Checked=true then
+                  begin
+                     // -->Sequencia 5 e 6
+                     if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'V')
+                     then
+                     begin
+                        if viSomatoria=0 then
+                        begin
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                           viSomatoria := 1;
+                        end
+                        else
+                        if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+6,1] = 'F') and (Stgr_Todos_Numeros.Cells[ viContarColunas+7,1] = 'F')
+                        then
+                        begin
+                           if viSomatoria=1 then
+                           begin
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] := 'F';
+                              viSomatoria := 3;
+                           end;
+                        end;
+                     end
+                     else
+                     // -->Sequencia 6 e 5
+                     if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'V')and (Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] = 'V')
+                     then
+                     begin
+                        if viSomatoria=0 then
+                        begin
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] := 'F';
+                           viSomatoria := 1;
+                        end
+                        else
+                        if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] = 'F')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+6,1] = 'F')
+                        then
+                        begin
+                           if viSomatoria=1 then
+                           begin
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                              viSomatoria := 3;
+                           end; // if viSomatoria=1
+                        end; // f  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and
+                     end; //if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1
+                  end
+                  else
+
+                  if rb_n5e7.Checked=true then
+                  begin
+                     // -->Sequencia 5 e 7
+                     if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'V')
+                     then
+                     begin
+                        if viSomatoria=0 then
+                        begin
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                           viSomatoria := 1;
+                        end
+                        else
+                        if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+6,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+7,1] = 'F')
+                        then
+                        begin
+                           if viSomatoria=1 then
+                           begin
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+6,1] := 'F';
+                              viSomatoria := 3;
+                           end;
+                        end;
+                     end
+                     else
+                     // -->Sequencia 7 e 5
+                     if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+6,1] = 'V')
+                     then
+                     begin
+                        if viSomatoria=0 then
+                        begin
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+6,1] := 'F';
+                           viSomatoria := 1;
+                        end
+                        else
+                        if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] = 'F')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+6,1] = 'F')
+                        then
+                        begin
+                           if viSomatoria=1 then
+                           begin
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                              viSomatoria := 3;
+                           end; // if viSomatoria=1
+                        end; // f  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and
+                     end; //if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1
+                  end;
+               end; // for viContarColunas := 1 to 15 do
+               if (viSomatoria = 3) then
+               begin
+                  stgr_15Sorteados_Comb1Flag.Cells[03, viLinhas] := 'V'
+               end
+               else
+               begin
+                  stgr_15Sorteados_Comb1Flag.Cells[03, viLinhas] := 'F';
+               end;
+            end; // if rb_SequenciasDuplas.Checked =True
+
+            if rb_SequenciasTriplas.Checked =True then
+            begin
+               Falso_Linha1TodosNumeros;
+               for viContarColunas := 1 to 15 do
+               begin
+                  Stgr_Todos_Numeros.Cells[STRtoINT(stgr_15Sorteados_Comb1.Cells[03+viContarColunas, viLinhas]), 1] := 'V';
+               end;
+               viSomatoria := 0;
+               for viContarColunas := 1 to 14(*15*) do
+               begin
+                  if rb_n3e3e4.Checked=true then
+                  begin
+                     // -->Sequencia 3 e 3 e 4
+                     if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V')
+                     then
+                     begin
+                        if viSomatoria=0 then
+                        begin
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                           viSomatoria := 1;
+                        end
+                        else
+                        if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V')
+                           and ( viSomatoria=1)
+                        then
+                        begin
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                           viSomatoria := 2;
+                        end
+                        else
+                        if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'F')  and (Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] = 'F')
+                           and ( viSomatoria=2)
+                        then
+                        begin
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                           viSomatoria := 3;
+                        end;
+                     end      // if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and
+                     else
+                     // -->Sequencia 4 e 3 e 3
+                     if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                    then
+                     begin
+                        if viSomatoria=0 then
+                        begin
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                           viSomatoria := 1;
+                        end
+                        else
+                        if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V')
+                           and ( viSomatoria=1)
+                        then
+                        begin
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                              viSomatoria := 2;
+                        end
+                        else
+                        if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'F')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'F')
+                           and ( viSomatoria=2)
+                        then
+                        begin
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                              viSomatoria := 3;
+                        end;
+                     end; // // if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and
+                  end // if rb_n3e3e4.Checked=true
+                  else
+                  if rb_n3e4e4.Checked=true then
+                  begin
+                     // -->Sequencia 3 e 4 e 4
+                     if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V')
+                     then
+                     begin
+                        if viSomatoria=0 then
+                        begin
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                           viSomatoria := 1;
+                        end
+                        else
+                        if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V')and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                           and ( viSomatoria=1)
+                        then
+                        begin
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                           viSomatoria := 2;
+                        end
+                        else
+                        if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'F')  and (Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] = 'F')
+                           and ( viSomatoria=2)
+                        then
+                        begin
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                           viSomatoria := 3;
+                        end;
+                     end      // if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and
+                     else
+                     // -->Sequencia 4 e 4 e 3
+                     if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                    then
+                     begin
+                        if viSomatoria=0 then
+                        begin
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                           viSomatoria := 1;
+                        end
+                        else
+                        if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                           and ( viSomatoria=1)
+                        then
+                        begin
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                              viSomatoria := 2;
+                        end
+                        else
+                        if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'F')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'F')
+                           and ( viSomatoria=2)
+                        then
+                        begin
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                              viSomatoria := 3;
+                        end;
+                     end; // // if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and
+                  end
+                  else
+                  if rb_n4e4e4.Checked=true then
+                  begin
+                     // -->Sequencia 4 e 4 e 4
+                     if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                     then
+                     begin
+                        if viSomatoria=0 then
+                        begin
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                           viSomatoria := 1;
+                        end
+                        else
+                        if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V')and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                           and ( viSomatoria=1)
+                        then
+                        begin
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                           viSomatoria := 2;
+                        end
+                        else
+                        if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'F')  and (Stgr_Todos_Numeros.Cells[ viContarColunas+5,1] = 'F')
+                           and ( viSomatoria=2)
+                        then
+                        begin
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                           viSomatoria := 3;
+                        end;
+                     end      // if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and
+                     else
+                     // -->Sequencia 4 e 4 e 4
+                     if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                        and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                    then
+                     begin
+                        if viSomatoria=0 then
+                        begin
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                           Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                           viSomatoria := 1;
+                        end
+                        else
+                        if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                           and ( viSomatoria=1)
+                        then
+                        begin
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                              viSomatoria := 2;
+                        end
+                        else
+                        if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] = 'V') and (Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] = 'V')
+                           and (Stgr_Todos_Numeros.Cells[ viContarColunas+4,1] = 'F')
+                           and ( viSomatoria=2)
+                        then
+                        begin
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+1,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+2,1] := 'F';
+                              Stgr_Todos_Numeros.Cells[ viContarColunas+3,1] := 'F';
+                              viSomatoria := 3;
+                        end;
+                     end; // // if  (Stgr_Todos_Numeros.Cells[ viContarColunas+0,1] = 'V') and
+                  end; // if rb_n3e3e4.Checked=true
+
+
+               end; // for viContarColunas := 1 to 15 do
+               if (viSomatoria = 3) then
+               begin
+                  stgr_15Sorteados_Comb1Flag.Cells[03, viLinhas] := 'V'
+               end
+               else
+               begin
+                  stgr_15Sorteados_Comb1Flag.Cells[03, viLinhas] := 'F';
+               end;
+            end; // if rb_SequenciasTriplas.Checked =True
             viLinhas := viLinhas + 1;
-         End;
-      End;
+         End;  // For viComb02 := 1 To stgr_ac1em9.RowCount-1 Do
+      End;  // For viComb01 :=
       pgbr_10NaoSorteados_Comb1.Position := Trunc((viContadorBase/vsiTerminoLinhas1)*100);
       pgbr_10NaoSorteados_Comb1.Repaint;
       stgr_10NaoSorteados_Comb1.RowCount := viLinhas;
       stgr_10NaoSorteados_Comb1.Repaint;
       stgr_15Sorteados_Comb1.RowCount := viLinhas;
       stgr_15Sorteados_Comb1.Repaint;
-   End;
+   End; // For viContadorBase
+   stgr_10NaoSorteados_Comb1.cells[02, 00] := (viLinhas-1).ToString;
    pgbr_10NaoSorteados_Comb1.Position := 100;
    pgbr_10NaoSorteados_Comb1.Repaint;
    stgr_10NaoSorteados_Comb1.RowCount := viLinhas;
@@ -864,7 +1738,7 @@ Begin
    viLinhas := 1;
    For viContadorBase := 1 To stgr_10NaoSorteados_Comb1.RowCount-1 Do
    Begin
-      if viContadorBase mod 50  = 0 then
+      if viContadorBase mod 100  = 0 then
       begin
          stgr_10NaoSorteados_Comb1.Cells[0, 0]:= IntToStr(viContadorBase);
          stgr_10NaoSorteados_Comb1.Repaint;
@@ -969,7 +1843,10 @@ Begin
          End;
       End;
       if (vsflag1='V') and (vsFlag2='V')Then
-         if (vsFlgaOrdena.ToUpper = 'V') and (stgr_15Sorteados_Comb1Flag.Cells[1,viContadorBase].ToUpper = 'V') then
+         if (vsFlgaOrdena.ToUpper = 'V') and (stgr_15Sorteados_Comb1Flag.Cells[01, viContadorBase].ToUpper = 'V')
+            and (stgr_15Sorteados_Comb1Flag.Cells[02, viContadorBase].ToUpper = 'V')
+            and (stgr_15Sorteados_Comb1Flag.Cells[03, viContadorBase].ToUpper = 'V')
+          then
             liS_15Sorteados.Add(vsSorteados);
    End;
    if vsFlgaOrdena.ToUpper = 'V' then
@@ -1004,7 +1881,7 @@ Begin
    viLinhas := 1;
    For viContadorBase := 1 To stgr_10NaoSorteados_Comb1.RowCount-1 Do
    Begin
-      if viContadorBase mod 50  = 0 then
+      if viContadorBase mod 100  = 0 then
       begin
          stgr_10NaoSorteados_Comb1.Cells[0, 0]:= IntToStr(viContadorBase);
          stgr_10NaoSorteados_Comb1.Repaint;
@@ -1105,7 +1982,10 @@ Begin
          End;
       End;
       if (vsflag1='V') and (vsFlag2='V')Then
-         if (vsFlgaOrdena.ToUpper = 'V') and (stgr_15Sorteados_Comb1Flag.Cells[1,viContadorBase].ToUpper = 'V') then
+         if (vsFlgaOrdena.ToUpper = 'V') and (stgr_15Sorteados_Comb1Flag.Cells[01, viContadorBase].ToUpper = 'V')
+            and (stgr_15Sorteados_Comb1Flag.Cells[02, viContadorBase].ToUpper = 'V')
+            and (stgr_15Sorteados_Comb1Flag.Cells[03, viContadorBase].ToUpper = 'V')
+         then
             liS_15Sorteados.Add(vsSorteados);
    End;
    if vsFlgaOrdena.ToUpper = 'V' then
@@ -1123,6 +2003,24 @@ Begin
 End;
 
 
+
+procedure Tfrm_Ranqueador16Com12Linhas.edt_nObrigatorio1Exit(Sender: TObject);
+begin
+   if (StrToInt(edt_nObrigatorio1.Text) <0)  or (StrToInt(edt_nObrigatorio1.Text) >15) then
+      edt_nObrigatorio1.SetFocus;
+end;
+
+procedure Tfrm_Ranqueador16Com12Linhas.edt_nObrigatorio2Exit(Sender: TObject);
+begin
+   if ( StrToInt(edt_nObrigatorio2.Text)<0)  or ( StrToInt(edt_nObrigatorio2.Text)>15) then
+      edt_nObrigatorio2.SetFocus;
+end;
+
+procedure Tfrm_Ranqueador16Com12Linhas.edt_nObrigatorio3Exit(Sender: TObject);
+begin
+   if ( StrToInt(edt_nObrigatorio3.Text)<0)  or ( StrToInt(edt_nObrigatorio3.Text)>15) then
+      edt_nObrigatorio3.SetFocus;
+end;
 
 procedure Tfrm_Ranqueador16Com12Linhas.edt_soma1FinalExit(Sender: TObject);
 begin
@@ -1146,7 +2044,13 @@ Begin
    begin
       if (stgr_10NaoSorteados_Comb1.Cells[4,viTotalLinhas]='V') and (stgr_10NaoSorteados_Comb1.Cells[5,viTotalLinhas]='V') then
       begin
-         if not(stgr_15Sorteados_Comb1Flag.Cells[1,viTotalLinhas]='V') then
+         if not(stgr_15Sorteados_Comb1Flag.Cells[01,viTotalLinhas].ToUpper='V') then
+            continue;
+         if not(stgr_15Sorteados_Comb1Flag.Cells[02,viTotalLinhas].ToUpper='V') then
+            continue;
+         if not(stgr_15Sorteados_Comb1Flag.Cells[03, viTotalLinhas].ToUpper = 'V') then
+            continue;
+         if not(stgr_15Sorteados_Comb1Flag.Cells[04, viTotalLinhas].ToUpper = 'V') then
             continue;
          vsNumerosSort := '';
          for viContarColunas := 4 to 18 do
@@ -1224,11 +2128,23 @@ Begin
 end;
 
 
+procedure Tfrm_Ranqueador16Com12Linhas.chk_sequenciaMaximaClick(Sender: TObject);
+begin
+   if chk_sequenciaMaxima.Checked  = True then
+   begin
+      cb_sequenciaMaxima.Enabled := true;
+      cb_sequenciaMaxima.SetFocus;
+   end;
+end;
+
 procedure Tfrm_Ranqueador16Com12Linhas.chk_somatoria160a220Click(Sender: TObject);
 begin
-   edt_soma1Inicial.Enabled := true;
-   edt_soma1Final.Enabled := true;
-   edt_soma1Inicial.SetFocus;
+   if chk_somatoria160a220.Checked = True then
+   begin
+      edt_soma1Inicial.Enabled := true;
+      edt_soma1Final.Enabled := true;
+      edt_soma1Inicial.SetFocus;
+   end;
 end;
 
 Procedure Tfrm_Ranqueador16Com12Linhas.Cj4Com3NSe4NS();
@@ -1330,6 +2246,66 @@ begin
    mem_Sorteados.Repaint;
 end;
 
+procedure Tfrm_Ranqueador16Com12Linhas.LimpaInformacoesStatus;
+begin
+  la_InicioLinhas1.Caption := ' ';
+  la_TerminoLinhas1.Caption := ' ';
+  la_InicioLinhas1.Repaint;
+  la_TerminoLinhas1.Repaint;
+  la_Combinacoes1Geral.Caption := '';
+  la_soma1Inicial.Caption := '';
+  la_soma1Final.Caption := ' ';
+  la_sequenciaMaxima.Caption := ' ';
+  la_SequenciaOutras.Caption := ' ';
+  la_soma1Inicial.Repaint;
+  la_soma1Final.Repaint;
+  la_sequenciaMaxima.Repaint;
+  la_Combinacoes1Geral.Repaint;
+  la_SequenciaOutras.Repaint;
+end;
+
+procedure Tfrm_Ranqueador16Com12Linhas.AtualizaInformacoesStatus;
+begin
+  la_InicioLinhas1.Caption := vsiInicioLinhas1.ToString;
+  la_TerminoLinhas1.Caption := vsiTerminoLinhas1.toString;
+  la_InicioLinhas1.Repaint;
+  la_TerminoLinhas1.Repaint;
+  la_Combinacoes1Geral.Caption := cb_Combinacoes1Geral.Text;
+  if chk_somatoria160a220.Checked = true then
+  begin
+    la_soma1Inicial.Caption := edt_soma1Inicial.Text;
+    la_soma1Final.Caption := edt_soma1Final.Text;
+  end;
+  if chk_sequenciaMaxima.Checked = true then
+    la_sequenciaMaxima.Caption := cb_sequenciaMaxima.Text;
+  la_sequenciaMaxima.Repaint;
+  if rb_n4e5.Checked = true then
+    la_SequenciaOutras.Caption := rb_n4e5.Caption
+  else if rb_n4e6.Checked = true then
+    la_SequenciaOutras.Caption := rb_n4e6.Caption
+  else if rb_n4e7.Checked = true then
+    la_SequenciaOutras.Caption := rb_n4e7.Caption
+  else if rb_n5e5.Checked = true then
+    la_SequenciaOutras.Caption := rb_n5e5.Caption
+  else if rb_n5e6.Checked = true then
+    la_SequenciaOutras.Caption := rb_n5e6.Caption
+  else if rb_n5e7.Checked = true then
+    la_SequenciaOutras.Caption := rb_n5e7.Caption
+  else if rb_n3e3e4.Checked = true then
+    la_SequenciaOutras.Caption := rb_n3e3e4.Caption
+  else if rb_n3e4e4.Checked = true then
+    la_SequenciaOutras.Caption := rb_n3e4e4.Caption
+  else if rb_n4e4e4.Checked = true then
+    la_SequenciaOutras.Caption := rb_n4e4e4.Caption
+  else
+    la_SequenciaOutras.Caption := ' ';
+  la_soma1Inicial.Repaint;
+  la_soma1Final.Repaint;
+  la_sequenciaMaxima.Repaint;
+  la_Combinacoes1Geral.Repaint;
+  la_SequenciaOutras.Repaint;
+end;
+
 
 
 procedure Tfrm_Ranqueador16Com12Linhas.MontaMemoBlocoNotasComb1(liS_15Sorteados: Tlist<string>);
@@ -1367,8 +2343,8 @@ begin
       MontaMemoBlocoNotasComb2();
    end;
    mem_Sorteados.Lines.SaveToFile('C:\CXLOTOFACIL\25_Conjuntos_16por9_Comb1.TXT');
-   winExec('Notepad.exe C:\CXLOTOFACIL\25_Conjuntos_16por9_Comb1.TXT', sw_shownormal);
-   showmessage('BLOCO DE NOTAS GERADO' + #13+#13+#13 + 'Arquivo está localizado em:' +#13+#13+'C:\CXLOTOFACIL\25_Conjuntos_16por9_Comb1.TXT');
+   winExec('Notepad.exe C:\CXLOTOFACIL\40_Conjuntos_16por9_Comb1.TXT', sw_shownormal);
+   showmessage('BLOCO DE NOTAS GERADO' + #13+#13+#13 + 'Arquivo está localizado em:' +#13+#13+'C:\CXLOTOFACIL\40_Conjuntos_16por9_Comb1.TXT');
 end;
 
 
@@ -2698,7 +3674,9 @@ begin
    vsiTerminoLinhas1 := 18;
 end;
 
-Procedure Tfrm_Ranqueador16Com12Linhas.Rb_gerarComb01Ate20Click(Sender: TObject);
+
+
+Procedure Tfrm_Ranqueador16Com12Linhas.Rb_gCom01Ate20Click(Sender: TObject);
 Begin
    vsiInicioLinhas1 := 1;
    vsiTerminoLinhas1 := 20;
@@ -2709,5 +3687,51 @@ Begin
    vsiInicioLinhas1 := 21;
    vsiTerminoLinhas1 := 40;
 End;
+
+
+procedure Tfrm_Ranqueador16Com12Linhas.RadioButton1Click(Sender: TObject);
+begin
+      pa_SequenciasTriplas.Enabled := true;
+      rb_n3e3e4.SetFocus;
+      rb_n3e3e4.Checked := false;
+      pa_SequenciasTriplas.Enabled := false;
+      pa_SequenciasDuplas.Enabled := true;
+      rb_n4e5.SetFocus;
+      rb_n4e5.Checked  := false;
+      pa_SequenciasDuplas.Enabled := false;
+      BitBtn_OKGerarCombinacoes1.SetFocus;
+end;
+
+procedure Tfrm_Ranqueador16Com12Linhas.rb_SequenciasDuplasClick(Sender: TObject);
+begin
+//
+   if rb_SequenciasDuplas.Checked = false then
+      pa_SequenciasDuplas.Enabled := false
+   else
+   begin
+      pa_SequenciasTriplas.Enabled := true;
+      rb_n3e3e4.SetFocus;
+      rb_n3e3e4.Checked := false;
+      pa_SequenciasTriplas.Enabled := false;
+      pa_SequenciasDuplas.Enabled := true;
+      rb_n4e5.SetFocus;
+   end;
+end;
+
+procedure Tfrm_Ranqueador16Com12Linhas.rb_SequenciasTriplasClick(Sender: TObject);
+begin
+   if rb_SequenciasTriplas.Checked = false then
+      pa_SequenciasTriplas.Enabled := false
+   else
+   begin
+      pa_SequenciasDuplas.Enabled := true;
+      rb_n4e5.SetFocus;
+      rb_n4e5.Checked  := false;
+      pa_SequenciasDuplas.Enabled := false;
+      pa_SequenciasTriplas.Enabled := true;
+      rb_n3e3e4.SetFocus;
+   end;
+end;
+
 
 End.
