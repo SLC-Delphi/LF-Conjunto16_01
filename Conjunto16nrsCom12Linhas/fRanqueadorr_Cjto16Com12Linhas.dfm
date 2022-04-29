@@ -13,6 +13,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
   Font.Style = []
   OldCreateOrder = False
   OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
@@ -46,7 +47,6 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
         Top = 0
         Width = 1186
         Height = 534
-        HorzScrollBar.Position = 1186
         HorzScrollBar.Range = 5195
         Align = alClient
         AutoScroll = False
@@ -59,7 +59,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           1186
           517)
         object La_nSorteioRank: TLabel
-          Left = -84
+          Left = 1102
           Top = 27
           Width = 329
           Height = 23
@@ -73,10 +73,9 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           Font.Style = [fsBold]
           ParentColor = False
           ParentFont = False
-          ExplicitLeft = 1102
         end
         object Label3: TLabel
-          Left = -581
+          Left = 605
           Top = 35
           Width = 172
           Height = 19
@@ -92,7 +91,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           Transparent = False
         end
         object Label7: TLabel
-          Left = -1184
+          Left = 2
           Top = 35
           Width = 185
           Height = 19
@@ -108,7 +107,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           Transparent = False
         end
         object Label14: TLabel
-          Left = 1287
+          Left = 2473
           Top = 7
           Width = 475
           Height = 20
@@ -124,7 +123,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           Transparent = False
         end
         object Label15: TLabel
-          Left = 3023
+          Left = 4209
           Top = 14
           Width = 463
           Height = 20
@@ -140,7 +139,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           Transparent = False
         end
         object Label54: TLabel
-          Left = -203
+          Left = 983
           Top = 31
           Width = 99
           Height = 36
@@ -158,7 +157,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           WordWrap = True
         end
         object Label134: TLabel
-          Left = 17164
+          Left = 18350
           Top = 25
           Width = 112
           Height = 36
@@ -175,7 +174,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           WordWrap = True
         end
         object Label135: TLabel
-          Left = 17000
+          Left = 18186
           Top = 23
           Width = 112
           Height = 36
@@ -192,7 +191,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           WordWrap = True
         end
         object Label136: TLabel
-          Left = 16879
+          Left = 18065
           Top = 23
           Width = 105
           Height = 54
@@ -209,7 +208,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           WordWrap = True
         end
         object Label138: TLabel
-          Left = 17392
+          Left = 18578
           Top = 5
           Width = 86
           Height = 54
@@ -226,7 +225,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           WordWrap = True
         end
         object Label139: TLabel
-          Left = 17490
+          Left = 18676
           Top = 23
           Width = 105
           Height = 54
@@ -243,7 +242,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           WordWrap = True
         end
         object Label_qtdSorteios: TLabel
-          Left = 251
+          Left = 1437
           Top = 28
           Width = 66
           Height = 23
@@ -257,10 +256,9 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           Font.Style = [fsBold]
           ParentColor = False
           ParentFont = False
-          ExplicitLeft = 1437
         end
         object Label2: TLabel
-          Left = -1183
+          Left = 3
           Top = 0
           Width = 1256
           Height = 23
@@ -278,10 +276,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           Transparent = False
         end
         object Stgr_Base09: TStringGrid
-          Left = -579
+          Left = 607
           Top = 54
           Width = 370
-          Height = 495
+          Height = 359
           TabStop = False
           Anchors = [akLeft, akTop, akBottom]
           BevelInner = bvLowered
@@ -317,10 +315,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
             30)
         end
         object Stgr_Base16: TStringGrid
-          Left = -1182
+          Left = 4
           Top = 54
           Width = 595
-          Height = 495
+          Height = 359
           TabStop = False
           Anchors = [akLeft, akTop, akBottom]
           BevelInner = bvLowered
@@ -364,10 +362,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
             30)
         end
         object Stgr_Estatisticas: TStringGrid
-          Left = 569
+          Left = 1755
           Top = 34
           Width = 715
-          Height = 495
+          Height = 359
           TabStop = False
           Anchors = [akLeft, akTop, akBottom]
           Color = 13094355
@@ -409,10 +407,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
             28)
         end
         object Stgr_Sorteios: TStringGrid
-          Left = -119
+          Left = 1067
           Top = 54
           Width = 663
-          Height = 495
+          Height = 359
           TabStop = False
           Anchors = [akLeft, akTop, akBottom]
           BorderStyle = bsNone
@@ -480,10 +478,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
             23)
         end
         object Stgr_EstatisticasOcorrencias: TStringGrid
-          Left = 1287
+          Left = 2473
           Top = 33
           Width = 570
-          Height = 495
+          Height = 359
           TabStop = False
           Anchors = [akLeft, akTop, akBottom]
           Color = 14541286
@@ -504,10 +502,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           TabOrder = 4
         end
         object Stgr_EstatisticasSorteiosAtrasados: TStringGrid
-          Left = 1849
+          Left = 3035
           Top = 33
           Width = 404
-          Height = 495
+          Height = 359
           TabStop = False
           Anchors = [akLeft, akTop, akBottom]
           Color = 14541286
@@ -528,10 +526,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           TabOrder = 5
         end
         object Stgr_EstatisticasOcorrencias13: TStringGrid
-          Left = 3023
+          Left = 4209
           Top = 40
           Width = 575
-          Height = 495
+          Height = 359
           TabStop = False
           Anchors = [akLeft, akTop, akBottom]
           Color = 14541286
@@ -552,10 +550,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           TabOrder = 6
         end
         object Stgr_EstatisticasSorteiosAtrasados13: TStringGrid
-          Left = 3593
+          Left = 4779
           Top = 40
           Width = 409
-          Height = 495
+          Height = 359
           TabStop = False
           Anchors = [akLeft, akTop, akBottom]
           Color = 14541286
@@ -576,10 +574,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           TabOrder = 7
         end
         object Stgr_Estatisticas13: TStringGrid
-          Left = 2272
+          Left = 3458
           Top = 41
           Width = 740
-          Height = 495
+          Height = 359
           TabStop = False
           Anchors = [akLeft, akTop, akBottom]
           Color = 13094355
@@ -599,10 +597,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           TabOrder = 8
         end
         object Stgr_Base17VF: TStringGrid
-          Left = -206
+          Left = 980
           Top = 54
           Width = 77
-          Height = 495
+          Height = 359
           TabStop = False
           Anchors = [akLeft, akTop, akBottom]
           BorderStyle = bsNone
@@ -627,8 +625,8 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
             30)
         end
         object Stgr_TodosNumerosP17: TStringGrid
-          Left = -1011
-          Top = -1664
+          Left = 175
+          Top = -1800
           Width = 910
           Height = 74
           Anchors = [akLeft, akBottom]
@@ -643,7 +641,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           Visible = False
         end
         object stgr_excluiFixar_BaseL4Ac4: TStringGrid
-          Left = 17162
+          Left = 18348
           Top = 61
           Width = 186
           Height = 0
@@ -659,7 +657,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           TabOrder = 11
         end
         object stgr_excluiFixar_BaseL4Ac3: TStringGrid
-          Left = 17000
+          Left = 18186
           Top = 61
           Width = 156
           Height = 0
@@ -676,7 +674,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           TabOrder = 12
         end
         object stgr_excluiFixar_BaseL4Ac2: TStringGrid
-          Left = 16878
+          Left = 18064
           Top = 61
           Width = 116
           Height = 0
@@ -693,7 +691,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           TabOrder = 13
         end
         object stgr_excluiFixar_BaseL5Ac3: TStringGrid
-          Left = 17612
+          Left = 18798
           Top = 61
           Width = 156
           Height = 0
@@ -710,7 +708,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           TabOrder = 14
         end
         object stgr_excluiFixar_BaseL5Ac2: TStringGrid
-          Left = 17490
+          Left = 18676
           Top = 61
           Width = 116
           Height = 0
@@ -727,7 +725,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           TabOrder = 15
         end
         object stgr_excluiFixar_BaseL5Ac1: TStringGrid
-          Left = 17392
+          Left = 18578
           Top = 61
           Width = 92
           Height = 0
@@ -744,7 +742,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           TabOrder = 16
         end
         object Bbt_rank: TBitBtn
-          Left = -150
+          Left = 1036
           Top = 26
           Width = 59
           Height = 28
@@ -759,7 +757,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           OnClick = Bbt_rankClick
         end
         object Bbt_carregarSorteio15N: TBitBtn
-          Left = -358
+          Left = 828
           Top = 26
           Width = 202
           Height = 28
@@ -1007,8 +1005,8 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
             Top = 0
             Width = 941
             Height = 301
-            HorzScrollBar.Position = 1903
-            HorzScrollBar.Range = 2865
+            HorzScrollBar.Position = 2360
+            HorzScrollBar.Range = 3280
             VertScrollBar.Range = 400
             Align = alClient
             AutoScroll = False
@@ -1017,7 +1015,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               920
               280)
             object Label35: TLabel
-              Left = 6493
+              Left = 6036
               Top = 4
               Width = 50
               Height = 36
@@ -1035,7 +1033,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               WordWrap = True
             end
             object Label37: TLabel
-              Left = 6665
+              Left = 6208
               Top = 4
               Width = 50
               Height = 36
@@ -1053,7 +1051,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               WordWrap = True
             end
             object Label38: TLabel
-              Left = 6829
+              Left = 6372
               Top = 4
               Width = 50
               Height = 36
@@ -1071,7 +1069,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               WordWrap = True
             end
             object Label39: TLabel
-              Left = 6993
+              Left = 6536
               Top = 3
               Width = 50
               Height = 36
@@ -1089,7 +1087,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               WordWrap = True
             end
             object Label40: TLabel
-              Left = 7159
+              Left = 6702
               Top = 4
               Width = 50
               Height = 36
@@ -1107,7 +1105,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               WordWrap = True
             end
             object Label4: TLabel
-              Left = -1897
+              Left = -2354
               Top = 2
               Width = 240
               Height = 19
@@ -1123,7 +1121,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               Transparent = False
             end
             object Label5: TLabel
-              Left = -1552
+              Left = -2009
               Top = 3
               Width = 278
               Height = 18
@@ -1139,7 +1137,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               Transparent = False
             end
             object Label6: TLabel
-              Left = -1104
+              Left = -1561
               Top = 2
               Width = 231
               Height = 19
@@ -1157,7 +1155,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               ExplicitLeft = 799
             end
             object Label8: TLabel
-              Left = -807
+              Left = -1264
               Top = 1
               Width = 215
               Height = 18
@@ -1173,7 +1171,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               Transparent = False
             end
             object Label9: TLabel
-              Left = -568
+              Left = -1025
               Top = 3
               Width = 214
               Height = 18
@@ -1189,7 +1187,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               Transparent = False
             end
             object Label13: TLabel
-              Left = 46
+              Left = -411
               Top = 3
               Width = 175
               Height = 19
@@ -1207,10 +1205,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               ExplicitLeft = 214
             end
             object stgr_ac8em9: TStringGrid
-              Left = -1104
+              Left = -1561
               Top = 25
               Width = 365
-              Height = 30646
+              Height = 30562
               TabStop = False
               Anchors = [akLeft, akTop, akBottom]
               BorderStyle = bsNone
@@ -1246,10 +1244,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
                 23)
             end
             object stgr_ac1em9: TStringGrid
-              Left = -729
+              Left = -1186
               Top = 25
               Width = 139
-              Height = 30646
+              Height = 30562
               TabStop = False
               Anchors = [akLeft, akTop, akBottom]
               BorderStyle = bsNone
@@ -1285,10 +1283,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
                 23)
             end
             object stgr_ac7em16: TStringGrid
-              Left = -1897
+              Left = -2354
               Top = 25
               Width = 339
-              Height = 30646
+              Height = 30562
               TabStop = False
               Anchors = [akLeft, akTop, akBottom]
               BorderStyle = bsNone
@@ -1324,10 +1322,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
                 23)
             end
             object stgr_ac9em16: TStringGrid
-              Left = -1552
+              Left = -2009
               Top = 27
               Width = 432
-              Height = 30646
+              Height = 30562
               TabStop = False
               Anchors = [akLeft, akTop, akBottom]
               BorderStyle = bsNone
@@ -1363,10 +1361,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
                 23)
             end
             object stgr_10NaoSorteados_Comb1: TStringGrid
-              Left = -568
+              Left = -1025
               Top = 25
               Width = 605
-              Height = 30646
+              Height = 30562
               TabStop = False
               Anchors = [akLeft, akTop, akBottom]
               BorderStyle = bsNone
@@ -1402,10 +1400,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
                 23)
             end
             object stgr_15Sorteados_Comb1: TStringGrid
-              Left = 46
+              Left = -411
               Top = 25
               Width = 670
-              Height = 30646
+              Height = 30562
               TabStop = False
               Anchors = [akLeft, akTop, akBottom]
               BorderStyle = bsNone
@@ -1459,14 +1457,15 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
                 23)
             end
             object stgr_15Sorteados_Comb1Flag: TStringGrid
-              Left = 722
+              Left = 265
               Top = 25
-              Width = 222
-              Height = 30646
+              Width = 410
+              Height = 30562
               TabStop = False
               Anchors = [akLeft, akTop, akBottom]
               BorderStyle = bsNone
               Color = 5398377
+              ColCount = 10
               DefaultColWidth = 31
               DefaultRowHeight = 23
               DrawingStyle = gdsGradient
@@ -1494,6 +1493,29 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
                 23
                 23
                 23)
+            end
+            object Memo1: TMemo
+              Left = 680
+              Top = 24
+              Width = 231
+              Height = 169
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              Lines.Strings = (
+                'Coluna 01: Somat'#243'ria (faixa)'
+                'Coluna 02: Seq'#252#234'ncia m'#225'xima'
+                'Coluna 03: Seq'#252#234'ncia de Duplas'
+                'Coluna 04: Seq'#252#234'ncia de Triplas'
+                'Coluna 05: 1'#186' N'#250'mero obrigat'#243'rio'
+                'Coluna 06: 2'#186' N'#250'mero obrigat'#243'rio'
+                'Coluna 07: 3'#186' N'#250'mero obrigat'#243'rio'
+                'Coluna 08: N'#250'mero Inicial obrigat'#243'rio '
+                'Coluna 09: '#218'ltimo n'#250'mero obrigat'#243'rio')
+              ParentFont = False
+              TabOrder = 7
             end
           end
         end
@@ -1735,11 +1757,96 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
             OnClick = BitBtn_BNCombinacoesPara7Click
           end
         end
+        object paPreparar: TPanel
+          Left = -90
+          Top = 262
+          Width = 427
+          Height = 193
+          BevelOuter = bvLowered
+          BorderWidth = 1
+          Color = 8294812
+          ParentBackground = False
+          TabOrder = 4
+          Visible = False
+          object laMensagensPreparar: TLabel
+            Left = 12
+            Top = 84
+            Width = 402
+            Height = 36
+            Caption = 
+              '................................................................' +
+              '... ...........................'
+            Color = 4542552
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -16
+            Font.Name = 'Verdana'
+            Font.Style = [fsBold]
+            ParentColor = False
+            ParentFont = False
+            Transparent = False
+            WordWrap = True
+          end
+          object Panel1: TPanel
+            Left = 2
+            Top = 2
+            Width = 423
+            Height = 50
+            Align = alTop
+            BevelOuter = bvNone
+            Color = 5398377
+            ParentBackground = False
+            TabOrder = 0
+            object Label16: TLabel
+              Left = 124
+              Top = 8
+              Width = 151
+              Height = 31
+              Caption = 'PREPARAR'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 12648447
+              Font.Height = -25
+              Font.Name = 'Verdana'
+              Font.Style = [fsBold]
+              ParentFont = False
+            end
+          end
+          object bbtOkPreparar1: TBitBtn
+            Left = 6
+            Top = 145
+            Width = 150
+            Height = 41
+            Caption = 'OK'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Verdana'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 1
+            OnClick = bbtOkPreparar1Click
+          end
+          object bbtVoltarPreparar1: TBitBtn
+            Left = 270
+            Top = 145
+            Width = 150
+            Height = 41
+            Caption = 'VOLTAR'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Verdana'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 2
+            OnClick = bbtVoltarPreparar1Click
+          end
+        end
         object pa_gerarCombinacoes1: TPanel
-          Left = 350
-          Top = 57
-          Width = 486
-          Height = 446
+          Left = 14
+          Top = 7
+          Width = 497
+          Height = 491
           BevelInner = bvLowered
           BevelWidth = 4
           BorderWidth = 1
@@ -1753,11 +1860,10 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           ParentBackground = False
           ParentFont = False
           TabOrder = 3
-          Visible = False
           object Label23: TLabel
             Left = 9
             Top = 9
-            Width = 464
+            Width = 475
             Height = 25
             Align = alTop
             Alignment = taCenter
@@ -1776,7 +1882,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           object Label24: TLabel
             Left = 9
             Top = 34
-            Width = 464
+            Width = 475
             Height = 23
             Align = alTop
             Alignment = taCenter
@@ -1794,25 +1900,26 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
             ExplicitWidth = 134
           end
           object Label27: TLabel
-            Left = 20
-            Top = 99
-            Width = 148
-            Height = 17
+            Left = 19
+            Top = 98
+            Width = 158
+            Height = 18
             Caption = 'N'#250'meros Obrigat'#243'rios:'
             Color = clBlack
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
-            Font.Height = -15
+            Font.Height = -16
             Font.Name = 'Arial'
             Font.Style = []
             ParentColor = False
             ParentFont = False
             Transparent = True
+            WordWrap = True
           end
           object BitBtn_OKGerarCombinacoes1: TBitBtn
             Left = 19
-            Top = 391
-            Width = 200
+            Top = 434
+            Width = 210
             Height = 36
             Caption = 'OK'
             Default = True
@@ -1823,13 +1930,13 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
             Font.Style = []
             NumGlyphs = 2
             ParentFont = False
-            TabOrder = 8
+            TabOrder = 12
             OnClick = BitBtn_OKGerarCombinacoes1Click
           end
           object BitBtn_VoltarCombinacoes1: TBitBtn
             Left = 263
-            Top = 391
-            Width = 200
+            Top = 434
+            Width = 210
             Height = 36
             Caption = 'VOLTAR'
             Font.Charset = DEFAULT_CHARSET
@@ -1838,13 +1945,13 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
             Font.Name = 'Verdana'
             Font.Style = []
             ParentFont = False
-            TabOrder = 9
+            TabOrder = 13
             OnClick = BitBtn_VoltarCombinacoes1Click
           end
           object pa_GerarComb1_Geral: TPanel
             Left = 19
-            Top = 126
-            Width = 440
+            Top = 167
+            Width = 450
             Height = 259
             BevelInner = bvLowered
             Font.Charset = DEFAULT_CHARSET
@@ -1853,7 +1960,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
             Font.Name = 'Arial'
             Font.Style = []
             ParentFont = False
-            TabOrder = 7
+            TabOrder = 11
             object Label25: TLabel
               Left = 8
               Top = 12
@@ -1865,16 +1972,16 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               Transparent = True
             end
             object Bevel1: TBevel
-              Left = 8
-              Top = 114
-              Width = 417
+              Left = 10
+              Top = 113
+              Width = 421
               Height = 15
               Shape = bsTopLine
             end
             object cb_Combinacoes1Geral: TComboBox
-              Left = 61
+              Left = 63
               Top = 7
-              Width = 364
+              Width = 369
               Height = 25
               Ctl3D = True
               ItemIndex = 0
@@ -1926,9 +2033,9 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               OnClick = chk_sequenciaMaximaClick
             end
             object cb_sequenciaMaxima: TComboBox
-              Left = 172
+              Left = 174
               Top = 76
-              Width = 253
+              Width = 259
               Height = 25
               Ctl3D = True
               ItemIndex = 0
@@ -1956,7 +2063,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               OnClick = rb_SequenciasDuplasClick
             end
             object rb_SequenciasTriplas: TRadioButton
-              Left = 275
+              Left = 285
               Top = 144
               Width = 152
               Height = 17
@@ -1973,7 +2080,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
             object pa_SequenciasDuplas: TPanel
               Left = 9
               Top = 166
-              Width = 244
+              Width = 251
               Height = 79
               BevelKind = bkSoft
               BevelOuter = bvNone
@@ -2065,7 +2172,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               end
             end
             object pa_SequenciasTriplas: TPanel
-              Left = 274
+              Left = 284
               Top = 166
               Width = 151
               Height = 79
@@ -2115,7 +2222,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
                 TabOrder = 2
               end
             end
-            object RadioButton1: TRadioButton
+            object rb_NenhumaSeq_Duplas_Triplas: TRadioButton
               Left = 12
               Top = 121
               Width = 269
@@ -2128,11 +2235,11 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               Font.Style = []
               ParentFont = False
               TabOrder = 10
-              OnClick = RadioButton1Click
+              OnClick = rb_NenhumaSeq_Duplas_TriplasClick
             end
           end
           object Rb_gerarComb01Ate20: TRadioButton
-            Left = 32
+            Left = 22
             Top = 65
             Width = 110
             Height = 17
@@ -2147,7 +2254,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
             OnClick = Rb_gCom01Ate20Click
           end
           object Rb_gerarComb21Ate40: TRadioButton
-            Left = 145
+            Left = 156
             Top = 65
             Width = 110
             Height = 17
@@ -2162,7 +2269,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
             OnClick = Rb_gerarComb21Ate40Click
           end
           object rb_gerarcomb01Ate18: TRadioButton
-            Left = 273
+            Left = 278
             Top = 63
             Width = 110
             Height = 17
@@ -2178,11 +2285,11 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
             OnClick = rb_gerarcomb01Ate18Click
           end
           object rb_gerarcomb01Ate08: TRadioButton
-            Left = 377
+            Left = 386
             Top = 63
-            Width = 96
+            Width = 89
             Height = 17
-            Caption = '01 at'#233' 09'
+            Caption = '01 at'#233' 08'
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -15
@@ -2194,16 +2301,15 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
             OnEnter = rb_gerarcomb01Ate08Click
           end
           object edt_nObrigatorio1: TEdit
-            Left = 174
-            Top = 95
-            Width = 32
-            Height = 25
-            Enabled = False
+            Left = 19
+            Top = 125
+            Width = 30
+            Height = 26
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
-            Font.Height = -15
+            Font.Height = -16
             Font.Name = 'Arial'
-            Font.Style = [fsStrikeOut]
+            Font.Style = []
             MaxLength = 3
             NumbersOnly = True
             ParentFont = False
@@ -2212,14 +2318,14 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
             OnExit = edt_nObrigatorio1Exit
           end
           object edt_nObrigatorio2: TEdit
-            Left = 216
-            Top = 95
-            Width = 32
-            Height = 25
+            Left = 55
+            Top = 125
+            Width = 30
+            Height = 26
             Enabled = False
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
-            Font.Height = -15
+            Font.Height = -16
             Font.Name = 'Arial'
             Font.Style = [fsStrikeOut]
             MaxLength = 3
@@ -2230,14 +2336,14 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
             OnExit = edt_nObrigatorio2Exit
           end
           object edt_nObrigatorio3: TEdit
-            Left = 261
-            Top = 95
-            Width = 32
-            Height = 25
+            Left = 91
+            Top = 125
+            Width = 30
+            Height = 26
             Enabled = False
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
-            Font.Height = -15
+            Font.Height = -16
             Font.Name = 'Arial'
             Font.Style = [fsStrikeOut]
             MaxLength = 3
@@ -2247,90 +2353,73 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
             Text = '00'
             OnExit = edt_nObrigatorio3Exit
           end
-        end
-        object paPreparar: TPanel
-          Left = -90
-          Top = 262
-          Width = 427
-          Height = 193
-          BevelOuter = bvLowered
-          BorderWidth = 1
-          Color = 8294812
-          ParentBackground = False
-          TabOrder = 4
-          Visible = False
-          object laMensagensPreparar: TLabel
-            Left = 12
-            Top = 84
-            Width = 402
-            Height = 36
-            Caption = 
-              '................................................................' +
-              '... ...........................'
-            Color = 4542552
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -16
-            Font.Name = 'Verdana'
-            Font.Style = [fsBold]
-            ParentColor = False
-            ParentFont = False
-            Transparent = False
-            WordWrap = True
-          end
-          object Panel1: TPanel
-            Left = 2
-            Top = 2
-            Width = 423
-            Height = 50
-            Align = alTop
-            BevelOuter = bvNone
-            Color = 5398377
-            ParentBackground = False
-            TabOrder = 0
-            object Label16: TLabel
-              Left = 124
-              Top = 8
-              Width = 151
-              Height = 31
-              Caption = 'PREPARAR'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = 12648447
-              Font.Height = -25
-              Font.Name = 'Verdana'
-              Font.Style = [fsBold]
-              ParentFont = False
-            end
-          end
-          object bbtOkPreparar1: TBitBtn
-            Left = 6
-            Top = 145
-            Width = 150
-            Height = 41
-            Caption = 'OK'
+          object edt_nObrigatorioInicial: TEdit
+            Left = 432
+            Top = 98
+            Width = 34
+            Height = 25
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
-            Font.Height = -16
-            Font.Name = 'Verdana'
+            Font.Height = -15
+            Font.Name = 'Arial'
             Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
             ParentFont = False
-            TabOrder = 1
-            OnClick = bbtOkPreparar1Click
+            TabOrder = 8
+            Text = '00'
+            OnEnter = edt_nObrigatorioInicialEnter
+            OnExit = edt_nObrigatorioInicialExit
           end
-          object bbtVoltarPreparar1: TBitBtn
-            Left = 270
-            Top = 145
-            Width = 150
-            Height = 41
-            Caption = 'VOLTAR'
+          object Cbbx_nObrigatorioInicial: TComboBox
+            Left = 210
+            Top = 98
+            Width = 220
+            Height = 25
+            Ctl3D = True
+            ItemIndex = 0
+            ParentCtl3D = False
+            TabOrder = 7
+            Text = 'Nenhum'
+            OnExit = Cbbx_nObrigatorioInicialExit
+            Items.Strings = (
+              'Nenhum'
+              '1'#186' N'#250'mero maior ou igual >='
+              '1'#186' N'#250'mero id'#234'ntico')
+          end
+          object Cbbx_nObrigatorioFinal: TComboBox
+            Left = 210
+            Top = 128
+            Width = 220
+            Height = 25
+            Ctl3D = True
+            ItemIndex = 0
+            ParentCtl3D = False
+            TabOrder = 9
+            Text = 'Nenhum'
+            OnExit = Cbbx_nObrigatorioInicialExit
+            Items.Strings = (
+              'Nenhum'
+              '15'#186' N'#250'mero menor ou igual <='
+              '15'#186' N'#250'mero id'#234'ntico')
+          end
+          object edt_nObrigatorioFinal: TEdit
+            Left = 432
+            Top = 128
+            Width = 34
+            Height = 25
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
-            Font.Height = -16
-            Font.Name = 'Verdana'
+            Font.Height = -15
+            Font.Name = 'Arial'
             Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
             ParentFont = False
-            TabOrder = 2
-            OnClick = bbtVoltarPreparar1Click
+            TabOrder = 10
+            Text = '00'
+            OnEnter = edt_nObrigatorioInicialEnter
+            OnExit = edt_nObrigatorioInicialExit
           end
         end
       end
@@ -2458,17 +2547,17 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
           end
           object Panel2: TPanel
             Left = 0
-            Top = 274
+            Top = 250
             Width = 245
-            Height = 151
+            Height = 175
             Align = alBottom
             BevelOuter = bvNone
             Color = 4476759
             ParentBackground = False
             TabOrder = 5
             object la_soma1Inicial: TLabel
-              Left = 84
-              Top = 75
+              Left = 97
+              Top = 98
               Width = 24
               Height = 18
               Caption = '888'
@@ -2483,7 +2572,7 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               Transparent = False
             end
             object Label21: TLabel
-              Left = 19
+              Left = 37
               Top = 3
               Width = 59
               Height = 18
@@ -2499,11 +2588,11 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               Transparent = True
             end
             object la_InicioLinhas1: TLabel
-              Left = 84
+              Left = 97
               Top = 3
-              Width = 24
+              Width = 20
               Height = 18
-              Caption = '888'
+              Caption = '88i'
               Color = 3426399
               Font.Charset = DEFAULT_CHARSET
               Font.Color = 12648447
@@ -2515,11 +2604,11 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               Transparent = False
             end
             object la_TerminoLinhas1: TLabel
-              Left = 113
+              Left = 123
               Top = 3
-              Width = 24
+              Width = 20
               Height = 18
-              Caption = '888'
+              Caption = '88i'
               Color = 3426399
               Font.Charset = DEFAULT_CHARSET
               Font.Color = 12648447
@@ -2531,8 +2620,8 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               Transparent = False
             end
             object la_Combinacoes1Geral: TLabel
-              Left = 84
-              Top = 51
+              Left = 97
+              Top = 74
               Width = 66
               Height = 16
               Caption = 'Gravando:'
@@ -2547,8 +2636,8 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               Transparent = False
             end
             object Label26: TLabel
-              Left = 24
-              Top = 50
+              Left = 41
+              Top = 73
               Width = 52
               Height = 18
               Caption = 'Modo : '
@@ -2563,8 +2652,8 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               Transparent = True
             end
             object Label30: TLabel
-              Left = 16
-              Top = 75
+              Left = 33
+              Top = 98
               Width = 60
               Height = 18
               Caption = 'Somat. : '
@@ -2579,8 +2668,8 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               Transparent = True
             end
             object la_soma1Final: TLabel
-              Left = 116
-              Top = 75
+              Left = 125
+              Top = 98
               Width = 24
               Height = 18
               Caption = '888'
@@ -2595,8 +2684,8 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               Transparent = False
             end
             object la_sequenciaMaxima: TLabel
-              Left = 84
-              Top = 102
+              Left = 97
+              Top = 125
               Width = 66
               Height = 16
               Caption = 'Gravando:'
@@ -2611,8 +2700,8 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               Transparent = False
             end
             object Label31: TLabel
-              Left = 2
-              Top = 101
+              Left = 20
+              Top = 124
               Width = 69
               Height = 18
               Caption = 'Seq. Max:'
@@ -2627,8 +2716,8 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               Transparent = True
             end
             object Label33: TLabel
-              Left = 33
-              Top = 126
+              Left = 49
+              Top = 149
               Width = 40
               Height = 18
               Caption = 'Seq. :'
@@ -2643,8 +2732,8 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               Transparent = True
             end
             object la_SequenciaOutras: TLabel
-              Left = 84
-              Top = 128
+              Left = 97
+              Top = 151
               Width = 66
               Height = 16
               Caption = 'Gravando:'
@@ -2657,6 +2746,24 @@ object frm_Ranqueador16Com12Linhas: Tfrm_Ranqueador16Com12Linhas
               ParentColor = False
               ParentFont = False
               Transparent = False
+            end
+            object Label28: TLabel
+              Left = 5
+              Top = 27
+              Width = 86
+              Height = 32
+              Alignment = taRightJustify
+              Caption = 'N'#250'meros.. Obrigat'#243'rios :'
+              Color = 3426399
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clCream
+              Font.Height = -13
+              Font.Name = 'Arial'
+              Font.Style = [fsBold]
+              ParentColor = False
+              ParentFont = False
+              Transparent = True
+              WordWrap = True
             end
           end
         end
