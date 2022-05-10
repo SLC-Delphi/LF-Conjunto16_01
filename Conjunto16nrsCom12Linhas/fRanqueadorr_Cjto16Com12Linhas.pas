@@ -144,7 +144,7 @@ Type
     rb_n5e5: TRadioButton;
     rb_n5e6: TRadioButton;
     rb_n5e7: TRadioButton;
-    Panel2: TPanel;
+    Pa_Status1: TPanel;
     la_soma1Inicial: TLabel;
     Label21: TLabel;
     la_InicioLinhas1: TLabel;
@@ -168,6 +168,15 @@ Type
     Cbbx_nObrigatorioFinal: TComboBox;
     edt_nObrigatorioFinal: TEdit;
     Label28: TLabel;
+    la_nObrigatorio1: TLabel;
+    la_nObrigatorio2: TLabel;
+    la_nObrigatorio3: TLabel;
+    La_nObrigatorioInicial: TLabel;
+    La_nObrigatorioFinal: TLabel;
+    Cbbx_nObrigatorioIntermediario: TComboBox;
+    edt_nObrigatorioIntermediario: TEdit;
+    Label29: TLabel;
+    Bevel2: TBevel;
       Procedure Bbt_CarregarSort(Sender: TObject);
       Procedure Bbt_rankClick(Sender: TObject);
       Procedure FormCreate(Sender: TObject);
@@ -196,6 +205,12 @@ Type
     procedure edt_nObrigatorioInicialExit(Sender: TObject);
     procedure Cbbx_nObrigatorioInicialExit(Sender: TObject);
     procedure edt_nObrigatorioInicialEnter(Sender: TObject);
+    procedure edt_nObrigatorioFinalExit(Sender: TObject);
+    procedure edt_nObrigatorioFinalEnter(Sender: TObject);
+    procedure edt_nObrigatorioIntermediarioEnter(Sender: TObject);
+    procedure edt_nObrigatorioIntermediarioExit(Sender: TObject);
+    procedure Cbbx_nObrigatorioIntermediarioExit(Sender: TObject);
+    procedure Cbbx_nObrigatorioFinalExit(Sender: TObject);
    Private
       { Private declarations }
       vcrDivisor1, vcrDivisor2, vcrDivisor3: Currency;
@@ -260,6 +275,11 @@ Begin
    edt_nObrigatorio1.Text:= '00';
    edt_nObrigatorio2.Text:= '00';
    edt_nObrigatorio3.Text:= '00';
+   la_nObrigatorio1.Caption:= '00';
+   la_nObrigatorio2.Caption:= '00';
+   la_nObrigatorio3.Caption:= '00';
+   La_nObrigatorioInicial.Caption := 'Nenhum';
+   La_nObrigatorioFinal.Caption := 'Nenhum';
    pa_gerarCombinacoes1.Left := 9999;
    pa_gerarCombinacoes1.Repaint;
    LimpaInformacoesStatus;
@@ -811,7 +831,7 @@ Begin
                   Begin
                      For viComb06 := viComb05 + 1 To 15 Do
                      Begin
-                        For viComb07 := viComb06 + 1 To Trunc(16/1.40) Do  // - /1.5
+                        For viComb07 := viComb06 + 1 To Trunc(16/1.00) Do  // - /1.5
                         Begin
                            stgr_ac7em16.Cells[02, viLinhas] := copy((memoConjunto16.Lines.Strings[viContadorBase]), viComb01 * 3 + 1, 2);
                            stgr_ac7em16.Cells[03, viLinhas] := copy((memoConjunto16.Lines.Strings[viContadorBase]), viComb02 * 3 + 1, 2);
@@ -916,6 +936,7 @@ Begin
             stgr_15Sorteados_Comb1Flag.Cells[07, viLinhas] := 'V';
             stgr_15Sorteados_Comb1Flag.Cells[08, viLinhas] := 'V';
             stgr_15Sorteados_Comb1Flag.Cells[09, viLinhas] := 'V';
+            stgr_15Sorteados_Comb1Flag.Cells[10, viLinhas] := 'V';
             for viContarColunas := 1 to 9 do
             begin
                stgr_10NaoSorteados_Comb1.Cells[05+viContarColunas, viLinhas] := stgr_ac9em16.Cells[01+viContarColunas,viComb01];
@@ -1091,6 +1112,7 @@ Begin
             and (stgr_15Sorteados_Comb1Flag.Cells[07, viContadorBase].ToUpper = 'V')
             and (stgr_15Sorteados_Comb1Flag.Cells[08, viContadorBase].ToUpper = 'V')
             and (stgr_15Sorteados_Comb1Flag.Cells[09, viContadorBase].ToUpper = 'V')
+            and (stgr_15Sorteados_Comb1Flag.Cells[10, viContadorBase].ToUpper = 'V')
           then
             liS_15Sorteados.Add(vsSorteados);
    End;  // for
@@ -1239,6 +1261,7 @@ Begin
             and (stgr_15Sorteados_Comb1Flag.Cells[07, viContadorBase].ToUpper = 'V')
             and (stgr_15Sorteados_Comb1Flag.Cells[08, viContadorBase].ToUpper = 'V')
             and (stgr_15Sorteados_Comb1Flag.Cells[09, viContadorBase].ToUpper = 'V')
+            and (stgr_15Sorteados_Comb1Flag.Cells[10, viContadorBase].ToUpper = 'V')
          then
             liS_15Sorteados.Add(vsSorteados);
    End;
@@ -1268,7 +1291,7 @@ end;
 
 procedure Tfrm_Ranqueador16Com12Linhas.edt_nObrigatorioInicialExit(Sender: TObject);
 begin
-   if (StrToInt(edt_nObrigatorioInicial.Text) <0)  or (StrToInt(edt_nObrigatorioInicial.Text) >25) then
+   if (StrToInt(edt_nObrigatorioInicial.Text) <0)  or (StrToInt(edt_nObrigatorioInicial.Text) >12) then
       edt_nObrigatorioInicial.SetFocus;
    if Cbbx_nObrigatorioInicial.ItemIndex = 0 then
    begin
@@ -1276,10 +1299,49 @@ begin
    end;
 end;
 
+
+
+procedure Tfrm_Ranqueador16Com12Linhas.edt_nObrigatorioIntermediarioEnter(Sender: TObject);
+begin
+   if Cbbx_nObrigatorioIntermediario.ItemIndex = 0 then
+   begin
+      edt_nObrigatorioIntermediario.Text := '00';
+   end;
+end;
+
+procedure Tfrm_Ranqueador16Com12Linhas.edt_nObrigatorioIntermediarioExit(Sender: TObject);
+begin
+   if (StrToInt(edt_nObrigatorioIntermediario.Text) <7)  or (StrToInt(edt_nObrigatorioIntermediario.Text) >19) then
+      edt_nObrigatorioIntermediario.SetFocus;
+   if Cbbx_nObrigatorioIntermediario.ItemIndex = 0 then
+   begin
+      edt_nObrigatorioIntermediario.Text := '00';
+   end;
+end;
+
+procedure Tfrm_Ranqueador16Com12Linhas.edt_nObrigatorioFinalExit(Sender: TObject);
+begin
+   if (StrToInt(edt_nObrigatorioFinal.Text) <12)  or (StrToInt(edt_nObrigatorioFinal.Text) >25) then
+      edt_nObrigatorioFinal.SetFocus;
+   if Cbbx_nObrigatorioFinal.ItemIndex = 0 then
+   begin
+      edt_nObrigatorioFinal.Text := '00';
+   end;
+end;
+
+
 procedure Tfrm_Ranqueador16Com12Linhas.edt_nObrigatorio1Exit(Sender: TObject);
 begin
    if (StrToInt(edt_nObrigatorio1.Text) <0)  or (StrToInt(edt_nObrigatorio1.Text) >25) then
       edt_nObrigatorio1.SetFocus;
+end;
+
+procedure Tfrm_Ranqueador16Com12Linhas.edt_nObrigatorioFinalEnter(Sender: TObject);
+begin
+   if Cbbx_nObrigatorioFinal.ItemIndex = 0 then
+   begin
+      edt_nObrigatorioFinal.Text := '00';
+   end;
 end;
 
 procedure Tfrm_Ranqueador16Com12Linhas.edt_nObrigatorio2Exit(Sender: TObject);
@@ -1293,6 +1355,7 @@ begin
    if ( StrToInt(edt_nObrigatorio3.Text)<0)  or ( StrToInt(edt_nObrigatorio3.Text)>25) then
       edt_nObrigatorio3.SetFocus;
 end;
+
 
 procedure Tfrm_Ranqueador16Com12Linhas.edt_soma1FinalExit(Sender: TObject);
 begin
@@ -1333,6 +1396,8 @@ Begin
          if not(stgr_15Sorteados_Comb1Flag.Cells[08, viTotalLinhas].ToUpper = 'V') then
             continue;
          if not(stgr_15Sorteados_Comb1Flag.Cells[09, viTotalLinhas].ToUpper = 'V') then
+            continue;
+         if not(stgr_15Sorteados_Comb1Flag.Cells[10, viTotalLinhas].ToUpper = 'V') then
             continue;
          vsNumerosSort := '';
          for viContarColunas := 4 to 18 do
@@ -1410,6 +1475,19 @@ Begin
 end;
 
 
+procedure Tfrm_Ranqueador16Com12Linhas.Cbbx_nObrigatorioFinalExit(Sender: TObject);
+begin
+   if Cbbx_nObrigatorioFinal.ItemIndex = 0 then
+   begin
+      edt_nObrigatorioFinal.Text := '00';
+      edt_nObrigatorioFinal.Enabled := false;
+   end else
+   begin
+      edt_nObrigatorioFinal.Enabled := true;
+      edt_nObrigatorioFinal.SetFocus;
+   end;
+end;
+
 procedure Tfrm_Ranqueador16Com12Linhas.Cbbx_nObrigatorioInicialExit(Sender: TObject);
 begin
    if Cbbx_nObrigatorioInicial.ItemIndex = 0 then
@@ -1420,6 +1498,19 @@ begin
    begin
       edt_nObrigatorioInicial.Enabled := true;
       edt_nObrigatorioInicial.SetFocus;
+   end;
+end;
+
+procedure Tfrm_Ranqueador16Com12Linhas.Cbbx_nObrigatorioIntermediarioExit(Sender: TObject);
+begin
+   if Cbbx_nObrigatorioIntermediario.ItemIndex = 0 then
+   begin
+      edt_nObrigatorioIntermediario.Text := '00';
+      edt_nObrigatorioIntermediario.Enabled := false;
+   end else
+   begin
+      edt_nObrigatorioIntermediario.Enabled := true;
+      edt_nObrigatorioIntermediario.SetFocus;
    end;
 end;
 
@@ -1513,6 +1604,7 @@ procedure Tfrm_Ranqueador16Com12Linhas.MontaMemoBlocoNotasComb2;
 var
   viContadorBase, viContarColunas: Integer;
   vcTitulo, vcSubTitulo, vsNumerosSort : String;
+  vcSubTitulo2, vcSubTitulo3, vcSubTitulo4 : String;
 begin
    vcTitulo := 'Resultado dos números gerados a partir dos Conjuntos de 16 x 9 números';
    if Rb_gerarComb01Ate20.Checked then
@@ -1523,10 +1615,19 @@ begin
       vcSubTitulo := Rb_gerarComb01Ate18.Caption;
    if rb_gerarcomb01Ate08.Checked then
       vcSubTitulo := rb_gerarcomb01Ate08.Caption;
-   vcSubTitulo := vcSubTitulo+#13+cb_Combinacoes1Geral.Text;
+   vcSubTitulo := vcSubTitulo +#13+ ' Modos: '+cb_Combinacoes1Geral.Text
+      + #13 + 'Somatória: '+ edt_soma1Inicial.Text+ ' a '+ edt_soma1Final.Text
+      + #13 + 'Seqüência máxima: '+ cb_sequenciaMaxima.Text;
+   vcSubTitulo2 := 'Números obrigatórios: '+ edt_nObrigatorio1.Text + ' ' + edt_nObrigatorio2. Text + ' '+ edt_nObrigatorio3.Text;
+   vcSubTitulo2 := vcSubTitulo2+ #13 + Cbbx_nObrigatorioInicial.Text  + ' '+edt_nObrigatorioInicial.Text;
+   vcSubTitulo2 := vcSubTitulo2+ #13 + Cbbx_nObrigatorioIntermediario.Text  + ' '+edt_nObrigatorioIntermediario.Text;
+   vcSubTitulo2 := vcSubTitulo2+ #13 + Cbbx_nObrigatorioFinal.Text  + ' '+edt_nObrigatorioFinal.Text;
+   vcSubTitulo3 := 'Outras seqüências: '+ la_SequenciaOutras.Caption;
    mem_Sorteados.Clear;
    mem_Sorteados.Lines.Add(vcTitulo);
    mem_Sorteados.Lines.Add(vcSubTitulo);
+   mem_Sorteados.Lines.Add(vcSubTitulo2);
+   mem_Sorteados.Lines.Add(vcSubTitulo3);
    mem_Sorteados.Lines.Add('TOTAL: ' + INTtoSTR(stgr_15Sorteados_Comb1.RowCount-1));
    mem_Sorteados.Lines.Add('----------------------------');
    for viContadorBase := 1 to stgr_15Sorteados_Comb1.RowCount-1 do
@@ -1561,47 +1662,60 @@ end;
 
 procedure Tfrm_Ranqueador16Com12Linhas.AtualizaInformacoesStatus;
 begin
-  la_InicioLinhas1.Caption := vsiInicioLinhas1.ToString;
-  la_TerminoLinhas1.Caption := vsiTerminoLinhas1.toString;
-  la_InicioLinhas1.Repaint;
-  la_TerminoLinhas1.Repaint;
-  la_Combinacoes1Geral.Caption := cb_Combinacoes1Geral.Text;
-  if chk_somatoria160a220.Checked = true then
-  begin
-    la_soma1Inicial.Caption := edt_soma1Inicial.Text;
-    la_soma1Final.Caption := edt_soma1Final.Text;
-  end;
-  if chk_sequenciaMaxima.Checked = true then
-    la_sequenciaMaxima.Caption := cb_sequenciaMaxima.Text;
-  la_sequenciaMaxima.Repaint;
-  if rb_n4e5.Checked = true then
-    la_SequenciaOutras.Caption := rb_n4e5.Caption
-  else if rb_n4e6.Checked = true then
-    la_SequenciaOutras.Caption := rb_n4e6.Caption
-  else if rb_n4e7.Checked = true then
-    la_SequenciaOutras.Caption := rb_n4e7.Caption
-  else if rb_n5e5.Checked = true then
-    la_SequenciaOutras.Caption := rb_n5e5.Caption
-  else if rb_n5e6.Checked = true then
-    la_SequenciaOutras.Caption := rb_n5e6.Caption
-  else if rb_n5e7.Checked = true then
-    la_SequenciaOutras.Caption := rb_n5e7.Caption
-  else if rb_n3e3e4.Checked = true then
-    la_SequenciaOutras.Caption := rb_n3e3e4.Caption
-  else if rb_n3e4e4.Checked = true then
-    la_SequenciaOutras.Caption := rb_n3e4e4.Caption
-  else if rb_n4e4e4.Checked = true then
-    la_SequenciaOutras.Caption := rb_n4e4e4.Caption
-  else
-    la_SequenciaOutras.Caption := ' ';
-  la_soma1Inicial.Repaint;
-  la_soma1Final.Repaint;
-  la_sequenciaMaxima.Repaint;
-  la_Combinacoes1Geral.Repaint;
-  la_SequenciaOutras.Repaint;
-end;
+  la_InicioLinhas1.Caption := vsiInicioLinhas1.toString;
+   la_TerminoLinhas1.Caption := vsiTerminoLinhas1.toString;
+   la_InicioLinhas1.Repaint;
+   la_TerminoLinhas1.Repaint;
+   la_Combinacoes1Geral.Caption := cb_Combinacoes1Geral.Text;
+   If chk_somatoria160a220.Checked = True Then
+   Begin
+      la_soma1Inicial.Caption := edt_soma1Inicial.Text;
+      la_soma1Final.Caption := edt_soma1Final.Text;
+   End;
+   If chk_sequenciaMaxima.Checked = True Then
+      la_sequenciaMaxima.Caption := cb_sequenciaMaxima.Text;
+   la_sequenciaMaxima.Repaint;
+   If rb_n4e5.Checked = True Then
+      la_SequenciaOutras.Caption := rb_n4e5.Caption
+   Else If rb_n4e6.Checked = True Then
+      la_SequenciaOutras.Caption := rb_n4e6.Caption
+   Else If rb_n4e7.Checked = True Then
+      la_SequenciaOutras.Caption := rb_n4e7.Caption
+   Else If rb_n5e5.Checked = True Then
+      la_SequenciaOutras.Caption := rb_n5e5.Caption
+   Else If rb_n5e6.Checked = True Then
+      la_SequenciaOutras.Caption := rb_n5e6.Caption
+   Else If rb_n5e7.Checked = True Then
+      la_SequenciaOutras.Caption := rb_n5e7.Caption
+   Else If rb_n3e3e4.Checked = True Then
+      la_SequenciaOutras.Caption := rb_n3e3e4.Caption
+   Else If rb_n3e4e4.Checked = True Then
+      la_SequenciaOutras.Caption := rb_n3e4e4.Caption
+   Else If rb_n4e4e4.Checked = True Then
+      la_SequenciaOutras.Caption := rb_n4e4e4.Caption
+   Else If rb_NenhumaSeq_Duplas_Triplas.Checked = True Then
+      la_SequenciaOutras.Caption := 'Nenhuma'
+   Else
+      la_SequenciaOutras.Caption := ' ';
+   la_nObrigatorio1.Caption := edt_nObrigatorio1.Text;
+   la_nObrigatorio2.Caption := edt_nObrigatorio2.Text;
+   la_nObrigatorio3.Caption := edt_nObrigatorio3.Text;
+   La_nObrigatorioInicial.Caption := Trim(Cbbx_nObrigatorioInicial.Text) + ' '+Edt_nObrigatorioInicial.Text;
+   La_nObrigatorioFinal.Caption := Trim(Cbbx_nObrigatorioFinal.Text) + ' ' +Edt_nObrigatorioFinal.Text;
+   la_soma1Inicial.Repaint;
+   la_soma1Final.Repaint;
+   la_sequenciaMaxima.Repaint;
+   la_Combinacoes1Geral.Repaint;
+   la_SequenciaOutras.Repaint;
+   la_nObrigatorio1.Repaint;
+   la_nObrigatorio2.Repaint;
+   la_nObrigatorio3.Repaint;
+   La_nObrigatorioInicial.Repaint;
+   La_nObrigatorioFinal.Repaint;
+   Pa_Status1.Repaint;
+End;
 
-procedure Tfrm_Ranqueador16Com12Linhas.SequenciasDuplasComb16Filtro1(viLinhas: Integer);
+Procedure Tfrm_Ranqueador16Com12Linhas.SequenciasDuplasComb16Filtro1(viLinhas: Integer);
 var
   Local_viContarColunas: Integer;
   Local_viContarColunas1, viFlagNumero: Integer;
@@ -2319,11 +2433,12 @@ begin
     Stgr_Todos_Numeros.Cells[STRtoINT(stgr_15Sorteados_Comb1.Cells[3 + viContarColunas, viLinhas]), 1] := 'V';
    end;
    //
-   viFlagNumero := 0;
+   viFlagNumero := 1;
    if not (StrToInt(edt_nObrigatorioInicial.Text) = 0) then
    begin
 //      if (viLinhas=26713) or (viLinhas=26704) or (viLinhas=26677) then
 //         showmessage('n');
+      viFlagNumero := 0;
       if Cbbx_nObrigatorioInicial.ItemIndex = 1 then
       begin
          if ((stgr_15Sorteados_Comb1.Cells[4, viLinhas].ToInteger)>= STRtoINT(edt_nObrigatorioInicial.Text)) then
@@ -2344,11 +2459,12 @@ begin
     stgr_15Sorteados_Comb1Flag.Cells[8, viLinhas] := 'F';
    end;
    //
-   viFlagNumero := 0;
+   viFlagNumero := 1;
    if not (StrToInt(edt_nObrigatorioFinal.Text) = 0) then
    begin
 //      if (viLinhas=26713) or (viLinhas=26704) or (viLinhas=26677) then
 //         showmessage('n');
+      viFlagNumero := 0;
       if Cbbx_nObrigatorioFinal.ItemIndex = 1 then
       begin
          if ((stgr_15Sorteados_Comb1.Cells[18, viLinhas].ToInteger)<= STRtoINT(edt_nObrigatorioFinal.Text)) then
@@ -2367,6 +2483,37 @@ begin
    else
    begin
     stgr_15Sorteados_Comb1Flag.Cells[9, viLinhas] := 'F';
+   end;
+   //
+   viFlagNumero := 1;
+   if not (StrToInt(edt_nObrigatorioIntermediario.Text) = 0) then
+   begin
+//      if (viLinhas=26713) or (viLinhas=26704) or (viLinhas=26677) then
+//         showmessage('n');
+      viFlagNumero := 0;
+      if Cbbx_nObrigatorioIntermediario.ItemIndex = 1 then
+      begin
+         if ((stgr_15Sorteados_Comb1.Cells[11, viLinhas].ToInteger)<= STRtoINT(edt_nObrigatorioIntermediario.Text)) then
+            viFlagNumero := 1;
+      end else
+      if Cbbx_nObrigatorioIntermediario.ItemIndex = 2 then
+      begin
+         if ((stgr_15Sorteados_Comb1.Cells[11, viLinhas].ToInteger)>= STRtoINT(edt_nObrigatorioIntermediario.Text)) then
+            viFlagNumero := 1;
+      end else
+      if Cbbx_nObrigatorioIntermediario.ItemIndex = 3 then
+      begin
+         if ((stgr_15Sorteados_Comb1.Cells[11, viLinhas].ToInteger)= STRtoINT(edt_nObrigatorioIntermediario.Text)) then
+            viFlagNumero := 1;
+      end;
+   end;
+   if (viFlagNumero = 1) then
+   begin
+    stgr_15Sorteados_Comb1Flag.Cells[10, viLinhas] := 'V';
+   end
+   else
+   begin
+    stgr_15Sorteados_Comb1Flag.Cells[10, viLinhas] := 'F';
    end;
 end;
 
@@ -2394,8 +2541,9 @@ end;
 
 procedure Tfrm_Ranqueador16Com12Linhas.MontaMemoBlocoNotasComb1(liS_15Sorteados: Tlist<string>);
 var
-  viContadorBase: Integer;
-  vcTitulo, vcSubTitulo : String;
+  viContadorBase, viContarColunas: Integer;
+  vcTitulo, vcSubTitulo, vsNumerosSort : String;
+  vcSubTitulo2, vcSubTitulo3, vcSubTitulo4 : String;
 begin
    vcTitulo := 'Resultado dos números gerados a partir dos Conjuntos de 16 x 9 números';
    if Rb_gerarComb01Ate20.Checked then
@@ -2406,10 +2554,19 @@ begin
       vcSubTitulo := Rb_gerarComb01Ate18.Caption;
    if rb_gerarcomb01Ate08.Checked then
       vcSubTitulo := rb_gerarcomb01Ate08.Caption;
-   vcSubTitulo := vcSubTitulo+#13+cb_Combinacoes1Geral.Text;
+   vcSubTitulo := vcSubTitulo +#13+ ' Modos: '+cb_Combinacoes1Geral.Text
+      + #13 + 'Somatória: '+ edt_soma1Inicial.Text+ ' a '+ edt_soma1Final.Text
+      + #13 + 'Seqüência máxima: '+ cb_sequenciaMaxima.Text;
+   vcSubTitulo2 := 'Números obrigatórios: '+ edt_nObrigatorio1.Text + ' ' + edt_nObrigatorio2. Text + ' '+ edt_nObrigatorio3.Text;
+   vcSubTitulo2 := vcSubTitulo2+ #13 + Cbbx_nObrigatorioInicial.Text  + ' '+edt_nObrigatorioInicial.Text;
+   vcSubTitulo2 := vcSubTitulo2+ #13 + Cbbx_nObrigatorioIntermediario.Text  + ' '+edt_nObrigatorioIntermediario.Text;
+   vcSubTitulo2 := vcSubTitulo2+ #13 + Cbbx_nObrigatorioFinal.Text  + ' '+edt_nObrigatorioFinal.Text;
+   vcSubTitulo3 := 'Outras seqüências: '+ la_SequenciaOutras.Caption;
    mem_Sorteados.Clear;
    mem_Sorteados.Lines.Add(vcTitulo);
    mem_Sorteados.Lines.Add(vcSubTitulo);
+   mem_Sorteados.Lines.Add(vcSubTitulo2);
+   mem_Sorteados.Lines.Add(vcSubTitulo3);
    mem_Sorteados.Lines.Add('TOTAL: ' + INTtoSTR(liS_15Sorteados.Count-1));
    mem_Sorteados.Lines.Add('----------------------------');
    for viContadorBase := 1 to liS_15Sorteados.Count-1 do
@@ -2495,6 +2652,10 @@ Begin
    For viContar := 1 To 09 Do
    Begin
       stgr_15Sorteados_Comb1Flag.Cells[viContar, 0] := INTtoSTR(viContar);
+   End;
+   For viContar := 1 To 15 Do
+   Begin
+      stgr_15Sorteados_Comb1.Cells[viContar+3, 0] := INTtoSTR(viContar);
    End;
    For viContar := 1 To 49 Do
    Begin
@@ -3753,7 +3914,7 @@ End;
 procedure Tfrm_Ranqueador16Com12Linhas.rb_gerarcomb01Ate08Click(Sender: TObject);
 begin
    vsiInicioLinhas1 := 1;
-   vsiTerminoLinhas1 := 11;
+   vsiTerminoLinhas1 := 08;
 end;
 
 procedure Tfrm_Ranqueador16Com12Linhas.rb_gerarcomb01Ate18Click(Sender: TObject);
